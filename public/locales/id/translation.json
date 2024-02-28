@@ -1,0 +1,223 @@
+{
+	"components": {
+		"theme": { "tooltip": "Ganti Tema" },
+		"lang": { "tooltip": "Ganti Bahasa" },
+		"pdf": {
+			"btn": "Unduh PDF",
+			"text": "Versi PDF",
+			"toastMsg": "Berhasil Mengunduh",
+			"toastDesc": "Silahkan buka folder Downloads Anda"
+		}
+	},
+	"portfolio": {
+		"about": {
+			"title": "Tentang Saya",
+			"profile": {
+				"url": "https://res.cloudinary.com/dhghodtvv/image/upload/w_500/f_auto,q_auto/v1/Portfolio/Profile/irfnd-beach",
+				"alt": "Foto Profil Irfandi"
+			},
+			"name": "Irfandi Iqbal Abimanyu",
+			"aboutMe": [
+				"Fullstack Web Developer yang menyukai pemrograman berorientasi detail. programmer yang selalu menulis kode dengan rapi sehingga kode di-maintain dengan baik. Saya suka mengeksplorasi hal-hal baru terutama teknologi web yang sedang tren, sehingga saya bisa menerapkannya ke dalam proyek yang saya bangun.",
+				"Saya seorang yang belajar secara mandiri yang secara konsisten selalu meningkatkan keterampilan saya dengan learning-by-doing. Saya dapat bekerja secara individu maupun tim. Saat ini saya bekerja dengan ExpressJS, ReactJS, NextJS, dan Astro."
+			],
+			"headline": "Fullstack Web Developer",
+			"location": "Jakarta, Indonesia",
+			"socialMedia": {
+				"email": "mailto:irfandiabimanyu@gmail.com",
+				"linkedIn": "https://www.linkedin.com/in/irfnd-iqbl",
+				"github": "https://github.com/irfnd",
+				"twitter": "https://twitter.com/Irfnd_iqbl",
+				"instagram": "https://www.instagram.com/irfnd.iqbl"
+			}
+		},
+		"works": {
+			"title": "Pengalaman Kerja",
+			"list": [
+				{
+					"company": "PT Nutech Integrasi",
+					"link": "https://www.nutech-integrasi.com/",
+					"position": "React JS Programmer",
+					"location": "Jakarta, Indonesia",
+					"duration": ["April 2023", "Sekarang"],
+					"descriptions": [
+						"Mengembangkan dan memodifikasi aplikasi web CEISA 4.0. Aplikasi kompleks untuk Direktorat Jenderal Bea dan Cukai Indonesia yang dibangun di atas integrasi React JS dan RESTful API. Aplikasi ini bertujuan untuk memberikan layanan optimal dalam menjalankan integrasi dan kolaborasi bisnis dengan pengguna layanan."
+					],
+					"points": [
+						"Mengembangkan 2 modul dengan 3-4 menu setiap modul.",
+						"Merancang 5 template dokumen PDF menggunakan React-PDF untuk 5 menu.",
+						"Menerapkan React Ant Design lebih dari 10 halaman di setiap menu.",
+						"Mengintegrasikan RESTful API kompleks yang berisi lebih dari 2-3 dependensi menggunakan Axios.",
+						"Berkolaborasi dengan Back-End Developer, QA, dan Technical Writers secara lancar, mempercepat waktu pengembangan hingga 50%.",
+						"Menerapkan Git dan Jira untuk mempermudah pelacakan fitur dan manajemen masalah untuk tim pengembangan lintas fungsi, sehingga menghasilkan pengurangan waktu penyelesaian bug sebesar 70% dan peningkatan efisiensi kolaborasi."
+					]
+				},
+				{
+					"company": "PT PLN UPDK Bandar Lampung",
+					"link": null,
+					"position": "Staf Engineering | Magang",
+					"location": "Lampung, Indonesia",
+					"duration": ["Maret 2022", "April 2022"],
+					"descriptions": [
+						"Membangun web pengumpulan dan pengarsipan data untuk ±500 karyawan dengan menerapkan Tailwind, Express JS, React JS, dan MongoDB, meningkatkan proses pengelolaan data karyawan sebesar 60%."
+					],
+					"points": null
+				}
+			]
+		},
+		"educations": {
+			"title": "Riwayat Pendidikan",
+			"list": [
+				{
+					"institution": "Politeknik Negeri Lampung",
+					"link": "https://polinela.ac.id/",
+					"major": "Diploma Manajemen Informatika",
+					"location": "Lampung, Indonesia",
+					"duration": ["Juli 2019", "Mei 2023"],
+					"descriptions": [
+						"IPK 4.00/4.00",
+						"Organisasi : \"Himpunan Mahasiswa Jurusan Ekonomi dan Bisnis\" sebagai Staf Ahli Komunikasi dan Informasi",
+						"Tugas Akhir (Diploma): \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\""
+					],
+					"points": null
+				},
+				{
+					"institution": "Pijar Camp",
+					"link": "https://camp.pijarmahir.id/",
+					"major": "Fullstack Web Developer",
+					"location": "Daring",
+					"duration": ["Mei 2022", "Agustus 2022"],
+					"descriptions": [
+						"Mempersiapkan karir sebagai fullstack web developer dengan mendalami materi pemrograman terkini sesuai kebutuhan industri.",
+						"Mempelajari banyak hal seperti manajemen waktu, pengembangan diri, public speaking, kepemimpinan, dan etika kerja, Menguasai beberapa keterampilan teknis seperti HTML/CSS, Javascript, Node.js, Express, React/Next, PostgreSQL, dan Github Workflow."
+					],
+					"points": null
+				}
+			]
+		},
+		"skills": {
+			"title": "Kemampuan",
+			"layanan": ["Firebase", "Supabase"],
+			"database": ["MongoDB", "PostgreSQL"],
+			"bahasa": ["JavaScript", "TypeScript"],
+			"teknologi": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
+			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Shadcn UI", "NativeBase"],
+			"lainnya": [
+				"Analytical thinking",
+				"Berorientasi detail",
+				"Etika kerja",
+				"Kominkator yang baik",
+				"Manajemen diri",
+				"Manajemen waktu",
+				"Public Speaking",
+				"Sangat terorganisir"
+			]
+		},
+		"projects": {
+			"title": "Proyek",
+			"list": [
+				{
+					"projectName": "Profdito",
+					"shortDesc": "Platform Tes Bahasa Diagnostik",
+					"descriptions": [
+						"Profdito adalah platform yang digunakan untuk melakukan tes diagnostik terhadap kemampuan berbahasa, baik dalam bahasa Indonesia, bahasa Inggris, maupun bahasa lainnya. Melalui website ini, pelanggan dapat mendapatkan informasi rinci tentang kemampuan mereka dalam bahasa tertentu. Profdito memiliki beberapa fitur utama, termasuk kemampuan untuk membeli paket pertanyaan, mengerjakan pertanyaan-pertanyaan tersebut, dan mendapatkan sertifikat keahlian dalam bahasa yang diinginkan oleh pelanggan."
+					],
+					"links": { "demo": "https://profdito.com" },
+					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/beranda",
+							"alt": "Beranda"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/register",
+							"alt": "Daftar"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/login",
+							"alt": "Masuk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/tentang-kami",
+							"alt": "Tentang Kami"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/faq",
+							"alt": "FAQ"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/daftar-soal",
+							"alt": "Daftar Paket Soal"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/detail-soal",
+							"alt": "Detail Paket Soal"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pembayaran-soal",
+							"alt": "Pembelian Paket Soal"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pengerjaan-soal",
+							"alt": "Pengerjaan Soal"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/hasil-pengerjaan",
+							"alt": "Hasil Pengerjaan Soal"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/dashboard-pengguna",
+							"alt": "Dashboard Pengguna"
+						}
+					]
+				},
+				{
+					"projectName": "Warehouse",
+					"shortDesc": "Manajemen Katalog Produk",
+					"descriptions": [
+						"Warehouse adalah sebuah situs web sederhana yang dapat digunakan untuk mengelola katalog produk. Situs web ini memiliki fitur CRUD (Create, Read, Update, and Delete) untuk mengelola produk di dalam gudang. Situs web ini menggunakan login menggunakan akun Google dan menerapkan tema mode gelap."
+					],
+					"links": { "demo": "https://warehouse-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-warehouse" },
+					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/dashboard",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/login",
+							"alt": "Masuk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/tambah",
+							"alt": "Tambah Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/pencarian",
+							"alt": "Cari Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/perbarui",
+							"alt": "Edit Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/hapus",
+							"alt": "Hapus Produk"
+						}
+					]
+				},
+				{
+					"projectName": "StaffLab",
+					"shortDesc": "Sistem Manajemen Pegawai dan Staf",
+					"descriptions": [
+						"StaffLab adalah sebuah website yang dapat digunakan untuk mengelola staf dan karyawan. Melalui website ini, administrator dapat memperoleh pembaruan terkini mengenai data karyawan, dapat mengajukan mutasi pekerjaan, dapat menyetujui pengajuan cuti, dan dapat mengelola daftar kantor cabang, divisi, posisi, dan grup. StaffLab juga mendukung fitur mode gelap.",
+						"Akun Demo (ekaamallia1812@gmail.com/eka24maret)"
+					],
+					"links": { "demo": "https://fe-stafflab-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-stafflab" },
+					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": null
+				}
+			]
+		}
+	}
+}

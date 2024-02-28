@@ -1,0 +1,223 @@
+{
+	"components": {
+		"theme": { "tooltip": "Toggle theme" },
+		"lang": { "tooltip": "Toggle Language" },
+		"pdf": {
+			"btn": "Download PDF",
+			"text": "PDF Version",
+			"toastMsg": "Download Successful",
+			"toastDesc": "Please check your Downloads folder"
+		}
+	},
+	"portfolio": {
+		"about": {
+			"title": "About Me",
+			"profile": {
+				"url": "https://res.cloudinary.com/dhghodtvv/image/upload/w_500/f_auto,q_auto/v1/Portfolio/Profile/irfnd-beach",
+				"alt": "Irfandi Photo Profile"
+			},
+			"name": "Irfandi Iqbal Abimanyu",
+			"aboutMe": [
+				"A full-stack web developer who enjoys detail-oriented programming, I always strive to write clean code that can be easily maintained. I have a passion for exploring new technologies, especially those that are trending in the web development industry, so that I can incorporate them into my projects.",
+				"I am a self-taught developer who constantly seeks to improve my skills through hands-on learning. I am comfortable working both independently and as part of a team. Currently, I am proficient in working with ExpressJS, ReactJS, NextJS, and Astro."
+			],
+			"headline": "Fullstack Web Developer",
+			"location": "Jakarta, Indonesia",
+			"socialMedia": {
+				"email": "mailto:irfandiabimanyu@gmail.com",
+				"linkedIn": "https://www.linkedin.com/in/irfnd-iqbl",
+				"github": "https://github.com/irfnd",
+				"twitter": "https://twitter.com/Irfnd_iqbl",
+				"instagram": "https://www.instagram.com/irfnd.iqbl"
+			}
+		},
+		"works": {
+			"title": "Work Experiences",
+			"list": [
+				{
+					"company": "Nutech Integrasi",
+					"link": "https://www.nutech-integrasi.com/",
+					"position": "React JS Programmer",
+					"location": "Jakarta, Indonesia",
+					"duration": ["April 2023", "Present"],
+					"descriptions": [
+						"Develop and modify the CEISA 4.0 web application, which is a complex application for the Indonesian Directorate General of Customs and Excise. It is built on top of React JS and utilizes RESTful API integrations. The main objective of this application is to provide optimal service for business integration and collaboration with service users."
+					],
+					"points": [
+						"Developed 2 modules, each with 3-4 menus.",
+						"Designed 5 PDF document templates using React-PDF for 5 menus.",
+						"Implemented React Ant Design for over 10 pages in each menu.",
+						"Integrated complex RESTful APIs with more than 2-3 dependencies using Axios.",
+						"Collaborated seamlessly with back-end developers, QA, and technical writers, reducing development time by 50%.",
+						"Implemented Git and Jira to streamline feature tracking and issue management for the cross-functional development team, resulting in a 70% reduction in bug resolution time and increased collaboration efficiency."
+					]
+				},
+				{
+					"company": "PLN UPDK Bandar Lampung",
+					"link": null,
+					"position": "Engineering Staff | Internship",
+					"location": "Lampung, Indonesia",
+					"duration": ["March 2022", "April 2022"],
+					"descriptions": [
+						"Building a data collection and archiving web application for approximately 500 employees. The application is being developed using Tailwind, Express JS, React JS, and MongoDB. This implementation aims to improve the employee data management process by 60%."
+					],
+					"points": null
+				}
+			]
+		},
+		"educations": {
+			"title": "Educations",
+			"list": [
+				{
+					"institution": "Lampung State Polytechnic",
+					"link": "https://polinela.ac.id/",
+					"major": "Informatics Management Diploma",
+					"location": "Lampung, Indonesia",
+					"duration": ["July 2019", "May 2023"],
+					"descriptions": [
+						"GPA 4.00/4.00",
+						"Organization: \"Student Association Department of Economics and Business\" as Communication and Information Expert Staff",
+						"Thesis (Diploma): \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\""
+					],
+					"points": null
+				},
+				{
+					"institution": "Pijar Camp",
+					"link": "https://camp.pijarmahir.id/",
+					"major": "Fullstack Web Developer",
+					"location": "Online",
+					"duration": ["May 2022", "August 2022"],
+					"descriptions": [
+						"To prepare for a career as a full-stack web developer, I have been actively exploring the latest programming materials that align with industry needs.",
+						"In addition, I have acquired various essential skills such as time management, self-development, public speaking, leadership, and work ethics. Furthermore, I have achieved mastery in several technical skills including HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, and the GitHub Workflow."
+					],
+					"points": null
+				}
+			]
+		},
+		"skills": {
+			"title": "Skills",
+			"services": ["Firebase", "Supabase"],
+			"databases": ["MongoDB", "PostgreSQL"],
+			"languages": ["JavaScript", "TypeScript"],
+			"stacks": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
+			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Shadcn UI", "NativeBase"],
+			"others": [
+				"Analytical thinking",
+				"Attention to detail",
+				"Good communicator",
+				"Highly organized",
+				"Public speaking",
+				"Self management",
+				"Time management",
+				"Work Ethics"
+			]
+		},
+		"projects": {
+			"title": "Projects",
+			"list": [
+				{
+					"projectName": "Profdito",
+					"shortDesc": "Diagnostic Language Test Platform",
+					"descriptions": [
+						"Profdito is a platform used for conducting diagnostic tests on language skills, be it Indonesian, English, or other languages. Through this website, customers can obtain detailed information about their proficiency in a particular language. Profdito offers several key features, including the ability to purchase question packages, practice answering questions, and receive a language proficiency certificate tailored to the customer's desired language."
+					],
+					"links": { "demo": "https://profdito.com" },
+					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/beranda",
+							"alt": "Home"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/register",
+							"alt": "Register"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/login",
+							"alt": "Login"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/tentang-kami",
+							"alt": "About Us"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/faq",
+							"alt": "FAQ"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/daftar-soal",
+							"alt": "Question Package List"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/detail-soal",
+							"alt": "Question Package Detail"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pembayaran-soal",
+							"alt": "Question Package Payment"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pengerjaan-soal",
+							"alt": "Question Test"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/hasil-pengerjaan",
+							"alt": "Question Test Result"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/dashboard-pengguna",
+							"alt": "User Dashboard"
+						}
+					]
+				},
+				{
+					"projectName": "Warehouse",
+					"shortDesc": "Product Catalog Management",
+					"descriptions": [
+						"Warehouse is a simple website that can be used to manage product catalogs. This website features CRUD (Create, Read, Update, and Delete) functionality for managing products in the warehouse. It incorporates Google account login and applies a dark mode theme."
+					],
+					"links": { "demo": "https://warehouse-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-warehouse" },
+					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/dashboard",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/login",
+							"alt": "Login"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/tambah",
+							"alt": "Add Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/pencarian",
+							"alt": "Search Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/perbarui",
+							"alt": "Update Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/hapus",
+							"alt": "Delete Product"
+						}
+					]
+				},
+				{
+					"projectName": "StaffLab",
+					"shortDesc": "Employee & Staff Management System",
+					"descriptions": [
+						"StaffLab is a website that can be used to manage staff and employees. Through this website, administrators can stay updated with the latest employee data, apply for job transfers, approve leave applications, and manage lists of branch offices, divisions, positions, and groups. StaffLab also supports the dark mode feature.",
+						"Demo Account (ekaamallia1812@gmail.com/eka24maret)"
+					],
+					"links": { "demo": "https://fe-stafflab-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-stafflab" },
+					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": null
+				}
+			]
+		}
+	}
+}
