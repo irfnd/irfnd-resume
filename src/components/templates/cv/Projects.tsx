@@ -17,7 +17,7 @@ export default function Projects() {
 	const notDemo = i18n.language === 'en' ? 'Source Code' : 'Lihat Source Code';
 
 	return (
-		<View style={{ gap: '10px' }}>
+		<View style={{ gap: '10px' }} break>
 			<View style={{ gap: '5px' }}>
 				<Text style={[styles.bold, { fontSize: '12px' }]}>{title.toUpperCase()}</Text>
 				<View style={styles.horizontalDivider} />
