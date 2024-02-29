@@ -41,15 +41,33 @@
 					"location": "Jakarta, Indonesia",
 					"duration": ["April 2023", "Present"],
 					"descriptions": [
-						"Develop and modify the CEISA 4.0 web application, which is a complex application for the Indonesian Directorate General of Customs and Excise. It is built on top of React JS and utilizes RESTful API integrations. The main objective of this application is to provide optimal service for business integration and collaboration with service users."
+						"Develop and modify CEISA 4.0 web application. A complex application for The Indonesian Directorate General of Customs and Excise that built on top React JS and RESTful API integrations. This application aims to provide optimal service in running the business integration and collaboration with service users."
 					],
 					"points": [
-						"Developed 2 modules, each with 3-4 menus.",
-						"Designed 5 PDF document templates using React-PDF for 5 menus.",
-						"Implemented React Ant Design for over 10 pages in each menu.",
-						"Integrated complex RESTful APIs with more than 2-3 dependencies using Axios.",
-						"Collaborated seamlessly with back-end developers, QA, and technical writers, reducing development time by 50%.",
-						"Implemented Git and Jira to streamline feature tracking and issue management for the cross-functional development team, resulting in a 70% reduction in bug resolution time and increased collaboration efficiency."
+						"Develop 2 modules with 3-4 menus each module.",
+						"Design 5 PDF docs template using React-PDF for 5 menus.",
+						"Implement React Ant Design for more than 10 pages in each menu.",
+						"Integrate complex RESTful APIs containing more than 2-3 dependencies using Axios.",
+						"Collaborate with Back-End Developer, QA, and Technical Writers seamlessly, reducing development time by 50%.",
+						"Implemented Git and Jira to streamline feature tracking and issue management for cross-functional development team, resulting in a 70% reduction in bug resolution time and increased collaboration efficiency."
+					]
+				},
+				{
+					"company": "Prof.Dito",
+					"link": "https://profdito.com/",
+					"position": "Fullstack Web Developer | Freelance",
+					"location": "Online",
+					"duration": ["June 2022", "Present"],
+					"descriptions": [
+						"Designed and developed a professional language diagnostic test website, utilizing MongoDB, Next.js, and Express.js to create a feature-rich platform."
+					],
+					"points": [
+						"Implementing over 15 API endpoints to facilitate seamless communication between the front-end and back-end systems.",
+						"Designing and developing more than 10 responsive page layouts to ensure an optimal user experience across devices.",
+						"Creating and optimizing more than 5 database tables to efficiently store and retrieve data.",
+						"Integrating an email server for automated delivery of test results to users.",
+						"Collaborating with the Project Manager using Git and Discord for effective project management.",
+						"Integrating a secure payment gateway for smooth and secure transactions."
 					]
 				},
 				{
@@ -75,9 +93,8 @@
 					"location": "Lampung, Indonesia",
 					"duration": ["July 2019", "May 2023"],
 					"descriptions": [
-						"GPA 4.00/4.00",
-						"Organization: \"Student Association Department of Economics and Business\" as Communication and Information Expert Staff",
-						"Thesis (Diploma): \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\""
+						"Maintained a perfect GPA of 4.00/4.00 throughout my academic journey, showcasing my dedication and commitment to academic excellence.",
+						"For my diploma thesis, titled \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\", I undertook a comprehensive project to develop an efficient and user-friendly employee management system."
 					],
 					"points": null
 				},

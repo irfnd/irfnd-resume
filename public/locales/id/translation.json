@@ -41,15 +41,33 @@
 					"location": "Jakarta, Indonesia",
 					"duration": ["April 2023", "Sekarang"],
 					"descriptions": [
-						"Mengembangkan dan memodifikasi aplikasi web CEISA 4.0. Aplikasi kompleks untuk Direktorat Jenderal Bea dan Cukai Indonesia yang dibangun di atas integrasi React JS dan RESTful API. Aplikasi ini bertujuan untuk memberikan layanan optimal dalam menjalankan integrasi dan kolaborasi bisnis dengan pengguna layanan."
+						"Mengembangkan dan memodifikasi aplikasi web CEISA 4.0. Aplikasi kompleks untuk Direktorat Jenderal Bea dan Cukai Indonesia yang dibangun dengan menggunakan React JS dan integrasi RESTful API. Aplikasi ini bertujuan untuk menyediakan layanan optimal dalam menjalankan integrasi bisnis dan kolaborasi dengan pengguna layanan."
 					],
 					"points": [
-						"Mengembangkan 2 modul dengan 3-4 menu setiap modul.",
+						"Mengembangkan 2 modul dengan masing-masing 3-4 menu pada setiap modul.",
 						"Merancang 5 template dokumen PDF menggunakan React-PDF untuk 5 menu.",
-						"Menerapkan React Ant Design lebih dari 10 halaman di setiap menu.",
-						"Mengintegrasikan RESTful API kompleks yang berisi lebih dari 2-3 dependensi menggunakan Axios.",
-						"Berkolaborasi dengan Back-End Developer, QA, dan Technical Writers secara lancar, mempercepat waktu pengembangan hingga 50%.",
-						"Menerapkan Git dan Jira untuk mempermudah pelacakan fitur dan manajemen masalah untuk tim pengembangan lintas fungsi, sehingga menghasilkan pengurangan waktu penyelesaian bug sebesar 70% dan peningkatan efisiensi kolaborasi."
+						"Mengimplementasikan React Ant Design untuk lebih dari 10 halaman pada setiap menu.",
+						"Mengintegrasikan RESTful API yang kompleks dengan lebih dari 2-3 dependensi menggunakan Axios.",
+						"Berkolaborasi dengan Pengembang Back-End, QA, dan Technical Writers dengan lancar, mempercepat waktu pengembangan hingga 50%.",
+						"Mengimplementasikan Git dan Jira untuk mempermudah pelacakan fitur dan manajemen masalah bagi tim pengembangan lintas fungsi, mengurangi waktu menyelesaikan bug sebesar 70% dan meningkatkan efisiensi kolaborasi."
+					]
+				},
+				{
+					"company": "Prof.Dito",
+					"link": "https://profdito.com/",
+					"position": "Fullstack Web Developer | Freelance",
+					"location": "Daring",
+					"duration": ["Juni 2022", "Present"],
+					"descriptions": [
+						"Merancang dan mengembangkan sebuah situs web profesional untuk tes diagnostik bahasa, dengan menggunakan MongoDB, Next.js, dan Express.js untuk menciptakan sebuah platform yang kaya fitur."
+					],
+					"points": [
+						"Mengimplementasikan lebih dari 15 endpoint API untuk memfasilitasi komunikasi yang lancar antara front-end dan back-end.",
+						"Merancang dan mengembangkan lebih dari 10 tata letak halaman responsif untuk memastikan pengalaman pengguna yang optimal di berbagai perangkat.",
+						"Membuat dan mengoptimalkan lebih dari 5 tabel database untuk menyimpan dan mengambil data dengan efisien.",
+						"Mengintegrasikan server email untuk pengiriman otomatis hasil tes kepada pengguna.",
+						"Bekerjasama dengan Project Manager menggunakan Git dan Discord untuk manajemen proyek yang efektif.",
+						"Mengintegrasikan payment gateway yang aman untuk transaksi yang lancar dan aman."
 					]
 				},
 				{
@@ -59,7 +77,7 @@
 					"location": "Lampung, Indonesia",
 					"duration": ["Maret 2022", "April 2022"],
 					"descriptions": [
-						"Membangun web pengumpulan dan pengarsipan data untuk ±500 karyawan dengan menerapkan Tailwind, Express JS, React JS, dan MongoDB, meningkatkan proses pengelolaan data karyawan sebesar 60%."
+						"Membangun web pengumpulan dan pengarsipan data untuk sekitar 500 karyawan dengan menerapkan Tailwind, Express JS, React JS, dan MongoDB. Implementasi ini bertujuan untuk meningkatkan proses pengelolaan data karyawan sebesar 60%."
 					],
 					"points": null
 				}
@@ -75,9 +93,8 @@
 					"location": "Lampung, Indonesia",
 					"duration": ["Juli 2019", "Mei 2023"],
 					"descriptions": [
-						"IPK 4.00/4.00",
-						"Organisasi : \"Himpunan Mahasiswa Jurusan Ekonomi dan Bisnis\" sebagai Staf Ahli Komunikasi dan Informasi",
-						"Tugas Akhir (Diploma): \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\""
+						"Menjaga IPK sempurna 4.00/4.00 sepanjang perjalanan akademik saya, yang menunjukkan dedikasi dan komitmen saya terhadap keunggulan akademik.",
+						"Untuk tesis diploma saya, berjudul \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\", saya melakukan proyek komprehensif untuk mengembangkan sistem manajemen karyawan yang efisien dan ramah pengguna."
 					],
 					"points": null
 				},
