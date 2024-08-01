@@ -1,12 +1,12 @@
 import { cn } from '@/utils/cn';
 import Layout from '@/components/core/Layout';
-import Header from '@/components/sections/header';
 import About from '@/components/sections/about';
-import Works from '@/components/sections/works';
 import Educations from '@/components/sections/educations';
-import Skills from '@/components/sections/skills';
-import Projects from '@/components/sections/projects';
 import Footer from '@/components/sections/footer';
+import Header from '@/components/sections/header';
+import Projects from '@/components/sections/projects';
+import Skills from '@/components/sections/skills';
+import Works from '@/components/sections/works';
 
 export default function App() {
 	return (
