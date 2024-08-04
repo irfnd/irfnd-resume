@@ -1,4 +1,6 @@
+import useHumanizeDuration from '@/utils/hooks/useHumanizeDuration';
 import { capitalize } from '@/utils/string.utils';
+import { useTranslation } from 'react-i18next';
 
 import type { Educations } from '@/utils/types';
 
@@ -12,6 +14,8 @@ interface IEducationCard {
 
 export default function EducationCard({ index, education }: IEducationCard) {
 	const { institution, major, location, duration, link, descriptions, points } = education;
+	const { i18n } = useTranslation();
+	const humanizedDuration = useHumanizeDuration({ locale: i18n.language as 'id' | 'en', rangeDate: duration });
 
 	return (
 		<div className='relative flex flex-col w-full text-stone-950 dark:text-white'>
@@ -44,7 +48,9 @@ export default function EducationCard({ index, education }: IEducationCard) {
 					<div className='flex flex-col sm:items-end gap-1'>
 						<div className='flex items-center gap-1'>
 							<IconCalendarTime size={14} />
-							<p className='text-sm sm:text-xs'>{duration?.join(' - ')}</p>
+							<p className='text-sm sm:text-xs'>
+								{duration?.join(' - ')} <span className='text-stone-600 dark:text-stone-400'>({humanizedDuration})</span>
+							</p>
 						</div>
 						<div className='flex items-center gap-1 text-stone-600 dark:text-stone-400'>
 							<IconMapPin size={14} />
