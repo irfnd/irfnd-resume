@@ -143,83 +143,48 @@
 					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/beranda",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/beranda.png",
 							"alt": "Home"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/register",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/register.png",
 							"alt": "Register"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/login",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/login.png",
 							"alt": "Login"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/tentang-kami",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/tentang-kami.png",
 							"alt": "About Us"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/faq",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/faq.png",
 							"alt": "FAQ"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/daftar-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/daftar-soal.png",
 							"alt": "Question Package List"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/detail-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/detail-soal.png",
 							"alt": "Question Package Detail"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pembayaran-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pembayaran-soal.png",
 							"alt": "Question Package Payment"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pengerjaan-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal.png",
 							"alt": "Question Test"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/hasil-pengerjaan",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan.png",
 							"alt": "Question Test Result"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/dashboard-pengguna",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/dashboard-pengguna.png",
 							"alt": "User Dashboard"
-						}
-					]
-				},
-				{
-					"projectName": "Warehouse",
-					"shortDesc": "Product Catalog Management",
-					"descriptions": [
-						"Warehouse is a simple website that can be used to manage product catalogs. This website features CRUD (Create, Read, Update, and Delete) functionality for managing products in the warehouse. It incorporates Google account login and applies a dark mode theme."
-					],
-					"links": { "demo": "https://warehouse-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-warehouse" },
-					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
-					"screenshots": [
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/dashboard",
-							"alt": "Dashboard"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/login",
-							"alt": "Login"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/tambah",
-							"alt": "Add Product"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/pencarian",
-							"alt": "Search Product"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/perbarui",
-							"alt": "Update Product"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/hapus",
-							"alt": "Delete Product"
 						}
 					]
 				},
@@ -228,11 +193,73 @@
 					"shortDesc": "Employee & Staff Management System",
 					"descriptions": [
 						"StaffLab is a website that can be used to manage staff and employees. Through this website, administrators can stay updated with the latest employee data, apply for job transfers, approve leave applications, and manage lists of branch offices, divisions, positions, and groups. StaffLab also supports the dark mode feature.",
-						"Demo Account (ekaamallia1812@gmail.com/eka24maret)"
+						"Demo Account:",
+						"- Admin (admin@mail.com, Admin123.)",
+						"- Manager (manager@mail.com, Manager123.)"
 					],
-					"links": { "demo": "https://fe-stafflab-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-stafflab" },
+					"links": { "demo": "https://stafflab.irfnd.pro", "github": "https://github.com/irfnd/fe-stafflab" },
 					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
-					"screenshots": null
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629557/Portfolio/Stafflab/dashboard.png",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai.png",
+							"alt": "Add Employee"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai.png",
+							"alt": "Employee List"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi.png",
+							"alt": "Add Job Transfer"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi.png",
+							"alt": "Job Transfer Process"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi.png",
+							"alt": "Job Transfer History"
+						}
+					]
+				},
+				{
+					"projectName": "Warehouse",
+					"shortDesc": "Simple Product Catalog Management",
+					"descriptions": [
+						"Warehouse is a simple website that can be used to manage product catalogs. This website features CRUD (Create, Read, Update, and Delete) functionality for managing products in the warehouse. It incorporates Google account login and applies a dark mode theme."
+					],
+					"links": { "demo": "https://warehouse.irfnd.pro", "github": "https://github.com/irfnd/fe-warehouse" },
+					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard.png",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login.png",
+							"alt": "Login"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah.png",
+							"alt": "Add Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian.png",
+							"alt": "Search Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui.png",
+							"alt": "Update Product"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus.png",
+							"alt": "Delete Product"
+						}
+					]
 				}
 			]
 		}

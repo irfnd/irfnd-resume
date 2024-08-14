@@ -143,83 +143,48 @@
 					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/beranda",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/beranda.png",
 							"alt": "Beranda"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/register",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/register.png",
 							"alt": "Daftar"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/login",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/login.png",
 							"alt": "Masuk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/tentang-kami",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/tentang-kami.png",
 							"alt": "Tentang Kami"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/faq",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/faq.png",
 							"alt": "FAQ"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/daftar-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/daftar-soal.png",
 							"alt": "Daftar Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/detail-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/detail-soal.png",
 							"alt": "Detail Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pembayaran-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pembayaran-soal.png",
 							"alt": "Pembelian Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/pengerjaan-soal",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal.png",
 							"alt": "Pengerjaan Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/hasil-pengerjaan",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan.png",
 							"alt": "Hasil Pengerjaan Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profdito/dashboard-pengguna",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/dashboard-pengguna.png",
 							"alt": "Dashboard Pengguna"
-						}
-					]
-				},
-				{
-					"projectName": "Warehouse",
-					"shortDesc": "Manajemen Katalog Produk",
-					"descriptions": [
-						"Warehouse adalah sebuah situs web sederhana yang dapat digunakan untuk mengelola katalog produk. Situs web ini memiliki fitur CRUD (Create, Read, Update, and Delete) untuk mengelola produk di dalam gudang. Situs web ini menggunakan login menggunakan akun Google dan menerapkan tema mode gelap."
-					],
-					"links": { "demo": "https://warehouse-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-warehouse" },
-					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
-					"screenshots": [
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/dashboard",
-							"alt": "Dashboard"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/login",
-							"alt": "Masuk"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/tambah",
-							"alt": "Tambah Produk"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/pencarian",
-							"alt": "Cari Produk"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/perbarui",
-							"alt": "Edit Produk"
-						},
-						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Warehouse/hapus",
-							"alt": "Hapus Produk"
 						}
 					]
 				},
@@ -228,11 +193,73 @@
 					"shortDesc": "Sistem Manajemen Pegawai dan Staf",
 					"descriptions": [
 						"StaffLab adalah sebuah website yang dapat digunakan untuk mengelola staf dan karyawan. Melalui website ini, administrator dapat memperoleh pembaruan terkini mengenai data karyawan, dapat mengajukan mutasi pekerjaan, dapat menyetujui pengajuan cuti, dan dapat mengelola daftar kantor cabang, divisi, posisi, dan grup. StaffLab juga mendukung fitur mode gelap.",
-						"Akun Demo (ekaamallia1812@gmail.com/eka24maret)"
+						"Akun Demo:",
+						"- Admin (admin@mail.com, Admin123.)",
+						"- Manager (manager@mail.com, Manager123.)"
 					],
-					"links": { "demo": "https://fe-stafflab-irfnd.vercel.app", "github": "https://github.com/irfnd/fe-stafflab" },
+					"links": { "demo": "https://stafflab.irfnd.pro", "github": "https://github.com/irfnd/fe-stafflab" },
 					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
-					"screenshots": null
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629557/Portfolio/Stafflab/dashboard.png",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai.png",
+							"alt": "Tambah Pegawai"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai.png",
+							"alt": "List Pegawai"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi.png",
+							"alt": "Tambah Mutasi"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi.png",
+							"alt": "Proses Mutasi"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi.png",
+							"alt": "Riwayat Mutasi"
+						}
+					]
+				},
+				{
+					"projectName": "Warehouse",
+					"shortDesc": "Manajemen Katalog Produk Sederhana",
+					"descriptions": [
+						"Warehouse adalah sebuah situs web sederhana yang dapat digunakan untuk mengelola katalog produk. Situs web ini memiliki fitur CRUD (Create, Read, Update, and Delete) untuk mengelola produk di dalam gudang. Situs web ini menggunakan login menggunakan akun Google dan menerapkan tema mode gelap."
+					],
+					"links": { "demo": "https://warehouse.irfnd.pro", "github": "https://github.com/irfnd/fe-warehouse" },
+					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard.png",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login.png",
+							"alt": "Masuk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah.png",
+							"alt": "Tambah Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian.png",
+							"alt": "Cari Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui.png",
+							"alt": "Edit Produk"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus.png",
+							"alt": "Hapus Produk"
+						}
+					]
 				}
 			]
 		}
