@@ -10,10 +10,23 @@ interface IProjectCard {
 }
 
 export default function ProjectCard({ project }: IProjectCard) {
-	const { shortDesc, descriptions, links, relatedSkills } = project;
+	const { projectName, shortDesc, descriptions, links, relatedSkills, screenshots } = project;
 
 	return (
 		<div className='flex flex-col gap-2'>
+			{screenshots && screenshots?.length > 0 ? (
+				<div className='h-48'>
+					<img src={screenshots[0].url} alt={screenshots[0].alt} className='h-full w-full object-cover rounded-lg' />
+				</div>
+			) : (
+				<div className='h-48'>
+					<img
+						src={`https://placehold.co/1920x1080?text=${projectName.split(' ').join('+')}`}
+						alt='no image'
+						className='h-full w-full object-cover rounded-lg'
+					/>
+				</div>
+			)}
 			<div className='flex justify-between items-center gap-2'>
 				<div className='flex flex-col'>
 					<ProjectCardModal project={project} />
