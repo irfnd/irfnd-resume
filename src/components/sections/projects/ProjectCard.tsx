@@ -19,13 +19,15 @@ export default function ProjectCard({ project }: IProjectCard) {
 					<ProjectCardModal project={project} />
 					<p className='text-sm text-stone-600 dark:text-stone-400'>{shortDesc}</p>
 				</div>
-				<div className='flex gap-4'>
-					{Object.keys(links)
-						.sort((a, b) => b.localeCompare(a))
-						.map((link, i) => (
-							<ProjectCardIcon key={i} link={link} links={links} />
-						))}
-				</div>
+				{links ? (
+					<div className='flex gap-4'>
+						{Object.keys(links)
+							.sort((a, b) => b.localeCompare(a))
+							.map((link, i) => (
+								<ProjectCardIcon key={i} link={link} links={links} />
+							))}
+					</div>
+				) : null}
 			</div>
 			<p className='line-clamp-3'>{descriptions}</p>
 			<Draggable className='flex overflow-auto scrollbar-hide gap-1'>

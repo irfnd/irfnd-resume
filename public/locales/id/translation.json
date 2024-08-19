@@ -118,7 +118,7 @@
 			"database": ["MongoDB", "PostgreSQL"],
 			"bahasa": ["JavaScript", "TypeScript"],
 			"teknologi": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
-			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Shadcn UI", "NativeBase"],
+			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
 			"lainnya": [
 				"Analytical thinking",
 				"Berorientasi detail",
@@ -133,6 +133,54 @@
 		"projects": {
 			"title": "Proyek",
 			"list": [
+				{
+					"projectName": "CEISA 4.0 (Modul Perizinan)",
+					"shortDesc": "Aplikasi Direktorat Jenderal Bea dan Cukai Indonesia",
+					"descriptions": [
+						"Aplikasi ini dibangun untuk Direktorat Jenderal Bea dan Cukai Indonesia dengan menggunakan React JS dan integrasi RESTful API, dirancang untuk mengoptimalkan penyampaian layanan dengan meningkatkan integrasi bisnis dan mendorong kolaborasi yang efektif dengan pengguna layanan.",
+						"Modul Perizinan memungkinkan pengguna internal untuk mengelola pendaftaran pengguna cukai secara efisien dengan mencatat nomor NPPBKC, mengelola pemberian kuasa kepada perwakilan pengguna cukai, menerbitkan kode personalisasi, menangani pembayaran tertunda dan berkala, serta fungsi lainnya."
+					],
+					"links": null,
+					"relatedSkills": ["JavaScript", "React JS", "Ant Design"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login.png",
+							"alt": "Login"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc.png",
+							"alt": "Cari Nomor NPPBKC"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc.png",
+							"alt": "Rekam Nomor NPPBKC"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/kuasa.png",
+							"alt": "Pengelolaan Kuasa"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/kode-personalisasi.png",
+							"alt": "Kode Personalisasi"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/hubungan-keterkaitan.png",
+							"alt": "Hubungan Keterkaitan"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc.png",
+							"alt": "Golongan BKC (Cukai)"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan.png",
+							"alt": "Pembayaran Penundaan"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala.png",
+							"alt": "Pembayaran Berkala"
+						}
+					]
+				},
 				{
 					"projectName": "Profdito",
 					"shortDesc": "Platform Tes Bahasa Diagnostik",

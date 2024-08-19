@@ -118,7 +118,7 @@
 			"databases": ["MongoDB", "PostgreSQL"],
 			"languages": ["JavaScript", "TypeScript"],
 			"stacks": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
-			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Shadcn UI", "NativeBase"],
+			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
 			"others": [
 				"Analytical thinking",
 				"Attention to detail",
@@ -133,6 +133,54 @@
 		"projects": {
 			"title": "Projects",
 			"list": [
+				{
+					"projectName": "CEISA 4.0 (Perizinan Module)",
+					"shortDesc": "Indonesian Directorate General of Customs and Excise Apps",
+					"descriptions": [
+						"This advanced application, built for the Indonesian Directorate General of Customs and Excise using React JS and RESTful API integrations, is designed to optimize service delivery by enhancing business integration and fostering effective collaboration with service users.",
+						"The Perizinan Module enables internal users to efficiently manage the registration of excise users by recording NPPBKC numbers, administering the delegation of power of attorney to excise user representatives, issuing personalization codes, handling deferred and periodic payments, and other functions."
+					],
+					"links": null,
+					"relatedSkills": ["JavaScript", "React JS", "Ant Design"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login.png",
+							"alt": "Login"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc.png",
+							"alt": "Browse NPPBKC Numbers"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc.png",
+							"alt": "Create NPPBKC Number"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/kuasa.png",
+							"alt": "Power of Attorney"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/kode-personalisasi.png",
+							"alt": "Personalization Code"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/hubungan-keterkaitan.png",
+							"alt": "Relationship of association"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc.png",
+							"alt": "Excise Tax Group"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan.png",
+							"alt": "Deferred Payments"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala.png",
+							"alt": "Periodic Payments"
+						}
+					]
+				},
 				{
 					"projectName": "Profdito",
 					"shortDesc": "Diagnostic Language Test Platform",
