@@ -13,7 +13,7 @@
 		"about": {
 			"title": "Tentang Saya",
 			"profile": {
-				"url": "https://res.cloudinary.com/dhghodtvv/image/upload/w_500/f_auto,q_auto/v1/Portfolio/Profile/irfnd-inovative",
+				"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1/Portfolio/Profile/irfnd-inovative",
 				"alt": "Foto Profil Irfandi"
 			},
 			"name": "Irfandi Iqbal Abimanyu",
@@ -144,39 +144,39 @@
 					"relatedSkills": ["JavaScript", "React JS", "Ant Design"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login",
 							"alt": "Login"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc",
 							"alt": "Cari Nomor NPPBKC"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc",
 							"alt": "Rekam Nomor NPPBKC"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/kuasa.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/kuasa",
 							"alt": "Pengelolaan Kuasa"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/kode-personalisasi.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/kode-personalisasi",
 							"alt": "Kode Personalisasi"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/hubungan-keterkaitan.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/hubungan-keterkaitan",
 							"alt": "Hubungan Keterkaitan"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc",
 							"alt": "Golongan BKC (Cukai)"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan",
 							"alt": "Pembayaran Penundaan"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala",
 							"alt": "Pembayaran Berkala"
 						}
 					]
@@ -191,47 +191,47 @@
 					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/beranda.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/beranda",
 							"alt": "Beranda"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/register.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/register",
 							"alt": "Daftar"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/login.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/login",
 							"alt": "Masuk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/tentang-kami.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/tentang-kami",
 							"alt": "Tentang Kami"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/faq.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/faq",
 							"alt": "FAQ"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/daftar-soal.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/daftar-soal",
 							"alt": "Daftar Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/detail-soal.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/detail-soal",
 							"alt": "Detail Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pembayaran-soal.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pembayaran-soal",
 							"alt": "Pembelian Paket Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal",
 							"alt": "Pengerjaan Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan",
 							"alt": "Hasil Pengerjaan Soal"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/dashboard-pengguna.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/dashboard-pengguna",
 							"alt": "Dashboard Pengguna"
 						}
 					]
@@ -249,27 +249,27 @@
 					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629557/Portfolio/Stafflab/dashboard.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629557/Portfolio/Stafflab/dashboard",
 							"alt": "Dashboard"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai",
 							"alt": "Tambah Pegawai"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai",
 							"alt": "List Pegawai"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi",
 							"alt": "Tambah Mutasi"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi",
 							"alt": "Proses Mutasi"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi",
 							"alt": "Riwayat Mutasi"
 						}
 					]
@@ -284,27 +284,27 @@
 					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
 					"screenshots": [
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard",
 							"alt": "Dashboard"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login",
 							"alt": "Masuk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah",
 							"alt": "Tambah Produk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian",
 							"alt": "Cari Produk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui",
 							"alt": "Edit Produk"
 						},
 						{
-							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus.png",
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus",
 							"alt": "Hapus Produk"
 						}
 					]

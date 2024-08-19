@@ -5,10 +5,9 @@ import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
 	plugins: [react()],
-	resolve: {
-		alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-	},
+	resolve: { alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }] },
 	build: {
+		sourcemap: true,
 		rollupOptions: {
 			output: {
 				manualChunks(id) {

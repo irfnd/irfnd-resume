@@ -1,4 +1,5 @@
 import { Document, Page } from '@react-pdf/renderer';
+
 import styles from '@/components/templates/styles';
 import Header from '@/components/templates/cv/Header';
 import Works from '@/components/templates/cv/Works';
