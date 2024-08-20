@@ -116,8 +116,8 @@
 			"title": "Skills",
 			"services": ["Firebase", "Supabase"],
 			"databases": ["MongoDB", "PostgreSQL"],
-			"languages": ["JavaScript", "TypeScript"],
-			"stacks": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
+			"languages": ["JavaScript", "TypeScript", "Go"],
+			"stacks": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Fiber"],
 			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
 			"others": [
 				"Analytical thinking",
@@ -306,6 +306,21 @@
 						{
 							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus",
 							"alt": "Delete Product"
+						}
+					]
+				},
+				{
+					"projectName": "Go-buks (API)",
+					"shortDesc": "Simple Books Management",
+					"descriptions": [
+						"A lightweight and efficient RESTful API designed to manage book lists, built using the powerful Fiber framework and backed by a PostgreSQL database. This project leverages GORM as the ORM for seamless database interactions, ensuring a smooth and responsive experience for managing your book collections. Docker support is included to simplify development, making it easy to get started with minimal setup."
+					],
+					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
+					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724145954/Portfolio/Go-buks/swagger",
+							"alt": "Swagger"
 						}
 					]
 				}

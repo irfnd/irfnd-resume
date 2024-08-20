@@ -116,8 +116,8 @@
 			"title": "Kemampuan",
 			"layanan": ["Firebase", "Supabase"],
 			"database": ["MongoDB", "PostgreSQL"],
-			"bahasa": ["JavaScript", "TypeScript"],
-			"teknologi": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native"],
+			"bahasa": ["JavaScript", "TypeScript", "Go"],
+			"teknologi": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Fiber"],
 			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
 			"lainnya": [
 				"Analytical thinking",
@@ -306,6 +306,21 @@
 						{
 							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus",
 							"alt": "Hapus Produk"
+						}
+					]
+				},
+				{
+					"projectName": "Go-buks (API)",
+					"shortDesc": "Manajemen Buku Sederhana",
+					"descriptions": [
+						"Sebuah RESTful API yang ringan dan efisien, dirancang untuk mengelola daftar buku, dibangun menggunakan framework Fiber dan didukung database PostgreSQL. Projek ini memanfaatkan GORM untuk interaksi dengan database secara lancar, memastikan pengalaman yang lancar dan responsif dalam mengelola koleksi buku Anda. Menggunakan Docker untuk menyederhanakan dan mempercepat pengembangan."
+					],
+					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
+					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724145954/Portfolio/Go-buks/swagger",
+							"alt": "Swagger"
 						}
 					]
 				}
