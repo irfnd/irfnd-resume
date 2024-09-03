@@ -1,7 +1,7 @@
-import { cn } from '@/utils/cn';
 import Avatar from '@/components/sections/header/Avatar';
-import Name from '@/components/sections/header/Name';
 import Contact from '@/components/sections/header/Contact';
+import Name from '@/components/sections/header/Name';
+import { cn } from '@/utils/cn';
 
 export default function Header() {
 	return (

@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { About } from '@/utils/types';
 
-import { Link, Text, View } from '@react-pdf/renderer';
 import styles from '@/components/templates/styles';
+import { Link, Text, View } from '@react-pdf/renderer';
 
 export default function Header() {
 	const { t } = useTranslation();
@@ -16,7 +16,7 @@ export default function Header() {
 	const formatContact = (name: string, contact: string) => {
 		if (name === 'email') return contact.replace('mailto:', '');
 		if (name === 'linkedIn') return contact.replace('https://www.', '');
-		if (name === 'github') return contact.replace('https://', '');
+		if (['portfolio', 'github'].includes(name)) return contact.replace('https://', '');
 		return contact;
 	};
 
@@ -26,7 +26,7 @@ export default function Header() {
 			<View style={{ flexDirection: 'row', gap: '5px' }}>
 				<Text style={styles.text}>{location}</Text>
 				{Object.keys(socialMedia).map((name, i) =>
-					['email', 'linkedIn', 'github'].includes(name) ? (
+					['email', 'linkedIn', 'github', 'portfolio'].includes(name) ? (
 						<React.Fragment key={i}>
 							<View style={styles.verticalDivider} />
 							<Link src={socialMedia[name]} style={[styles.text, styles.link]}>

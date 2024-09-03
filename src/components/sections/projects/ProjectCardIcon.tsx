@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { capitalize } from '@/utils/string.utils';
+import * as React from 'react';
 
 import type { Projects } from '@/utils/types';
 

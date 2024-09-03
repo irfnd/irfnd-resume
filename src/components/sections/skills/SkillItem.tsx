@@ -1,5 +1,4 @@
-import type { MergeUnion } from '@/utils/types';
-import type { Skills } from '@/utils/types';
+import type { MergeUnion, Skills } from '@/utils/types';
 
 import Draggable from '@/components/core/Draggable';
 import { Badge } from '@/components/ui/badge';

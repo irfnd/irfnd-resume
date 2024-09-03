@@ -1,11 +1,11 @@
 import { Document, Page } from '@react-pdf/renderer';
 
-import styles from '@/components/templates/styles';
-import Header from '@/components/templates/cv/Header';
-import Works from '@/components/templates/cv/Works';
 import Educations from '@/components/templates/cv/Educations';
+import Header from '@/components/templates/cv/Header';
 import Projects from '@/components/templates/cv/Projects';
 import Skills from '@/components/templates/cv/Skills';
+import Works from '@/components/templates/cv/Works';
+import styles from '@/components/templates/styles';
 
 export default function CV() {
 	return (
@@ -14,8 +14,8 @@ export default function CV() {
 				<Header />
 				<Works />
 				<Educations />
-				<Projects />
 				<Skills />
+				<Projects />
 			</Page>
 		</Document>
 	);

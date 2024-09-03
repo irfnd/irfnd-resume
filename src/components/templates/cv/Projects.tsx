@@ -1,11 +1,11 @@
+import { capitalize } from '@/utils/string.utils';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { capitalize } from '@/utils/string.utils';
 
 import type { Projects } from '@/utils/types';
 
-import { Link, Text, View } from '@react-pdf/renderer';
 import styles from '@/components/templates/styles';
+import { Link, Text, View } from '@react-pdf/renderer';
 
 export default function Projects() {
 	const { t, i18n } = useTranslation();
@@ -17,11 +17,12 @@ export default function Projects() {
 	const notDemo = i18n.language === 'en' ? 'Source Code' : 'Lihat Source Code';
 
 	return (
-		<View style={{ gap: '10px' }} break>
+		<View style={{ gap: '10px' }}>
 			<View style={{ gap: '5px' }}>
 				<Text style={[styles.bold, { fontSize: '12px' }]}>{title.toUpperCase()}</Text>
 				<View style={styles.horizontalDivider} />
 			</View>
+
 			{projects.map((project, i) => (
 				<View key={i} style={{ flexDirection: 'row', gap: '5px' }} wrap={false}>
 					<View>
@@ -34,6 +35,7 @@ export default function Projects() {
 								<Text style={[styles.text, styles.bold, styles.link]}>{project.projectName.toUpperCase()}</Text>
 							)}
 						</View>
+
 						{project.descriptions ? (
 							<View>
 								{project.descriptions.map((desc, i) =>
@@ -45,6 +47,7 @@ export default function Projects() {
 								)}
 							</View>
 						) : null}
+
 						{project.relatedSkills ? (
 							<View style={{ flexDirection: 'row' }}>
 								<Text style={styles.text}>{techText}: </Text>
@@ -55,6 +58,7 @@ export default function Projects() {
 								</Text>
 							</View>
 						) : null}
+
 						{project.links ? (
 							<View style={{ flexDirection: 'row', gap: '5px' }}>
 								{Object.keys(project.links).map((linkKey, i, arr) => (

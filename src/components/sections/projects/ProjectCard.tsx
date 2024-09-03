@@ -1,9 +1,9 @@
 import type { Projects } from '@/utils/types';
 
-import { Badge } from '@/components/ui/badge';
 import Draggable from '@/components/core/Draggable';
-import ProjectCardModal from '@/components/sections/projects/ProjectCardModal';
 import ProjectCardIcon from '@/components/sections/projects/ProjectCardIcon';
+import ProjectCardModal from '@/components/sections/projects/ProjectCardModal';
+import { Badge } from '@/components/ui/badge';
 
 interface IProjectCard {
 	project: Projects['list'][number];

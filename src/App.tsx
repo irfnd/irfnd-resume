@@ -1,4 +1,3 @@
-import { cn } from '@/utils/cn';
 import Layout from '@/components/core/Layout';
 import About from '@/components/sections/about';
 import Educations from '@/components/sections/educations';
@@ -7,6 +6,7 @@ import Header from '@/components/sections/header';
 import Projects from '@/components/sections/projects';
 import Skills from '@/components/sections/skills';
 import Works from '@/components/sections/works';
+import { cn } from '@/utils/cn';
 
 export default function App() {
 	return (

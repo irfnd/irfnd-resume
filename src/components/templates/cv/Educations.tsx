@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { Educations } from '@/utils/types';
 
-import { Link, Text, View } from '@react-pdf/renderer';
 import styles from '@/components/templates/styles';
+import { Link, Text, View } from '@react-pdf/renderer';
 
 export default function Educations() {
 	const { t } = useTranslation();
@@ -17,6 +17,7 @@ export default function Educations() {
 				<Text style={[styles.bold, { fontSize: '12px' }]}>{title.toUpperCase()}</Text>
 				<View style={styles.horizontalDivider} />
 			</View>
+
 			{educations.map((education, i) => (
 				<View key={i}>
 					<View style={{ marginBottom: '4px' }}>
@@ -35,6 +36,7 @@ export default function Educations() {
 							<Text style={[styles.text, styles.italic]}>{education.location}</Text>
 						</View>
 					</View>
+
 					{education.descriptions ? (
 						<View style={{ width: '100%' }}>
 							{education.descriptions.map((desc, i) => (
@@ -44,12 +46,13 @@ export default function Educations() {
 							))}
 						</View>
 					) : null}
+
 					{education.points ? (
 						<View style={{ width: '100%' }}>
 							{education.points.map((point, i) => (
 								<View key={i} style={[styles.text, { flexDirection: 'row', width: '100%' }]}>
-									<Text style={{ width: '3%' }}>•</Text>
-									<Text style={{ textAlign: 'justify', width: '97%' }}>{point}</Text>
+									<Text style={{ width: '2%' }}>•</Text>
+									<Text style={{ textAlign: 'justify', width: '98%' }}>{point}</Text>
 								</View>
 							))}
 						</View>

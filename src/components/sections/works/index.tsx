@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { Works } from '@/utils/types';
 
-import { cn } from '@/utils/cn';
 import WorkCard from '@/components/sections/works/WorkCard';
+import { cn } from '@/utils/cn';
 
 export default function Works() {
 	const { t } = useTranslation();

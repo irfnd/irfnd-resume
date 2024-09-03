@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { capitalize } from '@/utils/string.utils';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import type { Projects } from '@/utils/types';
 
-import { IconBrandGithub, IconBrandGitlab, IconExternalLink } from '@tabler/icons-react';
 import { Button } from '@/components/ui/button';
+import { IconBrandGithub, IconBrandGitlab, IconExternalLink } from '@tabler/icons-react';
 
 interface IProjectCardModalBtn {
 	links: Projects['list'][number]['links'];

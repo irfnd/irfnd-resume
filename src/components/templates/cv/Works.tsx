@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { Works } from '@/utils/types';
 
-import { Link, Text, View } from '@react-pdf/renderer';
 import styles from '@/components/templates/styles';
+import { Link, Text, View } from '@react-pdf/renderer';
 
 export default function Works() {
 	const { t } = useTranslation();
@@ -17,6 +17,7 @@ export default function Works() {
 				<Text style={[styles.bold, { fontSize: '12px' }]}>{title.toUpperCase()}</Text>
 				<View style={styles.horizontalDivider} />
 			</View>
+
 			{works.map((work, i) => (
 				<View key={i}>
 					<View style={{ marginBottom: '4px' }}>
@@ -35,6 +36,7 @@ export default function Works() {
 							<Text style={[styles.text, styles.italic]}>{work.location}</Text>
 						</View>
 					</View>
+
 					{work.descriptions ? (
 						<View style={{ width: '100%' }}>
 							{work.descriptions.map((desc, i) => (
@@ -44,12 +46,13 @@ export default function Works() {
 							))}
 						</View>
 					) : null}
+
 					{work.points ? (
 						<View style={{ width: '100%' }}>
 							{work.points.map((point, i) => (
 								<View key={i} style={[styles.text, { flexDirection: 'row', width: '100%' }]}>
-									<Text style={{ width: '3%' }}>•</Text>
-									<Text style={{ textAlign: 'justify', width: '97%' }}>{point}</Text>
+									<Text style={{ width: '2%' }}>•</Text>
+									<Text style={{ textAlign: 'justify', width: '98%' }}>{point}</Text>
 								</View>
 							))}
 						</View>

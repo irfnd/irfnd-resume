@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import type { MergeUnion } from '@/utils/types';
-import type { Skills } from '@/utils/types';
+import type { MergeUnion, Skills } from '@/utils/types';
 
 import SkillItem from '@/components/sections/skills/SkillItem';
 

@@ -28,7 +28,8 @@
 				"linkedIn": "https://www.linkedin.com/in/irfnd-iqbl",
 				"github": "https://github.com/irfnd",
 				"twitter": "https://twitter.com/Irfnd_iqbl",
-				"instagram": "https://www.instagram.com/irfnd.iqbl"
+				"instagram": "https://www.instagram.com/irfnd.iqbl",
+				"portfolio": "https://irfnd.pro"
 			}
 		},
 		"works": {
@@ -131,7 +132,7 @@
 			]
 		},
 		"projects": {
-			"title": "Proyek",
+			"title": "Portofolio",
 			"list": [
 				{
 					"projectName": "CEISA 4.0 (Modul Perizinan)",

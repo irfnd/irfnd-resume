@@ -1,13 +1,13 @@
 import useDate from '@/utils/hooks/useDate';
-import { useTranslation } from 'react-i18next';
 import { parseDate } from '@/utils/string.utils';
 import { pdf } from '@react-pdf/renderer';
+import { useTranslation } from 'react-i18next';
 
 import type { About } from '@/utils/types';
 
+import CV from '@/components/templates/cv';
 import { cn } from '@/utils/cn';
 import { toast } from 'sonner';
-import CV from '@/components/templates/cv';
 
 export default function Footer() {
 	const { t, i18n } = useTranslation();

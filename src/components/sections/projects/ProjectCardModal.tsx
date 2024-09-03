@@ -2,7 +2,9 @@ import Autoplay from 'embla-carousel-autoplay';
 
 import type { Projects } from '@/utils/types';
 
-import { cn } from '@/utils/cn';
+import Draggable from '@/components/core/Draggable';
+import ProjectCardModalBtn from '@/components/sections/projects/ProjectCardModalBtn';
+import ProjectScreenshots from '@/components/sections/projects/ProjectScreenshots';
 import { Badge } from '@/components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import {
@@ -14,9 +16,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
-import Draggable from '@/components/core/Draggable';
-import ProjectScreenshots from '@/components/sections/projects/ProjectScreenshots';
-import ProjectCardModalBtn from '@/components/sections/projects/ProjectCardModalBtn';
+import { cn } from '@/utils/cn';
 
 interface IProjectCardModal {
 	project: Projects['list'][number];

@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import type { Educations } from '@/utils/types';
 
-import { cn } from '@/utils/cn';
 import EducationCard from '@/components/sections/educations/EducationCard';
+import { cn } from '@/utils/cn';
 
 export default function Educations() {
 	const { t } = useTranslation();

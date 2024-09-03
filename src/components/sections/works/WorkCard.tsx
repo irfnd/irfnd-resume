@@ -1,6 +1,6 @@
+import useHumanizeDuration from '@/utils/hooks/useHumanizeDuration';
 import { capitalize } from '@/utils/string.utils';
 import { useTranslation } from 'react-i18next';
-import useHumanizeDuration from '@/utils/hooks/useHumanizeDuration';
 
 import type { Works } from '@/utils/types';
 
