@@ -15,7 +15,7 @@ interface IEducationCard {
 export default function EducationCard({ index, education }: IEducationCard) {
 	const { institution, major, location, duration, link, descriptions, points } = education;
 	const { i18n } = useTranslation();
-	const humanizedDuration = useHumanizeDuration({ locale: i18n.language as 'id' | 'en', rangeDate: duration });
+	const humanizedDuration = useHumanizeDuration({ locale: i18n.language as 'id' | 'en', rangeDates: duration });
 
 	return (
 		<div className='relative flex flex-col w-full text-stone-950 dark:text-white'>

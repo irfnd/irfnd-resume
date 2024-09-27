@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import type { Projects } from '@/utils/types';
 
 import Draggable from '@/components/core/Draggable';
@@ -11,15 +13,18 @@ interface IProjectCard {
 
 export default function ProjectCard({ project }: IProjectCard) {
 	const { projectName, shortDesc, descriptions, links, relatedSkills, screenshots } = project;
+	const [modalOpen, setModalOpen] = React.useState(false);
+
+	const setModal = (open: boolean) => setModalOpen(open);
 
 	return (
 		<div className='flex flex-col gap-2'>
 			{screenshots && screenshots?.length > 0 ? (
-				<div className='h-48'>
+				<div className='h-48 cursor-pointer' onClick={() => setModal(true)}>
 					<img src={screenshots[0].url} alt={screenshots[0].alt} className='h-full w-full object-cover rounded-lg' />
 				</div>
 			) : (
-				<div className='h-48'>
+				<div className='h-48 cursor-pointer' onClick={() => setModal(true)}>
 					<img
 						src={`https://placehold.co/1920x1080?text=${projectName.split(' ').join('+')}`}
 						alt='no image'
@@ -29,7 +34,7 @@ export default function ProjectCard({ project }: IProjectCard) {
 			)}
 			<div className='flex justify-between items-center gap-2'>
 				<div className='flex flex-col'>
-					<ProjectCardModal project={project} />
+					<ProjectCardModal project={project} modalOpen={modalOpen} setModal={setModal} />
 					<p className='text-sm text-stone-600 dark:text-stone-400'>{shortDesc}</p>
 				</div>
 				{links ? (

@@ -18,8 +18,8 @@
 			},
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
-				"A full-stack web developer who enjoys detail-oriented programming, I always strive to write clean code that can be easily maintained. I have a passion for exploring new technologies, especially those that are trending in the web development industry, so that I can incorporate them into my projects.",
-				"I am a self-taught developer who constantly seeks to improve my skills through hands-on learning. I am comfortable working both independently and as part of a team. Currently, I am proficient in working with ExpressJS, ReactJS, NextJS, and Astro."
+				"As a full-stack web developer with a keen eye for detail, I am dedicated to writing clean, maintainable code. I am passionate about exploring and integrating new, cutting-edge technologies into my projects to stay ahead in the ever-evolving web development landscape.",
+				"I am a self-motivated developer who continuously seeks to enhance my skills through practical experience. I excel in both independent and collaborative work environments and currently proficient in ExpressJS, NestJS, ReactJS, and NextJS"
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -37,50 +37,78 @@
 			"list": [
 				{
 					"company": "Nutech Integrasi",
-					"link": "https://www.nutech-integrasi.com/",
-					"position": "React JS Programmer",
 					"location": "Jakarta, Indonesia",
-					"duration": ["April 2023", "Present"],
+					"link": "https://www.nutech-integrasi.com/",
 					"descriptions": [
-						"Develop and modify CEISA 4.0 web application. A complex application for The Indonesian Directorate General of Customs and Excise that built on top React JS and RESTful API integrations. This application aims to provide optimal service in running the business integration and collaboration with service users."
-					],
-					"points": [
-						"Develop 2 modules with 3-4 menus each module.",
-						"Design 5 PDF docs template using React-PDF for 5 menus.",
-						"Implement React Ant Design for more than 10 pages in each menu.",
-						"Integrate complex RESTful APIs containing more than 2-3 dependencies using Axios.",
-						"Collaborate with Back-End Developer, QA, and Technical Writers seamlessly, reducing development time by 50%.",
-						"Implemented Git and Jira to streamline feature tracking and issue management for cross-functional development team, resulting in a 70% reduction in bug resolution time and increased collaboration efficiency."
+						{
+							"position": "Backend Programmer",
+							"duration": ["July 2024", "October 2024"],
+							"shortDesc": [
+								"Engineered the LRT Executive Dashboard API and the Digitax Middleware API for the Indonesian Directorate General of Taxes, utilizing Express.js/Nest.js and PostgreSQL."
+							],
+							"points": [
+								"Develop more than 10 API endpoints",
+								"Integrate more than 5 PostgreSQL database tables",
+								"Implement JWT for authentication and authorization",
+								"Implement PDF merging service that can merge more than 90 PDF files",
+								"Created Swagger API documentation to facilitate Front-End Developer understanding",
+								"Worked closely with Front-End Developers, QA, and Technical Writers to cut development time by 80%.",
+								"Used Git and Google Spreadsheet for feature tracking and issue management, reducing bug resolution time by 90% and boosting team collaboration."
+							]
+						},
+						{
+							"position": "React JS Programmer",
+							"duration": ["April 2023", "July 2024"],
+							"shortDesc": [
+								"Developed and enhanced CEISA 4.0, a sophisticated web application for the Indonesian Directorate General of Customs and Excise."
+							],
+							"points": [
+								"Developed 2 modules with 3-4 menus each.",
+								"Designed 5 PDF templates using React-PDF.",
+								"Implemented React Ant Design for over 10 pages per menu.",
+								"Integrated complex RESTful APIs with multiple dependencies using Axios.",
+								"Collaborated with Back-End, QA, and Writers to reduce development time by 60%.",
+								"Streamlined feature tracking and issue management using Git and Jira, reducing bug resolution time by 70% and boosting team efficiency."
+							]
+						}
 					]
 				},
 				{
 					"company": "Prof.Dito",
-					"link": "https://profdito.com/",
-					"position": "Fullstack Web Developer | Freelance",
 					"location": "Online",
-					"duration": ["June 2022", "Present"],
+					"link": "https://profdito.com/",
 					"descriptions": [
-						"Designed and developed a professional language diagnostic test website, utilizing MongoDB, Next.js, and Express.js to create a feature-rich platform."
-					],
-					"points": [
-						"Implementing over 15 API endpoints to facilitate seamless communication between the front-end and back-end systems.",
-						"Designing and developing more than 10 responsive page layouts to ensure an optimal user experience across devices.",
-						"Creating and optimizing more than 5 database tables to efficiently store and retrieve data.",
-						"Integrating an email server for automated delivery of test results to users.",
-						"Collaborating with the Project Manager using Git and Discord for effective project management.",
-						"Integrating a secure payment gateway for smooth and secure transactions."
+						{
+							"position": "Fullstack Web Developer | Freelance",
+							"duration": ["June 2022", "Present"],
+							"shortDesc": [
+								"Engineered a comprehensive language diagnostic platform using MongoDB, Next.js, and Express.js."
+							],
+							"points": [
+								"Developed 15+ API endpoints for seamless front-end and back-end integration.",
+								"Designed 10+ responsive layouts for optimal cross-device user experience.",
+								"Optimized 5+ database tables for efficient data management.",
+								"Integrated email server for automated test result delivery.",
+								"Collaborated with Project Manager via Git and Discord for effective project oversight.",
+								"Implemented secure payment gateway for smooth transactions."
+							]
+						}
 					]
 				},
 				{
 					"company": "PLN UPDK Bandar Lampung",
-					"link": null,
-					"position": "Engineering Staff | Internship",
 					"location": "Lampung, Indonesia",
-					"duration": ["March 2022", "April 2022"],
+					"link": null,
 					"descriptions": [
-						"Building a data collection and archiving web application for approximately 500 employees. The application is being developed using Tailwind, Express JS, React JS, and MongoDB. This implementation aims to improve the employee data management process by 60%."
-					],
-					"points": null
+						{
+							"position": "Engineering Staff | Internship",
+							"duration": ["March 2022", "April 2022"],
+							"shortDesc": [
+								"Developed a web application for data collection and archiving for 500 employees using Tailwind, Express JS, React JS, and MongoDB, enhancing employee data management efficiency by 60%."
+							],
+							"points": null
+						}
+					]
 				}
 			]
 		},
@@ -94,8 +122,8 @@
 					"location": "Lampung, Indonesia",
 					"duration": ["July 2019", "May 2023"],
 					"descriptions": [
-						"Maintained a perfect GPA of 4.00/4.00 throughout my academic journey, showcasing my dedication and commitment to academic excellence.",
-						"For my diploma thesis, titled \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\", I undertook a comprehensive project to develop an efficient and user-friendly employee management system."
+						"Consistently achieved a perfect GPA of 4.00/4.00, demonstrating unwavering dedication to academic excellence.",
+						"Developed a mobile-based employee management system for my diploma thesis, titled \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\"."
 					],
 					"points": null
 				},
@@ -106,8 +134,8 @@
 					"location": "Online",
 					"duration": ["May 2022", "August 2022"],
 					"descriptions": [
-						"To prepare for a career as a full-stack web developer, I have been actively exploring the latest programming materials that align with industry needs.",
-						"In addition, I have acquired various essential skills such as time management, self-development, public speaking, leadership, and work ethics. Furthermore, I have achieved mastery in several technical skills including HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, and the GitHub Workflow."
+						"To excel as a full-stack web developer, I have immersed myself in current programming trends and industry-relevant skills.",
+						"I have honed essential skills such as time management, self-improvement, public speaking, leadership, and work ethics, alongside technical proficiencies in HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, and GitHub Workflow."
 					],
 					"points": null
 				}
@@ -138,8 +166,8 @@
 					"projectName": "CEISA 4.0 (Perizinan Module)",
 					"shortDesc": "Indonesian Directorate General of Customs and Excise Apps",
 					"descriptions": [
-						"This advanced application, built for the Indonesian Directorate General of Customs and Excise using React JS and RESTful API integrations, is designed to optimize service delivery by enhancing business integration and fostering effective collaboration with service users.",
-						"The Perizinan Module enables internal users to efficiently manage the registration of excise users by recording NPPBKC numbers, administering the delegation of power of attorney to excise user representatives, issuing personalization codes, handling deferred and periodic payments, and other functions."
+						"Developed for the Indonesian Directorate General of Customs and Excise, this advanced React JS application integrates RESTful APIs to streamline service delivery, enhance business integration, and improve collaboration with users.",
+						"The Perizinan Module allows efficient management of excise user registrations, NPPBKC numbers, power of attorney delegations, personalization codes, and deferred and periodic payments."
 					],
 					"links": null,
 					"relatedSkills": ["JavaScript", "React JS", "Ant Design"],
@@ -186,7 +214,7 @@
 					"projectName": "Profdito",
 					"shortDesc": "Diagnostic Language Test Platform",
 					"descriptions": [
-						"Profdito is a platform used for conducting diagnostic tests on language skills, be it Indonesian, English, or other languages. Through this website, customers can obtain detailed information about their proficiency in a particular language. Profdito offers several key features, including the ability to purchase question packages, practice answering questions, and receive a language proficiency certificate tailored to the customer's desired language."
+						"Profdito is a diagnostic platform for assessing language proficiency in various languages, including Indonesian and English. It offers features such as purchasing question packages, practicing tests, and obtaining language proficiency certificates."
 					],
 					"links": { "demo": "https://profdito.com" },
 					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
@@ -241,7 +269,7 @@
 					"projectName": "StaffLab",
 					"shortDesc": "Employee & Staff Management System",
 					"descriptions": [
-						"StaffLab is a website that can be used to manage staff and employees. Through this website, administrators can stay updated with the latest employee data, apply for job transfers, approve leave applications, and manage lists of branch offices, divisions, positions, and groups. StaffLab also supports the dark mode feature.",
+						"StaffLab is a comprehensive platform for managing staff and employees, featuring functionalities for updating employee data, processing job transfers, approving leave requests, and managing branch offices, divisions, positions, and groups. It also supports dark mode.",
 						"Demo Account:",
 						"- Admin (admin@mail.com, Admin123.)",
 						"- Manager (manager@mail.com, Manager123.)"
@@ -279,7 +307,7 @@
 					"projectName": "Warehouse",
 					"shortDesc": "Simple Product Catalog Management",
 					"descriptions": [
-						"Warehouse is a simple website that can be used to manage product catalogs. This website features CRUD (Create, Read, Update, and Delete) functionality for managing products in the warehouse. It incorporates Google account login and applies a dark mode theme."
+						"Warehouse is a streamlined simple platform for managing product catalogs, offering full CRUD capabilities, Google account login, and dark mode support."
 					],
 					"links": { "demo": "https://warehouse.irfnd.pro", "github": "https://github.com/irfnd/fe-warehouse" },
 					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
@@ -314,7 +342,7 @@
 					"projectName": "Go-buks (API)",
 					"shortDesc": "Simple Books Management",
 					"descriptions": [
-						"A lightweight and efficient RESTful API designed to manage book lists, built using the powerful Fiber framework and backed by a PostgreSQL database. This project leverages GORM as the ORM for seamless database interactions, ensuring a smooth and responsive experience for managing your book collections. Docker support is included to simplify development, making it easy to get started with minimal setup."
+						"A fast and efficient RESTful API for managing book lists, built with the Fiber framework and PostgreSQL. Utilizes GORM for smooth database interactions and includes Docker support for easy setup."
 					],
 					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
 					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],

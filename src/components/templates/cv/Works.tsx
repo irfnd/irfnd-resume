@@ -18,45 +18,55 @@ export default function Works() {
 				<View style={styles.horizontalDivider} />
 			</View>
 
-			{works.map((work, i) => (
-				<View key={i}>
-					<View style={{ marginBottom: '4px' }}>
-						<View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-							{work.link ? (
-								<Link src={work.link} style={[styles.text, styles.bold, styles.link]}>
-									{work.company.toUpperCase()}
-								</Link>
-							) : (
-								<Text style={[styles.text, styles.bold, styles.link]}>{work.company.toUpperCase()}</Text>
-							)}
-							<Text style={[styles.text, styles.italic]}>{work.duration.join(' - ')}</Text>
-						</View>
-						<View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-							<Text style={[styles.text, styles.italic]}>{work.position}</Text>
-							<Text style={[styles.text, styles.italic]}>{work.location}</Text>
-						</View>
-					</View>
-
-					{work.descriptions ? (
-						<View style={{ width: '100%' }}>
-							{work.descriptions.map((desc, i) => (
-								<Text key={i} style={[styles.text, { textAlign: 'justify' }]}>
-									{desc}
-								</Text>
-							))}
-						</View>
-					) : null}
-
-					{work.points ? (
-						<View style={{ width: '100%' }}>
-							{work.points.map((point, i) => (
-								<View key={i} style={[styles.text, { flexDirection: 'row', width: '100%' }]}>
-									<Text style={{ width: '2%' }}>•</Text>
-									<Text style={{ textAlign: 'justify', width: '98%' }}>{point}</Text>
+			{works.map((work, index) => (
+				<View key={index}>
+					{work.descriptions.map((item, i) => (
+						<View key={i} style={{ marginBottom: i === 0 ? '4px' : 0 }}>
+							<View style={{ marginBottom: '4px' }}>
+								{i === 0 ? (
+									<View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+										{work.link ? (
+											<Link src={work.link} style={[styles.text, styles.bold, styles.link]}>
+												{work.company.toUpperCase()}
+											</Link>
+										) : (
+											<Text style={[styles.text, styles.bold, styles.link]}>{work.company.toUpperCase()}</Text>
+										)}
+										<Text style={[styles.text, styles.italic]}>{item.duration.join(' - ')}</Text>
+									</View>
+								) : null}
+								<View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+									<Text style={[styles.text, styles.bold]}>{item.position}</Text>
+									{i === 0 ? (
+										<Text style={[styles.text, styles.italic]}>{work.location}</Text>
+									) : (
+										<Text style={[styles.text, styles.italic]}>{item.duration.join(' - ')}</Text>
+									)}
 								</View>
-							))}
+							</View>
+
+							{item.shortDesc ? (
+								<View style={{ width: '100%' }}>
+									{item.shortDesc.map((desc, i) => (
+										<Text key={i} style={[styles.text, { textAlign: 'justify' }]}>
+											{desc}
+										</Text>
+									))}
+								</View>
+							) : null}
+
+							{item.points ? (
+								<View style={{ width: '100%' }}>
+									{item.points.map((point, i) => (
+										<View key={i} style={[styles.text, { flexDirection: 'row', width: '100%' }]}>
+											<Text style={{ width: '2%' }}>•</Text>
+											<Text style={{ textAlign: 'justify', width: '98%' }}>{point}</Text>
+										</View>
+									))}
+								</View>
+							) : null}
 						</View>
-					) : null}
+					))}
 				</View>
 			))}
 		</View>

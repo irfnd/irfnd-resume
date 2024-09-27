@@ -18,8 +18,8 @@
 			},
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
-				"Fullstack Web Developer yang menyukai pemrograman berorientasi detail. programmer yang selalu menulis kode dengan rapi sehingga kode di-maintain dengan baik. Saya suka mengeksplorasi hal-hal baru terutama teknologi web yang sedang tren, sehingga saya bisa menerapkannya ke dalam proyek yang saya bangun.",
-				"Saya seorang yang belajar secara mandiri yang secara konsisten selalu meningkatkan keterampilan saya dengan learning-by-doing. Saya dapat bekerja secara individu maupun tim. Saat ini saya bekerja dengan ExpressJS, ReactJS, NextJS, dan Astro."
+				"Sebagai seorang pengembang web full-stack dengan perhatian yang tajam terhadap detail, saya berdedikasi tinggi dalam menerapkan clean code sehingga code menjadi mudah atur dan dikembangkan. Saya sangat antusias dalam mengeksplorasi dan mengintegrasikan teknologi baru ke dalam proyek-proyek saya supaya tetap unggul dalam persaingan pengembangan web yang terus berkembang.",
+				"Saya adalah pengembang yang selalu termotivasi untuk meningkatkan keterampilan dan wawasan saya melalui pembelajaran learning-by-doing dan trial-error. Saya mampu bekerja dalam lingkungan kerja individu maupun kolaboratif dengan tim dan saat ini mahir mengembangkan aplikasi menggunakan ExpressJS, NestJS, ReactJS, dan NextJS."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -37,50 +37,78 @@
 			"list": [
 				{
 					"company": "PT Nutech Integrasi",
-					"link": "https://www.nutech-integrasi.com/",
-					"position": "React JS Programmer",
 					"location": "Jakarta, Indonesia",
-					"duration": ["April 2023", "Sekarang"],
+					"link": "https://www.nutech-integrasi.com/",
 					"descriptions": [
-						"Mengembangkan dan memodifikasi aplikasi web CEISA 4.0. Aplikasi kompleks untuk Direktorat Jenderal Bea dan Cukai Indonesia yang dibangun dengan menggunakan React JS dan integrasi RESTful API. Aplikasi ini bertujuan untuk menyediakan layanan optimal dalam menjalankan integrasi bisnis dan kolaborasi dengan pengguna layanan."
-					],
-					"points": [
-						"Mengembangkan 2 modul dengan masing-masing 3-4 menu pada setiap modul.",
-						"Merancang 5 template dokumen PDF menggunakan React-PDF untuk 5 menu.",
-						"Mengimplementasikan React Ant Design untuk lebih dari 10 halaman pada setiap menu.",
-						"Mengintegrasikan RESTful API yang kompleks dengan lebih dari 2-3 dependensi menggunakan Axios.",
-						"Berkolaborasi dengan Pengembang Back-End, QA, dan Technical Writers dengan lancar, mempercepat waktu pengembangan hingga 50%.",
-						"Mengimplementasikan Git dan Jira untuk mempermudah pelacakan fitur dan manajemen masalah bagi tim pengembangan lintas fungsi, mengurangi waktu menyelesaikan bug sebesar 70% dan meningkatkan efisiensi kolaborasi."
+						{
+							"position": "Backend Programmer",
+							"duration": ["Juli 2024", "Oktober 2024"],
+							"shortDesc": [
+								"Mengembangkan API Dashboard Eksekutif LRT dan API Middleware Digitax untuk Direktorat Jenderal Pajak Indonesia, menggunakan Express.js/Nest.js dan PostgreSQL."
+							],
+							"points": [
+								"Mengembangkan lebih dari 10 endpoint API",
+								"Mengintegrasikan lebih dari 5 tabel database PostgreSQL",
+								"Menerapkan JWT untuk autentikasi dan otorisasi",
+								"Menerapkan layanan penggabungan PDF yang dapat menggabungkan lebih dari 90 file PDF",
+								"Membuat dokumentasi API Swagger untuk memfasilitasi pemahaman Front-End Developer",
+								"Bekerja sama secara efektif dengan Front-End Developer, QA, dan Technical Writer dan berhasil memangkas waktu pengembangan hingga 80%.",
+								"Menggunakan Git dan Google Spreadsheet untuk pelacakan fitur dan manajemen masalah dan mengurangi waktu penyelesaian bug hingga 90% dan meningkatkan kolaborasi tim."
+							]
+						},
+						{
+							"position": "React JS Programmer",
+							"duration": ["April 2023", "Juli 2024"],
+							"shortDesc": [
+								"Mengembangkan dan meningkatkan CEISA 4.0, sebuah aplikasi web canggih untuk Direktorat Jenderal Bea dan Cukai Indonesia."
+							],
+							"points": [
+								"Mengembangkan 2 modul dengan masing-masing 3-4 menu.",
+								"Merancang 5 template PDF menggunakan React-PDF.",
+								"Mengimplementasikan React Ant Design untuk lebih dari 10 halaman per menu.",
+								"Mengintegrasikan RESTful API yang kompleks dengan banyak dependensi menggunakan Axios.",
+								"Berkolaborasi dengan tim Back-End, QA, dan Technical Writer dan berhasil mengurangi waktu pengembangan hingga 60%.",
+								"Mempercepat pelacakan fitur dan manajemen masalah menggunakan Git dan Jira dan mengurangi waktu penyelesaian bug hingga 70% dan meningkatkan efisiensi tim."
+							]
+						}
 					]
 				},
 				{
 					"company": "Prof.Dito",
-					"link": "https://profdito.com/",
-					"position": "Fullstack Web Developer | Freelance",
 					"location": "Daring",
-					"duration": ["Juni 2022", "Sekarang"],
+					"link": "https://profdito.com/",
 					"descriptions": [
-						"Merancang dan mengembangkan sebuah situs web profesional untuk tes diagnostik bahasa, dengan menggunakan MongoDB, Next.js, dan Express.js untuk menciptakan sebuah platform yang kaya fitur."
-					],
-					"points": [
-						"Mengimplementasikan lebih dari 15 endpoint API untuk memfasilitasi komunikasi yang lancar antara front-end dan back-end.",
-						"Merancang dan mengembangkan lebih dari 10 tata letak halaman responsif untuk memastikan pengalaman pengguna yang optimal di berbagai perangkat.",
-						"Membuat dan mengoptimalkan lebih dari 5 tabel database untuk menyimpan dan mengambil data dengan efisien.",
-						"Mengintegrasikan server email untuk pengiriman otomatis hasil tes kepada pengguna.",
-						"Bekerjasama dengan Project Manager menggunakan Git dan Discord untuk manajemen proyek yang efektif.",
-						"Mengintegrasikan payment gateway yang aman untuk transaksi yang lancar dan aman."
+						{
+							"position": "Fullstack Web Developer | Freelance",
+							"duration": ["Juni 2022", "Sekarang"],
+							"shortDesc": [
+								"Mengembangkan platform diagnostik bahasa yang komprehensif menggunakan MongoDB, Next.js, dan Express.js."
+							],
+							"points": [
+								"Mengembangkan lebih dari 15 endpoint API untuk integrasi yang lancar antara front-end dan back-end.",
+								"Merancang lebih dari 10 layout responsif untuk pengalaman pengguna lintas perangkat yang optimal.",
+								"Mengoptimalkan lebih dari 5 tabel database untuk manajemen data yang efisien.",
+								"Mengintegrasikan server email untuk pengiriman hasil tes otomatis.",
+								"Berkolaborasi dengan Project Manager melalui Git dan Discord untuk pengawasan proyek yang efektif.",
+								"Menerapkan payment gateway yang aman untuk transaksi yang lancar."
+							]
+						}
 					]
 				},
 				{
 					"company": "PT PLN UPDK Bandar Lampung",
-					"link": null,
-					"position": "Staf Engineering | Magang",
 					"location": "Lampung, Indonesia",
-					"duration": ["Maret 2022", "April 2022"],
+					"link": null,
 					"descriptions": [
-						"Membangun web pengumpulan dan pengarsipan data untuk sekitar 500 karyawan dengan menerapkan Tailwind, Express JS, React JS, dan MongoDB. Implementasi ini bertujuan untuk meningkatkan proses pengelolaan data karyawan sebesar 60%."
-					],
-					"points": null
+						{
+							"position": "Staf Engineering | Magang",
+							"duration": ["Maret 2022", "April 2022"],
+							"shortDesc": [
+								"Mengembangkan aplikasi web untuk pengumpulan dan pengarsipan data bagi 500 karyawan menggunakan Tailwind, Express JS, React JS, dan MongoDB, meningkatkan efisiensi manajemen data karyawan sebesar 70%."
+							],
+							"points": null
+						}
+					]
 				}
 			]
 		},
@@ -94,8 +122,8 @@
 					"location": "Lampung, Indonesia",
 					"duration": ["Juli 2019", "Mei 2023"],
 					"descriptions": [
-						"Menjaga IPK sempurna 4.00/4.00 sepanjang perjalanan akademik saya, yang menunjukkan dedikasi dan komitmen saya terhadap keunggulan akademik.",
-						"Untuk tesis diploma saya, berjudul \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\", saya melakukan proyek komprehensif untuk mengembangkan sistem manajemen karyawan yang efisien dan ramah pengguna."
+						"Secara konsisten meraih IPK sempurna 4.00/4.00, menunjukkan dedikasi yang tak tergoyahkan dalam keunggulan akademik.",
+						"Mengembangkan sistem manajemen karyawan berbasis mobile untuk tugas akhir diploma saya, berjudul \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\"."
 					],
 					"points": null
 				},
@@ -106,8 +134,8 @@
 					"location": "Daring",
 					"duration": ["Mei 2022", "Agustus 2022"],
 					"descriptions": [
-						"Mempersiapkan karir sebagai fullstack web developer dengan mendalami materi pemrograman terkini sesuai kebutuhan industri.",
-						"Mempelajari banyak hal seperti manajemen waktu, pengembangan diri, public speaking, kepemimpinan, dan etika kerja, Menguasai beberapa keterampilan teknis seperti HTML/CSS, Javascript, Node.js, Express, React/Next, PostgreSQL, dan Github Workflow."
+						"Mempersiapkan kemampuan sebagai pengembang web full-stack, saya telah mendalami tren pemrograman terkini dan keterampilan yang relevan dengan industri.",
+						"Saya telah mengasah keterampilan penting seperti manajemen waktu, perbaikan diri, berbicara di depan umum, kepemimpinan, dan etika kerja, serta keahlian teknis dalam HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, dan GitHub Workflow."
 					],
 					"points": null
 				}
@@ -138,8 +166,8 @@
 					"projectName": "CEISA 4.0 (Modul Perizinan)",
 					"shortDesc": "Aplikasi Direktorat Jenderal Bea dan Cukai Indonesia",
 					"descriptions": [
-						"Aplikasi ini dibangun untuk Direktorat Jenderal Bea dan Cukai Indonesia dengan menggunakan React JS dan integrasi RESTful API, dirancang untuk mengoptimalkan penyampaian layanan dengan meningkatkan integrasi bisnis dan mendorong kolaborasi yang efektif dengan pengguna layanan.",
-						"Modul Perizinan memungkinkan pengguna internal untuk mengelola pendaftaran pengguna cukai secara efisien dengan mencatat nomor NPPBKC, mengelola pemberian kuasa kepada perwakilan pengguna cukai, menerbitkan kode personalisasi, menangani pembayaran tertunda dan berkala, serta fungsi lainnya."
+						"Dikembangkan untuk Direktorat Jenderal Bea dan Cukai Indonesia, aplikasi React JS canggih ini mengintegrasikan RESTful API untuk merampingkan penyampaian layanan, meningkatkan integrasi bisnis, dan memperbaiki kolaborasi dengan pengguna.",
+						"Modul Perizinan memungkinkan pengelolaan pendaftaran pengguna cukai, nomor NPPBKC, delegasi kuasa, kode personalisasi, serta pembayaran penundaan dan berkala secara efisien."
 					],
 					"links": null,
 					"relatedSkills": ["JavaScript", "React JS", "Ant Design"],
@@ -186,7 +214,7 @@
 					"projectName": "Profdito",
 					"shortDesc": "Platform Tes Bahasa Diagnostik",
 					"descriptions": [
-						"Profdito adalah platform yang digunakan untuk melakukan tes diagnostik terhadap kemampuan berbahasa, baik dalam bahasa Indonesia, bahasa Inggris, maupun bahasa lainnya. Melalui website ini, pelanggan dapat mendapatkan informasi rinci tentang kemampuan mereka dalam bahasa tertentu. Profdito memiliki beberapa fitur utama, termasuk kemampuan untuk membeli paket pertanyaan, mengerjakan pertanyaan-pertanyaan tersebut, dan mendapatkan sertifikat keahlian dalam bahasa yang diinginkan oleh pelanggan."
+						"Profdito adalah platform diagnostik untuk menilai kemahiran bahasa dalam berbagai bahasa, termasuk Bahasa Indonesia dan Bahasa Inggris. Platform ini menawarkan fitur seperti pembelian paket soal, latihan tes, dan memperoleh sertifikat kemahiran bahasa."
 					],
 					"links": { "demo": "https://profdito.com" },
 					"relatedSkills": ["JavaScript", "MongoDB", "Express JS", "Next JS", "Chakra UI"],
@@ -241,7 +269,7 @@
 					"projectName": "StaffLab",
 					"shortDesc": "Sistem Manajemen Pegawai dan Staf",
 					"descriptions": [
-						"StaffLab adalah sebuah website yang dapat digunakan untuk mengelola staf dan karyawan. Melalui website ini, administrator dapat memperoleh pembaruan terkini mengenai data karyawan, dapat mengajukan mutasi pekerjaan, dapat menyetujui pengajuan cuti, dan dapat mengelola daftar kantor cabang, divisi, posisi, dan grup. StaffLab juga mendukung fitur mode gelap.",
+						"StaffLab adalah platform komprehensif untuk mengelola staf dan karyawan, yang memiliki fitur untuk memperbarui data karyawan, memproses mutasi pekerjaan, menyetujui permintaan cuti, dan mengelola kantor cabang, divisi, posisi, dan golongan. Platform ini juga mendukung fitur mode gelap.",
 						"Akun Demo:",
 						"- Admin (admin@mail.com, Admin123.)",
 						"- Manager (manager@mail.com, Manager123.)"
@@ -279,7 +307,7 @@
 					"projectName": "Warehouse",
 					"shortDesc": "Manajemen Katalog Produk Sederhana",
 					"descriptions": [
-						"Warehouse adalah sebuah situs web sederhana yang dapat digunakan untuk mengelola katalog produk. Situs web ini memiliki fitur CRUD (Create, Read, Update, and Delete) untuk mengelola produk di dalam gudang. Situs web ini menggunakan login menggunakan akun Google dan menerapkan tema mode gelap."
+						"Warehouse adalah platform sederhana yang efisien untuk mengelola katalog produk, menawarkan kemampuan CRUD penuh, login menggunakan akun Google, dan dukungan mode gelap."
 					],
 					"links": { "demo": "https://warehouse.irfnd.pro", "github": "https://github.com/irfnd/fe-warehouse" },
 					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
@@ -314,7 +342,7 @@
 					"projectName": "Go-buks (API)",
 					"shortDesc": "Manajemen Buku Sederhana",
 					"descriptions": [
-						"Sebuah RESTful API yang ringan dan efisien, dirancang untuk mengelola daftar buku, dibangun menggunakan framework Fiber dan didukung database PostgreSQL. Projek ini memanfaatkan GORM untuk interaksi dengan database secara lancar, memastikan pengalaman yang lancar dan responsif dalam mengelola koleksi buku Anda. Menggunakan Docker untuk menyederhanakan dan mempercepat pengembangan."
+						"API RESTful sederhana yang cepat dan efisien untuk mengelola daftar buku, dibangun dengan framework Fiber dan PostgreSQL. Menggunakan GORM untuk interaksi database yang lancar dan mendukung Docker untuk kemudahan setup."
 					],
 					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
 					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],

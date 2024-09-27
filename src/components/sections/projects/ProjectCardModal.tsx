@@ -20,13 +20,15 @@ import { cn } from '@/utils/cn';
 
 interface IProjectCardModal {
 	project: Projects['list'][number];
+	modalOpen: boolean;
+	setModal: (open: boolean) => void;
 }
 
-export default function ProjectCardModal({ project }: IProjectCardModal) {
+export default function ProjectCardModal({ project, modalOpen, setModal }: IProjectCardModal) {
 	const { projectName, shortDesc, descriptions, relatedSkills, screenshots, links } = project;
 
 	return (
-		<Dialog>
+		<Dialog open={modalOpen} onOpenChange={setModal}>
 			<DialogTrigger>
 				<p
 					className={cn([
