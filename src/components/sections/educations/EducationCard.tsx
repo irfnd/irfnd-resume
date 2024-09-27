@@ -40,9 +40,9 @@ export default function EducationCard({ index, education }: IEducationCard) {
 						) : (
 							<p className='text-lg sm:text-xl font-semibold'>{institution}</p>
 						)}
-						<div className='flex items-center gap-1 text-stone-600 dark:text-stone-400'>
-							<IconUserStar size={14} />
-							<p className='text-sm'>{major}</p>
+						<div className='flex items-center gap-1 w-fit border-b-[1px] border-b-lime-600'>
+							<IconUserStar size={16} />
+							<p className='font-semibold'>{major}</p>
 						</div>
 					</div>
 					<div className='flex flex-col sm:items-end gap-1'>

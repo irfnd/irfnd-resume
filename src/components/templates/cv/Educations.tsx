@@ -32,7 +32,7 @@ export default function Educations() {
 							<Text style={[styles.text, styles.italic]}>{education.duration.join(' - ')}</Text>
 						</View>
 						<View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-							<Text style={[styles.text, styles.italic]}>{education.major}</Text>
+							<Text style={[styles.text, styles.bold]}>{education.major}</Text>
 							<Text style={[styles.text, styles.italic]}>{education.location}</Text>
 						</View>
 					</View>
