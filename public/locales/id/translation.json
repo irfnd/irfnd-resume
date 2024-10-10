@@ -19,7 +19,7 @@
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
 				"Sebagai seorang pengembang web full-stack dengan perhatian yang tajam terhadap detail, saya berdedikasi tinggi dalam menerapkan clean code sehingga code menjadi mudah atur dan dikembangkan. Saya sangat antusias dalam mengeksplorasi dan mengintegrasikan teknologi baru ke dalam proyek-proyek saya supaya tetap unggul dalam persaingan pengembangan web yang terus berkembang.",
-				"Saya adalah pengembang yang selalu termotivasi untuk meningkatkan keterampilan dan wawasan saya melalui pembelajaran learning-by-doing dan trial-error. Saya mampu bekerja dalam lingkungan kerja individu maupun kolaboratif dengan tim dan saat ini mahir mengembangkan aplikasi menggunakan ExpressJS, NestJS, ReactJS, dan NextJS."
+				"Saya adalah pengembang yang selalu termotivasi untuk meningkatkan keterampilan dan wawasan saya melalui pembelajaran learning-by-doing dan trial-error. Saya mampu bekerja dalam lingkungan kerja individu maupun kolaboratif dengan tim dan saat ini mahir mengembangkan aplikasi menggunakan Express JS, Nest JS, React JS, dan Next JS."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -44,14 +44,14 @@
 							"position": "Backend Programmer",
 							"duration": ["Juli 2024", "Oktober 2024"],
 							"shortDesc": [
-								"Mengembangkan API Dashboard Eksekutif LRT dan API Middleware Digitax untuk Direktorat Jenderal Pajak Indonesia, menggunakan Express.js/Nest.js dan PostgreSQL."
+								"Mengembangkan API Dashboard Eksekutif LRT dan API Middleware Digitax untuk Direktorat Jenderal Pajak Indonesia, menggunakan Express JS, Nest JS dan PostgreSQL."
 							],
 							"points": [
-								"Mengembangkan lebih dari 10 endpoint API",
-								"Mengintegrasikan lebih dari 5 tabel database PostgreSQL",
-								"Menerapkan JWT untuk autentikasi dan otorisasi",
-								"Menerapkan layanan penggabungan PDF yang dapat menggabungkan lebih dari 90 file PDF",
-								"Membuat dokumentasi API Swagger untuk memfasilitasi pemahaman Front-End Developer",
+								"Mengembangkan lebih dari 10 endpoint API.",
+								"Mengintegrasikan lebih dari 5 tabel database PostgreSQL.",
+								"Menerapkan JWT untuk autentikasi dan otorisasi.",
+								"Menerapkan layanan penggabungan PDF yang dapat menggabungkan lebih dari 90 file PDF.",
+								"Membuat dokumentasi API Swagger untuk memfasilitasi pemahaman Front-End Developer.",
 								"Bekerja sama secara efektif dengan Front-End Developer, QA, dan Technical Writer dan berhasil memangkas waktu pengembangan hingga 80%.",
 								"Menggunakan Git dan Google Spreadsheet untuk pelacakan fitur dan manajemen masalah dan mengurangi waktu penyelesaian bug hingga 90% dan meningkatkan kolaborasi tim."
 							]
@@ -80,9 +80,9 @@
 					"descriptions": [
 						{
 							"position": "Fullstack Web Developer | Freelance",
-							"duration": ["Juni 2022", "Sekarang"],
+							"duration": ["Juni 2022", "Mei 2024"],
 							"shortDesc": [
-								"Mengembangkan platform diagnostik bahasa yang komprehensif menggunakan MongoDB, Next.js, dan Express.js."
+								"Mengembangkan platform diagnostik bahasa yang komprehensif menggunakan MongoDB, Next JS, dan Express JS."
 							],
 							"points": [
 								"Mengembangkan lebih dari 15 endpoint API untuk integrasi yang lancar antara front-end dan back-end.",
@@ -135,7 +135,7 @@
 					"duration": ["Mei 2022", "Agustus 2022"],
 					"descriptions": [
 						"Mempersiapkan kemampuan sebagai pengembang web full-stack, saya telah mendalami tren pemrograman terkini dan keterampilan yang relevan dengan industri.",
-						"Saya telah mengasah keterampilan penting seperti manajemen waktu, perbaikan diri, berbicara di depan umum, kepemimpinan, dan etika kerja, serta keahlian teknis dalam HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, dan GitHub Workflow."
+						"Saya telah mengasah keterampilan penting seperti manajemen waktu, perbaikan diri, berbicara di depan umum, kepemimpinan, dan etika kerja, serta keahlian teknis dalam HTML/CSS, JavaScript, Node JS, Express JS, React JS, Next JS, PostgreSQL, dan GitHub Workflow."
 					],
 					"points": null
 				}
@@ -146,8 +146,8 @@
 			"layanan": ["Firebase", "Supabase"],
 			"database": ["MongoDB", "PostgreSQL"],
 			"bahasa": ["JavaScript", "TypeScript", "Go"],
-			"teknologi": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Fiber"],
-			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
+			"teknologi": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Go Fiber"],
+			"UI": ["Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI"],
 			"lainnya": [
 				"Analytical thinking",
 				"Berorientasi detail",
@@ -345,7 +345,7 @@
 						"API RESTful sederhana yang cepat dan efisien untuk mengelola daftar buku, dibangun dengan framework Fiber dan PostgreSQL. Menggunakan GORM untuk interaksi database yang lancar dan mendukung Docker untuk kemudahan setup."
 					],
 					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
-					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],
+					"relatedSkills": ["Go", "Go Fiber", "PostgreSQL"],
 					"screenshots": [
 						{
 							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724344677/Portfolio/Go-buks/swagger",

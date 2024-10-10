@@ -19,7 +19,7 @@
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
 				"As a full-stack web developer with a keen eye for detail, I am dedicated to writing clean, maintainable code. I am passionate about exploring and integrating new, cutting-edge technologies into my projects to stay ahead in the ever-evolving web development landscape.",
-				"I am a self-motivated developer who continuously seeks to enhance my skills through practical experience. I excel in both independent and collaborative work environments and currently proficient in ExpressJS, NestJS, ReactJS, and NextJS"
+				"I am a self-motivated developer who continuously seeks to enhance my skills through practical experience. I excel in both independent and collaborative work environments and currently proficient in Express JS, Nest JS, React JS, and Next JS."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -44,14 +44,14 @@
 							"position": "Backend Programmer",
 							"duration": ["July 2024", "October 2024"],
 							"shortDesc": [
-								"Engineered the LRT Executive Dashboard API and the Digitax Middleware API for the Indonesian Directorate General of Taxes, utilizing Express.js/Nest.js and PostgreSQL."
+								"Engineered the LRT Executive Dashboard API and the Digitax Middleware API for the Indonesian Directorate General of Taxes, utilizing Express JS, Nest JS and PostgreSQL."
 							],
 							"points": [
-								"Develop more than 10 API endpoints",
-								"Integrate more than 5 PostgreSQL database tables",
-								"Implement JWT for authentication and authorization",
-								"Implement PDF merging service that can merge more than 90 PDF files",
-								"Created Swagger API documentation to facilitate Front-End Developer understanding",
+								"Develop more than 10 API endpoints.",
+								"Integrate more than 5 PostgreSQL database tables.",
+								"Implement JWT for authentication and authorization.",
+								"Implement PDF merging service that can merge more than 90 PDF files.",
+								"Created Swagger API documentation to facilitate Front-End Developer understanding.",
 								"Worked closely with Front-End Developers, QA, and Technical Writers to cut development time by 80%.",
 								"Used Git and Google Spreadsheet for feature tracking and issue management, reducing bug resolution time by 90% and boosting team collaboration."
 							]
@@ -80,9 +80,9 @@
 					"descriptions": [
 						{
 							"position": "Fullstack Web Developer | Freelance",
-							"duration": ["June 2022", "Present"],
+							"duration": ["June 2022", "May 2024"],
 							"shortDesc": [
-								"Engineered a comprehensive language diagnostic platform using MongoDB, Next.js, and Express.js."
+								"Engineered a comprehensive language diagnostic platform using MongoDB, Next JS, and Express JS."
 							],
 							"points": [
 								"Developed 15+ API endpoints for seamless front-end and back-end integration.",
@@ -135,7 +135,7 @@
 					"duration": ["May 2022", "August 2022"],
 					"descriptions": [
 						"To excel as a full-stack web developer, I have immersed myself in current programming trends and industry-relevant skills.",
-						"I have honed essential skills such as time management, self-improvement, public speaking, leadership, and work ethics, alongside technical proficiencies in HTML/CSS, JavaScript, Node.js, Express, React/Next, PostgreSQL, and GitHub Workflow."
+						"I have honed essential skills such as time management, self-improvement, public speaking, leadership, and work ethics, alongside technical proficiencies in HTML/CSS, JavaScript, Node JS, Express JS, React JS, Next JS, PostgreSQL, and GitHub Workflow."
 					],
 					"points": null
 				}
@@ -146,8 +146,8 @@
 			"services": ["Firebase", "Supabase"],
 			"databases": ["MongoDB", "PostgreSQL"],
 			"languages": ["JavaScript", "TypeScript", "Go"],
-			"stacks": ["Astro", "Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Fiber"],
-			"UI": ["SASS", "Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI", "NativeBase"],
+			"stacks": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Go Fiber"],
+			"UI": ["Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI"],
 			"others": [
 				"Analytical thinking",
 				"Attention to detail",
@@ -345,7 +345,7 @@
 						"A fast and efficient RESTful API for managing book lists, built with the Fiber framework and PostgreSQL. Utilizes GORM for smooth database interactions and includes Docker support for easy setup."
 					],
 					"links": { "demo": "https://go-buks.fly.dev/docs/", "github": "https://github.com/irfnd/go-buks" },
-					"relatedSkills": ["Go", "Fiber", "PostgreSQL"],
+					"relatedSkills": ["Go", "Go Fiber", "PostgreSQL"],
 					"screenshots": [
 						{
 							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724344677/Portfolio/Go-buks/swagger",
