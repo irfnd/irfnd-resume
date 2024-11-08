@@ -18,8 +18,7 @@
 			},
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
-				"As a full-stack web developer with a keen eye for detail, I am dedicated to writing clean, maintainable code. I am passionate about exploring and integrating new, cutting-edge technologies into my projects to stay ahead in the ever-evolving web development landscape.",
-				"I am a self-motivated developer who continuously seeks to enhance my skills through practical experience. I excel in both independent and collaborative work environments and currently proficient in Express JS, Nest JS, React JS, and Next JS."
+				"Skilled Full-Stack Web Developer with 2+ years of experience designing, building, and maintaining dynamic applications and APIs. Proficient in JavaScript/TypeScript and modern frameworks including React.js, Express.js, and Nest.js, with a strong background in both front-end and back-end development. Experienced in managing relational and NoSQL databases such as PostgreSQL and MongoDB, and deploying solutions using Docker. Passionate about delivering user-centered designs, optimizing code performance, and collaborating effectively with cross-functional teams to deliver seamless, scalable web applications."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -43,32 +42,23 @@
 						{
 							"position": "Backend Programmer",
 							"duration": ["July 2024", "October 2024"],
-							"shortDesc": [
-								"Engineered the LRT Executive Dashboard API and the Digitax Middleware API for the Indonesian Directorate General of Taxes, utilizing Express JS, Nest JS and PostgreSQL."
-							],
+							"shortDesc": [],
 							"points": [
-								"Develop more than 10 API endpoints.",
-								"Integrate more than 5 PostgreSQL database tables.",
-								"Implement JWT for authentication and authorization.",
-								"Implement PDF merging service that can merge more than 90 PDF files.",
-								"Created Swagger API documentation to facilitate Front-End Developer understanding.",
-								"Worked closely with Front-End Developers, QA, and Technical Writers to cut development time by 80%.",
-								"Used Git and Google Spreadsheet for feature tracking and issue management, reducing bug resolution time by 90% and boosting team collaboration."
+								"Engineered the LRT Executive Dashboard API and Digitax Middleware API for Indonesia's Directorate General of Taxes, using Express.js, Nest.js, and PostgreSQL.",
+								"Developed and optimized over 10 API endpoints, integrating with 5+ PostgreSQL tables, ensuring seamless backend and frontend interactions.",
+								"Implemented JWT for secure authentication and authorization, and a PDF merging service capable of processing 90+ files.",
+								"Created Swagger API documentation to streamline front-end development, achieving a 80% reduction in development time.",
+								"Collaborated with front-end developers, QA, and technical writers, reducing bug resolution time by 90% and enhancing team synergy."
 							]
 						},
 						{
 							"position": "React JS Programmer",
 							"duration": ["April 2023", "July 2024"],
-							"shortDesc": [
-								"Developed and enhanced CEISA 4.0, a sophisticated web application for the Indonesian Directorate General of Customs and Excise."
-							],
+							"shortDesc": [],
 							"points": [
-								"Developed 2 modules with 3-4 menus each.",
-								"Designed 5 PDF templates using React-PDF.",
-								"Implemented React Ant Design for over 10 pages per menu.",
-								"Integrated complex RESTful APIs with multiple dependencies using Axios.",
-								"Collaborated with Back-End, QA, and Writers to reduce development time by 60%.",
-								"Streamlined feature tracking and issue management using Git and Jira, reducing bug resolution time by 70% and boosting team efficiency."
+								"Enhanced the CEISA 4.0 application for the Indonesian Directorate General of Customs and Excise, developing 2 modules and integrating complex RESTful APIs.",
+								"Leveraged React Ant Design for responsive design across 10+ pages, resulting in a 60% improvement in development efficiency.",
+								"Documented processes and streamlined issue tracking using Git and Jira, reducing bug resolution time by 70%."
 							]
 						}
 					]
@@ -81,16 +71,11 @@
 						{
 							"position": "Fullstack Web Developer | Freelance",
 							"duration": ["June 2022", "May 2024"],
-							"shortDesc": [
-								"Engineered a comprehensive language diagnostic platform using MongoDB, Next JS, and Express JS."
-							],
+							"shortDesc": [],
 							"points": [
-								"Developed 15+ API endpoints for seamless front-end and back-end integration.",
-								"Designed 10+ responsive layouts for optimal cross-device user experience.",
-								"Optimized 5+ database tables for efficient data management.",
-								"Integrated email server for automated test result delivery.",
-								"Collaborated with Project Manager via Git and Discord for effective project oversight.",
-								"Implemented secure payment gateway for smooth transactions."
+								"Developed a language diagnostic platform with MongoDB, Next.js, and Express.js, including 15+ API endpoints and 10+ responsive layouts for a seamless user experience.",
+								"Integrated an email server for automated result delivery and implemented a secure payment gateway.",
+								"Collaborated remotely with project management, utilizing Git and Discord for effective feature tracking."
 							]
 						}
 					]
@@ -104,7 +89,7 @@
 							"position": "Engineering Staff | Internship",
 							"duration": ["March 2022", "April 2022"],
 							"shortDesc": [
-								"Developed a web application for data collection and archiving for 500 employees using Tailwind, Express JS, React JS, and MongoDB, enhancing employee data management efficiency by 60%."
+								"Developed a web-based data collection and archiving tool for 500 employees using Tailwind CSS, Express.js, React.js, and MongoDB, enhancing employee data management by 60%."
 							],
 							"points": null
 						}
@@ -121,11 +106,11 @@
 					"major": "Informatics Management Diploma",
 					"location": "Lampung, Indonesia",
 					"duration": ["July 2019", "May 2023"],
-					"descriptions": [
-						"Consistently achieved a perfect GPA of 4.00/4.00, demonstrating unwavering dedication to academic excellence.",
-						"Developed a mobile-based employee management system for my diploma thesis, titled \"Design And Build A Mobile-based Employee Management Information System at XYZ Company Using React Native Framework\"."
-					],
-					"points": null
+					"descriptions": [],
+					"points": [
+						"Graduated with a perfect GPA of 4.00/4.00.",
+						"Developed a mobile-based employee management system for diploma thesis using the React Native framework."
+					]
 				},
 				{
 					"institution": "Pijar Camp",
@@ -134,8 +119,7 @@
 					"location": "Online",
 					"duration": ["May 2022", "August 2022"],
 					"descriptions": [
-						"To excel as a full-stack web developer, I have immersed myself in current programming trends and industry-relevant skills.",
-						"I have honed essential skills such as time management, self-improvement, public speaking, leadership, and work ethics, alongside technical proficiencies in HTML/CSS, JavaScript, Node JS, Express JS, React JS, Next JS, PostgreSQL, and GitHub Workflow."
+						"Completed intensive full-stack training in HTML/CSS, JavaScript, Node.js, Express.js, React.js, PostgreSQL, and GitHub Workflow."
 					],
 					"points": null
 				}

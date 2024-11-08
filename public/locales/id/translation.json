@@ -18,8 +18,7 @@
 			},
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
-				"Sebagai seorang pengembang web full-stack dengan perhatian yang tajam terhadap detail, saya berdedikasi tinggi dalam menerapkan clean code sehingga code menjadi mudah atur dan dikembangkan. Saya sangat antusias dalam mengeksplorasi dan mengintegrasikan teknologi baru ke dalam proyek-proyek saya supaya tetap unggul dalam persaingan pengembangan web yang terus berkembang.",
-				"Saya adalah pengembang yang selalu termotivasi untuk meningkatkan keterampilan dan wawasan saya melalui pembelajaran learning-by-doing dan trial-error. Saya mampu bekerja dalam lingkungan kerja individu maupun kolaboratif dengan tim dan saat ini mahir mengembangkan aplikasi menggunakan Express JS, Nest JS, React JS, dan Next JS."
+				"Pengembang Web Full-Stack yang berpengalaman lebih dari 2 tahun dalam merancang, membangun, dan memelihara aplikasi serta API yang dinamis. Terampil dalam JavaScript/TypeScript dan framework modern seperti React.js, Express.js, dan Nest.js, dengan latar belakang yang kuat dalam pengembangan front-end dan back-end. Berpengalaman dalam mengelola basis data relasional dan NoSQL seperti PostgreSQL dan MongoDB, serta merepakan Docker untuk deployment. Berdedikasi tinggi dalam membuat desain yang berpusat pada pengguna, mengoptimalkan performa kode, dan berkolaborasi secara efektif dengan tim lintas fungsi untuk menghasilkan aplikasi web yang lancar dan scalable."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -43,32 +42,23 @@
 						{
 							"position": "Backend Programmer",
 							"duration": ["Juli 2024", "Oktober 2024"],
-							"shortDesc": [
-								"Mengembangkan API Dashboard Eksekutif LRT dan API Middleware Digitax untuk Direktorat Jenderal Pajak Indonesia, menggunakan Express JS, Nest JS dan PostgreSQL."
-							],
+							"shortDesc": [],
 							"points": [
-								"Mengembangkan lebih dari 10 endpoint API.",
-								"Mengintegrasikan lebih dari 5 tabel database PostgreSQL.",
-								"Menerapkan JWT untuk autentikasi dan otorisasi.",
-								"Menerapkan layanan penggabungan PDF yang dapat menggabungkan lebih dari 90 file PDF.",
-								"Membuat dokumentasi API Swagger untuk memfasilitasi pemahaman Front-End Developer.",
-								"Bekerja sama secara efektif dengan Front-End Developer, QA, dan Technical Writer dan berhasil memangkas waktu pengembangan hingga 80%.",
-								"Menggunakan Git dan Google Spreadsheet untuk pelacakan fitur dan manajemen masalah dan mengurangi waktu penyelesaian bug hingga 90% dan meningkatkan kolaborasi tim."
+								"Mengembangkan API Dashboard Eksekutif LRT dan Middleware Digitax API untuk Direktorat Jenderal Pajak Indonesia, menggunakan Express.js, Nest.js, dan PostgreSQL.",
+								"Membuat dan mengoptimalkan lebih dari 10 endpoint API yang terintegrasi dengan lebih dari 5 tabel PostgreSQL, memastikan interaksi backend dan frontend yang lancar.",
+								"Menerapkan JWT untuk autentikasi dan otorisasi yang aman, serta layanan penggabungan PDF yang mampu memproses lebih dari 90 file.",
+								"Membuat dokumentasi API dengan Swagger untuk memperlancar pengembangan front-end, mengurangi waktu pengembangan hingga 80%.",
+								"Bekerja sama dengan pengembang front-end, QA, dan penulis teknis, mengurangi waktu penyelesaian bug hingga 90% dan meningkatkan sinergi tim."
 							]
 						},
 						{
 							"position": "React JS Programmer",
 							"duration": ["April 2023", "Juli 2024"],
-							"shortDesc": [
-								"Mengembangkan dan meningkatkan CEISA 4.0, sebuah aplikasi web canggih untuk Direktorat Jenderal Bea dan Cukai Indonesia."
-							],
+							"shortDesc": [],
 							"points": [
-								"Mengembangkan 2 modul dengan masing-masing 3-4 menu.",
-								"Merancang 5 template PDF menggunakan React-PDF.",
-								"Mengimplementasikan React Ant Design untuk lebih dari 10 halaman per menu.",
-								"Mengintegrasikan RESTful API yang kompleks dengan banyak dependensi menggunakan Axios.",
-								"Berkolaborasi dengan tim Back-End, QA, dan Technical Writer dan berhasil mengurangi waktu pengembangan hingga 60%.",
-								"Mempercepat pelacakan fitur dan manajemen masalah menggunakan Git dan Jira dan mengurangi waktu penyelesaian bug hingga 70% dan meningkatkan efisiensi tim."
+								"Meningkatkan aplikasi CEISA 4.0 untuk Direktorat Jenderal Bea dan Cukai Indonesia dengan mengembangkan 2 modul dan mengintegrasikan API RESTful yang kompleks.",
+								"Memanfaatkan React Ant Design untuk desain responsif di lebih dari 10 halaman, menghasilkan peningkatan efisiensi pengembangan sebesar 60%.",
+								"Mendokumentasikan proses dan menyederhanakan pelacakan masalah menggunakan Git dan Jira, mengurangi waktu penyelesaian bug hingga 70%."
 							]
 						}
 					]
@@ -81,16 +71,11 @@
 						{
 							"position": "Fullstack Web Developer | Freelance",
 							"duration": ["Juni 2022", "Mei 2024"],
-							"shortDesc": [
-								"Mengembangkan platform diagnostik bahasa yang komprehensif menggunakan MongoDB, Next JS, dan Express JS."
-							],
+							"shortDesc": [],
 							"points": [
-								"Mengembangkan lebih dari 15 endpoint API untuk integrasi yang lancar antara front-end dan back-end.",
-								"Merancang lebih dari 10 layout responsif untuk pengalaman pengguna lintas perangkat yang optimal.",
-								"Mengoptimalkan lebih dari 5 tabel database untuk manajemen data yang efisien.",
-								"Mengintegrasikan server email untuk pengiriman hasil tes otomatis.",
-								"Berkolaborasi dengan Project Manager melalui Git dan Discord untuk pengawasan proyek yang efektif.",
-								"Menerapkan payment gateway yang aman untuk transaksi yang lancar."
+								"Mengembangkan platform diagnostik bahasa menggunakan MongoDB, Next.js, dan Express.js, mencakup lebih dari 15 endpoint API dan lebih dari 10 layout responsif untuk pengalaman pengguna yang lancar.",
+								"Mengintegrasikan server email untuk pengiriman hasil otomatis dan menerapkan gateway pembayaran yang aman.",
+								"Bekerja sama secara remote dengan manajemen proyek, menggunakan Git dan Discord untuk pelacakan fitur yang efektif."
 							]
 						}
 					]
@@ -104,7 +89,7 @@
 							"position": "Staf Engineering | Magang",
 							"duration": ["Maret 2022", "April 2022"],
 							"shortDesc": [
-								"Mengembangkan aplikasi web untuk pengumpulan dan pengarsipan data bagi 500 karyawan menggunakan Tailwind, Express JS, React JS, dan MongoDB, meningkatkan efisiensi manajemen data karyawan sebesar 70%."
+								"Mengembangkan alat pengumpulan dan pengarsipan data berbasis web untuk 500 karyawan menggunakan Tailwind CSS, Express.js, React.js, dan MongoDB, meningkatkan manajemen data karyawan hingga 60%."
 							],
 							"points": null
 						}
@@ -121,11 +106,11 @@
 					"major": "Diploma Manajemen Informatika",
 					"location": "Lampung, Indonesia",
 					"duration": ["Juli 2019", "Mei 2023"],
-					"descriptions": [
-						"Secara konsisten meraih IPK sempurna 4.00/4.00, menunjukkan dedikasi yang tak tergoyahkan dalam keunggulan akademik.",
-						"Mengembangkan sistem manajemen karyawan berbasis mobile untuk tugas akhir diploma saya, berjudul \"Rancang Bangun Sistem Informasi Manajemen Pegawai Berbasis Mobile Pada PT XYZ Menggunakan Framework React Native\"."
-					],
-					"points": null
+					"descriptions": [],
+					"points": [
+						"Lulus dengan IPK sempurna 4.00/4.00.",
+						"Mengembangkan sistem manajemen karyawan berbasis mobile untuk tugas akhir menggunakan framework React Native."
+					]
 				},
 				{
 					"institution": "Pijar Camp",
@@ -134,8 +119,7 @@
 					"location": "Daring",
 					"duration": ["Mei 2022", "Agustus 2022"],
 					"descriptions": [
-						"Mempersiapkan kemampuan sebagai pengembang web full-stack, saya telah mendalami tren pemrograman terkini dan keterampilan yang relevan dengan industri.",
-						"Saya telah mengasah keterampilan penting seperti manajemen waktu, perbaikan diri, berbicara di depan umum, kepemimpinan, dan etika kerja, serta keahlian teknis dalam HTML/CSS, JavaScript, Node JS, Express JS, React JS, Next JS, PostgreSQL, dan GitHub Workflow."
+						"Menyelesaikan pelatihan full-stack intensif dalam HTML/CSS, JavaScript, Node.js, Express.js, React.js, PostgreSQL, dan GitHub Workflow."
 					],
 					"points": null
 				}

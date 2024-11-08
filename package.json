@@ -60,5 +60,6 @@
 	"lint-staged": {
 		"src/**/*.{ts,tsx}": "eslint --fix --report-unused-disable-directives --max-warnings 0",
 		"**/*.{ts,tsx,js,cjs,json,md,html,css}": "prettier --write"
-	}
+	},
+	"packageManager": "pnpm@9.12.2"
 }
