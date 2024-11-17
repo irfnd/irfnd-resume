@@ -18,7 +18,8 @@
 			},
 			"name": "Irfandi Iqbal Abimanyu",
 			"aboutMe": [
-				"Skilled Full-Stack Web Developer with 2+ years of experience designing, building, and maintaining dynamic applications and APIs. Proficient in JavaScript/TypeScript and modern frameworks including React.js, Express.js, and Nest.js, with a strong background in both front-end and back-end development. Experienced in managing relational and NoSQL databases such as PostgreSQL and MongoDB, and deploying solutions using Docker. Passionate about delivering user-centered designs, optimizing code performance, and collaborating effectively with cross-functional teams to deliver seamless, scalable web applications."
+				"Full-Stack Web Developer with over 2 years of experience in designing, developing, and managing dynamic web applications and APIs. Proficient in JavaScript/TypeScript and modern frameworks such as React, Express, and Nest. Skilled in managing relational and NoSQL databases like PostgreSQL and MongoDB, as well as developing applications with Docker.",
+				"User-centered design expert with a focus on optimizing code performance and collaborating with cross-functional teams to develop scalable and effective web applications."
 			],
 			"headline": "Fullstack Web Developer",
 			"location": "Jakarta, Indonesia",
@@ -130,9 +131,9 @@
 			"services": ["Firebase", "Supabase"],
 			"databases": ["MongoDB", "PostgreSQL"],
 			"languages": ["JavaScript", "TypeScript", "Go"],
-			"stacks": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Go Fiber"],
+			"frameworks": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Go Fiber"],
 			"UI": ["Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI"],
-			"others": [
+			"soft-skills": [
 				"Analytical thinking",
 				"Attention to detail",
 				"Good communicator",

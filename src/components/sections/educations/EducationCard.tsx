@@ -60,7 +60,7 @@ export default function EducationCard({ index, education }: IEducationCard) {
 				</div>
 				{descriptions
 					? descriptions.map((desc, i) => (
-							<p className='max-w-2xl text-justify' key={i}>
+							<p className='max-w-2xl' key={i}>
 								{desc}
 							</p>
 						))
@@ -68,9 +68,7 @@ export default function EducationCard({ index, education }: IEducationCard) {
 				{points ? (
 					<ul className='text-sm sm:text-base list-disc list-outside max-w-[652px] ml-5'>
 						{points.map((point, i) => (
-							<li key={i} className='text-justify'>
-								{point}
-							</li>
+							<li key={i}>{point}</li>
 						))}
 					</ul>
 				) : null}

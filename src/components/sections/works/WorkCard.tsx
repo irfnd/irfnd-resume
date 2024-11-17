@@ -75,7 +75,7 @@ export default function WorkCard({ index, work }: IWorkCard) {
 						</div>
 						{item.shortDesc
 							? item.shortDesc?.map((desc, i) => (
-									<p className='max-w-2xl text-justify' key={i}>
+									<p className='max-w-2xl' key={i}>
 										{desc}
 									</p>
 								))
@@ -83,9 +83,7 @@ export default function WorkCard({ index, work }: IWorkCard) {
 						{item.points ? (
 							<ul className='text-sm sm:text-base list-disc list-outside max-w-[652px] ml-5'>
 								{item.points.map((point, i) => (
-									<li key={i} className='text-justify'>
-										{point}
-									</li>
+									<li key={i}>{point}</li>
 								))}
 							</ul>
 						) : null}
