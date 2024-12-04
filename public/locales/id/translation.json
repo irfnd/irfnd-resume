@@ -290,7 +290,7 @@
 				},
 				{
 					"projectName": "Yellow Taxi Dashboard",
-					"shortDesc": "Dashboard analitik perjalanan yellow taxi 2014",
+					"shortDesc": "Dashboard Analitik Perjalanan Yellow Taxi 2014",
 					"descriptions": [
 						"Yellow Taxi adalah platform analitik yang dirancang untuk menganalisis data perjalanan Yellow Taxi di Kota New York pada tahun 2014, berdasarkan data dari NYC OpenData. Platform ini menyajikan visualisasi data selama 12 bulan, mencakup jumlah perjalanan, jenis perjalanan, total pembayaran, biaya rata-rata, jarak terjauh, dan metrik lainnya. Selain itu, tersedia fitur tabel perjalanan dan detail perjalanan dengan peta interaktif. Untuk kenyamanan pengguna, platform ini juga mendukung mode gelap.",
 						"Akun Demo:",
