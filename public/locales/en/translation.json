@@ -289,6 +289,35 @@
 					]
 				},
 				{
+					"projectName": "Yellow Taxi Dashboard",
+					"shortDesc": "2014 Yellow Taxi Trip Analytics Dashboard",
+					"descriptions": [
+						"Yellow Taxi is an analytical platform designed to analyze 2014 Yellow Taxi trip data in New York City, utilizing data from NYC OpenData. The platform offers 12 months of visualized insights, including trip counts, trip types, total payments, average fares, longest distances, and other key metrics. Additionally, it features a trip table and mapped trip details for deeper exploration. To enhance user experience, the platform also supports a dark mode option.",
+						"Demo Account:",
+						"- Admin (admin@mail.com, YellowTaxi@2014)"
+					],
+					"links": { "demo": "https://yellow-taxi.irfnd.pro", "github": "https://github.com/irfnd/yellow-taxi-irfnd" },
+					"relatedSkills": ["TypeScript", "Turborepo", "Nest JS", "React JS", "Shadcn UI", "Mapbox"],
+					"screenshots": [
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300933/Portfolio/Yellow-taxi/sign-in",
+							"alt": "Sign In"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/dashboard",
+							"alt": "Dashboard"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/list-trip",
+							"alt": "Trip List"
+						},
+						{
+							"url": "https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/detail-trip",
+							"alt": "Trip Detail"
+						}
+					]
+				},
+				{
 					"projectName": "Warehouse",
 					"shortDesc": "Simple Product Catalog Management",
 					"descriptions": [
