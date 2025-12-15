@@ -29,7 +29,7 @@
 				"github": "https://github.com/irfnd",
 				"twitter": "https://twitter.com/Irfnd_iqbl",
 				"instagram": "https://www.instagram.com/irfnd.iqbl",
-				"portfolio": "https://irfnd.pro"
+				"portfolio": "https://irfnd.id"
 			}
 		},
 		"works": {
@@ -259,7 +259,7 @@
 						"- Admin (admin@mail.com, Admin123.)",
 						"- Manager (manager@mail.com, Manager123.)"
 					],
-					"links": { "demo": "https://stafflab.irfnd.pro", "github": "https://github.com/irfnd/fe-stafflab" },
+					"links": { "demo": "https://stafflab.irfnd.id", "github": "https://github.com/irfnd/fe-stafflab" },
 					"relatedSkills": ["Supabase", "JavaScript", "React JS", "Chakra UI"],
 					"screenshots": [
 						{
@@ -296,7 +296,7 @@
 						"Demo Account:",
 						"- Admin (admin@mail.com, YellowTaxi@2014)"
 					],
-					"links": { "demo": "https://yellow-taxi.irfnd.pro", "github": "https://github.com/irfnd/yellow-taxi-irfnd" },
+					"links": { "demo": "https://yellow-taxi.irfnd.id", "github": "https://github.com/irfnd/yellow-taxi-irfnd" },
 					"relatedSkills": ["TypeScript", "Turborepo", "Nest JS", "React JS", "Shadcn UI", "Mapbox"],
 					"screenshots": [
 						{
@@ -323,7 +323,7 @@
 					"descriptions": [
 						"Warehouse is a streamlined simple platform for managing product catalogs, offering full CRUD capabilities, Google account login, and dark mode support."
 					],
-					"links": { "demo": "https://warehouse.irfnd.pro", "github": "https://github.com/irfnd/fe-warehouse" },
+					"links": { "demo": "https://warehouse.irfnd.id", "github": "https://github.com/irfnd/fe-warehouse" },
 					"relatedSkills": ["Firebase", "JavaScript", "React JS", "Chakra UI"],
 					"screenshots": [
 						{
