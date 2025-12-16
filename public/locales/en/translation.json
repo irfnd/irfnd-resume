@@ -131,7 +131,7 @@
 			"services": ["Firebase", "Supabase"],
 			"databases": ["MongoDB", "PostgreSQL"],
 			"languages": ["JavaScript", "TypeScript", "Go"],
-			"frameworks": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Go Fiber"],
+			"frameworks": ["Express JS", "Nest JS", "React JS", "Next JS", "React Native", "Vue JS", "Fiber", "Echo"],
 			"UI": ["Bootstrap CSS", "Tailwind CSS", "Chakra UI", "Daisy UI", "Ant Design", "Shadcn UI"],
 			"soft-skills": [
 				"Analytical thinking",
