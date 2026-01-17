@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-sans: 'Inter', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+
+	--animate-blob: blob 7s infinite;
+
+	@keyframes blob {
+		0% {
+			transform: translate(0px, 0px) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+		100% {
+			transform: translate(0px, 0px) scale(1);
+		}
+	}
+}
+
+@layer base {
+	::-webkit-scrollbar {
+		@apply w-0 bg-transparent;
+	}
+
+	body {
+		@apply transition-colors duration-400 ease-out;
+	}
+}
+
+@utility noise-bg {
+	@apply pointer-events-none fixed top-0 left-0 z-40 h-full w-full opacity-3;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@utility glass-card {
+	@apply backdrop-blur-md;
+}
+
+@utility light-shadow {
+	@apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.02),0_2px_4px_-1px_rgba(0,0,0,0.02),0_0_0_1px_rgba(226,232,240,0.6)];
+
+	@variant hover {
+		@apply shadow-[0_10px_15px_-3px_rgba(59,130,246,0.08),0_4px_6px_-2px_rgba(59,130,246,0.04),0_0_0_1px_rgba(59,130,246,0.1)];
+	}
+}
+
+@utility nav-item-active {
+	@apply bg-blue-500/8 text-blue-600;
+
+	@variant dark {
+		@apply bg-blue-500/15 text-blue-400;
+	}
+}
+
+@utility pattern-grid {
+	@apply bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-size-[20px_20px];
+}
