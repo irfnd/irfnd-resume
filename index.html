@@ -5,6 +5,13 @@
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Resume - Irfandi Iqbal Abimanyu</title>
+		<script>
+			(function () {
+				const storageKey = 'zolutech-theme';
+				const theme = localStorage.getItem(storageKey) || 'dark';
+				document.documentElement.classList.add(theme);
+			})();
+		</script>
 	</head>
 	<body
 		class="overflow-x-hidden bg-slate-50 text-slate-600 antialiased selection:bg-blue-500/30 selection:text-blue-700 dark:bg-[#030303] dark:text-neutral-400 dark:selection:text-blue-200"

@@ -198,7 +198,7 @@ export const en: Translations = {
 				name: 'CEISA 4.0 (Perizinan Module)',
 				summary: [
 					setHighlightText(
-						'An advanced React application for the Indonesian Directorate General of Customs and Excise. Streamlines business integrations and user collaboration via robust RESTful APIs.',
+						'An advanced web application for the Indonesian Directorate General of Customs and Excise. Streamlines business integrations and user collaboration via robust RESTful APIs.',
 						[],
 					),
 					setHighlightText(
@@ -207,6 +207,7 @@ export const en: Translations = {
 					),
 				],
 				type: 'private',
+				category: 'frontend',
 				demo: null,
 				source: null,
 				stacks: getTechStack(['JavaScript', 'React', 'Redux', 'Ant Design']),
@@ -259,6 +260,7 @@ export const en: Translations = {
 					),
 				],
 				type: 'public',
+				category: 'fullstack',
 				demo: 'https://profdito.com',
 				source: null,
 				stacks: getTechStack(['JavaScript', 'Next.js', 'Redux', 'Chakra UI', 'Express.js', 'MongoDB']),
@@ -319,6 +321,7 @@ export const en: Translations = {
 					),
 				],
 				type: 'public',
+				category: 'frontend',
 				demo: 'https://stafflab.irfnd.id',
 				source: 'https://github.com/irfnd/fe-stafflab',
 				stacks: getTechStack(['JavaScript', 'React', 'Chakra UI', 'PostgreSQL', 'Supabase']),
@@ -400,5 +403,11 @@ export const en: Translations = {
 		viewMore: 'View More',
 		liveDemo: 'Live Demo',
 		downloadResume: 'Download Resume',
+		portfolioCategories: [
+			{ label: 'All', value: 'all' },
+			{ label: 'Frontend', value: 'frontend' },
+			{ label: 'Backend', value: 'backend' },
+			{ label: 'Fullstack', value: 'fullstack' },
+		],
 	},
 };

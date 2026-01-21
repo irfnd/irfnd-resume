@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type Theme = 'dark' | 'light' | 'system';
+type Theme = 'dark' | 'light';
 
 type ThemeProviderProps = {
 	children: React.ReactNode;
@@ -14,28 +14,23 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-	theme: 'system',
+	theme: 'dark',
 	setTheme: () => null,
 };
 
 const ThemeProviderContext = React.createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'vite-ui-theme', ...props }: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultTheme = 'dark', storageKey = 'irfnd-ui-theme', ...props }: ThemeProviderProps) {
 	const [theme, setTheme] = React.useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
+	const [mounted, setMounted] = React.useState(false);
 
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		const root = window.document.documentElement;
 
 		root.classList.remove('light', 'dark');
-
-		if (theme === 'system') {
-			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-			root.classList.add(systemTheme);
-			return;
-		}
-
 		root.classList.add(theme);
+
+		setMounted(true);
 	}, [theme]);
 
 	const value = {
@@ -45,6 +40,10 @@ export function ThemeProvider({ children, defaultTheme = 'system', storageKey = 
 			setTheme(theme);
 		},
 	};
+
+	if (!mounted) {
+		return null;
+	}
 
 	return (
 		<ThemeProviderContext.Provider {...props} value={value}>

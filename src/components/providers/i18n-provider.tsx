@@ -2,7 +2,7 @@ import { defaultLanguage, translations } from '@/i18n';
 import type { I18nContextType, Language, Translations } from '@/types';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-const STORAGE_KEY = 'zolutech-lang';
+const STORAGE_KEY = 'irfnd-lang';
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 

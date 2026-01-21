@@ -9,7 +9,7 @@ import { createRoot } from 'react-dom/client';
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<I18nProvider>
-			<ThemeProvider defaultTheme='system' storageKey='zolutech-theme'>
+			<ThemeProvider defaultTheme='dark'>
 				<RouterProvider router={router} />
 			</ThemeProvider>
 		</I18nProvider>

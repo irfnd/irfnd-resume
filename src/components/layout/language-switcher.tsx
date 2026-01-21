@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
 			</Menu.Trigger>
 
 			<Menu.Portal>
-				<Menu.Positioner sideOffset={8} alignment='end'>
+				<Menu.Positioner align='end' sideOffset={8}>
 					<Menu.Popup className='w-42 p-2 rounded-2xl bg-white/95 dark:bg-neutral-900/95 border border-slate-200/60 dark:border-neutral-800 light-shadow dark:shadow-lg backdrop-blur-md z-50 animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2'>
 						<Menu.RadioGroup
 							className='flex flex-col gap-1'
@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
 								<Menu.RadioItem
 									key={lang.code}
 									value={lang.code}
-									className='relative rounded-xl px-4 py-2 text-sm flex items-center gap-2 transition-colors cursor-pointer outline-none data-highlighted:bg-slate-50 data-highlighted:text-neutral-900 dark:data-highlighted:text-white dark:data-highlighted:bg-neutral-800 data-[state=checked]:text-blue-600 dark:data-[state=checked]:[&_svg]:text-blue-400 dark:data-[state=checked]:text-white data-[state=checked]:bg-blue-50 dark:data-[state=checked]:bg-blue-500/10 text-slate-600 dark:text-neutral-400'
+									className='relative rounded-xl px-4 py-2 text-sm flex items-center gap-2 transition-colors cursor-pointer outline-none data-[highlighted]:bg-slate-50 data-[highlighted]:text-neutral-900 dark:data-[highlighted]:text-white dark:data-[highlighted]:bg-neutral-800 data-[checked]:text-blue-600 dark:data-[checked]:[&_svg]:text-blue-400 dark:data-[checked]:text-white data-[checked]:bg-blue-50 dark:data-[checked]:bg-blue-500/10 text-slate-600 dark:text-neutral-400'
 								>
 									<span>{lang.flag}</span>
 									<span className='flex-1'>{lang.label}</span>

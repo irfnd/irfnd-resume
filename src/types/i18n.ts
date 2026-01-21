@@ -87,13 +87,14 @@ export interface IPortfolio {
 		demo: string | null;
 		source: string | null;
 		stacks: ITechStack[];
+		category: 'frontend' | 'backend' | 'fullstack';
 		isSelected?: boolean;
 	}[];
 }
 
 export interface ITechnology {
 	title: string;
-	stacks: { [category: string]: ITechStack[] };
+	stacks: { [categories: string]: ITechStack[] };
 }
 
 export interface IEducation {
@@ -120,6 +121,10 @@ export interface ICommon {
 	viewMore: string;
 	liveDemo: string;
 	downloadResume: string;
+	portfolioCategories: {
+		label: string;
+		value: string;
+	}[];
 }
 
 export interface Translations {
