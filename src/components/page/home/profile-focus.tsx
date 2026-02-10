@@ -6,7 +6,7 @@ export function ProfileFocus() {
 	const { about } = useTranslation();
 
 	return (
-		<SlideUp as='section' id='profile-focus' className='scroll-mt-24'>
+		<SlideUp id='profile-focus' className='scroll-mt-24'>
 			<div className='flex items-center justify-between mb-8'>
 				<h2 className='text-lg font-semibold text-foreground tracking-tight'>{about.title}</h2>
 				<div className='h-px bg-border flex-1 ml-6' />
