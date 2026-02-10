@@ -19,6 +19,7 @@
 		"@tanstack/react-router": "^1.144.0",
 		"@tanstack/react-router-devtools": "^1.144.0",
 		"clsx": "^2.1.1",
+		"framer-motion": "^12.34.0",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"react-string-format": "^1.5.0",

@@ -5,8 +5,8 @@ export function Footer() {
 	const { footer, contact } = useTranslation();
 
 	return (
-		<footer className='border-t border-slate-200 dark:border-neutral-800/50 pt-8 flex flex-col items-center md:flex-row md:items-center justify-between gap-4'>
-			<p className='text-xs text-slate-400 dark:text-neutral-600'>
+		<footer className='border-t border-border/60 pt-8 flex flex-col items-center md:flex-row md:items-center justify-between gap-4'>
+			<p className='text-xs text-muted-foreground/60'>
 				{footer.copyright.replace('{year}', currentYear.toString())} {footer.builtWith}
 			</p>
 
@@ -15,7 +15,7 @@ export function Footer() {
 					<a
 						key={item.label}
 						href={item.url}
-						className='text-xs text-slate-500 dark:text-neutral-600 hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
+						className='text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 					>
 						{item.label}
 					</a>

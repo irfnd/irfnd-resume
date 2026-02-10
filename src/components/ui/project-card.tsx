@@ -1,5 +1,6 @@
 import { useTranslation } from '@/hooks';
 import type { InferArray, IPortfolio } from '@/types';
+import { motion } from 'framer-motion';
 
 import { HighlightText, TechIcon } from '@/components/ui';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
@@ -12,7 +13,12 @@ export function ProjectCard(props: ProjectCardProps) {
 	const { common } = useTranslation();
 
 	return props.isFirst ? (
-		<div className='group relative md:col-span-2 glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 light-shadow hover:light-shadow-hover dark:shadow-none'>
+		<motion.div
+			whileHover={{ y: -8 }}
+			whileTap={{ scale: 0.98 }}
+			transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
+			className='group relative md:col-span-2 glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 light-shadow hover:light-shadow-hover dark:shadow-none h-full'
+		>
 			<div className='grid md:grid-cols-2 h-full'>
 				<div className='p-8 flex flex-col justify-between md:h-full relative z-10'>
 					<div>
@@ -20,10 +26,10 @@ export function ProjectCard(props: ProjectCardProps) {
 							<div className='size-8 shrink-0 rounded bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300'>
 								<props.icon className='size-4' />
 							</div>
-							<h3 className='text-xl font-bold text-slate-900 dark:text-white'>{props.name}</h3>
+							<h3 className='text-xl font-bold text-foreground'>{props.name}</h3>
 						</div>
 
-						<p className='text-sm text-slate-600 dark:text-neutral-500 leading-relaxed mb-4 transition-colors'>
+						<p className='text-sm text-muted-foreground leading-relaxed mb-4 transition-colors'>
 							<HighlightText as='span' text={props.summary[0].value} keywords={props.summary[0].keywords} />
 						</p>
 					</div>
@@ -44,7 +50,7 @@ export function ProjectCard(props: ProjectCardProps) {
 										href={props.source}
 										target='_blank'
 										rel='noopener noreferrer'
-										className='text-xs font-medium text-slate-900 dark:text-white flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
+										className='text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
 									>
 										Source <IconBrandGithub className='size-3' />
 									</a>
@@ -53,7 +59,7 @@ export function ProjectCard(props: ProjectCardProps) {
 								{props.demo && (
 									<a
 										href='#'
-										className='text-xs font-medium text-slate-900 dark:text-white flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
+										className='text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
 									>
 										{common.liveDemo} <IconArrowUpRight className='size-3' />
 									</a>
@@ -66,14 +72,14 @@ export function ProjectCard(props: ProjectCardProps) {
 				<div className='relative bg-slate-50/50 dark:bg-neutral-900/50 border-t md:border-t-0 md:border-l border-white/60 dark:border-white/5 h-72 md:h-auto overflow-hidden'>
 					<div className='pattern-grid absolute inset-0 opacity-50' />
 					{props.type === 'private' && (
-						<span className='absolute right-8 top-4 md:top-5 text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-slate-500 dark:text-neutral-400 bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none'>
+						<span className='absolute right-8 top-4 md:top-5 text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none'>
 							Internal
 						</span>
 					)}
 
 					{props.image.length > 0 ? (
-						<div className='absolute h-fit inset-x-8 top-8 bottom-0 bg-white dark:bg-[#0a0a0a] rounded-t-xl border border-slate-200/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500'>
-							<div className='h-10 border-b border-slate-100 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent'>
+						<div className='absolute h-fit inset-x-8 top-8 bottom-0 bg-card rounded-t-xl border border-border/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500'>
+							<div className='h-10 border-b border-border/50 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent'>
 								<div className='flex gap-1.5'>
 									<div className='w-2 h-2 rounded-full bg-red-400/80 border border-red-500/20' />
 									<div className='w-2 h-2 rounded-full bg-amber-400/80 border border-amber-500/20' />
@@ -86,8 +92,8 @@ export function ProjectCard(props: ProjectCardProps) {
 							</div>
 						</div>
 					) : (
-						<div className='absolute inset-x-8 top-8 bottom-0 bg-white dark:bg-[#0a0a0a] rounded-t-xl border border-slate-200/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500'>
-							<div className='h-10 border-b border-slate-100 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent'>
+						<div className='absolute inset-x-8 top-8 bottom-0 bg-card rounded-t-xl border border-border/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500'>
+							<div className='h-10 border-b border-border/50 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent'>
 								<div className='flex gap-1.5'>
 									<div className='w-2 h-2 rounded-full bg-red-400/80 border border-red-500/20' />
 									<div className='w-2 h-2 rounded-full bg-amber-400/80 border border-amber-500/20' />
@@ -106,9 +112,14 @@ export function ProjectCard(props: ProjectCardProps) {
 					)}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	) : (
-		<div className='group glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl relative overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between h-auto light-shadow hover:light-shadow dark:shadow-none'>
+		<motion.div
+			whileHover={{ y: -8 }}
+			whileTap={{ scale: 0.98 }}
+			transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
+			className='group glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl relative overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between light-shadow hover:light-shadow dark:shadow-none h-full'
+		>
 			{props.image.length > 0 && (
 				<div className='absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
 					<img src={props.image[0].url} alt={props.image[0].alt} className='size-full object-cover object-left' />
@@ -147,22 +158,20 @@ export function ProjectCard(props: ProjectCardProps) {
 								)}
 							</div>
 						) : (
-							<span className='text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-slate-500 dark:text-neutral-400 bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300'>
+							<span className='text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300'>
 								Internal
 							</span>
 						)}
 					</div>
 
-					<h3 className='text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-white transition-colors'>
-						{props.name}
-					</h3>
+					<h3 className='text-base font-bold text-foreground mb-2 group-hover:text-white transition-colors'>{props.name}</h3>
 
-					<p className='text-sm text-slate-600 dark:text-neutral-500 leading-relaxed mb-4 group-hover:text-neutral-200 transition-colors'>
+					<p className='text-sm text-muted-foreground leading-relaxed mb-4 group-hover:text-neutral-200 transition-colors'>
 						<HighlightText as='span' text={props.summary[0].value} keywords={props.summary[0].keywords} />
 					</p>
 				</div>
 
-				<div className='flex gap-2 items-center mt-auto pt-4 border-t border-slate-100 dark:border-neutral-800/50 group-hover:border-white/10 transition-colors'>
+				<div className='flex gap-2 items-center mt-auto pt-4 border-t border-border/50 dark:border-neutral-800/50 group-hover:border-white/10 transition-colors'>
 					{props.stacks.length > 0 && (
 						<div className='flex gap-2 flex-wrap'>
 							{props.stacks.map((stack) => (
@@ -172,6 +181,6 @@ export function ProjectCard(props: ProjectCardProps) {
 					)}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
