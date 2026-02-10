@@ -14,7 +14,7 @@ export function FadeIn({
 	delay = 0,
 	duration = 0.5,
 	viewportOnce = true,
-	threshold = 0.2,
+	threshold = 0.05,
 	className,
 	...props
 }: MotionWrapperProps) {
@@ -27,6 +27,7 @@ export function FadeIn({
 			initial={{ opacity: 0 }}
 			animate={isInView ? { opacity: 1 } : { opacity: 0 }}
 			transition={{ duration, delay, ease: 'easeOut' }}
+			style={{ translateZ: 0 }}
 			className={className}
 			{...props}
 		>
@@ -40,7 +41,7 @@ export function SlideUp({
 	delay = 0,
 	duration = 0.5,
 	viewportOnce = true,
-	threshold = 0.2,
+	threshold = 0.05,
 	className,
 	...props
 }: MotionWrapperProps) {
@@ -53,6 +54,7 @@ export function SlideUp({
 			initial={{ opacity: 0, y: 20 }}
 			animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
 			transition={{ duration, delay, ease: 'easeOut' }}
+			style={{ translateZ: 0 }}
 			className={className}
 			{...props}
 		>
@@ -72,7 +74,7 @@ export function StaggerContainer({
 	children,
 	staggerDelay = 0.1,
 	viewportOnce = true,
-	threshold = 0.1,
+	threshold = 0.05,
 	className,
 	...props
 }: StaggerContainerProps) {
@@ -95,6 +97,7 @@ export function StaggerContainer({
 			variants={containerVariants}
 			initial='hidden'
 			animate={isInView ? 'show' : 'hidden'}
+			style={{ translateZ: 0 }}
 			className={className}
 			{...props}
 		>
@@ -110,7 +113,7 @@ export function StaggerItem({ children, className, ...props }: HTMLMotionProps<'
 	};
 
 	return (
-		<motion.div variants={itemVariants} className={className} {...props}>
+		<motion.div variants={itemVariants} style={{ translateZ: 0 }} className={className} {...props}>
 			{children}
 		</motion.div>
 	);

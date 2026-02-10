@@ -15,6 +15,7 @@ export function ProfileFocus() {
 			<StaggerContainer className='grid grid-cols-1 md:grid-cols-3 gap-4'>
 				<StaggerItem
 					whileHover={{ y: -5 }}
+					whileTap={{ scale: 0.98 }}
 					transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
 					className='glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 p-6 md:p-8 rounded-2xl md:col-span-3 light-shadow hover:light-shadow dark:shadow-none hover:border-blue-300/50 dark:hover:border-blue-500/20 transition-colors'
 				>
@@ -31,6 +32,7 @@ export function ProfileFocus() {
 					<StaggerItem
 						key={index}
 						whileHover={{ y: -5 }}
+						whileTap={{ scale: 0.98 }}
 						transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
 						className='glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-300/50 dark:hover:border-blue-500/20 transition-all duration-300 light-shadow hover:light-shadow dark:shadow-none'
 					>
