@@ -1,9 +1,12 @@
 import { useTranslation } from '@/hooks';
+import * as React from 'react';
 
 import { FadeIn } from '@/components/ui';
 
 export function Profile() {
 	const { profile, contact } = useTranslation();
+
+	const stickyProfileContact = React.useMemo(() => contact.filter((val) => val.showInStickyProfile), [contact]);
 
 	return (
 		<FadeIn className='relative md:flex md:items-start md:gap-14 lg:mb-8 lg:block lg:gap-0' delay={0.2}>
@@ -18,12 +21,11 @@ export function Profile() {
 
 			<div className='md:flex-1 lg:flex-none'>
 				<h1 className='text-3xl font-thin text-foreground tracking-tight leading-tight mb-2'>
-					<span className='font-bold'>Irfandi</span> Iqbal Abimanyu
+					<span className='font-bold'>{profile.firstName}</span> {profile.lastName}
 				</h1>
 
 				<div className='flex items-center gap-2 mb-6'>
 					<span className='relative flex size-3'>
-						<span className='animate-ping absolute inline-flex size-full rounded-full bg-blue-500 opacity-75'></span>
 						<span className='relative inline-flex rounded-full size-3 bg-blue-600 dark:bg-blue-500'></span>
 					</span>
 					<p className='text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wide uppercase bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5 rounded-md border border-blue-100 dark:border-blue-500/20'>
@@ -34,7 +36,7 @@ export function Profile() {
 				<p className='text-sm leading-relaxed text-muted-foreground mb-6 max-w-sm font-normal'>{profile.description}</p>
 
 				<div className='flex flex-wrap max-w-sm gap-x-4 gap-y-3'>
-					{contact.map((item) => (
+					{stickyProfileContact.map((item) => (
 						<a
 							key={item.label}
 							href={item.url}

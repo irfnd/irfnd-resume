@@ -13,15 +13,63 @@ export const en: Translations = {
 	],
 
 	contact: [
-		{ type: 'location', label: 'Jakarta, Indonesia', url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28', icon: tabler.IconMapPin },
-		{ type: 'contact', label: 'irfandiabimanyu@gmail.com', url: 'mailto:irfandiabimanyu@gmail.com', icon: tabler.IconMail },
-		{ type: 'contact', label: 'LinkedIn', url: 'https://www.linkedin.com/in/irfnd-iqbl', icon: tabler.IconBrandLinkedin },
-		{ type: 'contact', label: 'Github', url: 'https://github.com/irfnd', icon: tabler.IconBrandGithub },
-		{ type: 'contact', label: 'Instagram', url: 'https://www.instagram.com/irfnd.iqbl', icon: tabler.IconBrandInstagram },
-		{ type: 'contact', label: 'Twitter', url: 'https://twitter.com/Irfnd_iqbl', icon: tabler.IconBrandX },
+		{
+			type: 'location',
+			label: 'Jakarta, Indonesia',
+			url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
+			icon: tabler.IconMapPin,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'irfandiabimanyu@gmail.com',
+			url: 'mailto:irfandiabimanyu@gmail.com',
+			icon: tabler.IconMail,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Whatsapp',
+			url: 'https://wa.me/082175688883',
+			icon: tabler.IconBrandWhatsapp,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/irfnd-iqbl',
+			icon: tabler.IconBrandLinkedin,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Github',
+			url: 'https://github.com/irfnd',
+			icon: tabler.IconBrandGithub,
+			showInStickyProfile: true,
+		},
+		{
+			type: 'contact',
+			label: 'Instagram',
+			url: 'https://www.instagram.com/irfnd.iqbl',
+			icon: tabler.IconBrandInstagram,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Twitter',
+			url: 'https://twitter.com/Irfnd_iqbl',
+			icon: tabler.IconBrandX,
+			showInStickyProfile: true,
+		},
 	],
 
 	profile: {
+		firstName: 'Irfandi',
+		lastName: 'Iqbal Abimanyu',
 		photo: {
 			url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1722509145/Portfolio/Profile/irfnd-inovative',
 			alt: 'Irfandi Photo Profile',
@@ -79,7 +127,7 @@ export const en: Translations = {
 							]),
 							setHighlightText(
 								'Partnered with QA and frontend teams to reduce bug resolution time by 90% through streamlined communication.',
-								[],
+								['QA and frontend teams', 'reduce bug resolution time by 90%'],
 							),
 						],
 						stacks: getTechStack(['TypeScript', 'Express.js', 'NestJS', 'PostgreSQL', 'Swagger']),
@@ -191,7 +239,9 @@ export const en: Translations = {
 	},
 
 	portfolio: {
+		header: 'Portfolio',
 		title: 'Selected Works',
+		subtitle: 'A selection of production-grade applications, APIs, and experiments built with modern technologies.',
 		projects: [
 			{
 				icon: tabler.IconShieldCheck,
@@ -199,11 +249,11 @@ export const en: Translations = {
 				summary: [
 					setHighlightText(
 						'An advanced web application for the Indonesian Directorate General of Customs and Excise. Streamlines business integrations and user collaboration via robust RESTful APIs.',
-						[],
+						['Directorate General of Customs and Excise', 'business integrations', 'RESTful APIs'],
 					),
 					setHighlightText(
 						'Key features include management of excise registrations, NPPBKC numbers, power of attorney delegations, and automated payment scheduling.',
-						[],
+						['NPPBKC numbers', 'power of attorney', 'automated payment scheduling'],
 					),
 				],
 				type: 'private',
@@ -256,7 +306,7 @@ export const en: Translations = {
 				summary: [
 					setHighlightText(
 						'A comprehensive diagnostic tool for assessing proficiency in multiple languages. Features include secure test-taking environments, automated certification, and premium question packages.',
-						[],
+						['diagnostic tool', 'automated certification', 'premium question packages'],
 					),
 				],
 				type: 'public',
@@ -317,7 +367,7 @@ export const en: Translations = {
 				summary: [
 					setHighlightText(
 						'A robust HR platform for employee lifecycle management. Functionalities include real-time data updates, transfer processing, leave approval, and organizational hierarchy management (Branches, Divisions, Positions).',
-						[],
+						['HR platform', 'real-time data updates', 'organizational hierarchy management'],
 					),
 				],
 				type: 'public',
@@ -394,6 +444,49 @@ export const en: Translations = {
 		],
 	},
 
+	contactMe: {
+		header: 'Contact Me',
+		description:
+			"We're here to answer your questions, discuss your project, and help you find the best solutions for your software needs. Reach out to us, and let's start building something great together.",
+		formTitle: "Let's talk about your project",
+		form: [
+			{
+				label: 'Name',
+				name: 'fullName',
+				type: 'text',
+				placeholder: 'Your full name',
+			},
+			{
+				label: 'Email Address',
+				name: 'email',
+				type: 'email',
+				placeholder: 'Your email address',
+			},
+			{
+				label: 'Telephone',
+				name: 'telephone',
+				type: 'tel',
+				placeholder: 'Your contact number',
+			},
+			{
+				label: 'Subject',
+				name: 'subject',
+				type: 'text',
+				placeholder: "What's this about?",
+			},
+			{
+				label: 'Message',
+				name: 'message',
+				type: 'textarea',
+				placeholder: 'Tell us how we can help',
+			},
+		],
+		submitButton: 'Send Message',
+		successMessage: 'Message sent successfully!',
+		sendAnotherMessage: 'Send another message',
+		reachMeDirectly: 'Reach me directly',
+	},
+
 	footer: {
 		copyright: '© {year} Irfandi Iqbal Abimanyu.',
 		builtWith: 'Built with precision.',
@@ -403,6 +496,8 @@ export const en: Translations = {
 		viewMore: 'View More',
 		liveDemo: 'Live Demo',
 		downloadResume: 'Download Resume',
+		source: 'Source',
+		internal: 'Internal',
 		portfolioCategories: [
 			{ label: 'All', value: 'all' },
 			{ label: 'Frontend', value: 'frontend' },

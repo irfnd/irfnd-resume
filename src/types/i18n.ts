@@ -1,5 +1,6 @@
 import type { IconType } from '@icons-pack/react-simple-icons';
 import type { TablerIcon } from '@tabler/icons-react';
+import type { HTMLInputTypeAttribute } from 'react';
 
 export type Language = 'en' | 'id';
 
@@ -39,9 +40,13 @@ export interface IContact {
 	label: string;
 	url: string;
 	icon: TablerIcon;
+	showInStickyProfile?: boolean;
+	showInContactPage?: boolean;
 }
 
 export interface IProfile {
+	firstName: string;
+	lastName: string;
 	role: string;
 	photo: IImage;
 	description: string;
@@ -77,7 +82,9 @@ export interface IExperience {
 }
 
 export interface IPortfolio {
+	header: string;
 	title: string;
+	subtitle: string;
 	projects: {
 		icon: TablerIcon;
 		name: string;
@@ -112,6 +119,24 @@ export interface IEducation {
 	}[];
 }
 
+interface IFormField {
+	label: string;
+	name: string;
+	type: HTMLInputTypeAttribute;
+	placeholder: string;
+}
+
+export interface IContactMe {
+	header: string;
+	description: string;
+	formTitle: string;
+	form: IFormField[];
+	submitButton: string;
+	successMessage: string;
+	sendAnotherMessage: string;
+	reachMeDirectly: string;
+}
+
 export interface IFooter {
 	copyright: string;
 	builtWith: string;
@@ -121,6 +146,8 @@ export interface ICommon {
 	viewMore: string;
 	liveDemo: string;
 	downloadResume: string;
+	source: string;
+	internal: string;
 	portfolioCategories: {
 		label: string;
 		value: string;
@@ -136,6 +163,7 @@ export interface Translations {
 	technology: ITechnology;
 	portfolio: IPortfolio;
 	education: IEducation;
+	contactMe: IContactMe;
 	footer: IFooter;
 	common: ICommon;
 }

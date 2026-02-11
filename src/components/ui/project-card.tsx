@@ -52,7 +52,7 @@ export function ProjectCard(props: ProjectCardProps) {
 										rel='noopener noreferrer'
 										className='text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900'
 									>
-										Source <IconBrandGithub className='size-3' />
+										{common.source} <IconBrandGithub className='size-3' />
 									</a>
 								)}
 
@@ -73,7 +73,7 @@ export function ProjectCard(props: ProjectCardProps) {
 					<div className='pattern-grid absolute inset-0 opacity-50' />
 					{props.type === 'private' && (
 						<span className='absolute right-8 top-4 md:top-5 text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none'>
-							Internal
+							{common.internal}
 						</span>
 					)}
 
@@ -159,7 +159,7 @@ export function ProjectCard(props: ProjectCardProps) {
 							</div>
 						) : (
 							<span className='text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300'>
-								Internal
+								{common.internal}
 							</span>
 						)}
 					</div>

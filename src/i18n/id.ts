@@ -6,100 +6,150 @@ import * as tabler from '@tabler/icons-react';
 
 export const id: Translations = {
 	navigation: [
-		{ label: 'Home', url: '/', icon: tabler.IconHome },
-		{ label: 'Portfolio', url: '/portfolio', icon: tabler.IconFolderStar },
-		{ label: 'Contact', url: '/contact', icon: tabler.IconSend },
+		{ label: 'Beranda', url: '/', icon: tabler.IconHome },
+		{ label: 'Portofolio', url: '/portfolio', icon: tabler.IconFolderStar },
+		{ label: 'Kontak', url: '/contact', icon: tabler.IconSend },
 		{ label: 'Resume', url: '/resume', icon: tabler.IconFileDownload },
 	],
 
 	contact: [
-		{ type: 'location', label: 'Jakarta, Indonesia', url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28', icon: tabler.IconMapPin },
-		{ type: 'contact', label: 'irfandiabimanyu@gmail.com', url: 'mailto:irfandiabimanyu@gmail.com', icon: tabler.IconMail },
-		{ type: 'contact', label: 'LinkedIn', url: 'https://www.linkedin.com/in/irfnd-iqbl', icon: tabler.IconBrandLinkedin },
-		{ type: 'contact', label: 'Github', url: 'https://github.com/irfnd', icon: tabler.IconBrandGithub },
-		{ type: 'contact', label: 'Instagram', url: 'https://www.instagram.com/irfnd.iqbl', icon: tabler.IconBrandInstagram },
-		{ type: 'contact', label: 'Twitter', url: 'https://twitter.com/Irfnd_iqbl', icon: tabler.IconBrandX },
+		{
+			type: 'location',
+			label: 'Jakarta, Indonesia',
+			url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
+			icon: tabler.IconMapPin,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'irfandiabimanyu@gmail.com',
+			url: 'mailto:irfandiabimanyu@gmail.com',
+			icon: tabler.IconMail,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Whatsapp',
+			url: 'https://wa.me/082175688883',
+			icon: tabler.IconBrandWhatsapp,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/irfnd-iqbl',
+			icon: tabler.IconBrandLinkedin,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Github',
+			url: 'https://github.com/irfnd',
+			icon: tabler.IconBrandGithub,
+			showInStickyProfile: true,
+		},
+		{
+			type: 'contact',
+			label: 'Instagram',
+			url: 'https://www.instagram.com/irfnd.iqbl',
+			icon: tabler.IconBrandInstagram,
+			showInStickyProfile: true,
+			showInContactPage: true,
+		},
+		{
+			type: 'contact',
+			label: 'Twitter',
+			url: 'https://twitter.com/Irfnd_iqbl',
+			icon: tabler.IconBrandX,
+			showInStickyProfile: true,
+		},
 	],
 
 	profile: {
+		firstName: 'Irfandi',
+		lastName: 'Iqbal Abimanyu',
 		photo: {
 			url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1722509145/Portfolio/Profile/irfnd-inovative',
-			alt: 'Irfandi Photo Profile',
+			alt: 'Foto Profil Irfandi',
 		},
 		role: 'Fullstack Web Developer',
 		description:
-			'Middle Developer specialized in scalable web ecosystems. Expert in backend architecture and pixel-perfect UI/UX frontend.',
+			'Pengembang Fullstack dengan spesialisasi ekosistem web skalabel. Ahli dalam arsitektur backend dan pengembangan frontend UI/UX yang presisi.',
 	},
 
 	about: {
-		title: 'Profile & Focus',
+		title: 'Profil & Fokus',
 		description: [
 			setHighlightText(
-				'Specialized in architecting scalable web applications and high-throughput APIs. Proficient in the JavaScript/TypeScript ecosystem. Expertise spans relational and NoSQL database management, containerized deployment via Docker, and performance optimization. Committed to clean code principles and agile collaboration.',
-				['JavaScript/TypeScript'],
+				'Berdedikasi untuk menciptakan aplikasi web skalabel dan API berkinerja tinggi yang mampu menangani beban kerja besar. Dengan penguasaan mendalam atas ekosistem JavaScript dan TypeScript, keahlian yang dimiliki mencakup manajemen database relasional dan NoSQL, penerapan containerization menggunakan Docker, serta strategi optimasi sistem yang komprehensif. Selalu memegang teguh prinsip clean code dan menghargai kolaborasi tim yang adaptif dalam lingkungan kerja agile.',
+				['JavaScript dan TypeScript'],
 			),
 		],
 		focus: [
-			{ value: '3+ Years', label: 'Commercial Exp.', icon: tabler.IconCode },
+			{ value: '3+ Tahun', label: 'Exp. Komersial', icon: tabler.IconCode },
 			{ value: 'Full-Cycle', label: 'Development', icon: tabler.IconStack2 },
-			{ value: 'Precision', label: 'UI/UX Engineering', icon: tabler.IconViewfinder },
+			{ value: 'Presisi', label: 'UI/UX Engineering', icon: tabler.IconViewfinder },
 		],
 	},
 
 	experience: {
-		title: 'Professional Journey',
+		title: 'Perjalanan Profesional',
 		jobs: [
 			{
 				company: 'Nutech Integrasi',
 				mainPosition: 'Fullstack Web Engineer',
-				type: 'Full-Time',
+				type: 'Penuh Waktu',
 				location: 'Jakarta, Indonesia',
-				duration: ['April 2023', 'October 2024'],
+				duration: ['April 2023', 'Oktober 2024'],
 				link: 'https://www.nutech-integrasi.com/',
 				descriptions: [
 					{
 						icon: tabler.IconServer2,
-						position: 'Backend Development',
+						position: 'Pengembangan Backend',
 						summary: [],
 						points: [
 							setHighlightText(
-								'Engineered the LRT Executive Dashboard and Digitax Middleware APIs for the Directorate General of Taxes using Express.js, Nest.js, and PostgreSQL.',
-								['LRT Executive Dashboard', 'Digitax Middleware APIs'],
+								'Merancang dan mengembangkan Dashboard Eksekutif LRT serta API Middleware Digitax untuk Direktorat Jenderal Pajak, memanfaatkan teknologi Express.js, Nest.js, dan PostgreSQL.',
+								['Dashboard Eksekutif LRT', 'API Middleware Digitax'],
 							),
 							setHighlightText(
-								'Optimized 10+ critical API endpoints involving complex table joins, ensuring seamless data flow between backend and frontend.',
-								['10+ critical API endpoints'],
+								'Melakukan optimasi performa pada 10+ endpoint API krusial yang menangani kueri database kompleks, menjamin kelancaran aliran data antar sistem backend dan frontend.',
+								['10+ endpoint API krusial'],
 							),
 							setHighlightText(
-								'Implemented secure JWT authentication and a high-volume PDF merging service capable of processing 90+ files simultaneously.',
-								['JWT authentication'],
+								'Mengimplementasikan sistem autentikasi JWT yang aman serta layanan penggabungan dokumen PDF bervolume tinggi yang mampu memproses puluhan file secara simultan.',
+								['sistem autentikasi JWT', 'dokumen PDF bervolume tinggi'],
 							),
-							setHighlightText('Standardized API documentation via Swagger, reducing frontend integration time by 80%.', [
-								'Standardized API documentation',
-							]),
 							setHighlightText(
-								'Partnered with QA and frontend teams to reduce bug resolution time by 90% through streamlined communication.',
-								[],
+								'Menstandarisasi dokumentasi API menggunakan Swagger, yang berhasil mempercepat integrasi frontend hingga 80%.',
+								['Menstandarisasi dokumentasi API'],
+							),
+							setHighlightText(
+								'Berkolaborasi secara intensif dengan tim QA dan frontend untuk mempersingkat waktu resolusi bug hingga 90% melalui komunikasi yang efisien.',
+								['Berkolaborasi secara intensif'],
 							),
 						],
 						stacks: getTechStack(['TypeScript', 'Express.js', 'NestJS', 'PostgreSQL', 'Swagger']),
 					},
 					{
 						icon: tabler.IconLayout,
-						position: 'Frontend Development',
+						position: 'Pengembangan Frontend',
 						summary: [],
 						points: [
 							setHighlightText(
-								'Revamped the CEISA 4.0 Customs & Excise application, delivering 2 core modules and integrating complex RESTful APIs.',
-								['CEISA 4.0 Customs & Excise application'],
+								'Berkontribusi dalam pembaruan aplikasi CEISA 4.0 Bea Cukai, dengan fokus pada pengembangan 2 modul inti dan integrasi API RESTful yang kompleks.',
+								['aplikasi CEISA 4.0 Bea Cukai', 'API RESTful yang kompleks'],
 							),
 							setHighlightText(
-								'Accelerated UI development by 60% through the implementation of React Ant Design across 10+ responsive pages.',
-								['React Ant Design'],
+								'Mempercepat pengembangan antarmuka pengguna sebesar 60% melalui implementasi library React Ant Design pada 10+ halaman responsif.',
+								['React Ant Design', '10+ halaman responsif'],
 							),
-							setHighlightText('Streamlined issue tracking via Git and Jira, cutting bug resolution turnaround by 70%.', [
-								'Streamlined issue tracking',
-							]),
+							setHighlightText(
+								'Menyederhanakan pelacakan isu menggunakan Git dan Jira, memangkas waktu penyelesaian bug hingga 70%.',
+								['Menyederhanakan pelacakan isu', 'Git', 'Jira'],
+							),
 						],
 						stacks: getTechStack(['JavaScript', 'React', 'Redux', 'Ant Design']),
 					},
@@ -110,7 +160,7 @@ export const id: Translations = {
 				mainPosition: 'Fullstack Web Developer',
 				type: 'Freelance',
 				location: 'Remote',
-				duration: ['June 2022', 'May 2024'],
+				duration: ['Juni 2022', 'Mei 2024'],
 				link: 'https://profdito.com/',
 				descriptions: [
 					{
@@ -118,17 +168,17 @@ export const id: Translations = {
 						summary: [],
 						points: [
 							setHighlightText(
-								'Architected a Language Diagnostic Platform using Next.js and MongoDB, featuring 15+ API endpoints and a fully responsive UI.',
-								['Language Diagnostic Platform'],
+								'Merancang arsitektur Platform Diagnostik Bahasa berbasis Next.js dan MongoDB, yang melayani lebih dari 15 endpoint API dengan antarmuka pengguna yang responsif dan intuitif.',
+								['Platform Diagnostik Bahasa', 'Next.js dan MongoDB'],
 							),
 							setHighlightText(
-								'Integrated automated email result delivery and a secure payment gateway, enhancing user retention.',
-								['payment gateway'],
+								'Mengintegrasikan sistem pengiriman hasil tes otomatis via email dan gateway pembayaran aman, yang berkontribusi signifikan pada retensi pengguna.',
+								['gateway pembayaran aman'],
 							),
-							setHighlightText('Managed feature delivery remotely using Git and Discord, ensuring timely project milestones.', [
-								'Git',
-								'Discord',
-							]),
+							setHighlightText(
+								'Mengelola seluruh siklus pengiriman fitur secara remote menggunakan Git dan Discord, memastikan setiap milestone proyek tercapai tepat waktu.',
+								['Git', 'Discord'],
+							),
 						],
 						stacks: getTechStack(['JavaScript', 'Next.js', 'Redux', 'Chakra UI', 'Express.js', 'MongoDB', 'Docker', 'Linux']),
 					},
@@ -136,18 +186,18 @@ export const id: Translations = {
 			},
 			{
 				company: 'PLN UPDK Bandar Lampung',
-				mainPosition: 'Engineering Staff',
-				type: 'Internship',
-				duration: ['March 2022', 'April 2022'],
+				mainPosition: 'Staf Teknik',
+				type: 'Magang',
+				duration: ['Maret 2022', 'April 2022'],
 				location: 'Lampung, Indonesia',
 				link: null,
 				descriptions: [
 					{
-						position: 'Engineering Staff',
+						position: 'Staf Teknik',
 						summary: [
 							setHighlightText(
-								'Modernized Employee Data Archiving for 500+ staff using MERN stack, improving data retrieval efficiency by 60%.',
-								['Employee Data Archiving', 'MERN stack'],
+								'Memodernisasi sistem Pengarsipan Data Karyawan untuk lebih dari 500 staf menggunakan stack MERN, yang meningkatkan efisiensi proses pengambilan data sebesar 60%.',
+								['Memodernisasi sistem Pengarsipan Data Karyawan', 'stack MERN'],
 							),
 						],
 						points: [],
@@ -159,10 +209,10 @@ export const id: Translations = {
 	},
 
 	technology: {
-		title: 'Technical Stack',
+		title: 'Arsitektur & Teknologi',
 		stacks: {
-			Languages: getTechStack(['JavaScript', 'TypeScript', 'Pyhton', 'Go']),
-			'Frameworks & UI': getTechStack([
+			Bahasa: getTechStack(['JavaScript', 'TypeScript', 'Pyhton', 'Go']),
+			'Framework & UI': getTechStack([
 				'Alpine.js',
 				'React',
 				'Vue.js',
@@ -177,7 +227,7 @@ export const id: Translations = {
 				'Material UI',
 				'Chakra UI',
 			]),
-			'Databases & Infrastructure': getTechStack([
+			'Database & Infrastruktur': getTechStack([
 				'PostgreSQL',
 				'MongoDB',
 				'Redis',
@@ -191,19 +241,22 @@ export const id: Translations = {
 	},
 
 	portfolio: {
-		title: 'Selected Works',
+		header: 'Portofolio',
+		title: 'Karya Terpilih',
+		subtitle:
+			'Koleksi terpilih dari aplikasi, API, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern berstandar industri.',
 		projects: [
 			{
 				icon: tabler.IconShieldCheck,
-				name: 'CEISA 4.0 (Perizinan Module)',
+				name: 'CEISA 4.0 (Modul Perizinan)',
 				summary: [
 					setHighlightText(
-						'An advanced web application for the Indonesian Directorate General of Customs and Excise. Streamlines business integrations and user collaboration via robust RESTful APIs.',
-						[],
+						'Aplikasi web skala enterprise yang dikembangkan untuk Direktorat Jenderal Bea dan Cukai. Dirancang untuk menyederhanakan integrasi proses bisnis dan memfasilitasi kolaborasi pengguna melalui arsitektur API RESTful yang handal.',
+						['skala enterprise', 'Direktorat Jenderal Bea dan Cukai', 'API RESTful'],
 					),
 					setHighlightText(
-						'Key features include management of excise registrations, NPPBKC numbers, power of attorney delegations, and automated payment scheduling.',
-						[],
+						'Mencakup fitur-fitur krusial seperti manajemen registrasi cukai, penerbitan Nomor NPPBKC, delegasi surat kuasa, serta sistem penjadwalan pembayaran otomatis.',
+						['Nomor NPPBKC', 'surat kuasa', 'pembayaran otomatis'],
 					),
 				],
 				type: 'private',
@@ -214,39 +267,39 @@ export const id: Translations = {
 				image: [
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login',
-						alt: 'Login Screen',
+						alt: 'Layar Login',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc',
-						alt: 'Browse NPPBKC',
+						alt: 'Lihat NPPBKC',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc',
-						alt: 'Create NPPBKC',
+						alt: 'Buat NPPBKC',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/kuasa',
-						alt: 'Power of Attorney',
+						alt: 'Surat Kuasa',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/kode-personalisasi',
-						alt: 'Personalization Code',
+						alt: 'Kode Personalisasi',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/hubungan-keterkaitan',
-						alt: 'Association Relations',
+						alt: 'Hubungan Keterkaitan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc',
-						alt: 'Excise Tax Group',
+						alt: 'Golongan BKC',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan',
-						alt: 'Deferred Payments',
+						alt: 'Pembayaran Penundaan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala',
-						alt: 'Periodic Payments',
+						alt: 'Pembayaran Berkala',
 					},
 				],
 			},
@@ -255,8 +308,8 @@ export const id: Translations = {
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
-						'A comprehensive diagnostic tool for assessing proficiency in multiple languages. Features include secure test-taking environments, automated certification, and premium question packages.',
-						[],
+						'Platform diagnostik komprehensif untuk mengevaluasi kemahiran bahasa. Dilengkapi dengan lingkungan ujian yang aman, sistem sertifikasi otomatis, dan manajemen bank soal premium.',
+						['Platform diagnostik', 'sertifikasi otomatis', 'bank soal premium'],
 					),
 				],
 				type: 'public',
@@ -267,19 +320,19 @@ export const id: Translations = {
 				image: [
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/beranda',
-						alt: 'Home',
+						alt: 'Beranda',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/register',
-						alt: 'Register',
+						alt: 'Daftar',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/login',
-						alt: 'Login',
+						alt: 'Masuk',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/tentang-kami',
-						alt: 'About Us',
+						alt: 'Tentang Kami',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/faq',
@@ -287,27 +340,27 @@ export const id: Translations = {
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/daftar-soal',
-						alt: 'Package List',
+						alt: 'Daftar Paket',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/detail-soal',
-						alt: 'Package Detail',
+						alt: 'Detail Paket',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pembayaran-soal',
-						alt: 'Payment',
+						alt: 'Pembayaran',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal',
-						alt: 'Test Interface',
+						alt: 'Antarmuka Tes',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan',
-						alt: 'Test Results',
+						alt: 'Hasil Tes',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/dashboard-pengguna',
-						alt: 'User Dashboard',
+						alt: 'Dashboard Pengguna',
 					},
 				],
 			},
@@ -316,8 +369,8 @@ export const id: Translations = {
 				name: 'StaffLab',
 				summary: [
 					setHighlightText(
-						'A robust HR platform for employee lifecycle management. Functionalities include real-time data updates, transfer processing, leave approval, and organizational hierarchy management (Branches, Divisions, Positions).',
-						[],
+						'Solusi platform HR modern untuk manajemen siklus hidup karyawan. Menawarkan fungsionalitas real-time untuk pembaruan data, pemrosesan mutasi jabatan, persetujuan cuti, serta visualisasi hierarki organisasi yang dinamis.',
+						['platform HR modern', 'fungsionalitas real-time', 'hierarki organisasi'],
 					),
 				],
 				type: 'public',
@@ -332,23 +385,23 @@ export const id: Translations = {
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai',
-						alt: 'Add Employee',
+						alt: 'Tambah Karyawan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai',
-						alt: 'Employee List',
+						alt: 'Daftar Karyawan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi',
-						alt: 'Add Job Transfer',
+						alt: 'Tambah Mutasi Jabatan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi',
-						alt: 'Job Transfer Process',
+						alt: 'Proses Mutasi Jabatan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi',
-						alt: 'Job Transfer History',
+						alt: 'Riwayat Mutasi Jabatan',
 					},
 				],
 			},
@@ -356,36 +409,36 @@ export const id: Translations = {
 	},
 
 	education: {
-		title: 'Education History',
+		title: 'Riwayat Pendidikan',
 		educations: [
 			{
-				institution: 'Lampung State Polytechnic',
-				degree: "Associate's Degree",
-				fieldOfStudy: 'Informatics Engineering',
+				institution: 'Politeknik Negeri Lampung',
+				degree: 'Diploma III (D3)',
+				fieldOfStudy: 'Manajemen Informatika',
 				location: 'Lampung, Indonesia',
-				duration: ['July 2019', 'May 2023'],
+				duration: ['Juli 2019', 'Mei 2023'],
 				link: 'https://polinela.ac.id/',
 				summary: [],
 				points: [],
 				award: [
 					{
-						label: 'GPA: 4.00 / 4.00',
-						description: 'Graduated with Highest Honors (Summa Cum Laude)',
+						label: 'IPK: 4.00 / 4.00',
+						description: 'Lulus dengan Pujian Tertinggi (Summa Cum Laude)',
 						icon: tabler.IconAward,
 					},
 				],
 			},
 			{
 				institution: 'Pijar Camp',
-				degree: 'Intensive Bootcamp',
+				degree: 'Bootcamp Intensif',
 				fieldOfStudy: 'Fullstack Web Development',
 				location: 'Remote',
-				duration: ['May 2022', 'August 2022'],
+				duration: ['Mei 2022', 'Agustus 2022'],
 				link: 'https://camp.pijarmahir.id/',
 				summary: [
 					setHighlightText(
-						'Intensive 400+ hour full-stack immersion program focusing on MERN architecture and agile methodologies.',
-						['MERN architecture', 'agile methodologies'],
+						'Mengikuti program intensif full-stack selama 400+ jam, dengan fokus pendalaman pada arsitektur MERN dan penerapan metodologi agile dalam pengembangan perangkat lunak.',
+						['program intensif full-stack selama 400+ jam', 'arsitektur MERN', 'penerapan metodologi agile'],
 					),
 				],
 				points: [],
@@ -394,17 +447,62 @@ export const id: Translations = {
 		],
 	},
 
+	contactMe: {
+		header: 'Hubungi Saya',
+		description:
+			'Siap bekerja sama untuk mewujudkan visi Anda. Apakah Anda memiliki pertanyaan, ide proyek, atau membutuhkan solusi teknis yang spesifik, jangan ragu untuk menghubungi. Mari kita bangun solusi digital yang hebat bersama-sama.',
+		formTitle: 'Ceritakan Tentang Proyek Anda',
+		form: [
+			{
+				label: 'Nama Lengkap',
+				name: 'fullName',
+				type: 'text',
+				placeholder: 'Masukkan nama lengkap Anda',
+			},
+			{
+				label: 'Alamat Email',
+				name: 'email',
+				type: 'email',
+				placeholder: 'Masukkan email Anda',
+			},
+			{
+				label: 'Nomor Telepon',
+				name: 'telephone',
+				type: 'tel',
+				placeholder: 'Masukkan nomor telepon Anda',
+			},
+			{
+				label: 'Topik',
+				name: 'subject',
+				type: 'text',
+				placeholder: 'Apa yang ingin Anda diskusikan?',
+			},
+			{
+				label: 'Pesan',
+				name: 'message',
+				type: 'textarea',
+				placeholder: 'Jelaskan kebutuhan atau pertanyaan Anda',
+			},
+		],
+		submitButton: 'Kirim Pesan',
+		successMessage: 'Pesan berhasil dikirim!',
+		sendAnotherMessage: 'Kirim pesan lainnya',
+		reachMeDirectly: 'Hubungi saya langsung',
+	},
+
 	footer: {
 		copyright: '© {year} Irfandi Iqbal Abimanyu.',
-		builtWith: 'Built with precision.',
+		builtWith: 'Dirancang dengan presisi.',
 	},
 
 	common: {
-		viewMore: 'View More',
-		liveDemo: 'Live Demo',
-		downloadResume: 'Download Resume',
+		viewMore: 'Selengkapnya',
+		liveDemo: 'Demo Live',
+		downloadResume: 'Unduh CV',
+		source: 'Sumber',
+		internal: 'Internal',
 		portfolioCategories: [
-			{ label: 'All', value: 'all' },
+			{ label: 'Semua', value: 'all' },
 			{ label: 'Frontend', value: 'frontend' },
 			{ label: 'Backend', value: 'backend' },
 			{ label: 'Fullstack', value: 'fullstack' },
