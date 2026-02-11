@@ -1,9 +1,12 @@
 import { useTranslation } from '@/hooks';
 import { createFileRoute } from '@tanstack/react-router';
+import { motion } from 'framer-motion';
 import * as React from 'react';
 
-import { ProjectCard } from '@/components/ui';
+import { ProjectCard, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
 import { Tabs } from '@base-ui/react/tabs';
+
+const MotionTab = motion(Tabs.Tab);
 
 export const Route = createFileRoute('/portfolio')({
 	component: RouteComponent,
@@ -19,42 +22,49 @@ function RouteComponent() {
 
 	return (
 		<React.Fragment>
-			<div className='grid mb-8 gap-8'>
+			<SlideUp className='grid mb-8 gap-8'>
 				<div className='flex items-center'>
-					<h2 className='text-lg font-semibold text-slate-900 dark:text-white tracking-tight'>Portfolio</h2>
-					<div className='h-px bg-slate-200 dark:bg-neutral-800 w-full ml-6'></div>
+					<h2 className='text-lg font-semibold text-foreground tracking-tight'>Portfolio</h2>
+					<div className='h-px bg-border w-full ml-6'></div>
 				</div>
 
 				<Tabs.Root value={tabActive} onValueChange={setTabActive}>
 					<div className='flex flex-col sm:flex-row md:justify-between sm:gap-0 gap-6'>
-						<p className='text-slate-500 dark:text-neutral-400 max-w-md'>
+						<p className='text-muted-foreground max-w-md'>
 							A selection of production-grade applications, APIs, and experiments built with modern technologies.
 						</p>
 
-						<Tabs.List className='flex p-1 h-fit bg-slate-100 dark:bg-neutral-900/50 rounded-lg border border-slate-200 dark:border-neutral-800'>
+						<Tabs.List className='flex gap-1 p-1.5 h-fit bg-background/80 backdrop-blur-xl rounded-2xl border border-white/40 dark:border-white/10 light-shadow dark:shadow-none'>
 							{common.portfolioCategories.map((tab) => (
-								<Tabs.Tab
+								<MotionTab
 									key={tab.value}
 									value={tab.value}
-									className='px-3 py-1.5 w-full rounded-md text-xs font-medium border border-transparent text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white transition-colors data-active:bg-white data-active:dark:bg-neutral-800 data-active:text-slate-900 data-active:dark:text-white data-active:shadow-sm data-active:border-slate-200 data-active:dark:border-neutral-700 cursor-pointer'
+									whileHover={{ scale: 1.03 }}
+									whileTap={{ scale: 1 }}
+									transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+									className='px-3 py-1.5 w-full rounded-xl text-xs font-medium transition-colors duration-300 cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 text-muted-foreground/80 hover:text-foreground hover:bg-white/60 dark:hover:bg-secondary data-active:bg-white/80 data-active:dark:bg-secondary data-active:text-foreground'
 								>
 									{tab.label}
-								</Tabs.Tab>
+								</MotionTab>
 							))}
 						</Tabs.List>
 					</div>
 
 					{common.portfolioCategories.map((tab) => (
-						<Tabs.Panel key={tab.value} value={tab.value} className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
-							{filteredProjects.length > 0
-								? filteredProjects.map((project, projectIndex) => (
-										<ProjectCard key={project.name} {...project} isFirst={projectIndex === 0} />
-									))
-								: null}
+						<Tabs.Panel key={tab.value} value={tab.value}>
+							<StaggerContainer className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
+								{filteredProjects.length > 0
+									? filteredProjects.map((project, projectIndex) => (
+											<StaggerItem key={project.name} className={projectIndex === 0 ? 'md:col-span-2' : ''}>
+												<ProjectCard {...project} isFirst={projectIndex === 0} />
+											</StaggerItem>
+										))
+									: null}
+							</StaggerContainer>
 						</Tabs.Panel>
 					))}
 				</Tabs.Root>
-			</div>
+			</SlideUp>
 		</React.Fragment>
 	);
 }

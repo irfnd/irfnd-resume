@@ -16,7 +16,7 @@ export function Menu() {
 		<SlideUp
 			as='nav'
 			delay={0.4}
-			className='fixed bottom-6 inset-x-0 mx-auto w-[90%] max-w-100 lg:static lg:w-full lg:max-w-none flex items-center justify-between p-1.5 rounded-2xl bg-background/80 backdrop-blur-xl border border-white/40 dark:border-white/10 light-shadow hover:light-shadow dark:shadow-none z-50 lg:flex-col lg:justify-start lg:gap-1 lg:p-2 lg:bg-white/40 lg:dark:bg-white/5 lg:hover:border-blue-300/50 lg:dark:hover:border-blue-500/20 transition-all duration-300'
+			className='fixed gap-1 bottom-6 inset-x-0 mx-auto w-[90%] max-w-100 lg:static lg:w-full lg:max-w-none flex items-center justify-between p-1.5 rounded-2xl bg-background/80 backdrop-blur-xl border border-white/40 dark:border-white/10 light-shadow hover:light-shadow dark:shadow-none z-50 lg:flex-col lg:justify-start lg:gap-1 lg:p-2 lg:bg-white/40 lg:dark:bg-white/5 lg:hover:border-blue-300/50 lg:dark:hover:border-blue-500/20 transition-all duration-300'
 		>
 			{navigation.map((item, index, arr) => {
 				const isActive = pathname === item.url;

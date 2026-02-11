@@ -17,7 +17,7 @@ export function ProjectCard(props: ProjectCardProps) {
 			whileHover={{ y: -8 }}
 			whileTap={{ scale: 0.98 }}
 			transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
-			className='group relative md:col-span-2 glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 light-shadow hover:light-shadow-hover dark:shadow-none h-full'
+			className='group relative glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 light-shadow hover:light-shadow-hover dark:shadow-none h-full'
 		>
 			<div className='grid md:grid-cols-2 h-full'>
 				<div className='p-8 flex flex-col justify-between md:h-full relative z-10'>
