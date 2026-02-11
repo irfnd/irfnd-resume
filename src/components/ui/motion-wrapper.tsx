@@ -1,12 +1,15 @@
 import { motion, useInView, type HTMLMotionProps, type Variants } from 'framer-motion';
 import { useRef } from 'react';
 
-interface MotionWrapperProps extends HTMLMotionProps<'div'> {
+type MotionElement = 'div' | 'section' | 'nav' | 'article' | 'aside' | 'footer' | 'header' | 'main';
+
+interface MotionWrapperProps extends Omit<HTMLMotionProps<'div'>, 'as'> {
 	children: React.ReactNode;
 	delay?: number;
 	duration?: number;
 	viewportOnce?: boolean;
 	threshold?: number;
+	as?: MotionElement;
 }
 
 export function FadeIn({
@@ -16,13 +19,15 @@ export function FadeIn({
 	viewportOnce = true,
 	threshold = 0.05,
 	className,
+	as = 'div',
 	...props
 }: MotionWrapperProps) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
+	const Component = motion[as] as typeof motion.div;
 
 	return (
-		<motion.div
+		<Component
 			ref={ref}
 			initial={{ opacity: 0 }}
 			animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -32,7 +37,7 @@ export function FadeIn({
 			{...props}
 		>
 			{children}
-		</motion.div>
+		</Component>
 	);
 }
 
@@ -43,13 +48,15 @@ export function SlideUp({
 	viewportOnce = true,
 	threshold = 0.05,
 	className,
+	as = 'div',
 	...props
 }: MotionWrapperProps) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
+	const Component = motion[as] as typeof motion.div;
 
 	return (
-		<motion.div
+		<Component
 			ref={ref}
 			initial={{ opacity: 0, y: 20 }}
 			animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -59,15 +66,16 @@ export function SlideUp({
 			{...props}
 		>
 			{children}
-		</motion.div>
+		</Component>
 	);
 }
 
-interface StaggerContainerProps extends HTMLMotionProps<'div'> {
+interface StaggerContainerProps extends Omit<HTMLMotionProps<'div'>, 'as'> {
 	children: React.ReactNode;
 	staggerDelay?: number;
 	viewportOnce?: boolean;
 	threshold?: number;
+	as?: MotionElement;
 }
 
 export function StaggerContainer({
@@ -76,10 +84,12 @@ export function StaggerContainer({
 	viewportOnce = true,
 	threshold = 0.05,
 	className,
+	as = 'div',
 	...props
 }: StaggerContainerProps) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
+	const Component = motion[as] as typeof motion.div;
 
 	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
@@ -92,7 +102,7 @@ export function StaggerContainer({
 	};
 
 	return (
-		<motion.div
+		<Component
 			ref={ref}
 			variants={containerVariants}
 			initial='hidden'
@@ -102,7 +112,7 @@ export function StaggerContainer({
 			{...props}
 		>
 			{children}
-		</motion.div>
+		</Component>
 	);
 }
 
