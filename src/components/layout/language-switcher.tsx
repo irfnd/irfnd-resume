@@ -22,7 +22,7 @@ export function LanguageSwitcher() {
 
 			<Menu.Portal>
 				<Menu.Positioner align='end' sideOffset={8}>
-					<Menu.Popup className='w-42 p-2 rounded-2xl bg-popover/95 border border-border/60 light-shadow dark:shadow-lg backdrop-blur-md z-50 animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2'>
+					<Menu.Popup className='w-42 p-2 rounded-2xl bg-popover/95 border border-border/60 light-shadow dark:shadow-lg backdrop-blur-md z-65 animate-in fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2'>
 						<Menu.RadioGroup
 							className='flex flex-col gap-1'
 							value={language}
