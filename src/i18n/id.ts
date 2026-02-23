@@ -76,19 +76,19 @@ export const id: Translations = {
 		},
 		role: 'Fullstack Web Developer',
 		description:
-			'Pengembang Fullstack dengan spesialisasi ekosistem web skalabel. Ahli dalam arsitektur backend dan pengembangan frontend UI/UX yang presisi.',
+			'Fullstack Developer yang berfokus pada solusi dan arsitektur web skalabel. Berpengalaman membangun backend yang handal serta merancang antarmuka frontend presisi yang berpusat pada pengalaman pengguna.',
 	},
 
 	about: {
 		title: 'Profil & Fokus',
 		description: [
 			setHighlightText(
-				'Berdedikasi untuk menciptakan aplikasi web skalabel dan API berkinerja tinggi yang mampu menangani beban kerja besar. Dengan penguasaan mendalam atas ekosistem JavaScript dan TypeScript, keahlian yang dimiliki mencakup manajemen database relasional dan NoSQL, penerapan containerization menggunakan Docker, serta strategi optimasi sistem yang komprehensif. Selalu memegang teguh prinsip clean code dan menghargai kolaborasi tim yang adaptif dalam lingkungan kerja agile.',
-				['JavaScript dan TypeScript'],
+				'Saya berfokus pada pengembangan arsitektur aplikasi web skalabel dan API berkinerja tinggi dalam ekosistem JavaScript/TypeScript. Memiliki keahlian mendalam dalam manajemen database relasional dan NoSQL, deployment dengan container Docker, serta optimasi performa sistem. Saya berkomitmen menerapkan standar "clean code", menjaga kualitas teknis, dan mengedepankan kolaborasi tim yang adaptif.',
+				['JavaScript/TypeScript'],
 			),
 		],
 		focus: [
-			{ value: '3+ Tahun', label: 'Exp. Komersial', icon: tabler.IconCode },
+			{ value: '3+ Tahun', label: 'Pengalaman', icon: tabler.IconCode },
 			{ value: 'Full-Cycle', label: 'Development', icon: tabler.IconStack2 },
 			{ value: 'Presisi', label: 'UI/UX Engineering', icon: tabler.IconViewfinder },
 		],
@@ -107,48 +107,48 @@ export const id: Translations = {
 				descriptions: [
 					{
 						icon: tabler.IconServer2,
-						position: 'Pengembangan Backend',
+						position: 'Backend Development',
 						summary: [],
 						points: [
 							setHighlightText(
-								'Merancang dan mengembangkan Dashboard Eksekutif LRT serta API Middleware Digitax untuk Direktorat Jenderal Pajak, memanfaatkan teknologi Express.js, Nest.js, dan PostgreSQL.',
-								['Dashboard Eksekutif LRT', 'API Middleware Digitax'],
+								'Mengembangkan Dashboard Eksekutif LRT dan Middleware API Digitax yang krusial bagi Direktorat Jenderal Pajak, menggunakan stack Express.js, Nest.js, dan PostgreSQL untuk menjamin stabilitas dan integritas data.',
+								['Dashboard Eksekutif LRT', 'Middleware API Digitax'],
 							),
 							setHighlightText(
-								'Melakukan optimasi performa pada 10+ endpoint API krusial yang menangani kueri database kompleks, menjamin kelancaran aliran data antar sistem backend dan frontend.',
-								['10+ endpoint API krusial'],
+								'Mengoptimalkan lebih dari 10 endpoint API kritis dengan agregasi data kompleks, memastikan sinkronisasi data yang lancar dan cepat antara layanan backend dan aplikasi klien.',
+								['lebih dari 10 endpoint API kritis'],
 							),
 							setHighlightText(
-								'Mengimplementasikan sistem autentikasi JWT yang aman serta layanan penggabungan dokumen PDF bervolume tinggi yang mampu memproses puluhan file secara simultan.',
-								['sistem autentikasi JWT', 'dokumen PDF bervolume tinggi'],
+								'Mengimplementasikan sistem autentikasi JWT yang aman serta layanan pemrosesan PDF berkapasitas tinggi yang mampu menangani operasi simultan untuk 90+ fail.',
+								['autentikasi JWT'],
 							),
 							setHighlightText(
-								'Menstandarisasi dokumentasi API menggunakan Swagger, yang berhasil mempercepat integrasi frontend hingga 80%.',
-								['Menstandarisasi dokumentasi API'],
+								'Menetapkan standar dokumentasi API menggunakan Swagger, yang berhasil mempercepat proses integrasi frontend hingga 80%.',
+								['Menetapkan standar dokumentasi API'],
 							),
 							setHighlightText(
-								'Berkolaborasi secara intensif dengan tim QA dan frontend untuk mempersingkat waktu resolusi bug hingga 90% melalui komunikasi yang efisien.',
-								['Berkolaborasi secara intensif'],
+								'Berkolaborasi erat dengan tim QA dan engineer frontend untuk mengefisienkan proses debugging, mengurangi waktu perbaikan bug hingga 90% melalui komunikasi yang efektif.',
+								['tim QA dan engineer frontend', 'mengurangi waktu perbaikan bug hingga 90%'],
 							),
 						],
 						stacks: getTechStack(['TypeScript', 'Express.js', 'NestJS', 'PostgreSQL', 'Swagger']),
 					},
 					{
 						icon: tabler.IconLayout,
-						position: 'Pengembangan Frontend',
+						position: 'Frontend Development',
 						summary: [],
 						points: [
 							setHighlightText(
-								'Berkontribusi dalam pembaruan aplikasi CEISA 4.0 Bea Cukai, dengan fokus pada pengembangan 2 modul inti dan integrasi API RESTful yang kompleks.',
-								['aplikasi CEISA 4.0 Bea Cukai', 'API RESTful yang kompleks'],
+								'Memimpin pembaruan frontend aplikasi CEISA 4.0 Bea Cukai, menghadirkan 2 modul fungsional inti dan mengintegrasikan layanan API RESTful yang kompleks.',
+								['aplikasi CEISA 4.0 Bea Cukai'],
 							),
 							setHighlightText(
-								'Mempercepat pengembangan antarmuka pengguna sebesar 60% melalui implementasi library React Ant Design pada 10+ halaman responsif.',
-								['React Ant Design', '10+ halaman responsif'],
+								'Meningkatkan kecepatan pengembangan UI sebesar 60% melalui penerapan strategis library komponen React Ant Design pada lebih dari 10 halaman responsif.',
+								['React Ant Design'],
 							),
 							setHighlightText(
-								'Menyederhanakan pelacakan isu menggunakan Git dan Jira, memangkas waktu penyelesaian bug hingga 70%.',
-								['Menyederhanakan pelacakan isu', 'Git', 'Jira'],
+								'Mengoptimalkan alur kerja pelacakan isu menggunakan Git dan Jira, yang mengurangi waktu tunggu penyelesaian bug sebesar 70%.',
+								['Mengoptimalkan alur kerja pelacakan isu'],
 							),
 						],
 						stacks: getTechStack(['JavaScript', 'React', 'Redux', 'Ant Design']),
@@ -168,15 +168,15 @@ export const id: Translations = {
 						summary: [],
 						points: [
 							setHighlightText(
-								'Merancang arsitektur Platform Diagnostik Bahasa berbasis Next.js dan MongoDB, yang melayani lebih dari 15 endpoint API dengan antarmuka pengguna yang responsif dan intuitif.',
-								['Platform Diagnostik Bahasa', 'Next.js dan MongoDB'],
+								'Merancang dan men-deploy Platform Diagnostik Bahasa yang komprehensif berbasis Next.js dan MongoDB, mendukung 15+ endpoint RESTful dengan antarmuka yang intuitif dan responsif.',
+								['Platform Diagnostik Bahasa'],
 							),
 							setHighlightText(
-								'Mengintegrasikan sistem pengiriman hasil tes otomatis via email dan gateway pembayaran aman, yang berkontribusi signifikan pada retensi pengguna.',
-								['gateway pembayaran aman'],
+								'Mengintegrasikan sistem email otomatis dan gerbang pembayaran aman, yang secara signifikan meningkatkan keterlibatan dan retensi pengguna.',
+								['gerbang pembayaran aman'],
 							),
 							setHighlightText(
-								'Mengelola seluruh siklus pengiriman fitur secara remote menggunakan Git dan Discord, memastikan setiap milestone proyek tercapai tepat waktu.',
+								'Mengelola pengembangan fitur secara end-to-end dalam lingkungan kerja remote, memanfaatkan Git dan Discord untuk memastikan kesesuaian dengan milestone dan timeline proyek.',
 								['Git', 'Discord'],
 							),
 						],
@@ -196,8 +196,8 @@ export const id: Translations = {
 						position: 'Staf Teknik',
 						summary: [
 							setHighlightText(
-								'Memodernisasi sistem Pengarsipan Data Karyawan untuk lebih dari 500 staf menggunakan stack MERN, yang meningkatkan efisiensi proses pengambilan data sebesar 60%.',
-								['Memodernisasi sistem Pengarsipan Data Karyawan', 'stack MERN'],
+								'Memodernisasi sistem Pengarsipan Data Karyawan untuk 500+ staf dengan solusi MERN stack, meningkatkan efisiensi pencarian data sebesar 60%.',
+								['Pengarsipan Data Karyawan', 'MERN stack'],
 							),
 						],
 						points: [],
@@ -209,10 +209,10 @@ export const id: Translations = {
 	},
 
 	technology: {
-		title: 'Arsitektur & Teknologi',
+		title: 'Teknologi & Stack',
 		stacks: {
-			Bahasa: getTechStack(['JavaScript', 'TypeScript', 'Pyhton', 'Go']),
-			'Framework & UI': getTechStack([
+			Languages: getTechStack(['JavaScript', 'TypeScript', 'Python', 'Go']),
+			'Frameworks & UI': getTechStack([
 				'Alpine.js',
 				'React',
 				'Vue.js',
@@ -227,7 +227,7 @@ export const id: Translations = {
 				'Material UI',
 				'Chakra UI',
 			]),
-			'Database & Infrastruktur': getTechStack([
+			'Databases & Infrastructure': getTechStack([
 				'PostgreSQL',
 				'MongoDB',
 				'Redis',
@@ -243,20 +243,19 @@ export const id: Translations = {
 	portfolio: {
 		header: 'Portofolio',
 		title: 'Karya Terpilih',
-		subtitle:
-			'Koleksi terpilih dari aplikasi, API, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern berstandar industri.',
+		subtitle: 'Koleksi aplikasi skala produksi, API handal, dan eksperimen inovatif yang dibangun dengan teknologi web modern.',
 		projects: [
 			{
 				icon: tabler.IconShieldCheck,
 				name: 'CEISA 4.0 (Modul Perizinan)',
 				summary: [
 					setHighlightText(
-						'Aplikasi web skala enterprise yang dikembangkan untuk Direktorat Jenderal Bea dan Cukai. Dirancang untuk menyederhanakan integrasi proses bisnis dan memfasilitasi kolaborasi pengguna melalui arsitektur API RESTful yang handal.',
-						['skala enterprise', 'Direktorat Jenderal Bea dan Cukai', 'API RESTful'],
+						'Aplikasi web skala enterprise untuk Direktorat Jenderal Bea dan Cukai. Dirancang untuk menyederhanakan integrasi bisnis yang kompleks dan memfasilitasi kolaborasi pengguna melalui arsitektur API RESTful yang kokoh.',
+						['Direktorat Jenderal Bea dan Cukai', 'integrasi bisnis', 'API RESTful'],
 					),
 					setHighlightText(
-						'Mencakup fitur-fitur krusial seperti manajemen registrasi cukai, penerbitan Nomor NPPBKC, delegasi surat kuasa, serta sistem penjadwalan pembayaran otomatis.',
-						['Nomor NPPBKC', 'surat kuasa', 'pembayaran otomatis'],
+						'Fitur utama mencakup manajemen registrasi cukai, penerbitan NPPBKC, pelimpahan kuasa, serta alur kerja penjadwalan pembayaran otomatis.',
+						['penerbitan NPPBKC', 'pelimpahan kuasa', 'penjadwalan pembayaran otomatis'],
 					),
 				],
 				type: 'private',
@@ -267,11 +266,11 @@ export const id: Translations = {
 				image: [
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/login',
-						alt: 'Layar Login',
+						alt: 'Halaman Login',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/browse-nppbkc',
-						alt: 'Lihat NPPBKC',
+						alt: 'Direktori NPPBKC',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/create-nppbkc',
@@ -291,11 +290,11 @@ export const id: Translations = {
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039370/Portfolio/Ceisa/golongan-bkc',
-						alt: 'Golongan BKC',
+						alt: 'Golongan Cukai',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-penundaan',
-						alt: 'Pembayaran Penundaan',
+						alt: 'Pembayaran Ditangguhkan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724039371/Portfolio/Ceisa/pembayaran-berkala',
@@ -308,8 +307,8 @@ export const id: Translations = {
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
-						'Platform diagnostik komprehensif untuk mengevaluasi kemahiran bahasa. Dilengkapi dengan lingkungan ujian yang aman, sistem sertifikasi otomatis, dan manajemen bank soal premium.',
-						['Platform diagnostik', 'sertifikasi otomatis', 'bank soal premium'],
+						'Platform diagnostik komprehensif untuk mengukur kemampuan bahasa. Dilengkapi lingkungan tes yang aman, sistem sertifikasi otomatis, dan modul penilaian premium.',
+						['Platform diagnostik', 'sertifikasi otomatis', 'modul penilaian premium'],
 					),
 				],
 				type: 'public',
@@ -352,7 +351,7 @@ export const id: Translations = {
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/pengerjaan-soal',
-						alt: 'Antarmuka Tes',
+						alt: 'Halaman Ujian',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Portfolio/Profdito/hasil-pengerjaan',
@@ -369,8 +368,8 @@ export const id: Translations = {
 				name: 'StaffLab',
 				summary: [
 					setHighlightText(
-						'Solusi platform HR modern untuk manajemen siklus hidup karyawan. Menawarkan fungsionalitas real-time untuk pembaruan data, pemrosesan mutasi jabatan, persetujuan cuti, serta visualisasi hierarki organisasi yang dinamis.',
-						['platform HR modern', 'fungsionalitas real-time', 'hierarki organisasi'],
+						'Platform manajemen SDM yang skalabel untuk optimalisasi siklus kerja karyawan. Fitur mencakup sinkronisasi data real-time, pemrosesan mutasi otomatis, manajemen cuti, serta visualisasi struktur organisasi (Cabang, Divisi, Jabatan).',
+						['Platform manajemen SDM', 'sinkronisasi data real-time', 'visualisasi struktur organisasi'],
 					),
 				],
 				type: 'public',
@@ -381,7 +380,7 @@ export const id: Translations = {
 				image: [
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629557/Portfolio/Stafflab/dashboard',
-						alt: 'Dashboard',
+						alt: 'Dashboard Utama',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629449/Portfolio/Stafflab/tambah-pegawai',
@@ -389,19 +388,19 @@ export const id: Translations = {
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/pegawai',
-						alt: 'Daftar Karyawan',
+						alt: 'Data Karyawan',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/tambah-mutasi',
-						alt: 'Tambah Mutasi Jabatan',
+						alt: 'Buat Mutasi',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/proses-mutasi',
-						alt: 'Proses Mutasi Jabatan',
+						alt: 'Proses Mutasi',
 					},
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi',
-						alt: 'Riwayat Mutasi Jabatan',
+						alt: 'Riwayat Mutasi',
 					},
 				],
 			},
@@ -423,7 +422,7 @@ export const id: Translations = {
 				award: [
 					{
 						label: 'IPK: 4.00 / 4.00',
-						description: 'Lulus dengan Pujian Tertinggi (Summa Cum Laude)',
+						description: 'Lulus dengan Pujian (Summa Cum Laude)',
 						icon: tabler.IconAward,
 					},
 				],
@@ -437,8 +436,8 @@ export const id: Translations = {
 				link: 'https://camp.pijarmahir.id/',
 				summary: [
 					setHighlightText(
-						'Mengikuti program intensif full-stack selama 400+ jam, dengan fokus pendalaman pada arsitektur MERN dan penerapan metodologi agile dalam pengembangan perangkat lunak.',
-						['program intensif full-stack selama 400+ jam', 'arsitektur MERN', 'penerapan metodologi agile'],
+						'Menyelesaikan program intensif 400+ jam yang berfokus pada arsitektur MERN stack dan metodologi pengembangan software Agile.',
+						['arsitektur MERN stack', 'metodologi pengembangan software Agile'],
 					),
 				],
 				points: [],
@@ -450,57 +449,57 @@ export const id: Translations = {
 	contactMe: {
 		header: 'Hubungi Saya',
 		description:
-			'Siap bekerja sama untuk mewujudkan visi Anda. Apakah Anda memiliki pertanyaan, ide proyek, atau membutuhkan solusi teknis yang spesifik, jangan ragu untuk menghubungi. Mari kita bangun solusi digital yang hebat bersama-sama.',
-		formTitle: 'Ceritakan Tentang Proyek Anda',
+			'Terbuka untuk diskusi proyek, tantangan teknis, atau peluang kolaborasi. Jangan ragu untuk menghubungi saya guna mengeksplorasi solusi digital yang dapat kita bangun bersama.',
+		formTitle: 'Mulai Percakapan',
 		form: [
 			{
 				label: 'Nama Lengkap',
 				name: 'fullName',
 				type: 'text',
-				placeholder: 'Masukkan nama lengkap Anda',
+				placeholder: 'Nama lengkap Anda',
 			},
 			{
 				label: 'Alamat Email',
 				name: 'email',
 				type: 'email',
-				placeholder: 'Masukkan email Anda',
+				placeholder: 'Alamat email aktif',
 			},
 			{
 				label: 'Nomor Telepon',
 				name: 'telephone',
 				type: 'tel',
-				placeholder: 'Masukkan nomor telepon Anda',
+				placeholder: 'Nomor yang dapat dihubungi',
 			},
 			{
-				label: 'Topik',
+				label: 'Subjek',
 				name: 'subject',
 				type: 'text',
-				placeholder: 'Apa yang ingin Anda diskusikan?',
+				placeholder: 'Topik diskusi',
 			},
 			{
 				label: 'Pesan',
 				name: 'message',
 				type: 'textarea',
-				placeholder: 'Jelaskan kebutuhan atau pertanyaan Anda',
+				placeholder: 'Bagaimana saya bisa membantu?',
 			},
 		],
 		submitButton: 'Kirim Pesan',
 		successMessage: 'Pesan berhasil dikirim!',
-		sendAnotherMessage: 'Kirim pesan lainnya',
-		reachMeDirectly: 'Hubungi saya langsung',
+		sendAnotherMessage: 'Kirim pesan lain',
+		reachMeDirectly: 'Hubungi secara langsung',
 	},
 
 	footer: {
 		copyright: '© {year} Irfandi Iqbal Abimanyu.',
-		builtWith: 'Dirancang dengan presisi.',
+		builtWith: 'Dibuat dengan presisi.',
 	},
 
 	common: {
-		viewMore: 'Selengkapnya',
-		liveDemo: 'Demo Live',
-		downloadResume: 'Unduh CV',
-		source: 'Sumber',
-		internal: 'Internal',
+		viewMore: 'Lihat Detail',
+		liveDemo: 'Demo Langsung',
+		downloadResume: 'Unduh Resume',
+		source: 'Kode Sumber',
+		internal: 'Proyek Internal',
 		portfolioCategories: [
 			{ label: 'Semua', value: 'all' },
 			{ label: 'Frontend', value: 'frontend' },

@@ -1,7 +1,7 @@
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils/cn';
 
-import { HighlightText, SlideUp, StaggerContainer, StaggerItem, TechIcon } from '@/components/ui';
+import { HighlightText, SlideUp, TechIcon, TimelineBadge, TimelineBeam, TimelineDot, TimelineItem } from '@/components/ui';
 
 export function ProfessionalJurney() {
 	const { experience } = useTranslation();
@@ -13,10 +13,10 @@ export function ProfessionalJurney() {
 				<div className='h-px bg-border flex-1 ml-6' />
 			</div>
 
-			<StaggerContainer className='relative border-l border-border ml-3 space-y-12 pb-4'>
+			<TimelineBeam className='ml-3 space-y-12 pb-4'>
 				{experience.jobs.map((job, index) => (
-					<StaggerItem key={index} className='relative pl-6 md:pl-10 group'>
-						<div className='absolute -left-1.25 top-2 h-2.5 w-2.5 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-300 dark:border-neutral-600 group-hover:border-blue-500 group-hover:bg-blue-500 transition-colors duration-300 shadow-[0_0_0_4px_rgba(248,250,252,1)] dark:shadow-[0_0_0_4px_rgba(3,3,3,1)]' />
+					<TimelineItem key={index} className='relative pl-6 md:pl-10'>
+						<TimelineDot />
 
 						<div className='flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2'>
 							<div>
@@ -38,9 +38,7 @@ export function ProfessionalJurney() {
 									<span className='text-xs text-muted-foreground'>{job.type}</span>
 								</div>
 							</div>
-							<span className='text-xs w-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-card border border-border group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-blue-500/10 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none'>
-								{job.duration.join(' - ')}
-							</span>
+							<TimelineBadge>{job.duration.join(' - ')}</TimelineBadge>
 						</div>
 
 						{job.descriptions.map((desc, descIndex, descArr) => (
@@ -54,7 +52,7 @@ export function ProfessionalJurney() {
 								{descArr.length > 1 && (
 									<div className='flex items-center gap-2 mb-3'>
 										{desc.icon ? (
-											<desc.icon className='size-3.5 text-muted-foreground group-hover:text-blue-700 group-hover:dark:text-blue-400/90' />
+											<desc.icon className='size-3.5 text-muted-foreground group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-data-active:text-blue-700 group-data-active:dark:text-blue-400/90' />
 										) : null}
 										<span className='text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wider'>
 											{desc.position}
@@ -90,9 +88,9 @@ export function ProfessionalJurney() {
 								)}
 							</div>
 						))}
-					</StaggerItem>
+					</TimelineItem>
 				))}
-			</StaggerContainer>
+			</TimelineBeam>
 		</SlideUp>
 	);
 }

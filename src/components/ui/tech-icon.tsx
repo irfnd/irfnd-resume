@@ -26,8 +26,10 @@ export function TechIcon(props: TechIconProps) {
 		>
 			<props.icon
 				className={cn(
-					'size-8 transition-[color_opacity] opacity-70 group-hover:opacity-100',
-					props.customColor ? props.color : 'fill-muted-foreground group-hover:fill-(--stack-color)',
+					'size-8 transition-[color_opacity] opacity-70 group-hover:opacity-100 group-data-active:opacity-100',
+					props.customColor
+						? props.color
+						: 'fill-muted-foreground group-data-active:fill-(--stack-color) group-hover:fill-(--stack-color)',
 				)}
 			/>
 			{props.withLabel && <span className='text-xs font-medium text-muted-foreground'>{props.label}</span>}

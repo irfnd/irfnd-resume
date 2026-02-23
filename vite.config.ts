@@ -11,25 +11,23 @@ export default defineConfig({
 		rollupOptions: {
 			output: {
 				manualChunks(id) {
-					if (id.includes('node_modules')) {
-						// TanStack packages
-						if (id.includes('@tanstack')) return 'tanstack';
+					if (!id.includes('node_modules')) {
+						return;
+					}
 
-						// Animation
-						if (id.includes('framer-motion')) return 'framer-motion';
+					// TanStack packages
+					if (id.includes('@tanstack')) {
+						return 'tanstack';
+					}
 
-						// React and all React-dependent UI packages together
-						if (
-							id.includes('/react/') ||
-							id.includes('/react-dom/') ||
-							id.includes('use-sync-external-store') ||
-							id.includes('@floating-ui') ||
-							id.includes('@tabler') ||
-							id.includes('@base-ui') ||
-							id.includes('@icons-pack')
-						) {
-							return 'react-vendor';
-						}
+					// Animation
+					if (id.includes('framer-motion')) {
+						return 'framer-motion';
+					}
+
+					// React and all React-dependent UI packages together
+					if (/\/(react|react-dom)\/|use-sync-external-store|@(floating-ui|tabler|base-ui|icons-pack)/.test(id)) {
+						return 'react-vendor';
 					}
 				},
 			},

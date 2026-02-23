@@ -58,7 +58,7 @@ function ContactPage() {
 							<button
 								type='button'
 								onClick={() => setIsSuccess(false)}
-								className='text-sm font-medium text-primary hover:underline'
+								className='text-sm font-medium text-primary hover:underline cursor-pointer'
 							>
 								{contactMe.sendAnotherMessage}
 							</button>
@@ -102,7 +102,7 @@ function ContactPage() {
 					<button
 						type='submit'
 						disabled={isSubmitting}
-						className='w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group'
+						className='w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group'
 					>
 						{isSubmitting ? <tabler.IconLoader2 size={20} /> : contactMe.submitButton}
 					</button>
