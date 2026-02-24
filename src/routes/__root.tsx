@@ -1,6 +1,5 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-import * as React from 'react';
 
 import { Footer, LanguageSwitcher, Menu, Profile, ThemeSwitcher } from '@/components/layout';
 
@@ -10,7 +9,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
 	return (
-		<React.Fragment>
+		<div className='relative overflow-x-hidden'>
 			<div className='noise-bg mix-blend-multiply dark:mix-blend-overlay' />
 			<div className='fixed inset-0 z-0 pointer-events-none overflow-hidden'>
 				<div className='absolute -top-[20%] -right-[10%] size-[50%] rounded-full bg-blue-100/40 dark:bg-blue-900/20 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform' />
@@ -30,7 +29,7 @@ function RootComponent() {
 						<Menu />
 					</aside>
 
-					<main className='space-y-18 pb-24 lg:pb-0 [&_section:last-child]:pb-12'>
+					<main className='relative space-y-18 pb-24 lg:pb-0 [&_section:last-child]:pb-12'>
 						<Outlet />
 						<Footer />
 					</main>
@@ -38,6 +37,6 @@ function RootComponent() {
 			</div>
 
 			<TanStackRouterDevtools />
-		</React.Fragment>
+		</div>
 	);
 }

@@ -25,6 +25,30 @@ export default defineConfig({
 						return 'framer-motion';
 					}
 
+					// PDF: font processing — standalone, no @react-pdf deps
+					if (
+						id.includes('fontkit') ||
+						id.includes('linebreak') ||
+						id.includes('brotli') ||
+						id.includes('/dfa/') ||
+						id.includes('restructure') ||
+						id.includes('tiny-inflate') ||
+						id.includes('unicode-properties') ||
+						id.includes('unicode-trie')
+					) {
+						return 'pdf-font';
+					}
+
+					// PDF: layout engine — standalone, no @react-pdf deps
+					if (id.includes('yoga-layout')) {
+						return 'pdf-layout';
+					}
+
+					// PDF: all @react-pdf/* packages kept together to avoid internal circular refs
+					if (id.includes('@react-pdf')) {
+						return 'react-pdf';
+					}
+
 					// React and all React-dependent UI packages together
 					if (/\/(react|react-dom)\/|use-sync-external-store|@(floating-ui|tabler|base-ui|icons-pack)/.test(id)) {
 						return 'react-vendor';

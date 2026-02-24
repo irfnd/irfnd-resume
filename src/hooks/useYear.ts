@@ -6,9 +6,7 @@ export function useYear() {
 	React.useEffect(() => {
 		const checkYear = () => {
 			const currentYear = new Date().getFullYear();
-			if (currentYear !== year) {
-				setYear(currentYear);
-			}
+			if (currentYear !== year) setYear(currentYear);
 		};
 
 		const interval = setInterval(checkYear, 1000);

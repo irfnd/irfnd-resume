@@ -6,7 +6,7 @@ export function Footer() {
 
 	return (
 		<footer className='border-t border-border/60 pt-8 flex flex-col items-center md:flex-row md:items-center justify-between gap-4'>
-			<p className='text-xs text-muted-foreground/60'>
+			<p className='text-xs text-muted-foreground/80'>
 				{footer.copyright.replace('{year}', currentYear.toString())} {footer.builtWith}
 			</p>
 

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { ProjectCard, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
 import { Tabs } from '@base-ui/react/tabs';
 
-const MotionTab = motion(Tabs.Tab);
+const MotionTab = motion.create(Tabs.Tab);
 
 export const Route = createFileRoute('/portfolio')({
 	component: RouteComponent,
@@ -39,7 +39,7 @@ function RouteComponent() {
 								value={tab.value}
 								initial={{ scale: 1 }}
 								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 1 }}
+								whileTap={{ scale: 1.05 }}
 								transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 								className='px-3 py-1.5 w-full rounded-xl text-xs font-medium transition-colors duration-300 cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 text-muted-foreground/80 hover:text-foreground hover:bg-white/60 dark:hover:bg-secondary data-active:bg-white/80 data-active:dark:bg-secondary data-active:text-foreground'
 							>

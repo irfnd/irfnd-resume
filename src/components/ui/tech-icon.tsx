@@ -13,10 +13,11 @@ export function TechIcon(props: TechIconProps) {
 			href={props.url}
 			target='_blank'
 			rel='noopener noreferrer'
+			aria-label={props.label}
 			key={props.label}
 			style={!props.customColor ? ({ '--stack-color': props.color } as React.CSSProperties) : undefined}
 			whileHover={{ scale: 1.1, rotate: 5 }}
-			whileTap={{ scale: 0.9 }}
+			whileTap={{ scale: 0.9, rotate: 5 }}
 			transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 			className={cn(
 				'flex flex-col items-center justify-center gap-3 p-4 bg-card dark:bg-card/50 border border-border rounded-xl transition-colors group shadow-sm dark:shadow-none outline-none focus-visible:ring focus-visible:ring-(--stack-color) focus-visible:border-(--stack-color)',

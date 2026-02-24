@@ -1,4 +1,5 @@
 import { useTranslation } from '@/hooks';
+import { cloudinaryResize } from '@/utils/cloudinary';
 import * as React from 'react';
 
 import { FadeIn } from '@/components/ui';
@@ -13,8 +14,11 @@ export function Profile() {
 			<div className='relative size-24 mb-6 md:size-42 md:mb-0 lg:size-32 lg:mb-6 group shrink-0'>
 				<div className='absolute -inset-1 bg-blue-600 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity duration-700' />
 				<img
-					src={profile.photo.url}
+					src={cloudinaryResize(profile.photo.url, 400)}
 					alt={profile.photo.alt}
+					width={400}
+					height={400}
+					fetchPriority='high'
 					className='relative size-full object-cover rounded-full border-2 border-background shadow-lg dark:shadow-2xl grayscale group-hover:grayscale-0 transition duration-500'
 				/>
 			</div>
