@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import * as React from 'react';
 
 import { SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
-import * as tabler from '@tabler/icons-react';
+import { IconCheck, IconLoader2 } from '@tabler/icons-react';
 
 export const Route = createFileRoute('/contact')({
 	component: ContactPage,
@@ -61,7 +61,7 @@ function ContactPage() {
 							className='absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md p-8 text-center space-y-4 rounded-3xl'
 						>
 							<div className='h-16 w-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center'>
-								<tabler.IconCheck size={32} />
+								<IconCheck size={32} />
 							</div>
 							<h4 className='text-lg font-bold text-foreground'>{contactMe.successMessage}</h4>
 							<button
@@ -113,7 +113,7 @@ function ContactPage() {
 						disabled={isSubmitting}
 						className='w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group'
 					>
-						{isSubmitting ? <tabler.IconLoader2 size={20} /> : contactMe.submitButton}
+						{isSubmitting ? <IconLoader2 size={20} /> : contactMe.submitButton}
 					</button>
 				</form>
 

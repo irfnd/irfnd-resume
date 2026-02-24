@@ -2,14 +2,35 @@ import { getTechStack } from '@/contents/tech-stack-list';
 import type { Translations } from '@/types';
 import { setHighlightText } from '@/utils/text';
 
-import * as tabler from '@tabler/icons-react';
+import {
+	IconAward,
+	IconBrandGithub,
+	IconBrandInstagram,
+	IconBrandLinkedin,
+	IconBrandWhatsapp,
+	IconBrandX,
+	IconCode,
+	IconFileDownload,
+	IconFolderStar,
+	IconHome,
+	IconLanguage,
+	IconLayout,
+	IconMail,
+	IconMapPin,
+	IconSend,
+	IconServer2,
+	IconShieldCheck,
+	IconStack2,
+	IconUsersGroup,
+	IconViewfinder,
+} from '@tabler/icons-react';
 
 export const id: Translations = {
 	navigation: [
-		{ label: 'Beranda', url: '/', icon: tabler.IconHome },
-		{ label: 'Portofolio', url: '/portfolio', icon: tabler.IconFolderStar },
-		{ label: 'Kontak', url: '/contact', icon: tabler.IconSend },
-		{ label: 'Resume', url: '/resume', icon: tabler.IconFileDownload },
+		{ label: 'Beranda', url: '/', icon: IconHome },
+		{ label: 'Portofolio', url: '/portfolio', icon: IconFolderStar },
+		{ label: 'Kontak', url: '/contact', icon: IconSend },
+		{ label: 'Resume', url: '/resume', icon: IconFileDownload },
 	],
 
 	contact: [
@@ -17,14 +38,14 @@ export const id: Translations = {
 			type: 'location',
 			label: 'Jakarta, Indonesia',
 			url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
-			icon: tabler.IconMapPin,
+			icon: IconMapPin,
 			showInContactPage: true,
 		},
 		{
 			type: 'contact',
 			label: 'irfandiabimanyu@gmail.com',
 			url: 'mailto:irfandiabimanyu@gmail.com',
-			icon: tabler.IconMail,
+			icon: IconMail,
 			showInStickyProfile: true,
 			showInContactPage: true,
 		},
@@ -32,7 +53,7 @@ export const id: Translations = {
 			type: 'contact',
 			label: 'Whatsapp',
 			url: 'https://wa.me/6282175688883',
-			icon: tabler.IconBrandWhatsapp,
+			icon: IconBrandWhatsapp,
 			showInContactPage: true,
 			showInFooter: true,
 		},
@@ -40,7 +61,7 @@ export const id: Translations = {
 			type: 'contact',
 			label: 'LinkedIn',
 			url: 'https://www.linkedin.com/in/irfnd-iqbl',
-			icon: tabler.IconBrandLinkedin,
+			icon: IconBrandLinkedin,
 			showInStickyProfile: true,
 			showInContactPage: true,
 			showInFooter: true,
@@ -49,7 +70,7 @@ export const id: Translations = {
 			type: 'contact',
 			label: 'Github',
 			url: 'https://github.com/irfnd',
-			icon: tabler.IconBrandGithub,
+			icon: IconBrandGithub,
 			showInStickyProfile: true,
 			showInFooter: true,
 		},
@@ -57,7 +78,7 @@ export const id: Translations = {
 			type: 'contact',
 			label: 'Instagram',
 			url: 'https://www.instagram.com/irfnd.iqbl',
-			icon: tabler.IconBrandInstagram,
+			icon: IconBrandInstagram,
 			showInStickyProfile: true,
 			showInContactPage: true,
 			showInFooter: true,
@@ -66,7 +87,7 @@ export const id: Translations = {
 			type: 'contact',
 			label: 'Twitter',
 			url: 'https://twitter.com/Irfnd_iqbl',
-			icon: tabler.IconBrandX,
+			icon: IconBrandX,
 			showInStickyProfile: true,
 			showInFooter: true,
 		},
@@ -93,9 +114,9 @@ export const id: Translations = {
 			),
 		],
 		focus: [
-			{ value: '3+ Tahun', label: 'Pengalaman Kerja', icon: tabler.IconCode },
-			{ value: 'Full-Cycle', label: 'Development', icon: tabler.IconStack2 },
-			{ value: 'Presisi', label: 'UI/UX Engineering', icon: tabler.IconViewfinder },
+			{ value: '3+ Tahun', label: 'Pengalaman Kerja', icon: IconCode },
+			{ value: 'Full-Cycle', label: 'Development', icon: IconStack2 },
+			{ value: 'Presisi', label: 'UI/UX Engineering', icon: IconViewfinder },
 		],
 	},
 
@@ -111,7 +132,7 @@ export const id: Translations = {
 				link: 'https://www.nutech-integrasi.com/',
 				descriptions: [
 					{
-						icon: tabler.IconServer2,
+						icon: IconServer2,
 						position: 'Backend Development',
 						summary: [],
 						points: [
@@ -139,7 +160,7 @@ export const id: Translations = {
 						stacks: getTechStack(['TypeScript', 'Express.js', 'NestJS', 'PostgreSQL', 'Swagger']),
 					},
 					{
-						icon: tabler.IconLayout,
+						icon: IconLayout,
 						position: 'Frontend Development',
 						summary: [],
 						points: [
@@ -252,7 +273,7 @@ export const id: Translations = {
 			'Koleksi aplikasi skala produksi, API yang andal, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern.',
 		projects: [
 			{
-				icon: tabler.IconShieldCheck,
+				icon: IconShieldCheck,
 				name: 'CEISA 4.0 (Modul Perizinan)',
 				summary: [
 					setHighlightText(
@@ -309,7 +330,7 @@ export const id: Translations = {
 				],
 			},
 			{
-				icon: tabler.IconLanguage,
+				icon: IconLanguage,
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -370,7 +391,7 @@ export const id: Translations = {
 				],
 			},
 			{
-				icon: tabler.IconUsersGroup,
+				icon: IconUsersGroup,
 				name: 'StaffLab',
 				summary: [
 					setHighlightText(
@@ -429,7 +450,7 @@ export const id: Translations = {
 					{
 						label: 'IPK: 4.00 / 4.00',
 						description: 'Lulus dengan Predikat Summa Cum Laude',
-						icon: tabler.IconAward,
+						icon: IconAward,
 					},
 				],
 			},
