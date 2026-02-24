@@ -31,7 +31,7 @@ export const id: Translations = {
 		{
 			type: 'contact',
 			label: 'Whatsapp',
-			url: 'https://wa.me/082175688883',
+			url: 'https://wa.me/6282175688883',
 			icon: tabler.IconBrandWhatsapp,
 			showInContactPage: true,
 		},
