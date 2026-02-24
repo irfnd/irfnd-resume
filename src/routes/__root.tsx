@@ -1,7 +1,15 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import * as React from 'react';
 
 import { Footer, LanguageSwitcher, Menu, Profile, ThemeSwitcher } from '@/components/layout';
+
+const TanStackRouterDevtools = import.meta.env.DEV
+	? React.lazy(() =>
+			import('@tanstack/react-router-devtools').then((m) => ({
+				default: m.TanStackRouterDevtools,
+			})),
+		)
+	: () => null;
 
 export const Route = createRootRoute({
 	component: RootComponent,
@@ -36,7 +44,9 @@ function RootComponent() {
 				</div>
 			</div>
 
-			<TanStackRouterDevtools />
+			<React.Suspense fallback={null}>
+				<TanStackRouterDevtools />
+			</React.Suspense>
 		</div>
 	);
 }
