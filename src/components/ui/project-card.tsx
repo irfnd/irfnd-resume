@@ -4,8 +4,9 @@ import { cloudinaryResize } from '@/utils/cloudinary';
 import { motion } from 'framer-motion';
 import * as React from 'react';
 
-import { HighlightText, TechIcon } from '@/components/ui';
+import { HighlightText } from '@/components/ui/highlight-text';
 import { ProjectDialog } from '@/components/ui/project-dialog';
+import { TechIcon } from '@/components/ui/tech-icon';
 import { IconArrowUpRight, IconBrandGithub } from '@tabler/icons-react';
 
 interface ProjectCardProps extends InferArray<IPortfolio['projects']> {
