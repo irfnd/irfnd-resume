@@ -44,6 +44,7 @@ function RootComponent() {
 				</div>
 			</div>
 
+			{/* Suspense is required in dev where TanStackRouterDevtools is lazy-loaded; in production the component is () => null and Suspense is a harmless no-op. */}
 			<React.Suspense fallback={null}>
 				<TanStackRouterDevtools />
 			</React.Suspense>

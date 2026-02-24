@@ -24,7 +24,7 @@ Personal portfolio/resume site built with React 19, TypeScript (strict mode), an
 
 TanStack Router with **file-based routing** in `src/routes/`. The route tree is auto-generated in `src/routeTree.gen.ts` (do not edit manually). Routes:
 
-- `__root.tsx` — Root layout: two-column grid (sticky sidebar + main content), decorative gradients, language/theme switchers in fixed top-right corner
+- `__root.tsx` — Root layout: two-column grid (sticky sidebar + main content), decorative gradients, language/theme switchers in fixed top-right corner. Uses `overflow-x-clip` (not `overflow-x-hidden`) on the root div to allow the aside to be `position: sticky` — `overflow: hidden` would create a scroll container and break stickiness. `TanStackRouterDevtools` is conditionally lazy-loaded via `React.lazy` only when `import.meta.env.DEV` is `true` — in production it resolves to `() => null` so no devtools code ships to users.
 - `index.tsx` — Home page (`/`): profile focus, professional journey, education history, technical stack, selected work
 - `portfolio.tsx` — Portfolio with animated category tabs (`/portfolio`)
 - `contact.tsx` — Contact page (`/contact`)
@@ -50,6 +50,8 @@ Framer Motion with reusable viewport-triggered wrappers in `src/components/ui/mo
 - `StaggerContainer` / `StaggerItem` — Staggered children animations
 
 These support semantic HTML elements via the `as` prop. Custom `MotionLink` and `MotionTab` components wrap TanStack Router links and Base UI tabs with motion.
+
+**Implementation note:** All wrappers use Framer Motion's `whileInView` + `viewport` props (not `useInView` + manual `animate`). This avoids the Framer Motion dev warning about scroll offset calculation which fires when `useInView` cannot find a non-static scroll container ancestor.
 
 **Mobile hover fix:** All `whileHover` animations are mirrored in `whileTap` so touch devices receive the same visual feedback on press.
 
@@ -87,6 +89,14 @@ Structure:
 
 The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `motion.button` instead of a link. Clicking it calls `useResumeDownload().download()` and shows a spinner while the PDF is being generated. The downloaded filename follows the pattern `Resume_<FirstName>_<LastName>_<LANG>.pdf`.
 
+### Language Switcher
+
+`src/components/layout/language-switcher.tsx` — `LanguageSwitcher` component in the fixed top-right corner. Uses `@base-ui/react/menu` with controlled `open`/`onOpenChange` state.
+
+- **Scroll lock**: `useEffect` toggles `document.body.style.overflow = 'hidden'` when open, re-enabling on close or unmount. Base UI's `modal` prop is intentionally not used for this — it skips touch events (`openMethod !== 'touch'`), so it would not lock scroll on mobile.
+- **Close on select**: `onValueChange` calls `setOpen(false)` after applying the new language, so the menu closes immediately on selection.
+- **Z-index**: `z-[65]` is on `Menu.Positioner` (not `Menu.Popup`) — the positioner is the outermost element in the portal and controls stacking order relative to other fixed elements (nav `z-50`, switchers container `z-60`).
+
 ### Navigation Menu
 
 `src/components/layout/navigation-menu.tsx` iterates over `navigation` translations. Items with `url === '/resume'` are rendered as a `motion.button` that triggers PDF download; all other items are rendered as `MotionLink` (TanStack Router `Link` wrapped with Framer Motion).
@@ -99,7 +109,7 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 - **Image gallery**: cycles through `project.image[]` with prev/next buttons and dot indicators; only shown when images exist
 - **Body**: project name, type badge (internal/public), full `summary` paragraphs via `HighlightText`, `TechIcon` grid with labels
 - **Footer**: Source Code / Live Demo buttons for public projects
-- **Z-index**: backdrop and popup at `z-[70]` (above nav `z-50`, above switchers `z-60`)
+- **Z-index**: backdrop and popup at `z-[70]` (above nav `z-50`, above switchers container `z-60`, above language switcher positioner `z-[65]`)
 
 ### Utilities (src/utils/)
 
@@ -138,6 +148,7 @@ import { resolveText } from './utils';
 - **Open Graph** — `og:type`, `og:url`, `og:site_name`, `og:title`, `og:description`, `og:image`, `og:locale`
 - **Twitter Card** — `summary_large_image` with `twitter:site`, `twitter:creator`, `twitter:title`, `twitter:description`, `twitter:image`
 - **JSON-LD** — `schema.org/Person` structured data with name, jobTitle, url, email, image, address, sameAs links
+- **`position: relative` on `<html>`** — required so Framer Motion's `useScroll` (used in `TimelineBeam`) can verify the scroll container has a non-static position; without this a dev warning fires on every render.
 - **Theme initializer script** — runs before first paint to apply the saved theme class; uses storage key `irfnd-ui-theme`
 - **Favicon** — multiple PNG sizes (`16`, `32`, `96`) and Apple touch icons (`57`, `60`, `72`, `76`)
 - **Google Fonts** — loaded via `<link rel="preconnect">` + `<link rel="stylesheet">` (not CSS `@import`) to avoid render-blocking
