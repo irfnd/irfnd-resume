@@ -11,15 +11,17 @@ export function Footer() {
 			</p>
 
 			<div className='flex gap-4'>
-				{contact.slice(2).map((item) => (
-					<a
-						key={item.label}
-						href={item.url}
-						className='text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
-					>
-						{item.label}
-					</a>
-				))}
+				{contact
+					.filter((item) => item.showInFooter)
+					.map((item) => (
+						<a
+							key={item.label}
+							href={item.url}
+							className='text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+						>
+							{item.label}
+						</a>
+					))}
 			</div>
 		</footer>
 	);

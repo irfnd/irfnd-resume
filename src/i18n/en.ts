@@ -34,6 +34,7 @@ export const en: Translations = {
 			url: 'https://wa.me/6282175688883',
 			icon: tabler.IconBrandWhatsapp,
 			showInContactPage: true,
+			showInFooter: true,
 		},
 		{
 			type: 'contact',
@@ -42,6 +43,7 @@ export const en: Translations = {
 			icon: tabler.IconBrandLinkedin,
 			showInStickyProfile: true,
 			showInContactPage: true,
+			showInFooter: true,
 		},
 		{
 			type: 'contact',
@@ -49,6 +51,7 @@ export const en: Translations = {
 			url: 'https://github.com/irfnd',
 			icon: tabler.IconBrandGithub,
 			showInStickyProfile: true,
+			showInFooter: true,
 		},
 		{
 			type: 'contact',
@@ -57,6 +60,7 @@ export const en: Translations = {
 			icon: tabler.IconBrandInstagram,
 			showInStickyProfile: true,
 			showInContactPage: true,
+			showInFooter: true,
 		},
 		{
 			type: 'contact',
@@ -64,6 +68,7 @@ export const en: Translations = {
 			url: 'https://twitter.com/Irfnd_iqbl',
 			icon: tabler.IconBrandX,
 			showInStickyProfile: true,
+			showInFooter: true,
 		},
 	],
 

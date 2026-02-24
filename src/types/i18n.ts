@@ -42,6 +42,7 @@ export interface IContact {
 	icon: TablerIcon;
 	showInStickyProfile?: boolean;
 	showInContactPage?: boolean;
+	showInFooter?: boolean;
 }
 
 export interface IProfile {
