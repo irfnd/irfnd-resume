@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import '@/index.css';
 
-import App from '@/App.tsx';
-import ThemeProvider from '@/components/core/Theme';
-import { Toaster } from '@/components/ui/sonner';
-import '@/globals.css';
-import '@/i18n';
+import { I18nProvider, ThemeProvider } from '@/components/providers';
+import { router } from '@/utils/router';
+import { RouterProvider } from '@tanstack/react-router';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-	<React.StrictMode>
-		<ThemeProvider defaultTheme='dark' storageKey='theme'>
-			<App />
-			<Toaster position='top-right' />
-		</ThemeProvider>
-	</React.StrictMode>
+createRoot(document.getElementById('root')!).render(
+	<StrictMode>
+		<I18nProvider>
+			<ThemeProvider defaultTheme='dark'>
+				<RouterProvider router={router} />
+			</ThemeProvider>
+		</I18nProvider>
+	</StrictMode>,
 );

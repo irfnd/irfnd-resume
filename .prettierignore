@@ -1,1 +1,44 @@
-dist
+# node modules & build outputs
+node_modules/
+dist/
+build/
+out/
+.vite/
+.cache/
+
+# coverage & reports
+coverage/
+reports/
+
+# lockfiles (tidak perlu diformat)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
+# generated / compiled files
+**/*.gen.ts
+**/*.generated.ts
+**/generated/**
+*.map
+*.min.js
+*.bundle.js
+**/routeTree.gen.ts
+
+# binary/static assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.mp4
+*.webm
+*.mov
+*.zip
+*.tar
+*.gz
+*.woff
+*.woff2
+*.ttf
+*.eot

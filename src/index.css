@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant hover (&:hover);
+
+:root {
+	/* Light Mode - Slate based */
+	--color-background: var(--color-white);
+	--color-foreground: var(--color-slate-950);
+
+	--color-muted: var(--color-slate-50);
+	--color-muted-foreground: var(--color-slate-500);
+
+	--color-card: var(--color-white);
+	--color-card-foreground: var(--color-slate-950);
+
+	--color-popover: var(--color-white);
+	--color-popover-foreground: var(--color-slate-950);
+
+	--color-border: var(--color-slate-200);
+	--color-input: var(--color-slate-200);
+
+	--color-primary: var(--color-blue-600);
+	--color-primary-foreground: var(--color-white);
+
+	--color-secondary: var(--color-slate-100);
+	--color-secondary-foreground: var(--color-slate-900);
+}
+
+.dark {
+	/* Dark Mode - Neutral based */
+	--color-background: var(--color-neutral-950);
+	--color-foreground: var(--color-neutral-50);
+
+	--color-muted: var(--color-neutral-900);
+	--color-muted-foreground: var(--color-neutral-400);
+
+	--color-card: var(--color-neutral-950);
+	--color-card-foreground: var(--color-neutral-50);
+
+	--color-popover: var(--color-neutral-950);
+	--color-popover-foreground: var(--color-neutral-50);
+
+	--color-border: var(--color-neutral-800);
+	--color-input: var(--color-neutral-800);
+
+	--color-primary: var(--color-blue-500);
+	--color-primary-foreground: var(--color-white);
+
+	--color-secondary: var(--color-neutral-800);
+	--color-secondary-foreground: var(--color-neutral-50);
+}
+
+@theme {
+	--font-sans: 'Inter', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+
+	--color-background: var(--color-background);
+	--color-foreground: var(--color-foreground);
+
+	--color-muted: var(--color-muted);
+	--color-muted-foreground: var(--color-muted-foreground);
+
+	--color-card: var(--color-card);
+	--color-card-foreground: var(--color-card-foreground);
+
+	--color-popover: var(--color-popover);
+	--color-popover-foreground: var(--color-popover-foreground);
+
+	--color-border: var(--color-border);
+	--color-input: var(--color-input);
+
+	--color-primary: var(--color-primary);
+	--color-primary-foreground: var(--color-primary-foreground);
+
+	--color-secondary: var(--color-secondary);
+	--color-secondary-foreground: var(--color-secondary-foreground);
+}
+
+@layer base {
+	::-webkit-scrollbar {
+		@apply w-0 bg-transparent;
+	}
+
+	body {
+		@apply bg-background text-foreground transition-colors duration-400 ease-out;
+	}
+}
+
+@utility noise-bg {
+	@apply pointer-events-none fixed top-0 left-0 z-40 h-full w-full opacity-3;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@utility glass-card {
+	@apply border border-white/40 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/80;
+}
+
+@utility light-shadow {
+	@apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.02),0_2px_4px_-1px_rgba(0,0,0,0.02),0_0_0_1px_rgba(226,232,240,0.6)];
+
+	@variant hover {
+		@apply shadow-[0_10px_15px_-3px_rgba(59,130,246,0.08),0_4px_6px_-2px_rgba(59,130,246,0.04),0_0_0_1px_rgba(59,130,246,0.1)];
+	}
+}
+
+@utility nav-item-active {
+	@apply bg-blue-500/8 text-blue-600;
+
+	@variant dark {
+		@apply bg-blue-500/15 text-blue-400;
+	}
+}
+
+@utility pattern-grid {
+	@apply bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-size-[20px_20px];
+}

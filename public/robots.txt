@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://irfnd.id/sitemap.xml
