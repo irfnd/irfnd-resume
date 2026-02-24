@@ -1,10 +1,11 @@
-import { SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils/cn';
-import * as tabler from '@tabler/icons-react';
 import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import * as React from 'react';
+
+import { SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
+import * as tabler from '@tabler/icons-react';
 
 export const Route = createFileRoute('/contact')({
 	component: ContactPage,
@@ -14,8 +15,15 @@ function ContactPage() {
 	const { contactMe, contact } = useTranslation();
 	const [isSubmitting, setIsSubmitting] = React.useState(false);
 	const [isSuccess, setIsSuccess] = React.useState(false);
+	const successTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	const directContact = React.useMemo(() => contact.filter((val) => val.showInContactPage), [contact]);
+
+	React.useEffect(() => {
+		return () => {
+			if (successTimer.current) clearTimeout(successTimer.current);
+		};
+	}, []);
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -28,7 +36,8 @@ function ContactPage() {
 		setIsSuccess(true);
 
 		// Reset success message after 5 seconds
-		setTimeout(() => setIsSuccess(false), 5000);
+		if (successTimer.current) clearTimeout(successTimer.current);
+		successTimer.current = setTimeout(() => setIsSuccess(false), 5000);
 		(e.target as HTMLFormElement).reset();
 	};
 
