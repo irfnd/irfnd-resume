@@ -4,14 +4,23 @@ import type { Language } from '@/types';
 
 import { Menu } from '@base-ui/react/menu';
 import { IconCheck, IconSelector } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 
 export function LanguageSwitcher() {
 	const { language, setLanguage } = useI18n();
+	const [open, setOpen] = useState(false);
 
 	const currentLang = languages.find((l) => l.code === language);
 
+	useEffect(() => {
+		document.body.style.overflow = open ? 'hidden' : '';
+		return () => {
+			document.body.style.overflow = '';
+		};
+	}, [open]);
+
 	return (
-		<Menu.Root>
+		<Menu.Root open={open} onOpenChange={setOpen}>
 			<Menu.Trigger
 				className='flex items-center gap-2 p-2.5 rounded-full bg-background/80 border border-border/60 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900 transition-all duration-300 light-shadow dark:shadow-none ring ring-transparent hover:ring-blue-100 dark:hover:ring-blue-900/20 backdrop-blur-md cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:border-blue-300 dark:focus-visible:border-blue-600'
 				aria-label='Change language'
@@ -21,12 +30,15 @@ export function LanguageSwitcher() {
 			</Menu.Trigger>
 
 			<Menu.Portal>
-				<Menu.Positioner align='end' sideOffset={8}>
-					<Menu.Popup className='w-42 p-2 rounded-2xl bg-popover/95 border border-border/60 light-shadow dark:shadow-lg backdrop-blur-md z-65'>
+				<Menu.Positioner align='end' sideOffset={8} className='z-65'>
+					<Menu.Popup className='w-42 p-2 rounded-2xl bg-popover/95 border border-border/60 light-shadow dark:shadow-lg backdrop-blur-md'>
 						<Menu.RadioGroup
 							className='flex flex-col gap-1'
 							value={language}
-							onValueChange={(value) => setLanguage(value as Language)}
+							onValueChange={(value) => {
+								setLanguage(value as Language);
+								setOpen(false);
+							}}
 						>
 							{languages.map((lang) => (
 								<Menu.RadioItem

@@ -1,7 +1,6 @@
+import { cn } from '@/utils/cn';
 import { motion, useInView, useScroll, useSpring, type HTMLMotionProps, type Variants } from 'framer-motion';
 import { useRef } from 'react';
-
-import { cn } from '@/utils/cn';
 
 const containerVariants: Variants = {
 	hidden: { opacity: 0 },

@@ -2,12 +2,12 @@ import { useTranslation } from '@/hooks';
 import type { InferArray, IPortfolio } from '@/types';
 import { cloudinaryResize } from '@/utils/cloudinary';
 import { cn } from '@/utils/cn';
-import { Dialog } from '@base-ui/react/dialog';
-import { IconArrowUpRight, IconBrandGithub, IconChevronLeft, IconChevronRight, IconX } from '@tabler/icons-react';
 import * as React from 'react';
 
 import { HighlightText } from '@/components/ui/highlight-text';
 import { TechIcon } from '@/components/ui/tech-icon';
+import { Dialog } from '@base-ui/react/dialog';
+import { IconArrowUpRight, IconBrandGithub, IconChevronLeft, IconChevronRight, IconX } from '@tabler/icons-react';
 
 export interface ProjectDialogProps extends InferArray<IPortfolio['projects']> {
 	open: boolean;
@@ -43,10 +43,9 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 	return (
 		<Dialog.Root open={open} onOpenChange={onOpenChange}>
 			<Dialog.Portal>
-				<Dialog.Backdrop className='fixed inset-0 z-[70] bg-black/60 dark:bg-black/75 backdrop-blur-md opacity-0 transition-opacity duration-300 data-open:opacity-100' />
+				<Dialog.Backdrop className='fixed inset-0 z-70 bg-black/60 dark:bg-black/75 backdrop-blur-md opacity-0 transition-opacity duration-300 data-open:opacity-100' />
 
-				<Dialog.Popup className='fixed left-1/2 top-1/2 z-[70] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-2xl max-h-[90dvh] flex flex-col rounded-2xl bg-white dark:bg-neutral-900 border border-slate-200/80 dark:border-white/8 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] outline-none overflow-hidden opacity-0 scale-95 transition-all duration-300 data-open:opacity-100 data-open:scale-100'>
-					{/* Close button — absolute over whole dialog */}
+				<Dialog.Popup className='fixed left-1/2 top-1/2 z-70 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-2xl max-h-[90dvh] flex flex-col rounded-2xl bg-white dark:bg-neutral-900 border border-slate-200/80 dark:border-white/8 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] outline-none overflow-hidden opacity-0 scale-95 transition-all duration-300 data-open:opacity-100 data-open:scale-100'>
 					<Dialog.Close
 						className='absolute right-4 top-4 z-20 p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 cursor-pointer'
 						aria-label='Close dialog'
@@ -54,10 +53,8 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 						<IconX className='size-4' />
 					</Dialog.Close>
 
-					{/* ── Image gallery ── */}
 					{hasImages && (
 						<div className='relative aspect-video bg-slate-950 overflow-hidden shrink-0'>
-							{/* Skeleton placeholder */}
 							{!imageLoaded && (
 								<div className='absolute inset-0 bg-slate-200 dark:bg-neutral-800 animate-pulse'>
 									<div className='absolute inset-0 pattern-grid opacity-30' />
@@ -74,8 +71,7 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 								)}
 							/>
 
-							{/* Subtle dark vignette */}
-							<div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none' />
+							<div className='absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20 pointer-events-none' />
 
 							{hasMultipleImages && (
 								<>
@@ -96,7 +92,6 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 								</>
 							)}
 
-							{/* Bottom bar: alt text + counter */}
 							<div className='absolute bottom-0 inset-x-0 flex items-end justify-between gap-3 px-4 py-3'>
 								<p className='text-xs text-white/70 truncate'>{project.image[imageIndex].alt}</p>
 								{hasMultipleImages && (
@@ -108,11 +103,8 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 						</div>
 					)}
 
-					{/* ── Right: Content panel ── */}
 					<div className='flex flex-col overflow-hidden min-h-0'>
-						{/* Header */}
 						<div className='px-6 pt-6 pb-4 shrink-0'>
-							{/* Badges */}
 							<div className='flex items-center gap-2 mb-4'>
 								<span
 									className={cn(
@@ -129,7 +121,6 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 								)}
 							</div>
 
-							{/* Icon + Title */}
 							<div className='flex items-center gap-3 pr-8'>
 								<div className='size-10 shrink-0 rounded-xl bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none'>
 									<project.icon className='size-5' />
@@ -142,9 +133,7 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 
 						<div className='h-px bg-border/60 shrink-0 mx-6' />
 
-						{/* Scrollable body */}
 						<div className='overflow-y-auto flex-1 px-6 py-5 space-y-5'>
-							{/* Summary */}
 							<Dialog.Description render={<div />} className='space-y-2.5'>
 								{project.summary.map((paragraph, i) => (
 									<p key={i} className='text-sm text-muted-foreground leading-relaxed'>
@@ -157,7 +146,6 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 								))}
 							</Dialog.Description>
 
-							{/* Tech Stack */}
 							{project.stacks.length > 0 && (
 								<div>
 									<p className='text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-3'>Tech Stack</p>
@@ -170,7 +158,6 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 							)}
 						</div>
 
-						{/* Footer */}
 						{hasLinks && (
 							<div className='px-6 py-4 border-t border-border/60 flex gap-2 shrink-0'>
 								{project.source && (

@@ -1,9 +1,9 @@
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils/cn';
+import { Link } from '@tanstack/react-router';
 
 import { ProjectCard, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
 import { IconArrowRight } from '@tabler/icons-react';
-import { Link } from '@tanstack/react-router';
 
 export function SelectedWork() {
 	const { portfolio, common } = useTranslation();

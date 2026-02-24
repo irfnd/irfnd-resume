@@ -1,11 +1,11 @@
 import { useResumeDownload, useTranslation } from '@/hooks';
 import { cn } from '@/utils/cn';
-import { IconLoader2 } from '@tabler/icons-react';
 import { Link, useRouterState } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import * as React from 'react';
 
 import { SlideUp } from '@/components/ui';
+import { IconLoader2 } from '@tabler/icons-react';
 
 const MotionLink = motion.create(Link);
 const MotionButton = motion.button;
