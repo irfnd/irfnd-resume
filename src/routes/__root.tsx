@@ -9,7 +9,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
 	return (
-		<div className='relative overflow-x-hidden'>
+		<div className='relative overflow-x-clip'>
 			<div className='noise-bg mix-blend-multiply dark:mix-blend-overlay' />
 			<div className='fixed inset-0 z-0 pointer-events-none overflow-hidden'>
 				<div className='absolute -top-[20%] -right-[10%] size-[50%] rounded-full bg-blue-100/40 dark:bg-blue-900/20 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform' />
