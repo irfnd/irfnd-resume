@@ -22,7 +22,7 @@ function RootComponent() {
 				<ThemeSwitcher />
 			</div>
 
-			<div className='max-w-7xl mx-auto px-8 py-12 md:px-12 z-10'>
+			<div className='relative max-w-7xl mx-auto px-8 py-12 md:px-12 z-10'>
 				<div className='grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 xl:gap-24'>
 					<aside className='lg:sticky lg:top-12 lg:h-[calc(100vh-96px)] flex flex-col'>
 						<Profile />

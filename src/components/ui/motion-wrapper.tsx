@@ -1,5 +1,4 @@
-import { motion, useInView, type HTMLMotionProps, type Variants } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, type HTMLMotionProps, type Variants } from 'framer-motion';
 
 type MotionElement = 'div' | 'section' | 'nav' | 'article' | 'aside' | 'footer' | 'header' | 'main';
 
@@ -22,17 +21,14 @@ export function FadeIn({
 	as = 'div',
 	...props
 }: MotionWrapperProps) {
-	const ref = useRef(null);
-	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
 	const Component = motion[as] as typeof motion.div;
 
 	return (
 		<Component
-			ref={ref}
 			initial={{ opacity: 0 }}
-			animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			viewport={{ once: viewportOnce, amount: threshold }}
 			transition={{ duration, delay, ease: 'easeOut' }}
-			style={{ translateZ: 0 }}
 			className={className}
 			{...props}
 		>
@@ -51,17 +47,14 @@ export function SlideUp({
 	as = 'div',
 	...props
 }: MotionWrapperProps) {
-	const ref = useRef(null);
-	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
 	const Component = motion[as] as typeof motion.div;
 
 	return (
 		<Component
-			ref={ref}
 			initial={{ opacity: 0, y: 20 }}
-			animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: viewportOnce, amount: threshold }}
 			transition={{ duration, delay, ease: 'easeOut' }}
-			style={{ translateZ: 0 }}
 			className={className}
 			{...props}
 		>
@@ -87,8 +80,6 @@ export function StaggerContainer({
 	as = 'div',
 	...props
 }: StaggerContainerProps) {
-	const ref = useRef(null);
-	const isInView = useInView(ref, { once: viewportOnce, amount: threshold });
 	const Component = motion[as] as typeof motion.div;
 
 	const containerVariants: Variants = {
@@ -103,11 +94,10 @@ export function StaggerContainer({
 
 	return (
 		<Component
-			ref={ref}
 			variants={containerVariants}
 			initial='hidden'
-			animate={isInView ? 'show' : 'hidden'}
-			style={{ translateZ: 0 }}
+			whileInView='show'
+			viewport={{ once: viewportOnce, amount: threshold }}
 			className={className}
 			{...props}
 		>
@@ -123,7 +113,7 @@ export function StaggerItem({ children, className, ...props }: HTMLMotionProps<'
 	};
 
 	return (
-		<motion.div variants={itemVariants} style={{ translateZ: 0 }} className={className} {...props}>
+		<motion.div variants={itemVariants} className={className} {...props}>
 			{children}
 		</motion.div>
 	);
