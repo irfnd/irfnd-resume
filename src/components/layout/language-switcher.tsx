@@ -1,23 +1,16 @@
 import { useI18n } from '@/hooks';
 import { languages } from '@/i18n';
 import type { Language } from '@/types';
+import * as React from 'react';
 
 import { Menu } from '@base-ui/react/menu';
 import { IconCheck, IconSelector } from '@tabler/icons-react';
-import { useEffect, useState } from 'react';
 
 export function LanguageSwitcher() {
 	const { language, setLanguage } = useI18n();
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = React.useState(false);
 
 	const currentLang = languages.find((l) => l.code === language);
-
-	useEffect(() => {
-		document.body.style.overflow = open ? 'hidden' : '';
-		return () => {
-			document.body.style.overflow = '';
-		};
-	}, [open]);
 
 	return (
 		<Menu.Root open={open} onOpenChange={setOpen}>

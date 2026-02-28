@@ -1,10 +1,11 @@
 import '@/index.css';
 
-import { I18nProvider, ThemeProvider } from '@/components/providers';
 import { router } from '@/utils/router';
 import { RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+
+import { I18nProvider, ThemeProvider } from '@/components/providers';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
