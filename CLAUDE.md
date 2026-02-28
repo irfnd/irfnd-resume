@@ -40,7 +40,7 @@ Provider nesting order: `I18nProvider → ThemeProvider → RouterProvider`
 
 Tailwind CSS 4 with custom CSS variables for theming defined in `src/index.css`. Custom utilities: `noise-bg`, `glass-card`, `light-shadow`, `nav-item-active`, `pattern-grid`. Class merging uses `cn()` from `src/utils/cn.ts` (clsx + tailwind-merge).
 
-Fonts: Inter (sans), JetBrains Mono (mono).
+Fonts: Inter (sans), JetBrains Mono (mono) — **self-hosted** in `public/fonts/` with `@font-face` declarations in `src/index.css`. Preloaded via `<link rel="preload">` in `index.html` for optimal LCP.
 
 ### Animation
 
@@ -52,6 +52,8 @@ Framer Motion with reusable viewport-triggered wrappers in `src/components/ui/mo
 These support semantic HTML elements via the `as` prop. Custom `MotionLink` and `MotionTab` components wrap TanStack Router links and Base UI tabs with motion.
 
 **Implementation note:** All wrappers use Framer Motion's `whileInView` + `viewport` props (not `useInView` + manual `animate`). This avoids the Framer Motion dev warning about scroll offset calculation which fires when `useInView` cannot find a non-static scroll container ancestor.
+
+**Performance note:** The `TimelineBeam` component uses `willChange: 'transform'` on scroll-animated elements to optimize compositor layer creation and reduce forced reflows.
 
 **Mobile hover fix:** All `whileHover` animations are mirrored in `whileTap` so touch devices receive the same visual feedback on press.
 
@@ -145,13 +147,17 @@ import { resolveText } from './utils';
 `index.html` contains all SEO markup — do not remove or duplicate these in React components:
 
 - **Primary meta tags** — `title`, `description`, `author`, `keywords`, `robots`, `canonical`
-- **Open Graph** — `og:type`, `og:url`, `og:site_name`, `og:title`, `og:description`, `og:image`, `og:locale`
+- **Alternate languages** — `hreflang` links for `en`, `id`, and `x-default`
+- **Open Graph** — `og:type`, `og:url`, `og:site_name`, `og:title`, `og:description`, `og:image` (with `width`, `height`, `alt`), `og:locale`
 - **Twitter Card** — `summary_large_image` with `twitter:site`, `twitter:creator`, `twitter:title`, `twitter:description`, `twitter:image`
 - **JSON-LD** — `schema.org/Person` structured data with name, jobTitle, url, email, image, address, sameAs links
-- **`position: relative` on `<html>`** — required so Framer Motion's `useScroll` (used in `TimelineBeam`) can verify the scroll container has a non-static position; without this a dev warning fires on every render.
+- **Theme color** — `<meta name="theme-color">` for dark (#030303) and light (#f8fafc) with media queries
+- **`position: relative` on `<html>`** — required so Framer Motion's `useScroll` (used in `TimelineBeam`) can verify the scroll container has a non-static position; without this a dev warning fires on every render
 - **Theme initializer script** — runs before first paint to apply the saved theme class; uses storage key `irfnd-ui-theme`
-- **Favicon** — multiple PNG sizes (`16`, `32`, `96`) and Apple touch icons (`57`, `60`, `72`, `76`)
-- **Google Fonts** — loaded via `<link rel="preconnect">` + `<link rel="stylesheet">` (not CSS `@import`) to avoid render-blocking
+- **Font preloading** — `<link rel="preload">` for self-hosted Inter and JetBrains Mono woff2 files in `public/fonts/`
+- **Favicon** — `favicon-{16,32,96}.png` and `apple-icon-{57,60,72,76}.png` in `public/`
+- **sitemap.xml** — `public/sitemap.xml` with all routes and hreflang annotations
+- **robots.txt** — `public/robots.txt` allowing all crawlers and referencing sitemap
 
 Canonical URL: `https://irfnd.id`
 

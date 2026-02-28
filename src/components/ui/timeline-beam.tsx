@@ -38,7 +38,7 @@ export function TimelineBeam({ children, className, ...props }: TimelineBeamProp
 			{...props}
 		>
 			<motion.div
-				style={{ scaleY, transformOrigin: 'top' }}
+				style={{ scaleY, transformOrigin: 'top', willChange: 'transform' }}
 				className='absolute -left-px top-0 bottom-0 w-px bg-linear-to-b from-blue-500 via-blue-400 to-transparent'
 			/>
 			{children}

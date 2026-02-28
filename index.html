@@ -4,23 +4,21 @@
 		<meta charset="UTF-8" />
 
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="16x16" href="/icons8-diamond-ios-17-filled-16.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/icons8-diamond-ios-17-filled-32.png" />
-		<link rel="icon" type="image/png" sizes="96x96" href="/icons8-diamond-ios-17-filled-96.png" />
-		<link rel="apple-touch-icon" type="image/png" sizes="57x57" href="/icons8-diamond-ios-17-filled-57.png" />
-		<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/icons8-diamond-ios-17-filled-60.png" />
-		<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="/icons8-diamond-ios-17-filled-72.png" />
-		<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/icons8-diamond-ios-17-filled-76.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+		<link rel="apple-touch-icon" type="image/png" sizes="57x57" href="/apple-icon-57.png" />
+		<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/apple-icon-60.png" />
+		<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="/apple-icon-72.png" />
+		<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/apple-icon-76.png" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#030303" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
 
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-		/>
+		<!-- Self-hosted fonts with preload for optimal loading -->
+		<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-latin.woff2" />
+		<link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/jetbrains-mono-latin.woff2" />
 
 		<!-- Primary Meta Tags -->
 		<title>Irfandi Iqbal Abimanyu — Fullstack Web Developer</title>
@@ -37,6 +35,11 @@
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href="https://irfnd.id" />
 
+		<!-- Alternate language versions -->
+		<link rel="alternate" hreflang="en" href="https://irfnd.id" />
+		<link rel="alternate" hreflang="id" href="https://irfnd.id" />
+		<link rel="alternate" hreflang="x-default" href="https://irfnd.id" />
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://irfnd.id" />
@@ -51,6 +54,8 @@
 			property="og:image"
 			content="https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1722509145/Portfolio/Profile/irfnd-inovative"
 		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="Irfandi Iqbal Abimanyu — Fullstack Web Developer" />
 
 		<!-- Twitter Card -->
