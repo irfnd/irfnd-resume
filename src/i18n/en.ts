@@ -4,11 +4,14 @@ import { setHighlightText } from '@/utils/text';
 
 import {
 	IconAward,
+	IconBook,
+	IconBox,
 	IconBrandGithub,
 	IconBrandInstagram,
 	IconBrandLinkedin,
 	IconBrandWhatsapp,
 	IconBrandX,
+	IconChartBar,
 	IconCode,
 	IconFileDownload,
 	IconFolderStar,
@@ -272,8 +275,10 @@ export const en: Translations = {
 		subtitle:
 			'A curated selection of production-grade applications, robust APIs, and innovative experiments engineered with modern web technologies.',
 		projects: [
+			// CEISA 4.0 (Licensing Module)
 			{
 				icon: IconShieldCheck,
+				isSelected: true,
 				name: 'CEISA 4.0 (Licensing Module)',
 				summary: [
 					setHighlightText(
@@ -329,8 +334,11 @@ export const en: Translations = {
 					},
 				],
 			},
+
+			// Prof.Dito
 			{
 				icon: IconLanguage,
+				isSelected: true,
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -338,9 +346,9 @@ export const en: Translations = {
 						['diagnostic platform', 'automated certification', 'premium assessment modules'],
 					),
 				],
-				type: 'public',
+				type: 'private',
 				category: 'fullstack',
-				demo: 'https://profdito.com',
+				demo: null,
 				source: null,
 				stacks: getTechStack(['JavaScript', 'Next.js', 'Redux', 'Chakra UI', 'Express.js', 'MongoDB']),
 				image: [
@@ -390,6 +398,8 @@ export const en: Translations = {
 					},
 				],
 			},
+
+			// StaffLab
 			{
 				icon: IconUsersGroup,
 				name: 'StaffLab',
@@ -398,6 +408,9 @@ export const en: Translations = {
 						'A scalable HR management platform for optimizing employee lifecycle operations. Features real-time data synchronization, automated transfer processing, leave management, and dynamic visualization of organizational hierarchies (Branches, Divisions, Positions).',
 						['HR management platform', 'real-time data synchronization', 'dynamic visualization'],
 					),
+					setHighlightText('Demo Account:', []),
+					setHighlightText('- Admin (admin@mail.com, Admin123.)', ['admin@mail.com', 'Admin123.']),
+					setHighlightText('- Manager (manager@mail.com, Manager123.)', ['manager@mail.com', 'Manager123.']),
 				],
 				type: 'public',
 				category: 'frontend',
@@ -428,6 +441,114 @@ export const en: Translations = {
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi',
 						alt: 'Transfer History',
+					},
+				],
+			},
+
+			// Yellow Taxi Dashboard
+			{
+				icon: IconChartBar,
+				isSelected: true,
+				name: 'Yellow Taxi Dashboard',
+				summary: [
+					setHighlightText(
+						'A data-driven analytics dashboard engineered to visualize 2014 Yellow Taxi trip records across New York City, powered by NYC OpenData. Delivers 12 months of actionable insights encompassing trip volume, trip classifications, aggregate payments, average fare calculations, peak distance metrics, and additional KPIs.',
+						['analytics dashboard', 'NYC OpenData', '12 months of actionable insights'],
+					),
+					setHighlightText(
+						'Features include an interactive trip data table and geospatial trip mapping via Mapbox for granular route exploration. Supports dark mode for enhanced visual comfort.',
+						['geospatial trip mapping', 'Mapbox', 'dark mode'],
+					),
+					setHighlightText('Demo Account:', []),
+					setHighlightText('- Admin (admin@mail.com, YellowTaxi@2014)', ['admin@mail.com', 'YellowTaxi@2014']),
+				],
+				type: 'public',
+				category: 'fullstack',
+				demo: 'https://yellow-taxi.irfnd.id',
+				source: 'https://github.com/irfnd/yellow-taxi-irfnd',
+				stacks: getTechStack(['TypeScript', 'Turborepo', 'NestJS', 'React', 'Shadcn UI', 'Mapbox']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300933/Portfolio/Yellow-taxi/sign-in',
+						alt: 'Sign In',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/dashboard',
+						alt: 'Dashboard',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/list-trip',
+						alt: 'Trip List',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/detail-trip',
+						alt: 'Trip Detail',
+					},
+				],
+			},
+
+			// Warehouse
+			{
+				icon: IconBox,
+				name: 'Warehouse',
+				summary: [
+					setHighlightText(
+						'A streamlined product catalog management platform with comprehensive CRUD operations, Google OAuth authentication, and adaptive dark mode interface. Built for efficient inventory oversight with intuitive search and filtering capabilities.',
+						['product catalog management', 'CRUD operations', 'Google OAuth authentication'],
+					),
+				],
+				type: 'public',
+				category: 'frontend',
+				demo: 'https://warehouse.irfnd.id',
+				source: 'https://github.com/irfnd/fe-warehouse',
+				stacks: getTechStack(['Firebase', 'JavaScript', 'React', 'Chakra UI']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard',
+						alt: 'Dashboard',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login',
+						alt: 'Login',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah',
+						alt: 'Add Product',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian',
+						alt: 'Search Product',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui',
+						alt: 'Update Product',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus',
+						alt: 'Delete Product',
+					},
+				],
+			},
+
+			// Go-buks (API)
+			{
+				icon: IconBook,
+				name: 'Go-buks (API)',
+				summary: [
+					setHighlightText(
+						'A high-performance RESTful API engineered for book catalog management, leveraging the Go Fiber framework and PostgreSQL for optimal throughput. Utilizes GORM for streamlined database operations and ships with Docker containerization for rapid deployment.',
+						['RESTful API', 'Go Fiber framework', 'Docker containerization'],
+					),
+				],
+				type: 'public',
+				category: 'backend',
+				demo: 'https://go-buks-api.irfnd.id/docs/',
+				source: 'https://github.com/irfnd/go-buks',
+				stacks: getTechStack(['Go', 'PostgreSQL']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724344677/Portfolio/Go-buks/swagger',
+						alt: 'Swagger',
 					},
 				],
 			},
@@ -522,7 +643,7 @@ export const en: Translations = {
 	},
 
 	common: {
-		viewMore: 'View Details',
+		viewMore: 'View More',
 		liveDemo: 'Live Demo',
 		downloadResume: 'Download Resume',
 		source: 'Source Code',

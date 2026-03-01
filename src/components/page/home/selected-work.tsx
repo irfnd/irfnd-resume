@@ -1,12 +1,18 @@
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils/cn';
 import { Link } from '@tanstack/react-router';
+import * as React from 'react';
 
 import { ProjectCard, SlideUp, StaggerContainer, StaggerItem } from '@/components/ui';
 import { IconArrowRight } from '@tabler/icons-react';
 
 export function SelectedWork() {
 	const { portfolio, common } = useTranslation();
+
+	const selectedPortfolio = React.useMemo(
+		() => portfolio.projects.filter((project) => project.isSelected).sort((a, b) => a.name.localeCompare(b.name)),
+		[portfolio.projects],
+	);
 
 	return (
 		<SlideUp as='section'>
@@ -22,7 +28,7 @@ export function SelectedWork() {
 			</div>
 
 			<StaggerContainer className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-				{portfolio.projects.map((project, projectIndex) => (
+				{selectedPortfolio.map((project, projectIndex) => (
 					<StaggerItem key={projectIndex} className={cn('flex flex-col h-full', projectIndex === 0 ? 'md:col-span-2' : '')}>
 						<ProjectCard {...project} isFirst={projectIndex === 0} />
 					</StaggerItem>

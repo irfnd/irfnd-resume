@@ -18,7 +18,8 @@ function RouteComponent() {
 
 	const filteredProjects = React.useMemo(() => {
 		if (!portfolio.projects || portfolio.projects.length === 0) return [];
-		return tabActive === 'all' ? portfolio.projects : portfolio.projects.filter((project) => project.category === tabActive);
+		const sortedProjects = [...portfolio.projects].sort((a, b) => a.name.localeCompare(b.name));
+		return tabActive === 'all' ? sortedProjects : sortedProjects.filter((project) => project.category === tabActive);
 	}, [portfolio.projects, tabActive]);
 
 	return (

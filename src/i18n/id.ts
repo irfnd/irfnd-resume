@@ -4,11 +4,14 @@ import { setHighlightText } from '@/utils/text';
 
 import {
 	IconAward,
+	IconBook,
+	IconBox,
 	IconBrandGithub,
 	IconBrandInstagram,
 	IconBrandLinkedin,
 	IconBrandWhatsapp,
 	IconBrandX,
+	IconChartBar,
 	IconCode,
 	IconFileDownload,
 	IconFolderStar,
@@ -272,8 +275,10 @@ export const id: Translations = {
 		subtitle:
 			'Koleksi aplikasi skala produksi, API yang andal, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern.',
 		projects: [
+			// CEISA 4.0 (Licensing Module)
 			{
 				icon: IconShieldCheck,
+				isSelected: true,
 				name: 'CEISA 4.0 (Modul Perizinan)',
 				summary: [
 					setHighlightText(
@@ -329,8 +334,11 @@ export const id: Translations = {
 					},
 				],
 			},
+
+			// Prof.Dito
 			{
 				icon: IconLanguage,
+				isSelected: true,
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -390,6 +398,8 @@ export const id: Translations = {
 					},
 				],
 			},
+
+			// StaffLab
 			{
 				icon: IconUsersGroup,
 				name: 'StaffLab',
@@ -428,6 +438,114 @@ export const id: Translations = {
 					{
 						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1723629450/Portfolio/Stafflab/riwayat-mutasi',
 						alt: 'Riwayat Mutasi',
+					},
+				],
+			},
+
+			// Yellow Taxi Dashboard
+			{
+				icon: IconChartBar,
+				isSelected: true,
+				name: 'Yellow Taxi Dashboard',
+				summary: [
+					setHighlightText(
+						'Dashboard analitik berbasis data yang dirancang untuk memvisualisasikan rekaman perjalanan Yellow Taxi tahun 2014 di New York City, didukung oleh NYC OpenData. Menyajikan 12 bulan insight yang actionable meliputi volume perjalanan, klasifikasi trip, agregat pembayaran, kalkulasi tarif rata-rata, metrik jarak tertinggi, dan KPI tambahan.',
+						['Dashboard analitik', 'NYC OpenData', '12 bulan insight'],
+					),
+					setHighlightText(
+						'Dilengkapi tabel data perjalanan interaktif dan pemetaan geospasial rute melalui Mapbox untuk eksplorasi rute yang granular. Mendukung mode gelap untuk kenyamanan visual.',
+						['pemetaan geospasial', 'Mapbox', 'mode gelap'],
+					),
+					setHighlightText('Akun Demo:', []),
+					setHighlightText('- Admin (admin@mail.com, YellowTaxi@2014)', ['admin@mail.com', 'YellowTaxi@2014']),
+				],
+				type: 'public',
+				category: 'fullstack',
+				demo: 'https://yellow-taxi.irfnd.id',
+				source: 'https://github.com/irfnd/yellow-taxi-irfnd',
+				stacks: getTechStack(['TypeScript', 'Turborepo', 'NestJS', 'React', 'Shadcn UI', 'Mapbox']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300933/Portfolio/Yellow-taxi/sign-in',
+						alt: 'Halaman Login',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/dashboard',
+						alt: 'Dashboard',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/list-trip',
+						alt: 'Daftar Perjalanan',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1733300934/Portfolio/Yellow-taxi/detail-trip',
+						alt: 'Detail Perjalanan',
+					},
+				],
+			},
+
+			// Warehouse
+			{
+				icon: IconBox,
+				name: 'Warehouse',
+				summary: [
+					setHighlightText(
+						'Platform manajemen katalog produk yang efisien dengan operasi CRUD komprehensif, autentikasi Google OAuth, dan antarmuka mode gelap yang adaptif. Dibangun untuk pengelolaan inventaris yang optimal dengan fitur pencarian dan filtering yang intuitif.',
+						['manajemen katalog produk', 'operasi CRUD', 'autentikasi Google OAuth'],
+					),
+				],
+				type: 'public',
+				category: 'frontend',
+				demo: 'https://warehouse.irfnd.id',
+				source: 'https://github.com/irfnd/fe-warehouse',
+				stacks: getTechStack(['Firebase', 'JavaScript', 'React', 'Chakra UI']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard',
+						alt: 'Dashboard',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login',
+						alt: 'Halaman Login',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah',
+						alt: 'Tambah Produk',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian',
+						alt: 'Cari Produk',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui',
+						alt: 'Perbarui Produk',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus',
+						alt: 'Hapus Produk',
+					},
+				],
+			},
+
+			// Go-buks (API)
+			{
+				icon: IconBook,
+				name: 'Go-buks (API)',
+				summary: [
+					setHighlightText(
+						'RESTful API berperforma tinggi yang direkayasa untuk manajemen katalog buku, memanfaatkan framework Go Fiber dan PostgreSQL untuk throughput optimal. Menggunakan GORM untuk operasi database yang efisien serta dilengkapi containerisasi Docker untuk deployment yang cepat.',
+						['RESTful API', 'framework Go Fiber', 'containerisasi Docker'],
+					),
+				],
+				type: 'public',
+				category: 'backend',
+				demo: 'https://go-buks-api.irfnd.id/docs/',
+				source: 'https://github.com/irfnd/go-buks',
+				stacks: getTechStack(['Go', 'PostgreSQL']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1724344677/Portfolio/Go-buks/swagger',
+						alt: 'Swagger',
 					},
 				],
 			},
@@ -522,7 +640,7 @@ export const id: Translations = {
 	},
 
 	common: {
-		viewMore: 'Lihat Detail',
+		viewMore: 'Selengkapnya',
 		liveDemo: 'Demo Langsung',
 		downloadResume: 'Unduh Resume',
 		source: 'Source Code',

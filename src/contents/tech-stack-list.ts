@@ -173,6 +173,21 @@ const TechStackList = [
 		icon: TechIcons.SiRedux,
 		color: TechIcons.SiReduxHex,
 	},
+	{
+		label: 'Turborepo',
+		url: 'https://turbo.build/repo',
+		icon: TechIcons.SiTurborepo,
+		color: TechIcons.SiTurborepoHex,
+	},
+	{
+		label: 'Mapbox',
+		url: 'https://www.mapbox.com/',
+		icon: TechIcons.SiMapbox,
+		color:
+			'fill-neutral-500 group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+		border: `hover:border-black/50 dark:hover:border-white/50`,
+		customColor: true,
+	},
 ] as const satisfies readonly ITechStack[];
 
 type TechStackLabel = (typeof TechStackList)[number]['label'];
