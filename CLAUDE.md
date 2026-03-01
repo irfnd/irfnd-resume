@@ -63,6 +63,23 @@ All page content lives in `src/i18n/en.ts` and `src/i18n/id.ts` as typed transla
 
 `setHighlightText(text, keywords)` in `src/utils/text.ts` replaces keywords with `{0}`, `{1}` placeholders for the `HighlightText` UI component. When rendering plain text (e.g. in the PDF), use `resolveText(paragraph)` from `src/components/pdf/utils.ts` to restore the original words.
 
+#### Tech Stack Registry
+
+`src/contents/tech-stack-list.ts` — Central registry of all technology entries used across portfolio and experience sections. Each entry has `label`, `url`, `icon`, and `color`. Use `getTechStack(['Label1', 'Label2'])` to select entries by label. Available labels: JavaScript, TypeScript, Python, Go, Alpine.js, React, Vue.js, Next.js, Express.js, NestJS, Flask, Django, Tailwind CSS, Shadcn UI, Ant Design, Material UI, Chakra UI, PostgreSQL, MongoDB, Redis, Firebase, Supabase, GraphQL, Docker, Linux, Swagger, Redux, Turborepo, Mapbox.
+
+#### Portfolio Projects
+
+Projects in `portfolio.projects[]` support an optional `isSelected` boolean — when `true`, the project appears on the home page "Selected Works" section in addition to the full portfolio page. Current projects (6 total):
+
+| Project                      | Category  | Type                       | isSelected |
+| ---------------------------- | --------- | -------------------------- | ---------- |
+| CEISA 4.0 (Licensing Module) | frontend  | private                    | yes        |
+| Profdito                     | fullstack | private (en) / public (id) | yes        |
+| StaffLab                     | frontend  | public                     | no         |
+| Yellow Taxi Dashboard        | fullstack | public                     | yes        |
+| Warehouse                    | frontend  | public                     | no         |
+| Go-buks (API)                | backend   | public                     | no         |
+
 ### Hooks (src/hooks/)
 
 - `useTheme()` — dark/light mode toggle
