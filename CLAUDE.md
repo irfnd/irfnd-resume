@@ -65,11 +65,11 @@ All page content lives in `src/i18n/en.ts` and `src/i18n/id.ts` as typed transla
 
 #### Tech Stack Registry
 
-`src/contents/tech-stack-list.ts` — Central registry of all technology entries used across portfolio and experience sections. Each entry has `label`, `url`, `icon`, and `color`. Use `getTechStack(['Label1', 'Label2'])` to select entries by label. Available labels: JavaScript, TypeScript, Python, Go, Alpine.js, React, Vue.js, Next.js, Express.js, NestJS, Flask, Django, Tailwind CSS, Shadcn UI, Ant Design, Material UI, Chakra UI, PostgreSQL, MongoDB, Redis, Firebase, Supabase, GraphQL, Docker, Linux, Swagger, Redux, Turborepo, Mapbox.
+`src/contents/tech-stack-list.ts` — Central registry of all technology entries used across portfolio and experience sections. Each entry has `label`, `url`, `icon`, and `color`. Use `getTechStack(['Label1', 'Label2'])` to select entries by label. Available labels: JavaScript, TypeScript, Python, Go, Alpine.js, React, Vue.js, Next.js, Express.js, NestJS, Flask, Django, Tailwind CSS, Shadcn UI, Ant Design, Material UI, Chakra UI, PostgreSQL, MongoDB, Redis, Firebase, Supabase, GraphQL, Docker, Linux, Swagger, Redux, Turborepo, Mapbox, Framer Motion.
 
 #### Portfolio Projects
 
-Projects in `portfolio.projects[]` support an optional `isSelected` boolean — when `true`, the project appears on the home page "Selected Works" section in addition to the full portfolio page. Current projects (6 total):
+Projects in `portfolio.projects[]` support an optional `isSelected` boolean — when `true`, the project appears on the home page "Selected Works" section in addition to the full portfolio page. Current projects (7 total):
 
 | Project                      | Category  | Type                       | isSelected |
 | ---------------------------- | --------- | -------------------------- | ---------- |
@@ -78,6 +78,7 @@ Projects in `portfolio.projects[]` support an optional `isSelected` boolean — 
 | StaffLab                     | frontend  | public                     | no         |
 | Yellow Taxi Dashboard        | fullstack | public                     | yes        |
 | Warehouse                    | frontend  | public                     | no         |
+| Silegal                      | frontend  | public                     | yes        |
 | Go-buks (API)                | backend   | public                     | no         |
 
 ### Hooks (src/hooks/)
@@ -112,9 +113,13 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 
 `src/components/layout/language-switcher.tsx` — `LanguageSwitcher` component in the fixed top-right corner. Uses `@base-ui/react/menu` with controlled `open`/`onOpenChange` state.
 
-- **Scroll lock**: `useEffect` toggles `document.body.style.overflow = 'hidden'` when open, re-enabling on close or unmount. Base UI's `modal` prop is intentionally not used for this — it skips touch events (`openMethod !== 'touch'`), so it would not lock scroll on mobile.
 - **Close on select**: `onValueChange` calls `setOpen(false)` after applying the new language, so the menu closes immediately on selection.
+- **Tooltip**: `TooltipBubble` wraps the trigger, showing `common.changeLanguage` ("Change Language" / "Ganti Bahasa"). Tooltip is force-hidden (`open={open ? false : undefined}`) when the dropdown menu is open.
 - **Z-index**: `z-[65]` is on `Menu.Positioner` (not `Menu.Popup`) — the positioner is the outermost element in the portal and controls stacking order relative to other fixed elements (nav `z-50`, switchers container `z-60`).
+
+### Theme Switcher
+
+`src/components/layout/theme-switcher.tsx` — `ThemeSwitcher` button in the fixed top-right corner. Wrapped with `TooltipBubble` showing `common.changeTheme` ("Change Theme" / "Ganti Tema").
 
 ### Navigation Menu
 
@@ -125,10 +130,22 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 `src/components/ui/project-dialog.tsx` — `ProjectDialog` component rendered inside each `ProjectCard`. Uses `@base-ui/react/dialog` for accessibility (focus trap, scroll lock, ARIA) with CSS transitions via `data-open:` Tailwind variants for enter/exit animations.
 
 - **Trigger**: clicking anywhere on a `ProjectCard` opens the dialog (inner links use `e.stopPropagation()` to remain independent)
-- **Image gallery**: cycles through `project.image[]` with prev/next buttons and dot indicators; only shown when images exist
-- **Body**: project name, type badge (internal/public), full `summary` paragraphs via `HighlightText`, `TechIcon` grid with labels
+- **Image gallery**: cycles through `project.image[]` with prev/next buttons; images slide left/right using Framer Motion `AnimatePresence` with directional spring animation based on navigation direction. Clicking an image opens the original Cloudinary URL in a new tab (`cursor-zoom-in`). Only shown when images exist
+- **Close button**: red background (`bg-red-500/80`) with white icon for high contrast visibility
+- **Body**: project name, type badge (internal/public), full `summary` paragraphs via `HighlightText` (uses default highlight style — blue badge, same as professional journey), `TechIcon` grid with tooltips
 - **Footer**: Source Code / Live Demo buttons for public projects
+- **Border**: borderless dialog (`border-none`) for a cleaner look in both themes
 - **Z-index**: backdrop and popup at `z-[70]` (above nav `z-50`, above switchers container `z-60`, above language switcher positioner `z-[65]`)
+
+### Tooltip Bubble
+
+`src/components/ui/tooltip-bubble.tsx` — Reusable tooltip component wrapping Base UI `@base-ui/react/tooltip` with Framer Motion spring animation.
+
+- **Props**: `label` (tooltip content), `side` (position: `top` | `bottom` | `left` | `right`, default `bottom`), `open` (controlled visibility, e.g. `open={false}` to force-hide when a menu is open), `children` (trigger element)
+- **Animation**: Framer Motion spring (`stiffness: 400, damping: 25`) with directional slide based on `side` prop
+- **Arrow**: SVG triangle that auto-rotates via `data-[side=*]` attributes to always point toward the trigger element
+- **Z-index**: `z-75` (above dialog `z-[70]`)
+- **Used by**: `TechIcon` (when `withLabel` is false), `ThemeSwitcher`, `LanguageSwitcher`
 
 ### Utilities (src/utils/)
 

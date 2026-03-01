@@ -149,6 +149,8 @@ export interface ICommon {
 	downloadResume: string;
 	source: string;
 	internal: string;
+	changeLanguage: string;
+	changeTheme: string;
 	portfolioCategories: {
 		label: string;
 		value: string;

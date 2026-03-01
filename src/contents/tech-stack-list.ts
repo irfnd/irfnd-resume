@@ -188,6 +188,12 @@ const TechStackList = [
 		border: `hover:border-black/50 dark:hover:border-white/50`,
 		customColor: true,
 	},
+	{
+		label: 'Framer Motion',
+		url: 'https://www.framer.com/motion/',
+		icon: TechIcons.SiFramer,
+		color: TechIcons.SiFramerHex,
+	},
 ] as const satisfies readonly ITechStack[];
 
 type TechStackLabel = (typeof TechStackList)[number]['label'];

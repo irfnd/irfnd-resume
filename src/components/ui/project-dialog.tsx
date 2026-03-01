@@ -8,6 +8,7 @@ import { HighlightText } from '@/components/ui/highlight-text';
 import { TechIcon } from '@/components/ui/tech-icon';
 import { Dialog } from '@base-ui/react/dialog';
 import { IconArrowUpRight, IconBrandGithub, IconChevronLeft, IconChevronRight, IconX } from '@tabler/icons-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export interface ProjectDialogProps extends InferArray<IPortfolio['projects']> {
 	open: boolean;
@@ -23,6 +24,7 @@ const categoryStyle: Record<string, string> = {
 export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogProps) {
 	const { common } = useTranslation();
 	const [imageIndex, setImageIndex] = React.useState(0);
+	const [direction, setDirection] = React.useState(1);
 
 	const hasImages = project.image.length > 0;
 	const hasMultipleImages = project.image.length > 1;
@@ -37,17 +39,23 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 		setImageLoaded(false);
 	}, [imageIndex]);
 
-	const prevImage = () => setImageIndex((i) => (i - 1 + project.image.length) % project.image.length);
-	const nextImage = () => setImageIndex((i) => (i + 1) % project.image.length);
+	const prevImage = () => {
+		setDirection(-1);
+		setImageIndex((i) => (i - 1 + project.image.length) % project.image.length);
+	};
+	const nextImage = () => {
+		setDirection(1);
+		setImageIndex((i) => (i + 1) % project.image.length);
+	};
 
 	return (
 		<Dialog.Root open={open} onOpenChange={onOpenChange}>
 			<Dialog.Portal>
 				<Dialog.Backdrop className='fixed inset-0 z-70 bg-black/60 dark:bg-black/75 backdrop-blur-md opacity-0 transition-opacity duration-300 data-open:opacity-100' />
 
-				<Dialog.Popup className='fixed left-1/2 top-1/2 z-70 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-2xl max-h-[90dvh] flex flex-col rounded-2xl bg-white dark:bg-neutral-900 border border-slate-200/80 dark:border-white/8 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] outline-none overflow-hidden opacity-0 scale-95 transition-all duration-300 data-open:opacity-100 data-open:scale-100'>
+				<Dialog.Popup className='fixed left-1/2 top-1/2 z-70 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-2xl max-h-[90dvh] flex flex-col rounded-2xl bg-white dark:bg-neutral-900 border-none shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] outline-none overflow-hidden opacity-0 scale-95 transition-all duration-300 data-open:opacity-100 data-open:scale-100'>
 					<Dialog.Close
-						className='absolute right-4 top-4 z-20 p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 cursor-pointer'
+						className='absolute right-4 top-4 z-20 p-1.5 rounded-lg bg-red-500/80 text-white hover:bg-red-600 backdrop-blur-sm transition-colors outline-none focus-visible:ring focus-visible:ring-red-400 cursor-pointer'
 						aria-label='Close dialog'
 					>
 						<IconX className='size-4' />
@@ -61,15 +69,39 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 								</div>
 							)}
 
-							<img
-								src={cloudinaryResize(project.image[imageIndex].url, 1200)}
-								alt={project.image[imageIndex].alt}
-								onLoad={() => setImageLoaded(true)}
-								className={cn(
-									'w-full h-full object-cover transition-opacity duration-300',
-									imageLoaded ? 'opacity-90' : 'opacity-0',
-								)}
-							/>
+							<AnimatePresence initial={false} custom={direction} mode='popLayout'>
+								<motion.div
+									key={imageIndex}
+									custom={direction}
+									variants={{
+										enter: (dir: number) => ({ x: dir * 300, opacity: 0 }),
+										center: { x: 0, opacity: 1 },
+										exit: (dir: number) => ({ x: dir * -300, opacity: 0 }),
+									}}
+									initial='enter'
+									animate='center'
+									exit='exit'
+									transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+									className='absolute inset-0'
+								>
+									<a
+										href={project.image[imageIndex].url}
+										target='_blank'
+										rel='noopener noreferrer'
+										className='block w-full h-full cursor-zoom-in'
+									>
+										<img
+											src={cloudinaryResize(project.image[imageIndex].url, 1200)}
+											alt={project.image[imageIndex].alt}
+											onLoad={() => setImageLoaded(true)}
+											className={cn(
+												'w-full h-full object-cover transition-opacity duration-300',
+												imageLoaded ? 'opacity-90' : 'opacity-0',
+											)}
+										/>
+									</a>
+								</motion.div>
+							</AnimatePresence>
 
 							<div className='absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20 pointer-events-none' />
 
@@ -137,11 +169,7 @@ export function ProjectDialog({ open, onOpenChange, ...project }: ProjectDialogP
 							<Dialog.Description render={<div />} className='space-y-2.5'>
 								{project.summary.map((paragraph, i) => (
 									<p key={i} className='text-sm text-muted-foreground leading-relaxed'>
-										<HighlightText
-											text={paragraph.value}
-											keywords={paragraph.keywords}
-											className='font-semibold text-foreground'
-										/>
+										<HighlightText text={paragraph.value} keywords={paragraph.keywords} />
 									</p>
 								))}
 							</Dialog.Description>

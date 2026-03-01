@@ -24,7 +24,8 @@ Personal portfolio and resume site built with React 19, TypeScript, and Vite. Fe
 - **Bilingual** — English and Indonesian with a custom i18n context; language preference persisted in `localStorage`
 - **Dark / light mode** — CSS variable theming toggled via `document.documentElement` class; preference persisted in `localStorage`
 - **On-demand PDF resume** — `@react-pdf/renderer` is never included in the initial bundle; it loads in parallel chunks only when the user clicks the Resume button
-- **Project dialog** — click any project card to open a modal with an image gallery, tech stack, and links
+- **Project dialog** — click any project card to open a modal with an animated image gallery (directional slide transitions), tech stack with tooltips, and links; images open in a new tab on click
+- **Tooltips** — reusable `TooltipBubble` component (Base UI + Framer Motion) on tech stack icons, theme switcher, and language switcher
 - **Viewport animations** — reusable `FadeIn`, `SlideUp`, `StaggerContainer` wrappers using Framer Motion's `whileInView`
 - **Sticky sidebar** — profile and navigation stay fixed on desktop while the main content scrolls
 - **SEO-ready** — OpenGraph, Twitter Card, JSON-LD structured data, and multiple favicon sizes in `index.html`
@@ -38,7 +39,7 @@ src/
 ├── components/
 │   ├── layout/       # Root layout, navigation, profile sidebar, switchers
 │   ├── page/         # Page-specific sections (home, portfolio, contact)
-│   ├── ui/           # Shared UI components (cards, dialog, timeline, motion wrappers)
+│   ├── ui/           # Shared UI components (cards, dialog, tooltip, timeline, motion wrappers)
 │   ├── providers/    # Theme and i18n context providers
 │   └── pdf/          # Lazy-loaded PDF resume components
 ├── routes/           # TanStack Router file-based routes
@@ -111,6 +112,7 @@ The root div uses `overflow-x-clip` instead of `overflow-x-hidden`. The `hidden`
 | Language / theme switchers container  | `z-60`   |
 | Language switcher dropdown positioner | `z-[65]` |
 | Project dialog backdrop + popup       | `z-[70]` |
+| Tooltip bubble                        | `z-75`   |
 
 ---
 

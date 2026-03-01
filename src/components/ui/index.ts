@@ -4,3 +4,4 @@ export * from './project-card';
 export * from './project-dialog';
 export * from './tech-icon';
 export * from './timeline-beam';
+export * from './tooltip-bubble';

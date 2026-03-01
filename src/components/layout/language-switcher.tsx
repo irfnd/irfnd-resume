@@ -1,26 +1,30 @@
-import { useI18n } from '@/hooks';
+import { useI18n, useTranslation } from '@/hooks';
 import { languages } from '@/i18n';
 import type { Language } from '@/types';
 import * as React from 'react';
 
+import { TooltipBubble } from '@/components/ui/tooltip-bubble';
 import { Menu } from '@base-ui/react/menu';
 import { IconCheck, IconSelector } from '@tabler/icons-react';
 
 export function LanguageSwitcher() {
 	const { language, setLanguage } = useI18n();
+	const { common } = useTranslation();
 	const [open, setOpen] = React.useState(false);
 
 	const currentLang = languages.find((l) => l.code === language);
 
 	return (
 		<Menu.Root open={open} onOpenChange={setOpen}>
-			<Menu.Trigger
-				className='flex items-center gap-2 p-2.5 rounded-full bg-background/80 border border-border/60 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900 transition-all duration-300 light-shadow dark:shadow-none ring ring-transparent hover:ring-blue-100 dark:hover:ring-blue-900/20 backdrop-blur-md cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:border-blue-300 dark:focus-visible:border-blue-600'
-				aria-label='Change language'
-			>
-				<span className='leading-0 font-medium'>{currentLang?.flag}</span>
-				<IconSelector className='size-4' />
-			</Menu.Trigger>
+			<TooltipBubble label={common.changeLanguage} open={open ? false : undefined}>
+				<Menu.Trigger
+					className='flex items-center gap-2 p-2.5 rounded-full bg-background/80 border border-border/60 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900 transition-all duration-300 light-shadow dark:shadow-none ring ring-transparent hover:ring-blue-100 dark:hover:ring-blue-900/20 backdrop-blur-md cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:border-blue-300 dark:focus-visible:border-blue-600'
+					aria-label='Change language'
+				>
+					<span className='leading-0 font-medium'>{currentLang?.flag}</span>
+					<IconSelector className='size-4' />
+				</Menu.Trigger>
+			</TooltipBubble>
 
 			<Menu.Portal>
 				<Menu.Positioner align='end' sideOffset={8} className='z-65'>

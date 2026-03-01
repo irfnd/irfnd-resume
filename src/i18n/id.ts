@@ -15,6 +15,7 @@ import {
 	IconCode,
 	IconFileDownload,
 	IconFolderStar,
+	IconGavel,
 	IconHome,
 	IconLanguage,
 	IconLayout,
@@ -255,6 +256,8 @@ export const id: Translations = {
 				'Ant Design',
 				'Material UI',
 				'Chakra UI',
+				'Framer Motion',
+				'Mapbox',
 			]),
 			'Databases & Infrastructure': getTechStack([
 				'PostgreSQL',
@@ -265,6 +268,8 @@ export const id: Translations = {
 				'GraphQL',
 				'Docker',
 				'Linux',
+				'Swagger',
+				'Turborepo',
 			]),
 		},
 	},
@@ -338,7 +343,6 @@ export const id: Translations = {
 			// Prof.Dito
 			{
 				icon: IconLanguage,
-				isSelected: true,
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -501,28 +505,72 @@ export const id: Translations = {
 				stacks: getTechStack(['Firebase', 'JavaScript', 'React', 'Chakra UI']),
 				image: [
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/dashboard',
 						alt: 'Dashboard',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/login',
 						alt: 'Halaman Login',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/tambah',
 						alt: 'Tambah Produk',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/pencarian',
 						alt: 'Cari Produk',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/perbarui',
 						alt: 'Perbarui Produk',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/hapus',
 						alt: 'Hapus Produk',
+					},
+				],
+			},
+
+			// Silegal
+			{
+				icon: IconGavel,
+				isSelected: true,
+				name: 'Silegal',
+				summary: [
+					setHighlightText(
+						'Website korporat untuk Silegal, firma konsultan legal yang membantu pelaku usaha mengurus pendirian badan usaha dan perizinan di Indonesia. Mencakup seluruh siklus legalitas — mulai dari pendirian PT, PT PMA, CV, dan usaha perseorangan hingga pengurusan NIB, perizinan kesehatan (BPOM), sertifikasi SBU/SKK, serta perlindungan merek dagang melalui DJKI.',
+						['konsultan legal', 'pendirian badan usaha dan perizinan', 'seluruh siklus legalitas'],
+					),
+					setHighlightText(
+						'Menghadirkan layout yang berfokus pada konversi dengan 10+ katalog layanan terstruktur, section alur kerja bertahap yang jelas, call-to-action konsultasi gratis, serta animasi scroll-driven yang halus di seluruh antarmuka responsif.',
+						['10+ katalog layanan terstruktur', 'alur kerja bertahap', 'animasi scroll-driven'],
+					),
+				],
+				type: 'public',
+				category: 'frontend',
+				demo: 'https://silegal.id',
+				source: null,
+				stacks: getTechStack(['TypeScript', 'React', 'Tailwind CSS', 'Framer Motion']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/home',
+						alt: 'Beranda',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/tentang',
+						alt: 'Tentang Kami',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/layanan',
+						alt: 'Layanan',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/harga',
+						alt: 'Harga',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/kontak',
+						alt: 'Kontak Kami',
 					},
 				],
 			},
@@ -645,6 +693,8 @@ export const id: Translations = {
 		downloadResume: 'Unduh Resume',
 		source: 'Source Code',
 		internal: 'Proyek Internal',
+		changeLanguage: 'Ganti Bahasa',
+		changeTheme: 'Ganti Tema',
 		portfolioCategories: [
 			{ label: 'Semua', value: 'all' },
 			{ label: 'Frontend', value: 'frontend' },

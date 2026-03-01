@@ -15,6 +15,7 @@ import {
 	IconCode,
 	IconFileDownload,
 	IconFolderStar,
+	IconGavel,
 	IconHome,
 	IconLanguage,
 	IconLayout,
@@ -255,6 +256,8 @@ export const en: Translations = {
 				'Ant Design',
 				'Material UI',
 				'Chakra UI',
+				'Framer Motion',
+				'Mapbox',
 			]),
 			'Databases & Infrastructure': getTechStack([
 				'PostgreSQL',
@@ -265,6 +268,8 @@ export const en: Translations = {
 				'GraphQL',
 				'Docker',
 				'Linux',
+				'Swagger',
+				'Turborepo',
 			]),
 		},
 	},
@@ -338,7 +343,6 @@ export const en: Translations = {
 			// Prof.Dito
 			{
 				icon: IconLanguage,
-				isSelected: true,
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -504,28 +508,72 @@ export const en: Translations = {
 				stacks: getTechStack(['Firebase', 'JavaScript', 'React', 'Chakra UI']),
 				image: [
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/dashboard',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/dashboard',
 						alt: 'Dashboard',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/login',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/login',
 						alt: 'Login',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/tambah',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/tambah',
 						alt: 'Add Product',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/pencarian',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/pencarian',
 						alt: 'Search Product',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/perbarui',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/perbarui',
 						alt: 'Update Product',
 					},
 					{
-						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709090789/Warehouse/hapus',
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Warehouse/hapus',
 						alt: 'Delete Product',
+					},
+				],
+			},
+
+			// Silegal
+			{
+				icon: IconGavel,
+				isSelected: true,
+				name: 'Silegal',
+				summary: [
+					setHighlightText(
+						'A corporate website built for Silegal, a legal consultant firm that helps businesses handle entity formation and licensing in Indonesia. Supports the full legality lifecycle — from establishing PT, PT PMA, CV, and sole proprietorships to NIB registration, health permits (BPOM), SBU/SKK certifications, and trademark protection via DJKI.',
+						['legal consultant', 'entity formation and licensing', 'full legality lifecycle'],
+					),
+					setHighlightText(
+						'Delivers a conversion-focused layout featuring 10+ structured service offerings, a clear step-by-step workflow section, free consultation call-to-actions, and smooth scroll-driven animations across a fully responsive interface.',
+						['10+ structured service offerings', 'step-by-step workflow', 'scroll-driven animations'],
+					),
+				],
+				type: 'public',
+				category: 'frontend',
+				demo: 'https://silegal.id',
+				source: null,
+				stacks: getTechStack(['TypeScript', 'React', 'Tailwind CSS', 'Framer Motion']),
+				image: [
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/home',
+						alt: 'Home',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/tentang',
+						alt: 'About Us',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/layanan',
+						alt: 'Services',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/harga',
+						alt: 'Pricing',
+					},
+					{
+						url: 'https://res.cloudinary.com/dhghodtvv/image/upload/f_auto,q_auto/v1709132339/Portfolio/Silegal/kontak',
+						alt: 'Contact Us',
 					},
 				],
 			},
@@ -648,6 +696,8 @@ export const en: Translations = {
 		downloadResume: 'Download Resume',
 		source: 'Source Code',
 		internal: 'Internal Project',
+		changeLanguage: 'Change Language',
+		changeTheme: 'Change Theme',
 		portfolioCategories: [
 			{ label: 'All', value: 'all' },
 			{ label: 'Frontend', value: 'frontend' },
