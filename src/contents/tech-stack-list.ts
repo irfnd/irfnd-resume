@@ -49,7 +49,7 @@ const TechStackList = [
 		url: 'https://nextjs.org/',
 		icon: TechIcons.SiNextdotjs,
 		color:
-			'fill-neutral-500 group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 		border: `hover:border-black/50 dark:hover:border-white/50`,
 		customColor: true,
 	},
@@ -58,7 +58,7 @@ const TechStackList = [
 		url: 'https://expressjs.com/',
 		icon: TechIcons.SiExpress,
 		color:
-			'fill-neutral-500 group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 		border: `hover:border-black/50 dark:hover:border-white/50`,
 		customColor: true,
 	},
@@ -91,7 +91,7 @@ const TechStackList = [
 		url: 'https://ui.shadcn.com/',
 		icon: TechIcons.SiShadcnui,
 		color:
-			'fill-neutral-500 group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 		border: `hover:border-black/50 dark:hover:border-white/50`,
 		customColor: true,
 	},
@@ -184,7 +184,7 @@ const TechStackList = [
 		url: 'https://www.mapbox.com/',
 		icon: TechIcons.SiMapbox,
 		color:
-			'fill-neutral-500 group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 		border: `hover:border-black/50 dark:hover:border-white/50`,
 		customColor: true,
 	},
