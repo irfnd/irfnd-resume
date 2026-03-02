@@ -1,5 +1,6 @@
 import { Font, StyleSheet } from '@react-pdf/renderer';
 
+/* v8 ignore next -- @preserve */
 Font.registerHyphenationCallback((word) => [word]);
 
 export const styles = StyleSheet.create({

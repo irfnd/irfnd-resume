@@ -280,7 +280,6 @@ export const id: Translations = {
 		subtitle:
 			'Koleksi aplikasi skala produksi, API yang andal, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern.',
 		projects: [
-			// CEISA 4.0 (Licensing Module)
 			{
 				icon: IconShieldCheck,
 				isSelected: true,
@@ -340,7 +339,6 @@ export const id: Translations = {
 				],
 			},
 
-			// Prof.Dito
 			{
 				icon: IconLanguage,
 				name: 'Profdito',
@@ -403,7 +401,6 @@ export const id: Translations = {
 				],
 			},
 
-			// StaffLab
 			{
 				icon: IconUsersGroup,
 				name: 'StaffLab',
@@ -446,7 +443,6 @@ export const id: Translations = {
 				],
 			},
 
-			// Yellow Taxi Dashboard
 			{
 				icon: IconChartBar,
 				isSelected: true,
@@ -488,7 +484,6 @@ export const id: Translations = {
 				],
 			},
 
-			// Warehouse
 			{
 				icon: IconBox,
 				name: 'Warehouse',
@@ -531,7 +526,6 @@ export const id: Translations = {
 				],
 			},
 
-			// Silegal
 			{
 				icon: IconGavel,
 				isSelected: true,
@@ -575,7 +569,6 @@ export const id: Translations = {
 				],
 			},
 
-			// Go-buks (API)
 			{
 				icon: IconBook,
 				name: 'Go-buks (API)',

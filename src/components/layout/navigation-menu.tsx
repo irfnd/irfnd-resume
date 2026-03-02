@@ -7,7 +7,9 @@ import * as React from 'react';
 import { SlideUp } from '@/components/ui';
 import { IconLoader2 } from '@tabler/icons-react';
 
+/* istanbul ignore next -- @preserve framer-motion wrapper component */
 const MotionLink = motion.create(Link);
+/* istanbul ignore next -- @preserve framer-motion wrapper component */
 const MotionButton = motion.button;
 
 export function Menu() {

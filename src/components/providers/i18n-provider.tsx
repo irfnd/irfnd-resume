@@ -6,8 +6,10 @@ const STORAGE_KEY = 'irfnd-lang';
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-function getInitialLanguage(): Language {
-	if (typeof window === 'undefined') return defaultLanguage;
+/** @internal Exported for testing */
+export function getInitialLanguage(defaultLang: Language = defaultLanguage): Language {
+	/* v8 ignore next -- @preserve SSR check - always false in jsdom */
+	if (typeof window === 'undefined') return defaultLang;
 
 	const stored = localStorage.getItem(STORAGE_KEY) as Language | null;
 	if (stored && (stored === 'en' || stored === 'id')) return stored;
@@ -15,7 +17,7 @@ function getInitialLanguage(): Language {
 	const browserLang = navigator.language.split('-')[0];
 	if (browserLang === 'id') return 'id';
 
-	return defaultLanguage;
+	return defaultLang;
 }
 
 interface I18nProviderProps {

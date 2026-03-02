@@ -280,7 +280,6 @@ export const en: Translations = {
 		subtitle:
 			'A curated selection of production-grade applications, robust APIs, and innovative experiments engineered with modern web technologies.',
 		projects: [
-			// CEISA 4.0 (Licensing Module)
 			{
 				icon: IconShieldCheck,
 				isSelected: true,
@@ -340,7 +339,6 @@ export const en: Translations = {
 				],
 			},
 
-			// Prof.Dito
 			{
 				icon: IconLanguage,
 				name: 'Profdito',
@@ -403,7 +401,6 @@ export const en: Translations = {
 				],
 			},
 
-			// StaffLab
 			{
 				icon: IconUsersGroup,
 				name: 'StaffLab',
@@ -449,7 +446,6 @@ export const en: Translations = {
 				],
 			},
 
-			// Yellow Taxi Dashboard
 			{
 				icon: IconChartBar,
 				isSelected: true,
@@ -491,7 +487,6 @@ export const en: Translations = {
 				],
 			},
 
-			// Warehouse
 			{
 				icon: IconBox,
 				name: 'Warehouse',
@@ -534,7 +529,6 @@ export const en: Translations = {
 				],
 			},
 
-			// Silegal
 			{
 				icon: IconGavel,
 				isSelected: true,
@@ -578,7 +572,6 @@ export const en: Translations = {
 				],
 			},
 
-			// Go-buks (API)
 			{
 				icon: IconBook,
 				name: 'Go-buks (API)',

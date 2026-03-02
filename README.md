@@ -15,6 +15,7 @@ Personal portfolio and resume site built with React 19, TypeScript, and Vite. Fe
 | Styling    | Tailwind CSS 4, Framer Motion 12               |
 | Components | Base UI (headless), Tabler Icons, Simple Icons |
 | PDF        | @react-pdf/renderer (lazy-loaded)              |
+| Testing    | Vitest, React Testing Library, 100% coverage   |
 | Quality    | ESLint, Prettier, Husky + lint-staged          |
 
 ---
@@ -78,7 +79,27 @@ bun lint
 bun format
 ```
 
-Pre-commit hooks (Husky + lint-staged) automatically run ESLint fix and Prettier on staged files.
+Pre-commit hooks (Husky + lint-staged) automatically run ESLint fix, Prettier, and related tests on staged files.
+
+---
+
+## Testing
+
+Unit tests use **Vitest** with **React Testing Library** in a jsdom environment. Tests are located in the `tests/` directory with 100% code coverage.
+
+```bash
+# Run tests in watch mode
+bun test
+
+# Run tests with UI
+bun test:ui
+
+# Run tests once
+bun test:run
+
+# Run tests with coverage
+bun test:coverage
+```
 
 ---
 
@@ -106,13 +127,13 @@ The root div uses `overflow-x-clip` instead of `overflow-x-hidden`. The `hidden`
 
 ### Z-Index Stack
 
-| Layer                                 | Value    |
-| ------------------------------------- | -------- |
-| Navigation bar (mobile fixed)         | `z-50`   |
-| Language / theme switchers container  | `z-60`   |
-| Language switcher dropdown positioner | `z-[65]` |
-| Project dialog backdrop + popup       | `z-[70]` |
-| Tooltip bubble                        | `z-75`   |
+| Layer                                 | Value  |
+| ------------------------------------- | ------ |
+| Navigation bar (mobile fixed)         | `z-50` |
+| Language / theme switchers container  | `z-60` |
+| Language switcher dropdown positioner | `z-65` |
+| Project dialog backdrop + popup       | `z-70` |
+| Tooltip bubble                        | `z-75` |
 
 ---
 

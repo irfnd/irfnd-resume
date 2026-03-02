@@ -55,6 +55,7 @@ export function ThemeProvider({ children, defaultTheme = 'dark', storageKey = 'i
 export const useTheme = () => {
 	const context = React.useContext(ThemeProviderContext);
 
+	/* v8 ignore next -- @preserve This check is unreachable because createContext has initialState */
 	if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider');
 	return context;
 };

@@ -29,13 +29,11 @@ function ContactPage() {
 		e.preventDefault();
 		setIsSubmitting(true);
 
-		// Simulate API call
 		await new Promise((resolve) => setTimeout(resolve, 1500));
 
 		setIsSubmitting(false);
 		setIsSuccess(true);
 
-		// Reset success message after 5 seconds
 		if (successTimer.current) clearTimeout(successTimer.current);
 		successTimer.current = setTimeout(() => setIsSuccess(false), 5000);
 		(e.target as HTMLFormElement).reset();
