@@ -4,7 +4,6 @@ import { act, renderHook, waitFor } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-// Mock @react-pdf/renderer
 vi.mock('@react-pdf/renderer', () => ({
 	pdf: vi.fn(() => ({
 		toBlob: vi.fn(() => Promise.resolve(new Blob(['test'], { type: 'application/pdf' }))),
@@ -137,7 +136,7 @@ describe('useResumeDownload hook', () => {
 		expect(result.current.loading).toBe(true);
 
 		act(() => {
-			result.current.download(); // Should return early due to loading check
+			result.current.download();
 		});
 
 		await act(async () => {
