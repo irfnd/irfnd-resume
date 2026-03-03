@@ -98,25 +98,25 @@ describe('ProjectCard', () => {
 		it('should render public project with source and demo links', () => {
 			render(<ProjectCard {...publicWithBoth} />, { wrapper: Wrapper });
 			expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute('href', publicWithBoth.source);
-			expect(screen.getByRole('link', { name: /live demo/i })).toHaveAttribute('href', publicWithBoth.demo);
+			expect(screen.getByRole('link', { name: /^demo$/i })).toHaveAttribute('href', publicWithBoth.demo);
 		});
 
 		it('should render public project with source only', () => {
 			render(<ProjectCard {...publicSourceOnly} />, { wrapper: Wrapper });
 			expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute('href', publicSourceOnly.source);
-			expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
+			expect(screen.queryByRole('link', { name: /^demo$/i })).not.toBeInTheDocument();
 		});
 
 		it('should render public project with demo only', () => {
 			render(<ProjectCard {...publicDemoOnly} />, { wrapper: Wrapper });
 			expect(screen.queryByRole('link', { name: /source/i })).not.toBeInTheDocument();
-			expect(screen.getByRole('link', { name: /live demo/i })).toHaveAttribute('href', publicDemoOnly.demo);
+			expect(screen.getByRole('link', { name: /^demo$/i })).toHaveAttribute('href', publicDemoOnly.demo);
 		});
 
 		it('should render public project without any links', () => {
 			render(<ProjectCard {...publicNoLinks} />, { wrapper: Wrapper });
 			expect(screen.queryByRole('link', { name: /source/i })).not.toBeInTheDocument();
-			expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
+			expect(screen.queryByRole('link', { name: /^demo$/i })).not.toBeInTheDocument();
 		});
 
 		it('should render private project with internal badge', () => {
@@ -171,7 +171,7 @@ describe('ProjectCard', () => {
 			const user = userEvent.setup();
 			render(<ProjectCard {...publicWithBoth} />, { wrapper: Wrapper });
 
-			const demoLink = screen.getByRole('link', { name: /live demo/i });
+			const demoLink = screen.getByRole('link', { name: /^demo$/i });
 			await user.click(demoLink);
 
 			expect(screen.getAllByText(publicWithBoth.name).length).toBe(1);
@@ -202,25 +202,25 @@ describe('ProjectCard', () => {
 		it('should render featured public project with source and demo links', () => {
 			render(<ProjectCard {...publicWithBoth} isFirst />, { wrapper: Wrapper });
 			expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute('href', publicWithBoth.source);
-			expect(screen.getByRole('link', { name: /live demo/i })).toHaveAttribute('href', publicWithBoth.demo);
+			expect(screen.getByRole('link', { name: /^demo$/i })).toHaveAttribute('href', publicWithBoth.demo);
 		});
 
 		it('should render featured public project with source only', () => {
 			render(<ProjectCard {...publicSourceOnly} isFirst />, { wrapper: Wrapper });
 			expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute('href', publicSourceOnly.source);
-			expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
+			expect(screen.queryByRole('link', { name: /^demo$/i })).not.toBeInTheDocument();
 		});
 
 		it('should render featured public project with demo only', () => {
 			render(<ProjectCard {...publicDemoOnly} isFirst />, { wrapper: Wrapper });
 			expect(screen.queryByRole('link', { name: /source/i })).not.toBeInTheDocument();
-			expect(screen.getByRole('link', { name: /live demo/i })).toHaveAttribute('href', publicDemoOnly.demo);
+			expect(screen.getByRole('link', { name: /^demo$/i })).toHaveAttribute('href', publicDemoOnly.demo);
 		});
 
 		it('should render featured public project without any links', () => {
 			render(<ProjectCard {...publicNoLinks} isFirst />, { wrapper: Wrapper });
 			expect(screen.queryByRole('link', { name: /source/i })).not.toBeInTheDocument();
-			expect(screen.queryByRole('link', { name: /live demo/i })).not.toBeInTheDocument();
+			expect(screen.queryByRole('link', { name: /^demo$/i })).not.toBeInTheDocument();
 		});
 
 		it('should render featured private project with internal badge', () => {
@@ -264,7 +264,7 @@ describe('ProjectCard', () => {
 			const user = userEvent.setup();
 			render(<ProjectCard {...publicWithBoth} isFirst />, { wrapper: Wrapper });
 
-			const demoLink = screen.getByRole('link', { name: /live demo/i });
+			const demoLink = screen.getByRole('link', { name: /^demo$/i });
 			await user.click(demoLink);
 
 			expect(screen.getAllByText(publicWithBoth.name).length).toBe(1);

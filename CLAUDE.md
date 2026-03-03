@@ -193,7 +193,7 @@ apps/web/tests/
 
 #### Coverage
 
-Configured at **100%** for statements, branches, functions, and lines. Current: **311 tests across 37 test files**.
+Configured at **100%** for statements, branches, functions, and lines. Current: **316 tests across 38 test files**.
 
 Files excluded from coverage (truly untestable):
 
@@ -337,7 +337,7 @@ These support semantic HTML elements via the `as` prop. Custom `MotionLink` and 
 
 All page content lives in `src/i18n/en.ts` and `src/i18n/id.ts` as typed translation objects. Types are defined in `src/types/i18n.ts`. Components access content via `useTranslation()` hook.
 
-`setHighlightText(text, keywords)` in `src/utils/text.ts` replaces keywords with `{0}`, `{1}` placeholders for the `HighlightText` UI component. When rendering plain text (e.g. in the PDF), use `resolveText(paragraph)` from `src/components/pdf/utils.ts` to restore the original words.
+`setHighlightText(text, keywords)` in `src/utils/text.ts` replaces keywords with `{0}`, `{1}` placeholders for the `HighlightText` UI component. When rendering plain text (e.g. in the PDF), use `resolveText(paragraph)` from `src/utils/text.ts` to restore the original words.
 
 **Validation Messages:** `contactMe.validation` contains field-specific error messages (min/max length, email format, etc.) used by `createContactSchema()`. The `IContactValidation` interface defines the structure.
 
@@ -381,12 +381,11 @@ Structure:
 
 - `resume.tsx` — Root `<Document>` / `<Page>` that composes all sections
 - `styles.ts` — Shared `StyleSheet` (Times Roman, A4 page, dividers)
-- `utils.ts` — `resolveText(paragraph)` restores `{0}…` placeholders back to keywords
 - `sections/header.tsx` — Name, role, location, email/LinkedIn/GitHub links
 - `sections/experience.tsx` — Work history with company, positions, bullet points
 - `sections/education.tsx` — Education with degree, duration, awards
 - `sections/skills.tsx` — Technology stacks by category (alphabetically sorted)
-- `sections/projects.tsx` — All portfolio projects with stacks and links
+- `sections/projects.tsx` — All portfolio projects with stacks and links; uses `common` prop for i18n labels (`technologies`, `liveDemo`, `source`)
 
 The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `motion.button` instead of a link. Clicking it calls `useResumeDownload().download()` and shows a spinner while the PDF is being generated. The downloaded filename follows the pattern `Resume_<FirstName>_<LastName>_<LANG>.pdf`.
 
@@ -457,7 +456,8 @@ The contact page (`/contact`) uses **TanStack Form** with **Zod validation** fro
 ### Utilities (apps/web/src/utils/)
 
 - `cn()` — class merging with clsx + tailwind-merge (`src/utils/cn.ts`)
-- `setHighlightText()` / resolve helpers — text processing (`src/utils/text.ts`)
+- `setHighlightText()` / `resolveText()` — text processing (`src/utils/text.ts`)
+- `sortProjects()` — sorts projects with selected first, then alphabetical (`src/utils/portfolio.ts`)
 - `cloudinaryResize(url, width)` — transforms a Cloudinary URL to serve a `c_scale,w_<width>` variant; use at render sites so images are served at appropriate display size (`src/utils/cloudinary.ts`)
 
 ### Path Alias

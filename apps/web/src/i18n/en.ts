@@ -713,10 +713,10 @@ export const en: Translations = {
 
 	common: {
 		viewMore: 'View More',
-		liveDemo: 'Live Demo',
-		downloadResume: 'Download Resume',
+		liveDemo: 'Demo',
 		source: 'Source Code',
 		internal: 'Internal Project',
+		technologies: 'Technologies',
 		changeLanguage: 'Change Language',
 		changeTheme: 'Change Theme',
 		portfolioCategories: [

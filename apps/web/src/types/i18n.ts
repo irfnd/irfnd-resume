@@ -162,9 +162,9 @@ export interface IFooter {
 export interface ICommon {
 	viewMore: string;
 	liveDemo: string;
-	downloadResume: string;
 	source: string;
 	internal: string;
+	technologies: string;
 	changeLanguage: string;
 	changeTheme: string;
 	portfolioCategories: {

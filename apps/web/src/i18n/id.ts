@@ -348,9 +348,9 @@ export const id: Translations = {
 						['Platform diagnostik', 'sertifikasi otomatis', 'modul asesmen premium'],
 					),
 				],
-				type: 'public',
+				type: 'private',
 				category: 'fullstack',
-				demo: 'https://profdito.com',
+				demo: null,
 				source: null,
 				stacks: getTechStack(['JavaScript', 'Next.js', 'Redux', 'Chakra UI', 'Express.js', 'MongoDB']),
 				image: [
@@ -409,6 +409,9 @@ export const id: Translations = {
 						'Platform manajemen SDM yang skalabel untuk mengoptimalkan siklus kerja karyawan. Fitur mencakup sinkronisasi data real-time, pemrosesan mutasi otomatis, manajemen cuti, serta visualisasi hierarki organisasi (Cabang, Divisi, Jabatan).',
 						['Platform manajemen SDM', 'sinkronisasi data real-time', 'visualisasi hierarki organisasi'],
 					),
+					setHighlightText('Akun Demo:', []),
+					setHighlightText('- Admin (admin@mail.com, Admin123.)', ['admin@mail.com', 'Admin123.']),
+					setHighlightText('- Manager (manager@mail.com, Manager123.)', ['manager@mail.com', 'Manager123.']),
 				],
 				type: 'public',
 				category: 'frontend',
@@ -710,10 +713,10 @@ export const id: Translations = {
 
 	common: {
 		viewMore: 'Selengkapnya',
-		liveDemo: 'Demo Langsung',
-		downloadResume: 'Unduh Resume',
+		liveDemo: 'Demo',
 		source: 'Source Code',
 		internal: 'Proyek Internal',
+		technologies: 'Teknologi',
 		changeLanguage: 'Ganti Bahasa',
 		changeTheme: 'Ganti Tema',
 		portfolioCategories: [

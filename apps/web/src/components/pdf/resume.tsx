@@ -1,4 +1,4 @@
-import type { IContact, IEducation, IExperience, IPortfolio, IProfile, ITechnology, Language } from '@/types';
+import type { ICommon, IContact, IEducation, IExperience, IPortfolio, IProfile, ITechnology, Language } from '@/types';
 import { Document, Page } from '@react-pdf/renderer';
 
 import { EducationSection } from '@/components/pdf/sections/education';
@@ -15,6 +15,7 @@ export interface ResumePDFProps {
 	education: IEducation;
 	technology: ITechnology;
 	portfolio: IPortfolio;
+	common: ICommon;
 	language: Language;
 }
 
@@ -26,7 +27,7 @@ export function ResumePDF(props: ResumePDFProps) {
 				<ExperienceSection experience={props.experience} />
 				<EducationSection education={props.education} />
 				<SkillsSection technology={props.technology} />
-				<ProjectsSection portfolio={props.portfolio} language={props.language} />
+				<ProjectsSection portfolio={props.portfolio} common={props.common} />
 			</Page>
 		</Document>
 	);

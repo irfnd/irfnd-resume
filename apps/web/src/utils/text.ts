@@ -1,3 +1,5 @@
+import type { IParagraph } from '@/types';
+
 export function setHighlightText(text: string, keywords: string[]) {
 	let result = text;
 
@@ -8,4 +10,8 @@ export function setHighlightText(text: string, keywords: string[]) {
 	});
 
 	return { value: result, keywords };
+}
+
+export function resolveText({ value, keywords }: IParagraph): string {
+	return keywords.reduce((text, keyword, index) => text.replace(new RegExp(`\\{${index}\\}`, 'g'), keyword), value);
 }

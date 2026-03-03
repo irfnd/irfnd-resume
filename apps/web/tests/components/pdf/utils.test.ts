@@ -1,4 +1,4 @@
-import { resolveText } from '@/components/pdf/utils';
+import { resolveText } from '@/utils/text';
 import { describe, expect, it } from 'vitest';
 
 describe('resolveText utility', () => {

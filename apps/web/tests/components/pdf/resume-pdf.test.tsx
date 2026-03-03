@@ -56,6 +56,11 @@ describe('ResumePDF', () => {
 			tabs: [],
 			projects: [],
 		},
+		common: {
+			technologies: 'Technologies',
+			liveDemo: 'Demo',
+			source: 'Source Code',
+		},
 		language: 'en',
 	} as unknown as ResumePDFProps;
 
@@ -78,8 +83,8 @@ describe('ResumePDF', () => {
 		expect(screen.getByText('PROJECTS')).toBeInTheDocument();
 	});
 
-	it('should pass language prop to ProjectsSection', () => {
-		render(<ResumePDF {...(mockProps as ResumePDFProps)} language='id' />);
+	it('should pass common prop to ProjectsSection', () => {
+		render(<ResumePDF {...(mockProps as ResumePDFProps)} />);
 		expect(screen.getByText('PROJECTS')).toBeInTheDocument();
 	});
 });

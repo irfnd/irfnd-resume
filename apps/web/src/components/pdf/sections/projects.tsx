@@ -1,19 +1,18 @@
-import type { IPortfolio, Language } from '@/types';
+import type { ICommon, IPortfolio } from '@/types';
 import { Link, Text, View } from '@react-pdf/renderer';
 import * as React from 'react';
 
 import { styles } from '@/components/pdf/styles';
-import { resolveText } from '@/components/pdf/utils';
+import { sortProjects } from '@/utils/portfolio';
+import { resolveText } from '@/utils/text';
 
 interface ProjectsSectionProps {
 	portfolio: IPortfolio;
-	language: Language;
+	common: ICommon;
 }
 
-export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
-	const techLabel = language === 'en' ? 'Technologies' : 'Teknologi';
-	const demoLabel = language === 'en' ? 'Live Demo' : 'Lihat Demo';
-	const sourceLabel = language === 'en' ? 'Source Code' : 'Lihat Source Code';
+export function ProjectsSection({ portfolio, common }: ProjectsSectionProps) {
+	const sortedProjects = React.useMemo(() => sortProjects(portfolio.projects), [portfolio.projects]);
 
 	return (
 		<View style={{ gap: 10 }}>
@@ -22,7 +21,7 @@ export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
 				<View style={styles.dividerH} />
 			</View>
 
-			{portfolio.projects.map((project, i) => (
+			{sortedProjects.map((project, i) => (
 				<View key={i} style={{ gap: 2 }} wrap={false}>
 					{project.demo ? (
 						<Link src={project.demo} style={[styles.text, styles.bold, styles.link]}>
@@ -38,7 +37,7 @@ export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
 
 					{project.stacks.length > 0 && (
 						<View style={{ flexDirection: 'row', gap: 3 }}>
-							<Text style={styles.text}>{techLabel}: </Text>
+							<Text style={styles.text}>{common.technologies}: </Text>
 							<Text style={[styles.text, styles.italic]}>
 								{project.stacks
 									.map((s) => s.label)
@@ -53,14 +52,14 @@ export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
 							{project.demo && (
 								<React.Fragment>
 									<Link src={project.demo} style={[styles.text, { color: '#000' }]}>
-										{demoLabel}
+										{common.liveDemo}
 									</Link>
 								</React.Fragment>
 							)}
 							{project.demo && project.source && <View style={styles.dividerV} />}
 							{project.source && (
 								<Link src={project.source} style={[styles.text, { color: '#000' }]}>
-									{sourceLabel}
+									{common.source}
 								</Link>
 							)}
 						</View>

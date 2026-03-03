@@ -55,7 +55,7 @@ describe('ProjectDialog', () => {
 			expect(screen.getByRole('link', { name: /source/i })).toBeInTheDocument();
 		}
 		if (publicProject.demo) {
-			expect(screen.getByRole('link', { name: /live demo/i })).toBeInTheDocument();
+			expect(screen.getByRole('link', { name: /^demo$/i })).toBeInTheDocument();
 		}
 	});
 

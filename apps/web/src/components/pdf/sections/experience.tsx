@@ -2,7 +2,7 @@ import type { IExperience } from '@/types';
 import { Link, Text, View } from '@react-pdf/renderer';
 
 import { styles } from '@/components/pdf/styles';
-import { resolveText } from '@/components/pdf/utils';
+import { resolveText } from '@/utils/text';
 
 interface ExperienceSectionProps {
 	experience: IExperience;
