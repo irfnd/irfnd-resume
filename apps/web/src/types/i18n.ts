@@ -120,11 +120,19 @@ export interface IEducation {
 	}[];
 }
 
-interface IFormField {
+export interface IFormField {
 	label: string;
 	name: string;
 	type: HTMLInputTypeAttribute;
 	placeholder: string;
+}
+
+export interface IContactValidation {
+	fullName: { min: string; max: string };
+	email: { invalid: string };
+	telephone: { min: string; max: string };
+	subject: { min: string; max: string };
+	message: { min: string; max: string };
 }
 
 export interface IContactMe {
@@ -133,6 +141,7 @@ export interface IContactMe {
 	formTitle: string;
 	form: IFormField[];
 	submitButton: string;
+	submittingButton: string;
 	successMessage: string;
 	sendAnotherMessage: string;
 	reachMeDirectly: string;
@@ -142,6 +151,7 @@ export interface IContactMe {
 		serverError: string;
 		validationError: string;
 	};
+	validation: IContactValidation;
 }
 
 export interface IFooter {

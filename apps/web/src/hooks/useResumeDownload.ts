@@ -6,23 +6,25 @@ export function useResumeDownload() {
 	const t = useTranslation();
 	const [loading, setLoading] = React.useState(false);
 
-	const download = async () => {
+	const download = React.useCallback(() => {
 		if (loading) return;
 		setLoading(true);
 
-		try {
-			const [{ pdf }, { ResumePDF }] = await Promise.all([import('@react-pdf/renderer'), import('@/components/pdf/resume')]);
-			const blob = await pdf(React.createElement(ResumePDF, { ...t, language })).toBlob();
-			const url = URL.createObjectURL(blob);
-			const link = document.createElement('a');
-			link.href = url;
-			link.download = `Resume_${t.profile.firstName}_${t.profile.lastName}_${language.toUpperCase()}.pdf`;
-			link.click();
-			URL.revokeObjectURL(url);
-		} finally {
-			setLoading(false);
-		}
-	};
+		setTimeout(async () => {
+			try {
+				const [{ pdf }, { ResumePDF }] = await Promise.all([import('@react-pdf/renderer'), import('@/components/pdf/resume')]);
+				const blob = await pdf(React.createElement(ResumePDF, { ...t, language })).toBlob();
+				const url = URL.createObjectURL(blob);
+				const link = document.createElement('a');
+				link.href = url;
+				link.download = `Resume_${t.profile.firstName}_${t.profile.lastName}_${language.toUpperCase()}.pdf`;
+				link.click();
+				URL.revokeObjectURL(url);
+			} finally {
+				setLoading(false);
+			}
+		}, 0);
+	}, [loading, t, language]);
 
 	return { download, loading };
 }

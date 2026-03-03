@@ -97,22 +97,26 @@ describe('useResumeDownload hook', () => {
 	it('should create and click download link', async () => {
 		const { result } = renderHook(() => useResumeDownload(), { wrapper: Wrapper });
 
-		await act(async () => {
-			await result.current.download();
+		act(() => {
+			result.current.download();
 		});
 
-		expect(mockClick).toHaveBeenCalled();
+		await waitFor(() => {
+			expect(mockClick).toHaveBeenCalled();
+		});
 	});
 
 	it('should create and revoke object URL', async () => {
 		const { result } = renderHook(() => useResumeDownload(), { wrapper: Wrapper });
 
-		await act(async () => {
-			await result.current.download();
+		act(() => {
+			result.current.download();
 		});
 
-		expect(mockCreateObjectURL).toHaveBeenCalled();
-		expect(mockRevokeObjectURL).toHaveBeenCalled();
+		await waitFor(() => {
+			expect(mockCreateObjectURL).toHaveBeenCalled();
+			expect(mockRevokeObjectURL).toHaveBeenCalled();
+		});
 	});
 
 	it('should not start another download while loading', async () => {
@@ -128,19 +132,20 @@ describe('useResumeDownload hook', () => {
 
 		const { result } = renderHook(() => useResumeDownload(), { wrapper: Wrapper });
 
-		let firstDownload: Promise<void>;
 		act(() => {
-			firstDownload = result.current.download();
+			result.current.download();
 		});
 
-		expect(result.current.loading).toBe(true);
+		await waitFor(() => {
+			expect(result.current.loading).toBe(true);
+		});
 
 		act(() => {
 			result.current.download();
 		});
 
-		await act(async () => {
-			await firstDownload!;
+		await waitFor(() => {
+			expect(result.current.loading).toBe(false);
 		});
 
 		expect(mockClick).toHaveBeenCalledTimes(1);

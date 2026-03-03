@@ -146,19 +146,22 @@ Shared Zod 4 validation schemas used by both API and Web apps:
 
 ```
 packages/schemas/src/
-├── contact.ts           # Contact form schema (fullName, email, telephone, subject, message)
+├── contact.ts           # Contact form schema with i18n support
 └── index.ts             # Barrel export
 ```
 
 **Usage:**
 
 ```typescript
-// In API
+// In API (default English messages)
 import { contactSchema, type ContactFormData } from '@irfnd/schemas';
 
-// In Web
-import { contactSchema, type ContactFormData } from '@irfnd/schemas';
+// In Web (i18n messages)
+import { createContactSchema, type ContactFormData } from '@irfnd/schemas';
+const schema = createContactSchema(contactMe.validation); // Pass translated messages
 ```
+
+**Schema Factory:** `createContactSchema(messages)` accepts a `ContactValidationMessages` object to support i18n. The default `contactSchema` export uses English messages (for API).
 
 **Zod v4 Note:** Uses `result.error.issues` (not `.errors`) for validation error access.
 
@@ -336,6 +339,10 @@ All page content lives in `src/i18n/en.ts` and `src/i18n/id.ts` as typed transla
 
 `setHighlightText(text, keywords)` in `src/utils/text.ts` replaces keywords with `{0}`, `{1}` placeholders for the `HighlightText` UI component. When rendering plain text (e.g. in the PDF), use `resolveText(paragraph)` from `src/components/pdf/utils.ts` to restore the original words.
 
+**Validation Messages:** `contactMe.validation` contains field-specific error messages (min/max length, email format, etc.) used by `createContactSchema()`. The `IContactValidation` interface defines the structure.
+
+**Submitting Button:** `contactMe.submittingButton` provides i18n text shown alongside the loading spinner during form submission ("Sending..." / "Mengirim...").
+
 #### Tech Stack Registry
 
 `src/contents/tech-stack-list.ts` — Central registry of all technology entries used across portfolio and experience sections. Each entry has `label`, `url`, `icon`, and `color`. Use `getTechStack(['Label1', 'Label2'])` to select entries by label. Available labels: JavaScript, TypeScript, Python, Go, Alpine.js, React, Vue.js, Next.js, Express.js, NestJS, Flask, Django, Tailwind CSS, Shadcn UI, Ant Design, Material UI, Chakra UI, PostgreSQL, MongoDB, Redis, Firebase, Supabase, GraphQL, Docker, Linux, Swagger, Redux, Turborepo, Mapbox, Framer Motion.
@@ -388,7 +395,7 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 `src/components/layout/language-switcher.tsx` — `LanguageSwitcher` component in the fixed top-right corner. Uses `@base-ui/react/menu` with controlled `open`/`onOpenChange` state.
 
 - **Close on select**: `onValueChange` calls `setOpen(false)` after applying the new language, so the menu closes immediately on selection.
-- **Tooltip**: `TooltipBubble` wraps the trigger, showing `common.changeLanguage` ("Change Language" / "Ganti Bahasa"). Tooltip is force-hidden (`open={open ? false : undefined}`) when the dropdown menu is open.
+- **Tooltip**: `TooltipBubble` wraps the trigger, showing `common.changeLanguage` ("Change Language" / "Ganti Bahasa"). Uses `disabled={open}` to prevent tooltip when dropdown is open.
 - **Z-index**: `z-65` is on `Menu.Positioner` (not `Menu.Popup`) — the positioner is the outermost element in the portal and controls stacking order relative to other fixed elements (nav `z-50`, switchers container `z-60`).
 
 ### Theme Switcher
@@ -415,7 +422,8 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 
 `apps/web/src/components/ui/tooltip-bubble.tsx` — Reusable tooltip component wrapping Base UI `@base-ui/react/tooltip` with Framer Motion spring animation.
 
-- **Props**: `label` (tooltip content), `side` (position: `top` | `bottom` | `left` | `right`, default `bottom`), `open` (controlled visibility, e.g. `open={false}` to force-hide when a menu is open), `children` (trigger element)
+- **Props**: `label` (tooltip content), `side` (position: `top` | `bottom` | `left` | `right`, default `bottom`), `disabled` (prevents tooltip from opening, used when parent menu is open), `children` (trigger element)
+- **Controlled internally**: Manages its own `open` state to avoid React controlled/uncontrolled warnings
 - **Animation**: Framer Motion spring (`stiffness: 400, damping: 25`) with directional slide based on `side` prop
 - **Arrow**: SVG triangle that auto-rotates via `data-[side=*]` attributes to always point toward the trigger element
 - **Z-index**: `z-75` (above dialog `z-70`)
@@ -427,6 +435,7 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 
 - **Components**: `ToastProvider` (context + container), `useToast` hook
 - **Variants**: `success` (green), `error` (red), `warning` (yellow), `info` (blue)
+- **Position**: Fixed top-right corner (`top-4 right-4`)
 - **Usage**: `const { addToast } = useToast(); addToast('Message', 'error', 5000);`
 - **Auto-dismiss**: Default 5 seconds, configurable via `duration` parameter
 - **Z-index**: `z-80` (above all other UI elements)
@@ -437,10 +446,12 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 The contact page (`/contact`) uses **TanStack Form** with **Zod validation** from the shared `@irfnd/schemas` package.
 
 - **Form library**: `@tanstack/react-form` with `validators.onChange: contactSchema`
-- **Validation**: Real-time field validation with error display below inputs
-- **Schema**: `contactSchema` from `@irfnd/schemas` (shared with API)
+- **Validation**: Real-time field validation with i18n error messages
+- **Schema**: `createContactSchema(contactMe.validation)` from `@irfnd/schemas` — creates schema with translated messages
+- **i18n reactivity**: `ContactForm` component is keyed by `language` to remount when language changes, ensuring new validation messages take effect
 - **API integration**: Submits to `${VITE_API_URL}/contact` with `X-API-Key` header
 - **Error handling**: Toast notifications for rate limit, validation, network, and server errors
+- **Loading state**: Button shows spinner + i18n text (`submittingButton`) while submitting
 - **Success state**: Animated overlay with success message and "send another" button
 
 ### Utilities (apps/web/src/utils/)

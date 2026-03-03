@@ -1,18 +1,31 @@
 import { Tooltip } from '@base-ui/react/tooltip';
 import { motion } from 'framer-motion';
-import type { ReactElement, ReactNode } from 'react';
+import { type ReactElement, type ReactNode, useCallback, useState } from 'react';
 
 export interface TooltipBubbleProps {
 	label: ReactNode;
 	side?: 'top' | 'bottom' | 'left' | 'right';
-	open?: boolean | undefined;
+	disabled?: boolean;
 	children: ReactElement;
 }
 
-export function TooltipBubble({ label, side = 'bottom', open, children }: TooltipBubbleProps) {
+export function TooltipBubble({ label, side = 'bottom', disabled = false, children }: TooltipBubbleProps) {
+	const [open, setOpen] = useState(false);
+
+	const handleOpenChange = useCallback(
+		(nextOpen: boolean) => {
+			// Only allow opening if not disabled
+			setOpen(disabled ? false : nextOpen);
+		},
+		[disabled],
+	);
+
+	// When disabled changes to true, force close
+	const effectiveOpen = disabled ? false : open;
+
 	return (
 		<Tooltip.Provider delay={200} closeDelay={0}>
-			<Tooltip.Root open={open}>
+			<Tooltip.Root open={effectiveOpen} onOpenChange={handleOpenChange}>
 				<Tooltip.Trigger render={children} />
 				<Tooltip.Portal>
 					<Tooltip.Positioner side={side} sideOffset={6} className='z-75'>

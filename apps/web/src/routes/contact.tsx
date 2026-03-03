@@ -1,7 +1,8 @@
 import { SlideUp, StaggerContainer, StaggerItem, useToast } from '@/components/ui';
-import { useTranslation } from '@/hooks';
+import { useLanguage, useTranslation } from '@/hooks';
+import type { IContactMe, IContactValidation, IFormField } from '@/types';
 import { cn } from '@/utils/cn';
-import { contactSchema, type ContactFormData } from '@irfnd/schemas';
+import { createContactSchema, type ContactFormData } from '@irfnd/schemas';
 import { IconCheck, IconLoader2 } from '@tabler/icons-react';
 import { useForm } from '@tanstack/react-form';
 import { createFileRoute } from '@tanstack/react-router';
@@ -15,13 +16,26 @@ export const Route = createFileRoute('/contact')({
 	component: ContactPage,
 });
 
-function ContactPage() {
-	const { contactMe, contact } = useTranslation();
+const fieldMap: Record<string, keyof ContactFormData> = {
+	fullName: 'fullName',
+	email: 'email',
+	telephone: 'telephone',
+	subject: 'subject',
+	message: 'message',
+};
+
+interface ContactFormProps {
+	formFields: IFormField[];
+	validation: IContactValidation;
+	contactMe: IContactMe;
+}
+
+function ContactForm({ formFields, validation, contactMe }: ContactFormProps) {
 	const { addToast } = useToast();
 	const [isSuccess, setIsSuccess] = React.useState(false);
 	const successTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	const directContact = React.useMemo(() => contact.filter((val) => val.showInContactPage), [contact]);
+	const contactSchema = React.useMemo(() => createContactSchema(validation), [validation]);
 
 	React.useEffect(() => {
 		return () => {
@@ -77,13 +91,124 @@ function ContactPage() {
 		},
 	});
 
-	const fieldMap: Record<string, keyof ContactFormData> = {
-		fullName: 'fullName',
-		email: 'email',
-		telephone: 'telephone',
-		subject: 'subject',
-		message: 'message',
-	};
+	return (
+		<form
+			onSubmit={(e) => {
+				e.preventDefault();
+				form.handleSubmit();
+			}}
+			className='flex flex-col gap-6'
+		>
+			{isSuccess && (
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					className='absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md p-8 text-center space-y-4 rounded-3xl'
+				>
+					<div className='h-16 w-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center'>
+						<IconCheck size={32} />
+					</div>
+					<h4 className='text-lg font-bold text-foreground'>{contactMe.successMessage}</h4>
+					<button
+						type='button'
+						onClick={() => setIsSuccess(false)}
+						className='text-sm font-medium text-primary hover:underline cursor-pointer'
+					>
+						{contactMe.sendAnotherMessage}
+					</button>
+				</motion.div>
+			)}
+
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+				{formFields.map((field) => {
+					const isTextarea = field.type === 'textarea';
+					const fieldName = fieldMap[field.name];
+
+					return (
+						<form.Field key={field.name} name={fieldName}>
+							{(fieldApi) => {
+								const hasError = fieldApi.state.meta.isTouched && fieldApi.state.meta.errors.length > 0;
+
+								return (
+									<div className={cn('flex flex-col gap-2', isTextarea && 'md:col-span-2')}>
+										<label htmlFor={field.name} className='text-sm font-semibold text-foreground cursor-pointer w-fit'>
+											{field.label}
+										</label>
+
+										{isTextarea ? (
+											<textarea
+												id={field.name}
+												name={field.name}
+												rows={5}
+												placeholder={field.placeholder}
+												value={fieldApi.state.value}
+												onChange={(e) => fieldApi.handleChange(e.target.value)}
+												onBlur={fieldApi.handleBlur}
+												className={cn(
+													'w-full px-4 py-3 rounded-xl bg-background/50 border focus:ring-2 outline-none transition-all resize-none placeholder:text-muted-foreground/40 text-base text-foreground',
+													hasError
+														? 'border-red-500 focus:border-red-500 focus:ring-red-500/10'
+														: 'border-border focus:border-primary focus:ring-primary/10',
+												)}
+											/>
+										) : (
+											<input
+												id={field.name}
+												name={field.name}
+												type={field.type}
+												placeholder={field.placeholder}
+												value={fieldApi.state.value}
+												onChange={(e) => fieldApi.handleChange(e.target.value)}
+												onBlur={fieldApi.handleBlur}
+												className={cn(
+													'w-full h-12 px-4 rounded-xl bg-background/50 border focus:ring-2 outline-none transition-all placeholder:text-muted-foreground/40 text-base text-foreground',
+													hasError
+														? 'border-red-500 focus:border-red-500 focus:ring-red-500/10'
+														: 'border-border focus:border-primary focus:ring-primary/10',
+												)}
+											/>
+										)}
+
+										{hasError && (
+											<span className='text-xs text-red-500'>
+												{fieldApi.state.meta.errors.map((e) => (typeof e === 'string' ? e : e?.message || String(e))).join(', ')}
+											</span>
+										)}
+									</div>
+								);
+							}}
+						</form.Field>
+					);
+				})}
+			</div>
+
+			<form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
+				{([canSubmit, isSubmitting]) => (
+					<button
+						type='submit'
+						disabled={!canSubmit || isSubmitting}
+						className='w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group'
+					>
+						{isSubmitting ? (
+							<>
+								<IconLoader2 size={20} className='animate-spin' />
+								{contactMe.submittingButton}
+							</>
+						) : (
+							contactMe.submitButton
+						)}
+					</button>
+				)}
+			</form.Subscribe>
+		</form>
+	);
+}
+
+function ContactPage() {
+	const language = useLanguage();
+	const { contactMe, contact } = useTranslation();
+
+	const directContact = React.useMemo(() => contact.filter((val) => val.showInContactPage), [contact]);
 
 	return (
 		<SlideUp as='div' delay={0.5} className='grid mb-8 gap-8'>
@@ -97,104 +222,8 @@ function ContactPage() {
 			<div className='flex flex-col gap-6 glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-3xl p-6 md:p-8 light-shadow dark:shadow-none relative'>
 				<h3 className='text-lg font-bold text-foreground'>{contactMe.formTitle}</h3>
 
-				<form
-					onSubmit={(e) => {
-						e.preventDefault();
-						form.handleSubmit();
-					}}
-					className='flex flex-col gap-6'
-				>
-					{isSuccess && (
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							className='absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md p-8 text-center space-y-4 rounded-3xl'
-						>
-							<div className='h-16 w-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center'>
-								<IconCheck size={32} />
-							</div>
-							<h4 className='text-lg font-bold text-foreground'>{contactMe.successMessage}</h4>
-							<button
-								type='button'
-								onClick={() => setIsSuccess(false)}
-								className='text-sm font-medium text-primary hover:underline cursor-pointer'
-							>
-								{contactMe.sendAnotherMessage}
-							</button>
-						</motion.div>
-					)}
-
-					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-						{contactMe.form.map((field) => {
-							const isTextarea = field.type === 'textarea';
-							const fieldName = fieldMap[field.name];
-
-							return (
-								<form.Field key={field.name} name={fieldName}>
-									{(fieldApi) => {
-										const hasError = fieldApi.state.meta.isTouched && fieldApi.state.meta.errors.length > 0;
-
-										return (
-											<div className={cn('flex flex-col gap-2', isTextarea && 'md:col-span-2')}>
-												<label htmlFor={field.name} className='text-sm font-semibold text-foreground cursor-pointer w-fit'>
-													{field.label}
-												</label>
-
-												{isTextarea ? (
-													<textarea
-														id={field.name}
-														name={field.name}
-														rows={5}
-														placeholder={field.placeholder}
-														value={fieldApi.state.value}
-														onChange={(e) => fieldApi.handleChange(e.target.value)}
-														onBlur={fieldApi.handleBlur}
-														className={cn(
-															'w-full px-4 py-3 rounded-xl bg-background/50 border focus:ring-2 outline-none transition-all resize-none placeholder:text-muted-foreground/40 text-base text-foreground',
-															hasError
-																? 'border-red-500 focus:border-red-500 focus:ring-red-500/10'
-																: 'border-border focus:border-primary focus:ring-primary/10',
-														)}
-													/>
-												) : (
-													<input
-														id={field.name}
-														name={field.name}
-														type={field.type}
-														placeholder={field.placeholder}
-														value={fieldApi.state.value}
-														onChange={(e) => fieldApi.handleChange(e.target.value)}
-														onBlur={fieldApi.handleBlur}
-														className={cn(
-															'w-full h-12 px-4 rounded-xl bg-background/50 border focus:ring-2 outline-none transition-all placeholder:text-muted-foreground/40 text-base text-foreground',
-															hasError
-																? 'border-red-500 focus:border-red-500 focus:ring-red-500/10'
-																: 'border-border focus:border-primary focus:ring-primary/10',
-														)}
-													/>
-												)}
-
-												{hasError && <span className='text-xs text-red-500'>{fieldApi.state.meta.errors.join(', ')}</span>}
-											</div>
-										);
-									}}
-								</form.Field>
-							);
-						})}
-					</div>
-
-					<form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
-						{([canSubmit, isSubmitting]) => (
-							<button
-								type='submit'
-								disabled={!canSubmit || isSubmitting}
-								className='w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group'
-							>
-								{isSubmitting ? <IconLoader2 size={20} className='animate-spin' /> : contactMe.submitButton}
-							</button>
-						)}
-					</form.Subscribe>
-				</form>
+				{/* Key forces remount when language changes, ensuring new schema is used */}
+				<ContactForm key={language} formFields={contactMe.form} validation={contactMe.validation} contactMe={contactMe} />
 
 				<div className='h-px bg-border w-full'></div>
 

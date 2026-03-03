@@ -26,9 +26,9 @@ describe('TooltipBubble', () => {
 		});
 	});
 
-	it('should accept controlled open state', () => {
+	it('should accept disabled state', () => {
 		render(
-			<TooltipBubble label='Tooltip' open={false}>
+			<TooltipBubble label='Tooltip' disabled>
 				<button>Trigger</button>
 			</TooltipBubble>,
 		);

@@ -42,7 +42,7 @@ irfnd-resume/
 - **Bilingual** — English and Indonesian with a custom i18n context; language preference persisted in `localStorage`
 - **Dark / light mode** — CSS variable theming toggled via `document.documentElement` class
 - **On-demand PDF resume** — `@react-pdf/renderer` is never included in the initial bundle; it loads only when the user clicks Resume
-- **Contact form** — TanStack Form with real-time Zod validation; sends emails via API with rate limiting and security layers
+- **Contact form** — TanStack Form with real-time Zod validation and i18n error messages; sends emails via API with rate limiting and security layers
 - **Project dialog** — click any project card to open a modal with an animated image gallery, tech stack, and links
 - **Tooltips** — reusable `TooltipBubble` component on tech icons, theme switcher, and language switcher
 - **Viewport animations** — reusable `FadeIn`, `SlideUp`, `StaggerContainer` wrappers using Framer Motion
@@ -168,7 +168,12 @@ docker run -p 3000:3000 --env-file apps/api/.env irfnd-api
 Shared Zod 4 validation schemas used by both API and Web apps:
 
 ```typescript
+// API (default English messages)
 import { contactSchema, type ContactFormData } from '@irfnd/schemas';
+
+// Web (i18n messages)
+import { createContactSchema, type ContactFormData } from '@irfnd/schemas';
+const schema = createContactSchema(contactMe.validation);
 ```
 
 ---
@@ -196,7 +201,7 @@ All page content lives in `src/i18n/en.ts` and `src/i18n/id.ts` as typed objects
 | Language switcher dropdown positioner | `z-65` |
 | Project dialog backdrop + popup       | `z-70` |
 | Tooltip bubble                        | `z-75` |
-| Toast notifications                   | `z-80` |
+| Toast notifications (top-right)       | `z-80` |
 
 ---
 

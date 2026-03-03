@@ -673,6 +673,7 @@ export const en: Translations = {
 			},
 		],
 		submitButton: 'Send Message',
+		submittingButton: 'Sending...',
 		successMessage: 'Message sent successfully!',
 		sendAnotherMessage: 'Send another message',
 		reachMeDirectly: 'Reach me directly',
@@ -681,6 +682,27 @@ export const en: Translations = {
 			networkError: 'Unable to connect. Check your internet connection.',
 			serverError: 'Something went wrong. Please try again.',
 			validationError: 'Please check your form inputs.',
+		},
+		validation: {
+			fullName: {
+				min: 'Name must be at least 2 characters',
+				max: 'Name must be less than 100 characters',
+			},
+			email: {
+				invalid: 'Invalid email address',
+			},
+			telephone: {
+				min: 'Invalid phone number',
+				max: 'Phone number too long',
+			},
+			subject: {
+				min: 'Subject must be at least 2 characters',
+				max: 'Subject must be less than 200 characters',
+			},
+			message: {
+				min: 'Message must be at least 10 characters',
+				max: 'Message must be less than 5000 characters',
+			},
 		},
 	},
 

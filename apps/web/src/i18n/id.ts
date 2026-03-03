@@ -670,6 +670,7 @@ export const id: Translations = {
 			},
 		],
 		submitButton: 'Kirim Pesan',
+		submittingButton: 'Mengirim...',
 		successMessage: 'Pesan berhasil dikirim!',
 		sendAnotherMessage: 'Kirim pesan lain',
 		reachMeDirectly: 'Hubungi secara langsung',
@@ -678,6 +679,27 @@ export const id: Translations = {
 			networkError: 'Tidak dapat terhubung. Periksa koneksi internet Anda.',
 			serverError: 'Terjadi kesalahan. Silakan coba lagi.',
 			validationError: 'Silakan periksa input formulir Anda.',
+		},
+		validation: {
+			fullName: {
+				min: 'Nama harus minimal 2 karakter',
+				max: 'Nama harus kurang dari 100 karakter',
+			},
+			email: {
+				invalid: 'Alamat email tidak valid',
+			},
+			telephone: {
+				min: 'Nomor telepon tidak valid',
+				max: 'Nomor telepon terlalu panjang',
+			},
+			subject: {
+				min: 'Subjek harus minimal 2 karakter',
+				max: 'Subjek harus kurang dari 200 karakter',
+			},
+			message: {
+				min: 'Pesan harus minimal 10 karakter',
+				max: 'Pesan harus kurang dari 5000 karakter',
+			},
 		},
 	},
 
