@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["bun"]
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["cd apps/api && bun build src/index.ts --outdir dist --target bun --minify"]
+
+[start]
+cmd = "cd apps/api && bun run dist/index.js"
