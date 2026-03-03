@@ -6,28 +6,172 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **After every feature addition or adjustment, update this file to reflect the change.** This includes — but is not limited to — new components, new hooks, new routes, new dependencies, architectural decisions, import conventions, and build configuration changes. Keep all sections accurate and in sync with the actual codebase at all times.
 
+## Key Dependencies
+
+| Package         | Version | Notes                                 |
+| --------------- | ------- | ------------------------------------- |
+| React           | ^19.2   | React 19 with concurrent features     |
+| Vite            | ^7.3    | Build tool                            |
+| TanStack Router | ^1.163  | File-based routing                    |
+| TanStack Form   | ^1.28   | Form state management                 |
+| Tailwind CSS    | ^4.2    | Utility-first CSS                     |
+| Framer Motion   | ^12.34  | Animations                            |
+| Zod             | ^4.3    | Schema validation (v4 uses `.issues`) |
+| Hono            | ^4.12   | API framework                         |
+| Resend          | ^6.9    | Email delivery                        |
+| ESLint          | ^10.0   | Linting (flat config)                 |
+| Vitest          | ^4.0    | Testing                               |
+| TypeScript      | ~5.9    | Type checking                         |
+
+## Monorepo Structure
+
+This is a **Turborepo monorepo** with the following structure:
+
+```
+irfnd-resume/
+├── apps/
+│   ├── web/                    # React portfolio site (Vite + TanStack Router)
+│   └── api/                    # Contact form email service (Hono + Resend)
+├── packages/
+│   └── schemas/                # Shared Zod validation schemas
+├── package.json                # Root workspace config
+├── turbo.json                  # Turborepo task configuration
+└── bun.lock                    # Lockfile
+```
+
 ## Commands
 
-- **Dev server**: `bun dev`
-- **Build**: `bun build` (runs `tsc -b && vite build`)
+All commands run via Turborepo from the root:
+
+- **Dev server**: `bun dev` — Runs all apps in dev mode
+- **Build**: `bun build` — Builds all apps
 - **Lint**: `bun lint` (ESLint)
 - **Format**: `bun format` (Prettier)
-- **Preview production build**: `bun preview`
 - **Test (watch)**: `bun test`
-- **Test (UI)**: `bun test:ui` — Opens Vitest UI in browser with coverage
 - **Test (single run)**: `bun test:run`
 - **Test (coverage)**: `bun test:coverage`
 
+### App-specific commands
+
+```bash
+# Run only web app
+bun run --cwd apps/web dev
+
+# Run only API
+bun run --cwd apps/api dev
+```
+
 Pre-commit hooks (husky + lint-staged) auto-run ESLint fix, Prettier, and related tests on staged files.
+
+## Apps
+
+### Web App (`apps/web`)
+
+React portfolio site with TanStack Router, Tailwind CSS 4, and Framer Motion.
+
+### API (`apps/api`)
+
+Contact form email service built with:
+
+- **Hono** — Lightweight web framework
+- **Resend** — Email delivery
+- **Zod** — Validation
+
+#### API Structure
+
+```
+apps/api/src/
+├── index.ts             # App entry point with createApp()
+├── routes/
+│   └── contact.ts       # POST /contact endpoint
+├── middleware/
+│   ├── security.ts      # CORS, Origin, API key, Referer validation
+│   └── rate-limit.ts    # IP-based rate limiting
+├── services/
+│   └── email.ts         # Resend email sending
+├── schemas/
+│   └── contact.ts       # Re-exports from @irfnd/schemas
+├── types/
+│   ├── email.ts         # EmailClient, SendEmailResult interfaces
+│   ├── rate-limit.ts    # RateLimitEntry, RateLimitConfig interfaces
+│   └── index.ts         # Barrel export
+└── utils/
+    ├── html.ts          # escapeHtml() for XSS prevention
+    ├── ip.ts            # getClientIP() for rate limiting
+    └── index.ts         # Barrel export
+```
+
+#### API Endpoints
+
+| Endpoint   | Method | Description             |
+| ---------- | ------ | ----------------------- |
+| `/health`  | GET    | Health check            |
+| `/contact` | POST   | Send contact form email |
+
+#### Security Layers
+
+1. **CORS** — Only allows requests from configured origin
+2. **Origin Header Validation** — Server rejects if Origin doesn't match
+3. **API Key** — Requires `X-API-Key` header
+4. **Referer Check** — Validates Referer header
+5. **Rate Limiting** — 5 requests per IP per hour (configurable)
+
+#### Environment Variables (API)
+
+```
+RESEND_API_KEY=       # Resend API key
+EMAIL_TO=             # Recipient email
+EMAIL_FROM=           # Sender email (verified domain)
+CORS_ORIGIN=          # Frontend URL (https://irfnd.id)
+API_KEY=              # Secret API key
+RATE_LIMIT_MAX=       # Max requests per window (default: 5)
+RATE_LIMIT_WINDOW_MS= # Window in ms (default: 3600000)
+PORT=                 # Server port (default: 3000)
+```
+
+#### Deployment
+
+API has a Dockerfile for Coolify deployment:
+
+```bash
+docker build -t irfnd-api apps/api
+docker run -p 3000:3000 --env-file apps/api/.env irfnd-api
+```
+
+### Shared Packages
+
+#### Schemas (`packages/schemas`)
+
+Shared Zod 4 validation schemas used by both API and Web apps:
+
+```
+packages/schemas/src/
+├── contact.ts           # Contact form schema (fullName, email, telephone, subject, message)
+└── index.ts             # Barrel export
+```
+
+**Usage:**
+
+```typescript
+// In API
+import { contactSchema, type ContactFormData } from '@irfnd/schemas';
+
+// In Web
+import { contactSchema, type ContactFormData } from '@irfnd/schemas';
+```
+
+**Zod v4 Note:** Uses `result.error.issues` (not `.errors`) for validation error access.
 
 ## Testing
 
-Unit tests use **Vitest** with **React Testing Library** in a jsdom environment. Tests are located in `tests/` directory.
+### Web App Testing
 
-### Structure
+Unit tests use **Vitest** with **React Testing Library** in a jsdom environment. Tests are located in `apps/web/tests/` directory.
+
+#### Structure
 
 ```
-tests/
+apps/web/tests/
 ├── setup.ts                  # Test setup (localStorage, matchMedia, IntersectionObserver mocks)
 ├── test-utils.tsx            # Custom render with I18n and Theme providers
 ├── router-utils.tsx          # Router testing utilities
@@ -44,9 +188,9 @@ tests/
 └── routes/                   # Route export tests
 ```
 
-### Coverage Thresholds
+#### Coverage
 
-Configured at **100%** for statements, branches, functions, and lines. Current: **299 tests across 36 test files**.
+Configured at **100%** for statements, branches, functions, and lines. Current: **311 tests across 37 test files**.
 
 Files excluded from coverage (truly untestable):
 
@@ -57,7 +201,7 @@ Files excluded from coverage (truly untestable):
 - `src/utils/router.ts` — creates router depending on generated `routeTree`
 - `src/routes/**` — route components requiring full TanStack Router integration
 
-### Testing Patterns
+#### Testing Patterns
 
 - Use `renderHook` with wrapper for hooks needing context
 - Wrap components with `I18nProvider` and `ThemeProvider` for rendering
@@ -66,6 +210,76 @@ Files excluded from coverage (truly untestable):
 - IntersectionObserver mock triggers immediately for Framer Motion animations
 - localStorage resets before each test
 - Use `/* v8 ignore next -- @preserve */` for unreachable code paths
+
+### API Testing
+
+Unit tests use **Vitest** in Node environment. Tests are located in `apps/api/tests/` directory.
+
+#### Structure
+
+```
+apps/api/tests/
+├── app.test.ts              # Integration tests for full app
+├── schemas/
+│   └── contact.test.ts      # Zod schema validation tests
+├── middleware/
+│   ├── security.test.ts     # Origin/API key validation tests
+│   └── rate-limit.test.ts   # Rate limiting tests
+├── services/
+│   └── email.test.ts        # Email service tests (mocked Resend)
+├── routes/
+│   └── contact.test.ts      # Contact endpoint tests
+└── utils/
+    ├── html.test.ts         # HTML escaping tests
+    └── ip.test.ts           # IP extraction tests
+```
+
+#### Coverage
+
+Configured at **100%** for statements, branches, functions, and lines. Current: **87 tests across 8 test files**.
+
+Files excluded from coverage:
+
+- `src/types/**` — TypeScript type definitions (no runtime code)
+- `src/**/index.ts` — barrel files with only `export` statements
+
+#### Testing Patterns
+
+- Use factory functions (`createRateLimitMiddleware`, `createSecurityMiddleware`) for configurable middleware
+- Inject mock email client via `setEmailClient()` for email service tests
+- Create fresh Hono app instances per test to isolate rate limit state
+- Use `vi.stubEnv()` for environment variable testing
+- Test middleware with `app.request()` method
+- Use `/* v8 ignore next -- @preserve */` for unreachable defensive branches
+
+#### Import Convention (API)
+
+Uses `@/` path alias mapping to `src/` directory (same as web app):
+
+```ts
+import { contactSchema } from '@/schemas/contact';
+import { createSecurityMiddleware } from '@/middleware/security';
+```
+
+### ESLint Configuration
+
+All apps/packages use ESLint v10 with flat config format. Each config includes `tsconfigRootDir: import.meta.dirname` to support monorepo structure:
+
+```js
+// eslint.config.js (example)
+export default tseslint.config(
+	{ ignores: ['dist/**', 'node_modules/**'] },
+	js.configs.recommended,
+	...tseslint.configs.recommended,
+	{
+		languageOptions: {
+			parserOptions: {
+				tsconfigRootDir: import.meta.dirname,
+			},
+		},
+	},
+);
+```
 
 ## Architecture
 
@@ -78,14 +292,22 @@ TanStack Router with **file-based routing** in `src/routes/`. The route tree is 
 - `__root.tsx` — Root layout: two-column grid (sticky sidebar + main content), decorative gradients, language/theme switchers in fixed top-right corner. Uses `overflow-x-clip` (not `overflow-x-hidden`) on the root div to allow the aside to be `position: sticky` — `overflow: hidden` would create a scroll container and break stickiness. `TanStackRouterDevtools` is conditionally lazy-loaded via `React.lazy` only when `import.meta.env.DEV` is `true` — in production it resolves to `() => null` so no devtools code ships to users.
 - `index.tsx` — Home page (`/`): profile focus, professional journey, education history, technical stack, selected work
 - `portfolio.tsx` — Portfolio with animated category tabs (`/portfolio`)
-- `contact.tsx` — Contact page (`/contact`)
+- `contact.tsx` — Contact page (`/contact`): uses TanStack Form with Zod validation from `@irfnd/schemas`
 
-### Providers (src/main.tsx)
+### Providers (apps/web/src/main.tsx)
 
-Provider nesting order: `I18nProvider → ThemeProvider → RouterProvider`
+Provider nesting order: `I18nProvider → ThemeProvider → ToastProvider → RouterProvider`
 
 - **ThemeProvider** (`src/components/providers/theme-provider.tsx`): Dark/light mode via context, toggles `document.documentElement` class. Storage key: `irfnd-ui-theme`. Hook: `useTheme()`
 - **I18nProvider** (`src/components/providers/i18n-provider.tsx`): English/Indonesian language support via context. Storage key: `irfnd-lang`. Hooks: `useI18n()`, `useTranslation()`, `useLanguage()`
+- **ToastProvider** (`src/components/ui/toast.tsx`): Toast notification system. Hook: `useToast()`
+
+### Environment Variables (Web)
+
+```
+VITE_API_URL=         # API URL (https://api.irfnd.id)
+VITE_API_KEY=         # API key for authentication
+```
 
 ### Styling
 
@@ -132,7 +354,7 @@ Projects in `portfolio.projects[]` support an optional `isSelected` boolean — 
 | Silegal                      | frontend  | public                     | yes        |
 | Go-buks (API)                | backend   | public                     | no         |
 
-### Hooks (src/hooks/)
+### Hooks (apps/web/src/hooks/)
 
 - `useTheme()` — dark/light mode toggle
 - `useI18n()` — full i18n context (`language`, `setLanguage`, `t`)
@@ -140,6 +362,7 @@ Projects in `portfolio.projects[]` support an optional `isSelected` boolean — 
 - `useLanguage()` — returns the current `Language` string
 - `useYear()` — returns the current year
 - `useResumeDownload()` — triggers lazy PDF generation and download; returns `{ download, loading }`
+- `useToast()` — returns `{ toasts, addToast, removeToast }` for showing toast notifications
 
 ### PDF Generation (src/components/pdf/)
 
@@ -190,7 +413,7 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 
 ### Tooltip Bubble
 
-`src/components/ui/tooltip-bubble.tsx` — Reusable tooltip component wrapping Base UI `@base-ui/react/tooltip` with Framer Motion spring animation.
+`apps/web/src/components/ui/tooltip-bubble.tsx` — Reusable tooltip component wrapping Base UI `@base-ui/react/tooltip` with Framer Motion spring animation.
 
 - **Props**: `label` (tooltip content), `side` (position: `top` | `bottom` | `left` | `right`, default `bottom`), `open` (controlled visibility, e.g. `open={false}` to force-hide when a menu is open), `children` (trigger element)
 - **Animation**: Framer Motion spring (`stiffness: 400, damping: 25`) with directional slide based on `side` prop
@@ -198,7 +421,29 @@ The **Resume nav item** (`url: '/resume'`) in the navigation menu renders as a `
 - **Z-index**: `z-75` (above dialog `z-70`)
 - **Used by**: `TechIcon` (when `withLabel` is false), `ThemeSwitcher`, `LanguageSwitcher`
 
-### Utilities (src/utils/)
+### Toast Notifications
+
+`apps/web/src/components/ui/toast.tsx` — Toast notification system with Framer Motion animations.
+
+- **Components**: `ToastProvider` (context + container), `useToast` hook
+- **Variants**: `success` (green), `error` (red), `warning` (yellow), `info` (blue)
+- **Usage**: `const { addToast } = useToast(); addToast('Message', 'error', 5000);`
+- **Auto-dismiss**: Default 5 seconds, configurable via `duration` parameter
+- **Z-index**: `z-80` (above all other UI elements)
+- **Used by**: Contact form for API error feedback (rate limit, network, validation errors)
+
+### Contact Form
+
+The contact page (`/contact`) uses **TanStack Form** with **Zod validation** from the shared `@irfnd/schemas` package.
+
+- **Form library**: `@tanstack/react-form` with `validators.onChange: contactSchema`
+- **Validation**: Real-time field validation with error display below inputs
+- **Schema**: `contactSchema` from `@irfnd/schemas` (shared with API)
+- **API integration**: Submits to `${VITE_API_URL}/contact` with `X-API-Key` header
+- **Error handling**: Toast notifications for rate limit, validation, network, and server errors
+- **Success state**: Animated overlay with success message and "send another" button
+
+### Utilities (apps/web/src/utils/)
 
 - `cn()` — class merging with clsx + tailwind-merge (`src/utils/cn.ts`)
 - `setHighlightText()` / resolve helpers — text processing (`src/utils/text.ts`)
