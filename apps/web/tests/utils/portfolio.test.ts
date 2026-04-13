@@ -1,60 +1,62 @@
-import type { IPortfolio } from '@/types';
-import { sortProjects } from '@/utils/portfolio';
 import { describe, expect, it } from 'vitest';
+import { sortProjects } from '@/utils/portfolio';
+import type { IPortfolio } from '@/types';
+
+type Project = IPortfolio['projects'][number];
+
+function makeProject(overrides: Partial<Project> & Pick<Project, 'name'>): Project {
+	return {
+		icon: 'tabler:code',
+		name: overrides.name,
+		summary: [],
+		image: [],
+		type: 'public',
+		demo: null,
+		source: null,
+		stacks: [],
+		category: 'frontend',
+		isSelected: false,
+		...overrides,
+	};
+}
 
 describe('sortProjects', () => {
-	const mockProjects = [
-		{ name: 'Zebra', isSelected: false },
-		{ name: 'Alpha', isSelected: true },
-		{ name: 'Mango', isSelected: false },
-		{ name: 'Beta', isSelected: true },
-	] as unknown as IPortfolio['projects'];
-
-	it('should sort selected projects first', () => {
-		const sorted = sortProjects(mockProjects);
+	it('puts selected projects first', () => {
+		const projects = [makeProject({ name: 'Bravo' }), makeProject({ name: 'Alpha', isSelected: true })];
+		const sorted = sortProjects(projects);
 		expect(sorted[0].name).toBe('Alpha');
-		expect(sorted[1].name).toBe('Beta');
-		expect(sorted[2].name).toBe('Mango');
-		expect(sorted[3].name).toBe('Zebra');
+		expect(sorted[1].name).toBe('Bravo');
 	});
 
-	it('should sort alphabetically within selected group', () => {
-		const sorted = sortProjects(mockProjects);
-		expect(sorted[0].name).toBe('Alpha');
-		expect(sorted[1].name).toBe('Beta');
+	it('sorts alphabetically within same selection status', () => {
+		const projects = [
+			makeProject({ name: 'Charlie', isSelected: true }),
+			makeProject({ name: 'Alpha', isSelected: true }),
+			makeProject({ name: 'Bravo', isSelected: true }),
+		];
+		const sorted = sortProjects(projects);
+		expect(sorted.map((p) => p.name)).toEqual(['Alpha', 'Bravo', 'Charlie']);
 	});
 
-	it('should sort alphabetically within non-selected group', () => {
-		const sorted = sortProjects(mockProjects);
-		expect(sorted[2].name).toBe('Mango');
-		expect(sorted[3].name).toBe('Zebra');
+	it('handles empty array', () => {
+		expect(sortProjects([])).toEqual([]);
 	});
 
-	it('should not mutate the original array', () => {
-		const original = [...mockProjects];
-		sortProjects(mockProjects);
-		expect(mockProjects).toEqual(original);
+	it('does not mutate the original array', () => {
+		const projects = [makeProject({ name: 'Bravo' }), makeProject({ name: 'Alpha' })];
+		const original = [...projects];
+		sortProjects(projects);
+		expect(projects[0].name).toBe(original[0].name);
 	});
 
-	it('should handle empty array', () => {
-		const sorted = sortProjects([] as unknown as IPortfolio['projects']);
-		expect(sorted).toEqual([]);
-	});
-
-	it('should handle all selected projects', () => {
-		const allSelected = [
-			{ name: 'Charlie', isSelected: true },
-			{ name: 'Alpha', isSelected: true },
-		] as unknown as IPortfolio['projects'];
-		const sorted = sortProjects(allSelected);
-		expect(sorted[0].name).toBe('Alpha');
-		expect(sorted[1].name).toBe('Charlie');
-	});
-
-	it('should handle no selected projects', () => {
-		const noneSelected = [{ name: 'Charlie' }, { name: 'Alpha' }] as unknown as IPortfolio['projects'];
-		const sorted = sortProjects(noneSelected);
-		expect(sorted[0].name).toBe('Alpha');
-		expect(sorted[1].name).toBe('Charlie');
+	it('handles mixed selected/unselected with alphabetical sub-sort', () => {
+		const projects = [
+			makeProject({ name: 'Delta' }),
+			makeProject({ name: 'Alpha', isSelected: true }),
+			makeProject({ name: 'Charlie' }),
+			makeProject({ name: 'Bravo', isSelected: true }),
+		];
+		const sorted = sortProjects(projects);
+		expect(sorted.map((p) => p.name)).toEqual(['Alpha', 'Bravo', 'Charlie', 'Delta']);
 	});
 });
