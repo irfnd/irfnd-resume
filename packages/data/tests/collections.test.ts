@@ -6,6 +6,10 @@ import { technologySchema } from '@/schemas/technology';
 import { techStacksSchema } from '@/schemas/tech-stacks';
 import { contactSchema } from '@/schemas/contact';
 import { portfolioSchema } from '@/schemas/portfolio';
+import { aboutSchema } from '@/schemas/about';
+import { navigationSchema } from '@/schemas/navigation';
+import { uiSchema } from '@/schemas/ui';
+import { contactFormSchema } from '@/schemas/contact-form';
 import { profile } from '@/collections/profile';
 import { experience } from '@/collections/experience';
 import { education } from '@/collections/education';
@@ -13,6 +17,10 @@ import { technology } from '@/collections/technology';
 import { techStacks } from '@/collections/tech-stacks';
 import { contact } from '@/collections/contact';
 import { portfolio } from '@/collections/portfolio';
+import { about } from '@/collections/about';
+import { navigation } from '@/collections/navigation';
+import { ui } from '@/collections/ui';
+import { contactForm } from '@/collections/contact-form';
 
 describe('profile collection', () => {
 	it('English data passes schema validation', () => {
@@ -132,5 +140,71 @@ describe('portfolio collection', () => {
 	it('has selected projects', () => {
 		const selected = portfolio.en.projects.filter((p) => p.isSelected);
 		expect(selected.length).toBeGreaterThan(0);
+	});
+});
+
+describe('about collection', () => {
+	it('English data passes schema validation', () => {
+		expect(() => aboutSchema.parse(about.en)).not.toThrow();
+	});
+
+	it('Indonesian data passes schema validation', () => {
+		expect(() => aboutSchema.parse(about.id)).not.toThrow();
+	});
+
+	it('contains focus items', () => {
+		expect(about.en.focus).toHaveLength(3);
+		expect(about.id.focus).toHaveLength(3);
+	});
+});
+
+describe('navigation collection', () => {
+	it('English data passes schema validation', () => {
+		expect(() => navigationSchema.parse(navigation.en)).not.toThrow();
+	});
+
+	it('Indonesian data passes schema validation', () => {
+		expect(() => navigationSchema.parse(navigation.id)).not.toThrow();
+	});
+
+	it('contains 4 navigation items', () => {
+		expect(navigation.en.items).toHaveLength(4);
+		expect(navigation.id.items).toHaveLength(4);
+	});
+});
+
+describe('ui collection', () => {
+	it('English data passes schema validation', () => {
+		expect(() => uiSchema.parse(ui.en)).not.toThrow();
+	});
+
+	it('Indonesian data passes schema validation', () => {
+		expect(() => uiSchema.parse(ui.id)).not.toThrow();
+	});
+
+	it('contains SEO data for all pages', () => {
+		expect(ui.en.seo).toHaveProperty('home');
+		expect(ui.en.seo).toHaveProperty('portfolio');
+		expect(ui.en.seo).toHaveProperty('contact');
+	});
+
+	it('contains portfolio categories', () => {
+		expect(ui.en.common.portfolioCategories).toHaveLength(4);
+		expect(ui.id.common.portfolioCategories).toHaveLength(4);
+	});
+});
+
+describe('contact-form collection', () => {
+	it('English data passes schema validation', () => {
+		expect(() => contactFormSchema.parse(contactForm.en)).not.toThrow();
+	});
+
+	it('Indonesian data passes schema validation', () => {
+		expect(() => contactFormSchema.parse(contactForm.id)).not.toThrow();
+	});
+
+	it('contains 5 form fields', () => {
+		expect(contactForm.en.form).toHaveLength(5);
+		expect(contactForm.id.form).toHaveLength(5);
 	});
 });
