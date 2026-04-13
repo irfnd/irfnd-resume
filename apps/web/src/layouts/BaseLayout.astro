@@ -1,0 +1,90 @@
+---
+import '@/index.css';
+
+import { getLangFromUrl, useTranslations } from '@/i18n';
+
+import Footer from '@/components/layout/Footer.astro';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher.astro';
+import NavigationMenu from '@/components/layout/NavigationMenu.astro';
+import StickyProfile from '@/components/layout/StickyProfile.astro';
+import ThemeSwitcher from '@/components/layout/ThemeSwitcher.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { profile } = t;
+const { title, description = `${profile.firstName} ${profile.lastName} — ${profile.role}` } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+		<title>{title}</title>
+
+		<script is:inline>
+			(function () {
+				var t = localStorage.getItem('irfnd-ui-theme');
+				document.documentElement.classList.remove('light', 'dark');
+				document.documentElement.classList.add(t === 'light' ? 'light' : 'dark');
+			})();
+		</script>
+	</head>
+
+	<body>
+		<div class="relative overflow-x-clip">
+			<div class="noise-bg mix-blend-multiply dark:mix-blend-overlay"></div>
+
+			<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+				<div
+					class="absolute -top-[20%] -right-[10%] size-[50%] rounded-full bg-blue-100/40 dark:bg-blue-900/20 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+				>
+				</div>
+				<div
+					class="absolute top-[10%] -left-[10%] size-[40%] rounded-full bg-indigo-100/40 dark:bg-indigo-900/10 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+				>
+				</div>
+				<div
+					class="absolute bottom-[10%] left-[20%] size-[40%] rounded-full bg-sky-50/60 dark:bg-sky-900/10 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+				>
+				</div>
+			</div>
+
+			<div class="fixed top-6 right-6 z-60 flex items-center gap-2">
+				<LanguageSwitcher />
+				<ThemeSwitcher />
+			</div>
+
+			<div class="relative max-w-7xl mx-auto px-8 py-12 md:px-12 z-10">
+				<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 xl:gap-24">
+					<aside class="lg:sticky lg:top-12 lg:h-[calc(100vh-96px)] flex flex-col">
+						<StickyProfile />
+						<NavigationMenu />
+					</aside>
+
+					<main class="relative space-y-18 pb-24 lg:pb-0 [&_section:last-child]:pb-12">
+						<slot />
+						<Footer />
+					</main>
+				</div>
+			</div>
+		</div>
+
+		<script src="@/scripts/theme.ts"></script>
+		<script src="@/scripts/language.ts"></script>
+		<script src="@/scripts/toast.ts"></script>
+		<script src="@/scripts/gsap-init.ts"></script>
+	</body>
+</html>

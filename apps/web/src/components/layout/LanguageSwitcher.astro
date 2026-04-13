@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations, languages } from '@/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentLang = languages.find((l) => l.code === lang);
+const label = t.common.changeLanguage;
+---
+
+<div class="relative">
+	<button
+		data-lang-toggle
+		class="flex items-center gap-2 p-2.5 rounded-full bg-background/80 border border-border/60 text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900 transition-all duration-300 light-shadow dark:shadow-none ring ring-transparent hover:ring-blue-100 dark:hover:ring-blue-900/20 backdrop-blur-md cursor-pointer outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:border-blue-300 dark:focus-visible:border-blue-600"
+		aria-label={label}
+		title={label}
+	>
+		<span class="leading-0 font-medium">{currentLang?.flag}</span>
+		<Icon name="tabler:selector" class="size-4" />
+	</button>
+
+	<div
+		data-lang-dropdown
+		class="hidden absolute right-0 top-full mt-2 w-42 p-2 rounded-2xl bg-popover/95 border border-border/60 light-shadow dark:shadow-lg backdrop-blur-md z-65"
+	>
+		<div class="flex flex-col gap-1">
+			{
+				languages.map((l) => (
+					<button
+						data-lang-option={l.code}
+						class:list={[
+							'relative rounded-xl px-4 py-2 text-sm flex items-center gap-2 transition-colors cursor-pointer outline-none hover:bg-muted hover:text-foreground w-full text-left',
+							l.code === lang
+								? 'text-blue-600 dark:text-foreground bg-blue-50 dark:bg-blue-500/10'
+								: 'text-muted-foreground',
+						]}
+					>
+						<span>{l.flag}</span>
+						<span class="flex-1">{l.label}</span>
+						{l.code === lang && <Icon name="tabler:check" class="size-4 text-blue-600 dark:text-blue-400" />}
+					</button>
+				))
+			}
+		</div>
+	</div>
+</div>
