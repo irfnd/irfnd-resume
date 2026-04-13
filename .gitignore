@@ -17,6 +17,9 @@ dist-ssr
 .env.*
 !.env.example
 
+# Astro
+.astro
+
 # Turborepo
 .turbo
 
