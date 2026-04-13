@@ -109,6 +109,29 @@ describe('ExperienceSection', () => {
 		expect(screen.getByText('Jakarta · Contract')).toBeInTheDocument();
 	});
 
+	it('should use job duration for subsequent position without specific duration', () => {
+		const dataWithMultiplePositions: ExperienceData = {
+			title: 'Experience',
+			jobs: [
+				{
+					company: 'Test Co',
+					mainPosition: 'Developer',
+					location: 'NYC',
+					type: 'Full-time',
+					duration: ['Jan 2020', 'Dec 2022'],
+					link: null,
+					descriptions: [
+						{ position: 'Senior Dev', summary: [], points: [], stacks: [] },
+						{ position: 'Junior Dev', summary: [], points: [], stacks: [] },
+					],
+				},
+			],
+		};
+		render(<ExperienceSection experience={dataWithMultiplePositions} />);
+		const durations = screen.getAllByText('Jan 2020 – Dec 2022');
+		expect(durations).toHaveLength(2); // Job header and fallback for 2nd position
+	});
+
 	it('should render summary with resolved placeholders', () => {
 		render(<ExperienceSection experience={mockExperience} />);
 		expect(screen.getByText('Built scalable applications.')).toBeInTheDocument();

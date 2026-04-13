@@ -1,16 +1,15 @@
 import { Hono } from 'hono';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('puppeteer', () => ({
-	default: {
-		launch: vi.fn().mockResolvedValue({
-			newPage: vi.fn().mockResolvedValue({
-				setContent: vi.fn().mockResolvedValue(undefined),
-				pdf: vi.fn().mockResolvedValue(Buffer.from('fake-pdf-content')),
-			}),
-			close: vi.fn().mockResolvedValue(undefined),
-		}),
-	},
+vi.mock('@react-pdf/renderer', () => ({
+	renderToBuffer: vi.fn().mockResolvedValue(Buffer.from('fake-pdf-content')),
+	Document: vi.fn(),
+	Page: vi.fn(),
+	View: vi.fn(),
+	Text: vi.fn(),
+	Link: vi.fn(),
+	Font: { registerHyphenationCallback: vi.fn() },
+	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
 
 const { resumeRoute } = await import('@/routes/resume');
@@ -55,9 +54,9 @@ describe('Resume Route', () => {
 		expect(body.error).toContain('Invalid language');
 	});
 
-	it('returns 500 when puppeteer fails', async () => {
-		const puppeteer = await import('puppeteer');
-		vi.mocked(puppeteer.default.launch).mockRejectedValueOnce(new Error('Browser failed'));
+	it('returns 500 when renderToBuffer fails', async () => {
+		const renderer = await import('@react-pdf/renderer');
+		vi.mocked(renderer.renderToBuffer).mockRejectedValueOnce(new Error('Render failed'));
 
 		const res = await app.request('/resume?lang=en');
 		expect(res.status).toBe(500);
