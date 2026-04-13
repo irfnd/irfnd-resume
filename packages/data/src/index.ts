@@ -6,6 +6,7 @@ export * from './schemas/experience';
 export * from './schemas/profile';
 export * from './schemas/tech-stacks';
 export * from './schemas/technology';
+export * from './schemas/portfolio';
 
 // Data collections
 export { contact } from './collections/contact';
@@ -14,6 +15,7 @@ export { experience } from './collections/experience';
 export { profile } from './collections/profile';
 export { techStacks } from './collections/tech-stacks';
 export { technology } from './collections/technology';
+export { portfolio } from './collections/portfolio';
 
 // Helpers
 export * from './helpers';

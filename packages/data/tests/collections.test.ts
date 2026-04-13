@@ -5,12 +5,14 @@ import { educationSchema } from '@/schemas/education';
 import { technologySchema } from '@/schemas/technology';
 import { techStacksSchema } from '@/schemas/tech-stacks';
 import { contactSchema } from '@/schemas/contact';
+import { portfolioSchema } from '@/schemas/portfolio';
 import { profile } from '@/collections/profile';
 import { experience } from '@/collections/experience';
 import { education } from '@/collections/education';
 import { technology } from '@/collections/technology';
 import { techStacks } from '@/collections/tech-stacks';
 import { contact } from '@/collections/contact';
+import { portfolio } from '@/collections/portfolio';
 
 describe('profile collection', () => {
 	it('English data passes schema validation', () => {
@@ -110,5 +112,25 @@ describe('contact collection', () => {
 		const email = contact.en.items.find((i) => i.icon === 'tabler:mail');
 		expect(email).toBeDefined();
 		expect(email!.label).toBe('irfandiabimanyu@gmail.com');
+	});
+});
+
+describe('portfolio collection', () => {
+	it('English data passes schema validation', () => {
+		expect(() => portfolioSchema.parse(portfolio.en)).not.toThrow();
+	});
+
+	it('Indonesian data passes schema validation', () => {
+		expect(() => portfolioSchema.parse(portfolio.id)).not.toThrow();
+	});
+
+	it('contains same number of projects in both languages', () => {
+		expect(portfolio.en.projects).toHaveLength(7);
+		expect(portfolio.id.projects).toHaveLength(7);
+	});
+
+	it('has selected projects', () => {
+		const selected = portfolio.en.projects.filter((p) => p.isSelected);
+		expect(selected.length).toBeGreaterThan(0);
 	});
 });
