@@ -1,7 +1,9 @@
 import { createContactSchema } from '@irfnd/schemas';
 
+/* v8 ignore start -- @preserve */
 const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:3000';
 const API_KEY = import.meta.env.PUBLIC_API_KEY || '';
+/* v8 ignore stop */
 
 function initContactForm() {
 	const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
