@@ -9,6 +9,7 @@ export default defineConfig({
 		env: { NODE_ENV: 'test' },
 		include: ['tests/**/*.{test,spec}.{ts,tsx}'],
 		exclude: ['node_modules', 'dist'],
+		setupFiles: ['./tests/setup.ts'],
 		environmentMatchGlobs: [['tests/**/*.test.tsx', 'jsdom']],
 		coverage: {
 			provider: 'v8',
