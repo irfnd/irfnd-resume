@@ -1,12 +1,10 @@
-import type { Language, Translations } from '@/types/i18n';
-import { en } from './en';
-import { id } from './id';
+import type { Language } from './utils';
 
-export { getLangFromUrl, useTranslations, getLocalizedPath } from './utils';
-export const translations: Record<Language, Translations> = { en, id };
-export const defaultLanguage: Language = 'en';
+export type { Language } from './utils';
+export { getLangFromUrl, getLocalizedPath } from './utils';
+
+export const defaultLanguage = 'en' as const;
 export const languages: { code: Language; label: string; flag: string }[] = [
 	{ code: 'en', label: 'English', flag: '🇺🇸' },
 	{ code: 'id', label: 'Indonesia', flag: '🇮🇩' },
 ];
-export { en, id };
