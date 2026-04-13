@@ -1,13 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 import { cloudinaryResize } from '@/utils/cloudinary';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { profile, contact } = t;
+const profile = (await getEntry('profile', lang))!.data;
+const contactItems = (await getEntry('contact', lang))!.data.items;
 
-const stickyProfileContact = contact.filter((item) => item.showInStickyProfile);
+const stickyProfileContact = contactItems.filter((item) => item.showInStickyProfile);
 ---
 
 <div data-gsap-fade class="relative md:flex md:items-start md:gap-14 lg:mb-8 lg:block lg:gap-0">

@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const label = t.common.changeTheme;
+const { common } = (await getEntry('ui', lang))!.data;
+const label = common.changeTheme;
 ---
 
 <button

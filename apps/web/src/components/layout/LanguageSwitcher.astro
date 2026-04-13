@@ -1,11 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { getLangFromUrl, useTranslations, languages } from '@/i18n';
+import { getLangFromUrl, languages } from '@/i18n';
+import { getEntry } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { common } = (await getEntry('ui', lang))!.data;
 const currentLang = languages.find((l) => l.code === lang);
-const label = t.common.changeLanguage;
+const label = common.changeLanguage;
 ---
 
 <div class="relative">
