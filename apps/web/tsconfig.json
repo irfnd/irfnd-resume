@@ -1,11 +1,5 @@
 {
 	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"],
-			"@test/*": ["./tests/*"]
-		}
-	},
+	"compilerOptions": { "paths": { "@/*": ["./src/*"], "@test/*": ["./tests/*"] } },
 	"exclude": ["vitest.config.ts", "coverage", "tests"]
 }

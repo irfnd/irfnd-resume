@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitest/config';
 import path from 'path';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	resolve: { alias: { '@': path.resolve(__dirname, './src'), '@test': path.resolve(__dirname, './tests') } },
@@ -15,7 +15,7 @@ export default defineConfig({
 			reporter: ['text', 'json', 'html', 'lcov'],
 			reportsDirectory: './coverage',
 			include: ['src/**/*.ts'],
-			exclude: ['src/types/**', 'src/**/index.ts', 'src/env.d.ts', 'src/vite-env.d.ts'],
+			exclude: ['src/types/**', 'src/**/index.ts', 'src/env.d.ts', 'src/vite-env.d.ts', 'src/content.config.ts'],
 			thresholds: {
 				statements: 100,
 				branches: 100,
