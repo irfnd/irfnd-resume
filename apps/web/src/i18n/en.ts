@@ -3,6 +3,24 @@ import type { Translations } from '@/types';
 import { setHighlightText } from '@/utils/text';
 
 export const en: Translations = {
+	seo: {
+		home: {
+			title: 'Irfandi Iqbal Abimanyu — Fullstack Web Developer',
+			description:
+				'Portfolio of Irfandi Iqbal Abimanyu, a Fullstack Web Developer based in Jakarta, Indonesia. Explore projects, experience, and technical skills.',
+		},
+		portfolio: {
+			title: 'Portfolio',
+			description:
+				'Browse projects by Irfandi Iqbal Abimanyu — web applications built with React, Next.js, Node.js, Go, and more.',
+		},
+		contact: {
+			title: 'Contact',
+			description:
+				'Get in touch with Irfandi Iqbal Abimanyu for freelance, collaboration, or job opportunities.',
+		},
+	},
+
 	navigation: [
 		{ label: 'Home', url: '/', icon: 'tabler:home' },
 		{ label: 'Portfolio', url: '/portfolio', icon: 'tabler:folder-star' },

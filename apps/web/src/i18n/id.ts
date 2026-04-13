@@ -3,6 +3,24 @@ import type { Translations } from '@/types';
 import { setHighlightText } from '@/utils/text';
 
 export const id: Translations = {
+	seo: {
+		home: {
+			title: 'Irfandi Iqbal Abimanyu — Pengembang Web Fullstack',
+			description:
+				'Portofolio Irfandi Iqbal Abimanyu, seorang Pengembang Web Fullstack yang berbasis di Jakarta, Indonesia. Jelajahi proyek, pengalaman, dan keahlian teknis.',
+		},
+		portfolio: {
+			title: 'Portofolio',
+			description:
+				'Jelajahi proyek karya Irfandi Iqbal Abimanyu — aplikasi web yang dibangun dengan React, Next.js, Node.js, Go, dan lainnya.',
+		},
+		contact: {
+			title: 'Kontak',
+			description:
+				'Hubungi Irfandi Iqbal Abimanyu untuk freelance, kolaborasi, atau peluang kerja.',
+		},
+	},
+
 	navigation: [
 		{ label: 'Beranda', url: '/', icon: 'tabler:home' },
 		{ label: 'Portofolio', url: '/portfolio', icon: 'tabler:folder-star' },

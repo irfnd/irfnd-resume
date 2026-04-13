@@ -169,7 +169,14 @@ export interface ICommon {
 	}[];
 }
 
+export interface ISeo {
+	home: { title: string; description: string };
+	portfolio: { title: string; description: string };
+	contact: { title: string; description: string };
+}
+
 export interface Translations {
+	seo: ISeo;
 	navigation: INavigation[];
 	contact: IContact[];
 	profile: IProfile;
