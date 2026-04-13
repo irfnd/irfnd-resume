@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '@/i18n';
+import { cn } from '@/utils/cn';
+import { Icon } from 'astro-icon/components';
+import ProjectCard from '@/components/ui/ProjectCard.astro';
+import ProjectDialog from '@/components/ui/ProjectDialog.astro';
+import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { portfolio, common } = t;
+
+const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
+
+const selectedProjects = portfolio.projects
+	.filter((project) => project.isSelected)
+	.sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<section data-gsap-slide-up>
+	<div class="flex items-center justify-between mb-8">
+		<h2 class="text-lg font-semibold text-foreground tracking-tight">{portfolio.title}</h2>
+		<div class="h-px bg-border flex-1 mx-6"></div>
+		<a
+			href={getLocalizedPath(lang, '/portfolio')}
+			class="text-xs text-slate-600 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center gap-1 shrink-0 font-medium rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
+		>
+			{common.viewMore} <Icon name="tabler:arrow-right" class="size-3" />
+		</a>
+	</div>
+
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-gsap-stagger>
+		{
+			selectedProjects.map((project, index) => (
+				<div class={cn('flex flex-col h-full', index === 0 ? 'md:col-span-2' : '')}>
+					<ProjectCard
+						{...project}
+						isFirst={index === 0}
+						commonLabels={commonLabels}
+						dialogId={`project-dialog-${index}`}
+					/>
+				</div>
+			))
+		}
+	</div>
+
+	{
+		selectedProjects.map((project, index) => (
+			<ProjectDialog {...project} commonLabels={commonLabels} dialogId={`project-dialog-${index}`} />
+		))
+	}
+
+	<ProjectDialogShell />
+</section>
+
+<script src="@/scripts/project-dialog.ts"></script>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+import { cn } from '@/utils/cn';
+import { sortProjects } from '@/utils/portfolio';
+import ProjectCard from '@/components/ui/ProjectCard.astro';
+import ProjectDialog from '@/components/ui/ProjectDialog.astro';
+import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { portfolio, common } = t;
+
+const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
+const projects = sortProjects(portfolio.projects);
+const categories = common.portfolioCategories;
+---
+
+<BaseLayout title={`${portfolio.header} — Irfandi Iqbal Abimanyu`}>
+	<section data-gsap-slide-up>
+		<div class="mb-4">
+			<h1 class="text-2xl font-bold text-foreground tracking-tight">{portfolio.header}</h1>
+			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{portfolio.subtitle}</p>
+		</div>
+
+		<div class="flex flex-wrap gap-2 mb-8">
+			{
+				categories.map((cat, index) => (
+					<button
+						data-tab-filter={cat.value}
+						class={cn(
+							'px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer border border-transparent',
+							index === 0
+								? 'bg-white/80 dark:bg-secondary text-foreground'
+								: 'text-muted-foreground/80 hover:text-foreground',
+						)}
+					>
+						{cat.label}
+					</button>
+				))
+			}
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-gsap-stagger>
+			{
+				projects.map((project, index) => (
+					<div
+						data-project-card
+						data-category={project.category}
+						class={cn('flex flex-col h-full', index === 0 ? 'md:col-span-2' : '')}
+					>
+						<ProjectCard
+							{...project}
+							isFirst={index === 0}
+							commonLabels={commonLabels}
+							dialogId={`portfolio-dialog-${index}`}
+						/>
+					</div>
+				))
+			}
+		</div>
+
+		{
+			projects.map((project, index) => (
+				<ProjectDialog {...project} commonLabels={commonLabels} dialogId={`portfolio-dialog-${index}`} />
+			))
+		}
+
+		<ProjectDialogShell />
+	</section>
+</BaseLayout>
+
+<script src="@/scripts/project-dialog.ts"></script>
+
+<script>
+	document.addEventListener('click', (e) => {
+		const tab = (e.target as HTMLElement).closest('[data-tab-filter]');
+		if (!tab) return;
+
+		const category = tab.getAttribute('data-tab-filter');
+
+		// Update active tab styling
+		document.querySelectorAll('[data-tab-filter]').forEach((t) => {
+			t.classList.remove('bg-white/80', 'dark:bg-secondary', 'text-foreground');
+			t.classList.add('text-muted-foreground/80');
+		});
+		tab.classList.add('bg-white/80', 'dark:bg-secondary', 'text-foreground');
+		tab.classList.remove('text-muted-foreground/80');
+
+		// Filter cards
+		document.querySelectorAll('[data-project-card]').forEach((card) => {
+			const cardCategory = card.getAttribute('data-category');
+			if (category === 'all' || cardCategory === category) {
+				(card as HTMLElement).style.display = '';
+			} else {
+				(card as HTMLElement).style.display = 'none';
+			}
+		});
+	});
+</script>

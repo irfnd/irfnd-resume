@@ -1,0 +1,45 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+import ContactForm from '@/components/ui/ContactForm.astro';
+import MapEmbed from '@/components/ui/MapEmbed.astro';
+import Toast from '@/components/ui/Toast.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { contactMe, contact } = t;
+
+const directContact = contact
+	.filter((c) => c.showInContactPage)
+	.map((c) => ({ label: c.label, url: c.url, icon: c.icon }));
+---
+
+<BaseLayout title={`${contactMe.header} — Irfandi Iqbal Abimanyu`}>
+	<section data-gsap-slide-up>
+		<div class="mb-8">
+			<h1 class="text-2xl font-bold text-foreground tracking-tight">{contactMe.header}</h1>
+			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{contactMe.description}</p>
+		</div>
+
+		<ContactForm
+			formFields={contactMe.form}
+			contactMe={{
+				formTitle: contactMe.formTitle,
+				submitButton: contactMe.submitButton,
+				submittingButton: contactMe.submittingButton,
+				successMessage: contactMe.successMessage,
+				sendAnotherMessage: contactMe.sendAnotherMessage,
+				errors: contactMe.errors,
+				reachMeDirectly: contactMe.reachMeDirectly,
+			}}
+			validation={contactMe.validation}
+			directContact={directContact}
+		>
+			<MapEmbed slot="map" />
+		</ContactForm>
+	</section>
+
+	<Toast />
+</BaseLayout>
+
+<script src="@/scripts/contact-form.ts"></script>

@@ -1,10 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProfileFocus from '@/components/page/home/ProfileFocus.astro';
+import ProfessionalJourney from '@/components/page/home/ProfessionalJourney.astro';
+import SelectedWork from '@/components/page/home/SelectedWork.astro';
+import TechnicalStack from '@/components/page/home/TechnicalStack.astro';
+import EducationHistory from '@/components/page/home/EducationHistory.astro';
 ---
 
 <BaseLayout title="Irfandi Iqbal Abimanyu — Fullstack Web Developer">
-	<section>
-		<h1 class="text-2xl font-bold text-foreground">Home</h1>
-		<p class="text-muted-foreground mt-2">Page content coming in Phase 5.</p>
-	</section>
+	<ProfileFocus />
+	<ProfessionalJourney />
+	<SelectedWork />
+	<TechnicalStack />
+	<EducationHistory />
 </BaseLayout>
