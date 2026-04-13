@@ -1,0 +1,45 @@
+---
+interface Props {
+	text: string;
+	keywords: string[];
+	class?: string;
+}
+
+import { cn } from '@/utils/cn';
+
+const { text, keywords, class: className } = Astro.props;
+
+const parts: Array<{ type: 'text' | 'keyword'; value: string }> = [];
+const regex = /\{(\d+)\}/g;
+let lastIndex = 0;
+let match;
+
+while ((match = regex.exec(text)) !== null) {
+	if (match.index > lastIndex) {
+		parts.push({ type: 'text', value: text.slice(lastIndex, match.index) });
+	}
+	const kwIndex = parseInt(match[1]);
+	if (kwIndex < keywords.length) {
+		parts.push({ type: 'keyword', value: keywords[kwIndex] });
+	}
+	lastIndex = match.index + match[0].length;
+}
+if (lastIndex < text.length) {
+	parts.push({ type: 'text', value: text.slice(lastIndex) });
+}
+
+const keywordClass = cn(
+	'text-blue-700 dark:text-foreground font-medium bg-blue-50/80 dark:bg-transparent px-1.5 dark:px-0 h-fit rounded shadow-sm dark:shadow-none border border-blue-100 dark:border-none inline-block wrap-break-words',
+	className,
+);
+---
+
+{
+	parts.map((part) =>
+		part.type === 'keyword' ? (
+			<span class={keywordClass}>{part.value}</span>
+		) : (
+			<Fragment set:html={part.value} />
+		)
+	)
+}

@@ -1,0 +1,38 @@
+---
+interface Props {
+	class?: string;
+}
+
+import { cn } from '@/utils/cn';
+
+const { class: className } = Astro.props;
+---
+
+<div class={cn('relative border-l border-border', className)} data-gsap-stagger>
+	<div
+		class="absolute -left-px top-0 bottom-0 w-px bg-linear-to-b from-blue-500 via-blue-400 to-transparent origin-top scale-y-0"
+		data-timeline-beam
+	>
+	</div>
+	<slot />
+</div>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	document.querySelectorAll('[data-timeline-beam]').forEach((beam) => {
+		gsap.to(beam, {
+			scaleY: 1,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: beam.parentElement,
+				start: 'top 80%',
+				end: 'bottom 20%',
+				scrub: 0.3,
+			},
+		});
+	});
+</script>

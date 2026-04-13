@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import { cn } from '@/utils/cn';
+
+interface Props {
+	label: string;
+	url: string;
+	icon: string;
+	color?: string;
+	border?: string;
+	customColor?: boolean;
+	class?: string;
+	withLabel?: boolean;
+}
+
+const { label, url, icon, color, border, customColor, class: className, withLabel } = Astro.props;
+
+const iconClass = cn(
+	'size-8 transition-[color_opacity] opacity-70 group-hover:opacity-100 group-data-active:opacity-100',
+	customColor
+		? color
+		: 'text-muted-foreground group-data-active:text-(--stack-color) group-hover:text-(--stack-color)',
+);
+
+const baseClass = cn(
+	'flex flex-col items-center justify-center gap-3 p-4 bg-card dark:bg-card/50 border border-border rounded-xl transition-colors group shadow-sm dark:shadow-none outline-none focus-visible:ring focus-visible:ring-(--stack-color) focus-visible:border-(--stack-color)',
+	customColor ? border : 'hover:border-(--stack-color)/50',
+	className,
+);
+
+const style = !customColor && color ? `--stack-color: ${color}` : undefined;
+---
+
+<a
+	href={url}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label={label}
+	title={!withLabel ? label : undefined}
+	style={style}
+	class={baseClass}
+>
+	<Icon name={icon} class={iconClass} />
+	{withLabel && <span class="text-xs font-medium text-muted-foreground">{label}</span>}
+</a>

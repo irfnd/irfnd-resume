@@ -1,0 +1,152 @@
+---
+import { Icon } from 'astro-icon/components';
+import { cn } from '@/utils/cn';
+
+interface FormField {
+	name: string;
+	label: string;
+	type: string;
+	placeholder: string;
+}
+
+interface Props {
+	formFields: FormField[];
+	contactMe: {
+		formTitle: string;
+		submitButton: string;
+		submittingButton: string;
+		successMessage: string;
+		sendAnotherMessage: string;
+		errors: Record<string, string>;
+		reachMeDirectly: string;
+	};
+	validation: Record<string, string>;
+	directContact: Array<{ label: string; url: string; icon: string }>;
+}
+
+const { formFields, contactMe, validation, directContact } = Astro.props;
+---
+
+<div
+	class="flex flex-col gap-6 glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-3xl p-6 md:p-8 light-shadow dark:shadow-none relative"
+>
+	<h3 class="text-lg font-bold text-foreground">{contactMe.formTitle}</h3>
+
+	<div
+		class="hidden absolute inset-0 z-20 flex-col items-center justify-center bg-background/95 backdrop-blur-md p-8 text-center space-y-4 rounded-3xl"
+		data-contact-success
+	>
+		<div class="h-16 w-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center">
+			<Icon name="tabler:check" class="size-8" />
+		</div>
+		<h4 class="text-lg font-bold text-foreground">{contactMe.successMessage}</h4>
+		<button type="button" class="text-sm font-medium text-primary hover:underline cursor-pointer" data-contact-reset>
+			{contactMe.sendAnotherMessage}
+		</button>
+	</div>
+
+	<form
+		data-contact-form
+		data-validation={JSON.stringify(validation)}
+		data-errors={JSON.stringify(contactMe.errors)}
+		data-success-message={contactMe.successMessage}
+		class="flex flex-col gap-6"
+	>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			{
+				formFields.map((field) => {
+					const isTextarea = field.type === 'textarea';
+					return (
+						<div class={cn('flex flex-col gap-2', isTextarea && 'md:col-span-2')}>
+							<label for={field.name} class="text-sm font-semibold text-foreground cursor-pointer w-fit">
+								{field.label}
+							</label>
+
+							{isTextarea ? (
+								<textarea
+									id={field.name}
+									name={field.name}
+									rows={5}
+									placeholder={field.placeholder}
+									class="w-full px-4 py-3 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-muted-foreground/40 text-base text-foreground"
+									data-field={field.name}
+								/>
+							) : (
+								<input
+									id={field.name}
+									name={field.name}
+									type={field.type}
+									placeholder={field.placeholder}
+									class="w-full h-12 px-4 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all placeholder:text-muted-foreground/40 text-base text-foreground"
+									data-field={field.name}
+								/>
+							)}
+
+							<span class="text-xs text-red-500 hidden" data-field-error={field.name} />
+						</div>
+					);
+				})
+			}
+		</div>
+
+		<button
+			type="submit"
+			data-submit-btn
+			class="w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
+		>
+			<span data-submit-text>{contactMe.submitButton}</span>
+			<span class="hidden items-center gap-2" data-loading-text>
+				<Icon name="tabler:loader-2" class="size-5 animate-spin" />
+				{contactMe.submittingButton}
+			</span>
+		</button>
+	</form>
+
+	<div class="h-px bg-border w-full"></div>
+
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class="flex flex-col gap-6">
+			<h2 class="text-lg font-semibold text-foreground">{contactMe.reachMeDirectly}</h2>
+			<div class="flex flex-col gap-3" data-gsap-stagger>
+				{
+					directContact.map((item) => (
+						<a
+							href={item.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group flex w-fit items-center gap-2 text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+						>
+							<Icon
+								name={item.icon}
+								class="size-3.5 text-muted-foreground/70 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+							/>
+							{item.label}
+						</a>
+					))
+				}
+			</div>
+		</div>
+
+		<slot name="map" />
+	</div>
+</div>
+
+<script>
+	function initSuccessOverlay() {
+		const successEl = document.querySelector('[data-contact-success]');
+		const resetBtn = document.querySelector('[data-contact-reset]');
+
+		if (!successEl || !resetBtn) return;
+
+		resetBtn.addEventListener('click', () => {
+			successEl.classList.add('hidden');
+			successEl.classList.remove('flex');
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initSuccessOverlay);
+	} else {
+		initSuccessOverlay();
+	}
+</script>

@@ -1,0 +1,41 @@
+---
+interface Props {
+	class?: string;
+}
+
+import { cn } from '@/utils/cn';
+
+const { class: className } = Astro.props;
+---
+
+<div class={cn('group', className)} data-gsap-slide-up data-timeline-item>
+	<slot />
+</div>
+
+<script>
+	function initTimelineItems() {
+		const items = document.querySelectorAll('[data-timeline-item]');
+		if (!items.length) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.setAttribute('data-active', '');
+					} else {
+						entry.target.removeAttribute('data-active');
+					}
+				});
+			},
+			{ rootMargin: '-5% 0px -30% 0px', threshold: 0.3 },
+		);
+
+		items.forEach((item) => observer.observe(item));
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initTimelineItems);
+	} else {
+		initTimelineItems();
+	}
+</script>

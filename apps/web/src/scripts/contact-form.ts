@@ -10,12 +10,11 @@ function initContactForm() {
 	const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit-btn]');
 	const submitText = submitBtn?.querySelector('[data-submit-text]');
 	const loadingText = submitBtn?.querySelector('[data-loading-text]');
+	const successOverlay = document.querySelector('[data-contact-success]');
 
 	// Get validation messages from data attributes
 	const validationData = form.dataset.validation;
 	const errorsData = form.dataset.errors;
-	const successMessage = form.dataset.successMessage || 'Message sent!';
-
 	const validation = validationData ? JSON.parse(validationData) : {};
 	const errors = errorsData ? JSON.parse(errorsData) : {};
 	const schema = createContactSchema(validation);
@@ -26,6 +25,13 @@ function initContactForm() {
 		// Clear previous errors
 		form.querySelectorAll('[data-field-error]').forEach((el) => {
 			el.textContent = '';
+			el.classList.add('hidden');
+		});
+
+		// Reset field border styles
+		form.querySelectorAll('[data-field]').forEach((el) => {
+			el.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/10');
+			el.classList.add('border-border', 'focus:border-primary', 'focus:ring-primary/10');
 		});
 
 		const formData = new FormData(form);
@@ -37,7 +43,15 @@ function initContactForm() {
 			result.error.issues.forEach((issue) => {
 				const field = String(issue.path[0]);
 				const errorEl = form.querySelector(`[data-field-error="${field}"]`);
-				if (errorEl) errorEl.textContent = issue.message;
+				const fieldEl = form.querySelector(`[data-field="${field}"]`);
+				if (errorEl) {
+					errorEl.textContent = issue.message;
+					errorEl.classList.remove('hidden');
+				}
+				if (fieldEl) {
+					fieldEl.classList.remove('border-border', 'focus:border-primary', 'focus:ring-primary/10');
+					fieldEl.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500/10');
+				}
 			});
 			return;
 		}
@@ -70,7 +84,11 @@ function initContactForm() {
 				return;
 			}
 
-			window.showToast(successMessage, 'success');
+			// Show success overlay
+			if (successOverlay) {
+				successOverlay.classList.remove('hidden');
+				successOverlay.classList.add('flex');
+			}
 			form.reset();
 		} catch {
 			window.showToast(errors.networkError || 'Network error', 'error');

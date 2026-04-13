@@ -1,0 +1,22 @@
+---
+// Shared dialog shell for project details.
+// Place once in the layout. The project-dialog.ts script populates it
+// when a ProjectCard with data-project-id is clicked.
+---
+
+<dialog
+	data-project-dialog
+	class="fixed left-1/2 top-1/2 z-70 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-2xl max-h-[90dvh] flex flex-col rounded-2xl bg-white dark:bg-neutral-900 border-none shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] outline-none overflow-hidden backdrop:bg-black/60 dark:backdrop:bg-black/75 backdrop:backdrop-blur-md p-0 m-0"
+>
+	<button
+		data-dialog-close
+		class="absolute right-4 top-4 z-20 p-1.5 rounded-lg bg-red-500/80 text-white hover:bg-red-600 backdrop-blur-sm transition-colors outline-none focus-visible:ring focus-visible:ring-red-400 cursor-pointer"
+		aria-label="Close dialog"
+	>
+		<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+			><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg
+		>
+	</button>
+
+	<div data-dialog-content class="flex flex-col overflow-hidden min-h-0 max-h-[90dvh]"></div>
+</dialog>
