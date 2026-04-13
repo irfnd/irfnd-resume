@@ -1,17 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { resolveTechStacks } from '@/utils/tech-stacks';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { resolveTechStacks, techStacks } from '@irfnd/data';
 
-const techStacksFile = join(import.meta.dirname, '../../src/content/data/tech-stacks.json');
-const allStacks: Array<{
-	label: string;
-	url: string;
-	icon: string;
-	color?: string;
-	border?: string;
-	customColor?: boolean;
-}> = JSON.parse(readFileSync(techStacksFile, 'utf-8')).all.stacks;
+const allStacks = techStacks.stacks;
 
 describe('resolveTechStacks with real data', () => {
 	it('returns matching tech stack entries', () => {

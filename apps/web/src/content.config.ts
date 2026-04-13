@@ -2,7 +2,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { file } from 'astro/loaders';
 
-// Reusable sub-schemas
+// Reusable sub-schemas (for remaining web-specific collections)
 const imageSchema = z.object({
 	url: z.string(),
 	alt: z.string(),
@@ -13,29 +13,7 @@ const paragraphSchema = z.object({
 	keywords: z.array(z.string()),
 });
 
-const techStackItemSchema = z.object({
-	label: z.string(),
-	url: z.string(),
-	icon: z.string(),
-	color: z.string().optional(),
-	border: z.string().optional(),
-	customColor: z.boolean().optional(),
-});
-
-const awardSchema = z.object({
-	label: z.string(),
-	description: z.string(),
-	icon: z.string(),
-});
-
 // Collection definitions
-const techStacks = defineCollection({
-	loader: file('src/content/data/tech-stacks.json'),
-	schema: z.object({
-		stacks: z.array(techStackItemSchema),
-	}),
-});
-
 const navigation = defineCollection({
 	loader: file('src/content/data/navigation.json'),
 	schema: z.object({
@@ -46,34 +24,6 @@ const navigation = defineCollection({
 				icon: z.string(),
 			})
 		),
-	}),
-});
-
-const contact = defineCollection({
-	loader: file('src/content/data/contact.json'),
-	schema: z.object({
-		items: z.array(
-			z.object({
-				type: z.enum(['location', 'contact']),
-				label: z.string(),
-				url: z.string(),
-				icon: z.string(),
-				showInStickyProfile: z.boolean().optional(),
-				showInContactPage: z.boolean().optional(),
-				showInFooter: z.boolean().optional(),
-			})
-		),
-	}),
-});
-
-const profile = defineCollection({
-	loader: file('src/content/data/profile.json'),
-	schema: z.object({
-		firstName: z.string(),
-		lastName: z.string(),
-		role: z.string(),
-		photo: imageSchema,
-		description: z.string(),
 	}),
 });
 
@@ -89,40 +39,6 @@ const about = defineCollection({
 				icon: z.string(),
 			})
 		),
-	}),
-});
-
-const experience = defineCollection({
-	loader: file('src/content/data/experience.json'),
-	schema: z.object({
-		title: z.string(),
-		jobs: z.array(
-			z.object({
-				company: z.string(),
-				mainPosition: z.string(),
-				type: z.string(),
-				location: z.string(),
-				duration: z.array(z.string()),
-				link: z.string().nullable(),
-				descriptions: z.array(
-					z.object({
-						icon: z.string().optional(),
-						position: z.string(),
-						summary: z.array(paragraphSchema),
-						points: z.array(paragraphSchema),
-						stacks: z.array(z.string()),
-					})
-				),
-			})
-		),
-	}),
-});
-
-const technology = defineCollection({
-	loader: file('src/content/data/technology.json'),
-	schema: z.object({
-		title: z.string(),
-		stacks: z.record(z.string(), z.array(z.string())),
 	}),
 });
 
@@ -144,26 +60,6 @@ const portfolio = defineCollection({
 				stacks: z.array(z.string()),
 				category: z.enum(['frontend', 'backend', 'fullstack']),
 				isSelected: z.boolean().optional(),
-			})
-		),
-	}),
-});
-
-const education = defineCollection({
-	loader: file('src/content/data/education.json'),
-	schema: z.object({
-		title: z.string(),
-		educations: z.array(
-			z.object({
-				institution: z.string(),
-				degree: z.string(),
-				fieldOfStudy: z.string(),
-				location: z.string(),
-				duration: z.array(z.string()),
-				link: z.string().nullable(),
-				summary: z.array(paragraphSchema),
-				points: z.array(paragraphSchema),
-				award: z.array(awardSchema),
 			})
 		),
 	}),
@@ -258,15 +154,9 @@ const ui = defineCollection({
 });
 
 export const collections = {
-	'tech-stacks': techStacks,
 	navigation,
-	contact,
-	profile,
 	about,
-	experience,
-	technology,
 	portfolio,
-	education,
 	'contact-form': contactForm,
 	ui,
 };

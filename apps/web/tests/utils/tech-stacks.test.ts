@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveTechStacks } from '@/utils/tech-stacks';
+import { resolveTechStacks } from '@irfnd/data';
 
 const allStacks = [
 	{ label: 'React', url: 'https://reactjs.org/', icon: 'simple-icons:react', color: '#61DAFB' },
