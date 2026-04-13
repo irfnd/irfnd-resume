@@ -6,5 +6,6 @@
 			"@/*": ["./src/*"],
 			"@test/*": ["./tests/*"]
 		}
-	}
+	},
+	"exclude": ["vitest.config.ts", "coverage", "tests"]
 }

@@ -7,7 +7,6 @@ type Project = IPortfolio['projects'][number];
 function makeProject(overrides: Partial<Project> & Pick<Project, 'name'>): Project {
 	return {
 		icon: 'tabler:code',
-		name: overrides.name,
 		summary: [],
 		image: [],
 		type: 'public',

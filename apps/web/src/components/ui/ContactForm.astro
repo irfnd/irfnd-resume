@@ -1,16 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { cn } from '@/utils/cn';
-
-interface FormField {
-	name: string;
-	label: string;
-	type: string;
-	placeholder: string;
-}
+import type { IContactValidation, IFormField } from '@/types';
 
 interface Props {
-	formFields: FormField[];
+	formFields: IFormField[];
 	contactMe: {
 		formTitle: string;
 		submitButton: string;
@@ -20,7 +14,7 @@ interface Props {
 		errors: Record<string, string>;
 		reachMeDirectly: string;
 	};
-	validation: Record<string, string>;
+	validation: IContactValidation;
 	directContact: Array<{ label: string; url: string; icon: string }>;
 }
 
@@ -75,7 +69,7 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 								<input
 									id={field.name}
 									name={field.name}
-									type={field.type}
+									type={field.type as astroHTML.JSX.HTMLInputTypeAttribute}
 									placeholder={field.placeholder}
 									class="w-full h-12 px-4 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all placeholder:text-muted-foreground/40 text-base text-foreground"
 									data-field={field.name}
