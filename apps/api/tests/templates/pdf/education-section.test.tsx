@@ -59,7 +59,7 @@ describe('EducationSection', () => {
 	it('should render institution name in uppercase with link', () => {
 		render(<EducationSection education={mockEducation} />);
 		const link = screen.getByText('UNIVERSITY OF TECHNOLOGY');
-		expect(link.closest('a')).toHaveAttribute('href', 'https://university.edu');
+		expect((link as unknown as { closest(s: string): unknown }).closest('a')).toHaveAttribute('href', 'https://university.edu');
 	});
 
 	it('should render institution name without link when null', () => {

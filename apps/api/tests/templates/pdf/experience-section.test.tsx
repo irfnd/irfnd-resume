@@ -76,7 +76,7 @@ describe('ExperienceSection', () => {
 	it('should render company name in uppercase with link', () => {
 		render(<ExperienceSection experience={mockExperience} />);
 		const link = screen.getByText('TECH CORP');
-		expect(link.closest('a')).toHaveAttribute('href', 'https://techcorp.com');
+		expect((link as unknown as { closest(s: string): unknown }).closest('a')).toHaveAttribute('href', 'https://techcorp.com');
 	});
 
 	it('should render company name without link when null', () => {

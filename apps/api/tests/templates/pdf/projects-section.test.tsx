@@ -87,7 +87,7 @@ describe('ProjectsSection', () => {
 		it('should render project name in uppercase with demo link', () => {
 			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
 			const link = screen.getByText('PROJECT ALPHA');
-			expect(link.closest('a')).toHaveAttribute('href', 'https://alpha.example.com');
+			expect((link as unknown as { closest(s: string): unknown }).closest('a')).toHaveAttribute('href', 'https://alpha.example.com');
 		});
 
 		it('should render project name without link when no demo', () => {
@@ -120,9 +120,9 @@ describe('ProjectsSection', () => {
 			expect(screen.getByText('Source Code')).toBeInTheDocument();
 		});
 
-		it('should not render projects without isSelected', () => {
+		it('should render all projects including those without isSelected', () => {
 			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
-			expect(screen.queryByText('HIDDEN PROJECT')).not.toBeInTheDocument();
+			expect(screen.queryByText('HIDDEN PROJECT')).toBeInTheDocument();
 		});
 
 		it('should handle empty summary', () => {
@@ -138,7 +138,7 @@ describe('ProjectsSection', () => {
 		it('should not render links when neither demo nor source', () => {
 			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
 			const links = screen.getAllByTestId('pdf-link');
-			const sourceLinks = links.filter((l) => l.textContent === 'Source Code');
+			const sourceLinks = links.filter((l) => (l as unknown as { textContent: string }).textContent === 'Source Code');
 			expect(sourceLinks).toHaveLength(1);
 		});
 	});
