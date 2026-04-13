@@ -1,0 +1,63 @@
+---
+import { SEO as AstroSEO } from 'astro-seo';
+import { getLangFromUrl } from '@/i18n';
+
+interface Props {
+	title: string;
+	description: string;
+	noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+
+const site = Astro.site?.origin ?? 'https://irfnd.id';
+const lang = getLangFromUrl(Astro.url);
+const otherLang = lang === 'en' ? 'id' : 'en';
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|id)/, '') || '/';
+const canonicalURL = new URL(`/${lang}${pathWithoutLang === '/' ? '' : pathWithoutLang}`, site).href;
+const localeMap = { en: 'en_US', id: 'id_ID' } as const;
+
+const languageAlternates = [
+	{ href: new URL(`/en${pathWithoutLang === '/' ? '' : pathWithoutLang}`, site).href, hrefLang: 'en' },
+	{ href: new URL(`/id${pathWithoutLang === '/' ? '' : pathWithoutLang}`, site).href, hrefLang: 'id' },
+];
+
+const isHomePage = title.includes('Irfandi');
+const titleTemplate = isHomePage ? undefined : '%s — Irfandi Iqbal Abimanyu';
+---
+
+<AstroSEO
+	title={title}
+	titleTemplate={titleTemplate}
+	description={description}
+	canonical={canonicalURL}
+	noindex={noindex}
+	nofollow={noindex}
+	languageAlternates={languageAlternates}
+	openGraph={{
+		basic: {
+			title: isHomePage ? title : `${title} — Irfandi Iqbal Abimanyu`,
+			type: 'website',
+			image: '',
+			url: canonicalURL,
+		},
+		optional: {
+			description: description,
+			locale: localeMap[lang],
+			localeAlternate: [localeMap[otherLang]],
+			siteName: 'Irfandi Iqbal Abimanyu',
+		},
+	}}
+	twitter={{
+		card: 'summary',
+		site: '@irfnd_iqbl',
+		title: isHomePage ? title : `${title} — Irfandi Iqbal Abimanyu`,
+		description: description,
+	}}
+	extend={{
+		meta: [
+			{ name: 'author', content: 'Irfandi Iqbal Abimanyu' },
+			{ name: 'theme-color', content: '#0f172a' },
+		],
+	}}
+/>
