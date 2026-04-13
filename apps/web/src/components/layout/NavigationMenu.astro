@@ -1,11 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { getLangFromUrl, getLocalizedPath } from '@/i18n';
-import { getEntry } from 'astro:content';
+import { getByLang, navigation as navigationData } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 import { cn } from '@/utils/cn';
 
 const lang = getLangFromUrl(Astro.url);
-const { items: navigation } = (await getEntry('navigation', lang))!.data;
+const { items: navigation } = getByLang(navigationData, lang as LangCode);
 const currentPath = Astro.url.pathname;
 
 const baseClassName =

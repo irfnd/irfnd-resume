@@ -2,8 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import JsonLd from '@/components/common/JsonLd.astro';
 import { getLangFromUrl } from '@/i18n';
-import { getEntry } from 'astro:content';
-import { getByLang, profile as profileCollection } from '@irfnd/data';
+import { getByLang, profile as profileCollection, ui } from '@irfnd/data';
 import type { LangCode } from '@irfnd/data';
 import ProfileFocus from '@/components/page/home/ProfileFocus.astro';
 import ProfessionalJourney from '@/components/page/home/ProfessionalJourney.astro';
@@ -13,7 +12,7 @@ import EducationHistory from '@/components/page/home/EducationHistory.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const profile = getByLang(profileCollection, lang as LangCode);
-const { seo } = (await getEntry('ui', lang))!.data;
+const { seo } = getByLang(ui, lang as LangCode);
 
 const personSchema = {
 	'@context': 'https://schema.org',

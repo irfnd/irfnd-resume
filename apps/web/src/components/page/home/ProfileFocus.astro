@@ -1,11 +1,12 @@
 ---
 import { getLangFromUrl } from '@/i18n';
-import { getEntry } from 'astro:content';
+import { about as aboutData, getByLang } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 import HighlightText from '@/components/ui/HighlightText.astro';
 import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
-const about = (await getEntry('about', lang))!.data;
+const about = getByLang(aboutData, lang as LangCode);
 ---
 
 <section data-gsap-slide-up class="scroll-mt-24">
