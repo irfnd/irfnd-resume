@@ -11,9 +11,14 @@ function initResumeDownload() {
 		if (btn.hasAttribute('data-downloading')) return;
 		btn.setAttribute('data-downloading', '');
 
-		const originalContent = btn.innerHTML;
-		btn.innerHTML =
-			'<span class="animate-spin inline-block size-4 border-2 border-current border-t-transparent rounded-full"></span> Generating...';
+		const loader = btn.querySelector('[data-resume-loader]');
+		const icon = btn.querySelector('[data-resume-icon]');
+		const label = btn.querySelector('[data-resume-label]');
+		const originalLabel = label?.textContent || '';
+
+		loader?.classList.remove('hidden');
+		icon?.classList.add('hidden');
+		if (label) label.textContent = 'Generating...';
 
 		try {
 			const response = await fetch(`${apiUrl}/resume?lang=${lang}`, {
@@ -37,7 +42,9 @@ function initResumeDownload() {
 		} catch {
 			window.showToast('Failed to download resume', 'error');
 		} finally {
-			btn.innerHTML = originalContent;
+			loader?.classList.add('hidden');
+			icon?.classList.remove('hidden');
+			if (label) label.textContent = originalLabel;
 			btn.removeAttribute('data-downloading');
 		}
 	});

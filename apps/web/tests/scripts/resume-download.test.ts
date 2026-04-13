@@ -14,7 +14,11 @@ function trackListeners() {
 
 function buildResumeButtonHTML() {
 	return `<button data-resume-download data-resume-lang="en" data-resume-api="http://localhost:3000" data-resume-key="test-key">
-		<span>Download Resume</span>
+		<div>
+			<svg data-resume-loader class="hidden">loader</svg>
+			<svg data-resume-icon>icon</svg>
+		</div>
+		<span data-resume-label>Download Resume</span>
 	</button>`;
 }
 
@@ -90,7 +94,7 @@ describe('resume-download', () => {
 		await vi.waitFor(() => expect(btn.hasAttribute('data-downloading')).toBe(false));
 	});
 
-	it('shows loading spinner during download', async () => {
+	it('shows loading state during download', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
 			() =>
@@ -101,13 +105,23 @@ describe('resume-download', () => {
 
 		await import('@/scripts/resume-download');
 		const btn = document.querySelector('[data-resume-download]') as HTMLElement;
-		const originalHTML = btn.innerHTML;
+		const loader = btn.querySelector('[data-resume-loader]') as HTMLElement;
+		const icon = btn.querySelector('[data-resume-icon]') as HTMLElement;
+		const label = btn.querySelector('[data-resume-label]') as HTMLElement;
 
 		btn.click();
-		await vi.waitFor(() => expect(btn.innerHTML).toContain('Generating...'));
+		await vi.waitFor(() => {
+			expect(loader.classList.contains('hidden')).toBe(false);
+			expect(icon.classList.contains('hidden')).toBe(true);
+			expect(label.textContent).toBe('Generating...');
+		});
 
 		resolveFetch(new Response(new Blob(), { status: 200 }));
-		await vi.waitFor(() => expect(btn.innerHTML).toBe(originalHTML));
+		await vi.waitFor(() => {
+			expect(loader.classList.contains('hidden')).toBe(true);
+			expect(icon.classList.contains('hidden')).toBe(false);
+			expect(label.textContent).toBe('Download Resume');
+		});
 	});
 
 	it('shows error toast on fetch failure', async () => {
@@ -139,11 +153,15 @@ describe('resume-download', () => {
 
 		await import('@/scripts/resume-download');
 		const btn = document.querySelector('[data-resume-download]') as HTMLElement;
-		const originalHTML = btn.innerHTML;
+		const loader = btn.querySelector('[data-resume-loader]') as HTMLElement;
+		const icon = btn.querySelector('[data-resume-icon]') as HTMLElement;
+		const label = btn.querySelector('[data-resume-label]') as HTMLElement;
 		btn.click();
 
 		await vi.waitFor(() => {
-			expect(btn.innerHTML).toBe(originalHTML);
+			expect(loader.classList.contains('hidden')).toBe(true);
+			expect(icon.classList.contains('hidden')).toBe(false);
+			expect(label.textContent).toBe('Download Resume');
 			expect(btn.hasAttribute('data-downloading')).toBe(false);
 		});
 	});

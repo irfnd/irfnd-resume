@@ -54,7 +54,7 @@ const inactiveLabelClassName =
 								<Icon name="tabler:loader-2" class="size-5 lg:size-4 animate-spin hidden" data-resume-loader />
 								<Icon name={item.icon} class="size-5 lg:size-4" data-resume-icon />
 							</div>
-							<span class={cn(baseLabelClassName, inactiveLabelClassName)}>{item.label}</span>
+							<span data-resume-label class={cn(baseLabelClassName, inactiveLabelClassName)}>{item.label}</span>
 						</button>
 					) : (
 						<a
