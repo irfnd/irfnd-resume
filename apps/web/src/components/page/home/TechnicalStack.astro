@@ -1,11 +1,10 @@
 ---
-import { getLangFromUrl } from '@/i18n';
-import { getByLang, technology as technologyCollection, techStacks, resolveTechStacks } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import TechIcon from '@/components/ui/TechIcon.astro';
+import { getLangFromUrl } from '@/utils/language';
+import { getByLang, resolveTechStacks, technology as technologyCollection, techStacks } from '@irfnd/data';
 
 const lang = getLangFromUrl(Astro.url);
-const technology = getByLang(technologyCollection, lang as LangCode);
+const technology = getByLang(technologyCollection, lang);
 const allStacks = techStacks.stacks;
 
 const stackEntries = Object.entries(technology.stacks)

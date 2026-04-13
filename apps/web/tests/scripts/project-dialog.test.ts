@@ -221,6 +221,65 @@ describe('project-dialog', () => {
 		});
 	});
 
+	it('initializes via DOMContentLoaded when readyState is loading', async () => {
+		Object.defineProperty(document, 'readyState', {
+			value: 'loading',
+			writable: true,
+			configurable: true,
+		});
+
+		await import('@/scripts/project-dialog');
+
+		document.dispatchEvent(new Event('DOMContentLoaded'));
+
+		Object.defineProperty(document, 'readyState', {
+			value: 'complete',
+			writable: true,
+			configurable: true,
+		});
+
+		expect(document.querySelector('[data-project-dialog]')).not.toBeNull();
+	});
+
+	it('handles dialog without content container', async () => {
+		document.body.innerHTML = `
+			<div data-project-id="project-1">Click</div>
+			<div data-project-detail="project-1"><p>Detail</p></div>
+			<dialog data-project-dialog>
+				<button data-dialog-close>Close</button>
+			</dialog>
+		`;
+		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+		dialog.showModal = vi.fn();
+		dialog.close = vi.fn();
+
+		await import('@/scripts/project-dialog');
+		const card = document.querySelector('[data-project-id]') as HTMLElement;
+		card.click();
+
+		expect(dialog.showModal).toHaveBeenCalled();
+	});
+
+	it('handles dialog content without carousel track', async () => {
+		document.body.innerHTML = `
+			<div data-project-id="project-1">Click</div>
+			<div data-project-detail="project-1"><p>No carousel here</p></div>
+			<dialog data-project-dialog>
+				<div data-dialog-content></div>
+				<button data-dialog-close>Close</button>
+			</dialog>
+		`;
+		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+		dialog.showModal = vi.fn();
+		dialog.close = vi.fn();
+
+		await import('@/scripts/project-dialog');
+		const card = document.querySelector('[data-project-id]') as HTMLElement;
+		card.click();
+
+		expect(dialog.showModal).toHaveBeenCalled();
+	});
+
 	it('handles dialog click that is not close button or backdrop', async () => {
 		await import('@/scripts/project-dialog');
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;

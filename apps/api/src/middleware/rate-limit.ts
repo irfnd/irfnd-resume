@@ -44,16 +44,17 @@ export function createRateLimitMiddleware(config: RateLimitConfig): MiddlewareHa
 
 const defaultStore = new Map<string, RateLimitEntry>();
 
-/* v8 ignore next 8 -- @preserve */
-if (typeof setInterval !== 'undefined' && process.env.NODE_ENV !== 'test') {
-	setInterval(() => {
-		const now = Date.now();
-		for (const [key, entry] of defaultStore.entries()) {
-			if (entry.resetAt <= now) {
-				defaultStore.delete(key);
-			}
+export function cleanupExpiredEntries(store: Map<string, RateLimitEntry>) {
+	const now = Date.now();
+	for (const [key, entry] of store.entries()) {
+		if (entry.resetAt <= now) {
+			store.delete(key);
 		}
-	}, 60 * 1000);
+	}
+}
+
+export function startDefaultStoreCleanup(intervalMs = 60_000) {
+	return setInterval(() => cleanupExpiredEntries(defaultStore), intervalMs);
 }
 
 export const rateLimitMiddleware = createRateLimitMiddleware({

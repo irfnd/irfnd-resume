@@ -1,9 +1,8 @@
 ---
 import '@/index.css';
 
-import { getLangFromUrl } from '@/i18n';
+import { getLangFromUrl } from '@/utils/language';
 import { getByLang, profile as profileCollection } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 
 import Footer from '@/components/layout/Footer.astro';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher.astro';
@@ -19,7 +18,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(Astro.url);
-const profileData = getByLang(profileCollection, lang as LangCode);
+const profileData = getByLang(profileCollection, lang);
 const { title, description = `${profileData.firstName} ${profileData.lastName} — ${profileData.role}` } = Astro.props;
 
 const site = Astro.site?.origin ?? 'https://irfnd.id';
@@ -33,26 +32,26 @@ const websiteSchema = {
 ---
 
 <!doctype html>
-<html lang={lang} class="dark">
+<html lang={lang} class='dark'>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<meta name='generator' content={Astro.generator} />
 
-		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-		<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76.png" />
-		<link rel="manifest" href="/site.webmanifest" />
-		<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel='icon' type='image/png' sizes='96x96' href='/favicon-96.png' />
+		<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32.png' />
+		<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16.png' />
+		<link rel='apple-touch-icon' sizes='76x76' href='/apple-icon-76.png' />
+		<link rel='manifest' href='/site.webmanifest' />
+		<link rel='preload' href='/fonts/inter-latin.woff2' as='font' type='font/woff2' crossorigin />
+		<link rel='preload' href='/fonts/jetbrains-mono-latin.woff2' as='font' type='font/woff2' crossorigin />
 
 		<SEO title={title} description={description} />
 		<JsonLd data={websiteSchema} />
 
 		<script is:inline>
 			(function () {
-				var t = localStorage.getItem('irfnd-ui-theme');
+				const t = localStorage.getItem('irfnd-ui-theme');
 				document.documentElement.classList.remove('light', 'dark');
 				document.documentElement.classList.add(t === 'light' ? 'light' : 'dark');
 			})();
@@ -60,37 +59,37 @@ const websiteSchema = {
 	</head>
 
 	<body>
-		<div class="relative overflow-x-clip">
-			<div class="noise-bg mix-blend-multiply dark:mix-blend-overlay"></div>
+		<div class='relative overflow-x-clip'>
+			<div class='noise-bg mix-blend-multiply dark:mix-blend-overlay'></div>
 
-			<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+			<div class='pointer-events-none fixed inset-0 z-0 overflow-hidden'>
 				<div
-					class="absolute -top-[20%] -right-[10%] size-[50%] rounded-full bg-blue-100/40 dark:bg-blue-900/20 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+					class='absolute -top-[20%] -right-[10%] size-[50%] rounded-full bg-blue-100/40 opacity-70 mix-blend-multiply blur-3xl filter will-change-transform dark:bg-blue-900/20 dark:mix-blend-screen'
 				>
 				</div>
 				<div
-					class="absolute top-[10%] -left-[10%] size-[40%] rounded-full bg-indigo-100/40 dark:bg-indigo-900/10 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+					class='absolute top-[10%] -left-[10%] size-[40%] rounded-full bg-indigo-100/40 opacity-70 mix-blend-multiply blur-3xl filter will-change-transform dark:bg-indigo-900/10 dark:mix-blend-screen'
 				>
 				</div>
 				<div
-					class="absolute bottom-[10%] left-[20%] size-[40%] rounded-full bg-sky-50/60 dark:bg-sky-900/10 blur-3xl filter opacity-70 mix-blend-multiply dark:mix-blend-screen will-change-transform"
+					class='absolute bottom-[10%] left-[20%] size-[40%] rounded-full bg-sky-50/60 opacity-70 mix-blend-multiply blur-3xl filter will-change-transform dark:bg-sky-900/10 dark:mix-blend-screen'
 				>
 				</div>
 			</div>
 
-			<div class="fixed top-6 right-6 z-60 flex items-center gap-2">
+			<div class='fixed top-6 right-6 z-60 flex items-center gap-2'>
 				<LanguageSwitcher />
 				<ThemeSwitcher />
 			</div>
 
-			<div class="relative max-w-7xl mx-auto px-8 py-12 md:px-12 z-10">
-				<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 xl:gap-24">
-					<aside class="lg:sticky lg:top-12 lg:h-[calc(100vh-96px)] flex flex-col">
+			<div class='relative z-10 mx-auto max-w-7xl px-8 py-12 md:px-12'>
+				<div class='grid grid-cols-1 gap-12 lg:grid-cols-[280px_1fr] xl:gap-24'>
+					<aside class='flex flex-col lg:sticky lg:top-12 lg:h-[calc(100vh-96px)]'>
 						<StickyProfile />
 						<NavigationMenu />
 					</aside>
 
-					<main class="relative space-y-18 pb-24 lg:pb-0 [&_section:last-child]:pb-12">
+					<main class='relative space-y-18 pb-24 lg:pb-0 [&_section:last-child]:pb-12'>
 						<slot />
 						<Footer />
 					</main>
@@ -98,9 +97,9 @@ const websiteSchema = {
 			</div>
 		</div>
 
-		<script src="@/scripts/theme.ts"></script>
-		<script src="@/scripts/language.ts"></script>
-		<script src="@/scripts/toast.ts"></script>
-		<script src="@/scripts/gsap-init.ts"></script>
+		<script src='@/scripts/theme.ts'></script>
+		<script src='@/scripts/language.ts'></script>
+		<script src='@/scripts/toast.ts'></script>
+		<script src='@/scripts/gsap-init.ts'></script>
 	</body>
 </html>

@@ -18,7 +18,7 @@ vi.mock('@/templates/pdf/styles', () => ({
 }));
 
 import { render, screen } from '@testing-library/react';
-import type { LangCode, PortfolioData } from '@irfnd/data';
+import type { PortfolioData } from '@irfnd/data';
 
 import { ProjectsSection } from '@/templates/pdf/sections/projects';
 

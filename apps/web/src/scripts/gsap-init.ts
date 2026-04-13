@@ -66,7 +66,6 @@ function initGSAP() {
 }
 
 // Run on DOM ready
-/* v8 ignore next -- @preserve */
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initGSAP);
 } else {

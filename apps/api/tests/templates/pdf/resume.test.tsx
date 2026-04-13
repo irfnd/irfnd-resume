@@ -26,15 +26,7 @@ vi.mock('@/templates/pdf/styles', () => ({
 }));
 
 import { render, screen } from '@testing-library/react';
-import type {
-	ContactData,
-	EducationData,
-	ExperienceData,
-	LangCode,
-	PortfolioData,
-	ProfileData,
-	TechnologyData,
-} from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 
 import { ResumePDF, type ResumePDFProps } from '@/templates/pdf/resume';
 

@@ -92,6 +92,26 @@ describe('gsap-init', () => {
 		expect(mockFromTo).toHaveBeenCalledTimes(3);
 	});
 
+	it('initializes via DOMContentLoaded when readyState is loading', async () => {
+		Object.defineProperty(document, 'readyState', {
+			value: 'loading',
+			writable: true,
+			configurable: true,
+		});
+
+		await import('@/scripts/gsap-init');
+
+		document.dispatchEvent(new Event('DOMContentLoaded'));
+
+		Object.defineProperty(document, 'readyState', {
+			value: 'complete',
+			writable: true,
+			configurable: true,
+		});
+
+		expect(mockRegisterPlugin).toHaveBeenCalledWith(MockScrollTrigger);
+	});
+
 	it('does nothing when no animated elements exist', async () => {
 		document.body.innerHTML = '<div>No animations</div>';
 		await import('@/scripts/gsap-init');

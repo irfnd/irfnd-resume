@@ -1,8 +1,4 @@
-export interface SendEmailResult {
-	success: boolean;
-	messageId?: string;
-	error?: string;
-}
+export type SendEmailResult = { success: true; messageId?: string } | { success: false; error: string };
 
 export interface EmailClient {
 	emails: {

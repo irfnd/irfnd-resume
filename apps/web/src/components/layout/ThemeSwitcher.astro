@@ -1,11 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { getLangFromUrl } from '@/i18n';
+import { getLangFromUrl } from '@/utils/language';
 import { getByLang, ui } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
+import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
-const { common } = getByLang(ui, lang as LangCode);
+const { common } = getByLang(ui, lang);
 const label = common.changeTheme;
 ---
 

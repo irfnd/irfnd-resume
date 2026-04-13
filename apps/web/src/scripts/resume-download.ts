@@ -43,7 +43,6 @@ function initResumeDownload() {
 	});
 }
 
-/* v8 ignore next -- @preserve */
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initResumeDownload);
 } else {

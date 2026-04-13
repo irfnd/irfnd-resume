@@ -113,6 +113,19 @@ describe('toast', () => {
 		expect(typeof window.removeToast).toBe('function');
 	});
 
+	it('ignores clicks on non-toast-close elements', async () => {
+		await import('@/scripts/toast');
+		document.body.click();
+	});
+
+	it('ignores close button with empty data-toast-close', async () => {
+		await import('@/scripts/toast');
+		const fakeBtn = document.createElement('button');
+		fakeBtn.setAttribute('data-toast-close', '');
+		document.body.appendChild(fakeBtn);
+		fakeBtn.click();
+	});
+
 	it('supports all toast variants', async () => {
 		const { showToast } = await import('@/scripts/toast');
 		const variants = ['success', 'error', 'warning', 'info'] as const;

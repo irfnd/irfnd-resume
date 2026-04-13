@@ -1,3 +1,4 @@
+import { startDefaultStoreCleanup } from '@/middleware/rate-limit';
 import { securityMiddleware } from '@/middleware/security';
 import { contactRoute } from '@/routes/contact';
 import { resumeRoute } from '@/routes/resume';
@@ -25,7 +26,6 @@ export function createApp() {
 
 	app.notFound((c) => c.json({ error: 'Not Found' }, 404));
 
-	/* v8 ignore next 4 -- @preserve */
 	app.onError((err, c) => {
 		console.error('Server error:', err);
 		return c.json({ error: 'Internal Server Error' }, 500);
@@ -34,11 +34,11 @@ export function createApp() {
 	return app;
 }
 
-/* v8 ignore next 6 -- @preserve */
 const app = createApp();
 const port = parseInt(process.env.PORT || '3000', 10);
 
 if (process.env.NODE_ENV !== 'test') {
+	startDefaultStoreCleanup();
 	console.log(`🚀 Server running on http://localhost:${port}`);
 }
 

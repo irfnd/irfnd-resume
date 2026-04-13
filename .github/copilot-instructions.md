@@ -72,7 +72,6 @@ Both apps use `@/` alias. Web app tests also have `@test/` mapping to `tests/`.
 - **100% coverage** enforced for both apps (statements, branches, functions, lines)
 - Web: Vitest + React Testing Library in jsdom. Tests in `apps/web/tests/`.
 - API: Vitest in Node. Tests in `apps/api/tests/`.
-- Use `/* v8 ignore next -- @preserve */` for unreachable defensive branches
 - Web test utilities: custom `render` with providers in `tests/test-utils.tsx`
 
 ### Z-Index Stack

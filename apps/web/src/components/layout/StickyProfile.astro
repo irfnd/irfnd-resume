@@ -1,13 +1,12 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { getLangFromUrl } from '@/i18n';
-import { getByLang, profile as profileCollection, contact as contactCollection } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import { cloudinaryResize } from '@/utils/cloudinary';
+import { getLangFromUrl } from '@/utils/language';
+import { contact as contactCollection, getByLang, profile as profileCollection } from '@irfnd/data';
+import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
-const profile = getByLang(profileCollection, lang as LangCode);
-const contactItems = getByLang(contactCollection, lang as LangCode).items;
+const profile = getByLang(profileCollection, lang);
+const contactItems = getByLang(contactCollection, lang).items;
 
 const stickyProfileContact = contactItems.filter((item) => item.showInStickyProfile);
 ---

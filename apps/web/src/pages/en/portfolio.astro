@@ -1,44 +1,38 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getLangFromUrl } from '@/i18n';
+import { getLangFromUrl } from '@/utils/language';
 import { cn } from '@/utils/cn';
 import { getByLang, portfolio as portfolioCollection, resolveTechStacks, techStacks, ui } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import { sortProjects } from '@/utils/portfolio';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import ProjectDialog from '@/components/ui/ProjectDialog.astro';
 import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const portfolioData = getByLang(portfolioCollection, lang as LangCode);
-const { seo, common } = getByLang(ui, lang as LangCode);
+const portfolioData = getByLang(portfolioCollection, lang);
+const { seo, common } = getByLang(ui, lang);
 const allStacks = techStacks.stacks;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
-const projects = sortProjects(portfolioData.projects).map((p) => ({
-	...p,
-	stacks: resolveTechStacks(allStacks, p.stacks),
-}));
+const projects = sortProjects(portfolioData.projects).map((p) => ({ ...p, stacks: resolveTechStacks(allStacks, p.stacks) }));
 const categories = common.portfolioCategories;
 ---
 
 <BaseLayout title={seo.portfolio.title} description={seo.portfolio.description}>
 	<section data-gsap-slide-up>
-		<div class="mb-4">
-			<h1 class="text-2xl font-bold text-foreground tracking-tight">{portfolioData.header}</h1>
-			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{portfolioData.subtitle}</p>
+		<div class='mb-4'>
+			<h1 class='text-2xl font-bold text-foreground tracking-tight'>{portfolioData.header}</h1>
+			<p class='text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl'>{portfolioData.subtitle}</p>
 		</div>
 
-		<div class="flex flex-wrap gap-2 mb-8">
+		<div class='flex flex-wrap gap-2 mb-8'>
 			{
 				categories.map((cat, index) => (
 					<button
 						data-tab-filter={cat.value}
 						class={cn(
-							'px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer border border-transparent',
-							index === 0
-								? 'bg-white/80 dark:bg-secondary text-foreground'
-								: 'text-muted-foreground/80 hover:text-foreground',
+							'cursor-pointer rounded-xl border border-transparent px-4 py-2 text-xs font-semibold transition-colors',
+							index === 0 ? 'dark:bg-secondary text-foreground bg-white/80' : 'text-muted-foreground/80 hover:text-foreground',
 						)}
 					>
 						{cat.label}
@@ -47,20 +41,15 @@ const categories = common.portfolioCategories;
 			}
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-gsap-stagger>
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-4' data-gsap-stagger>
 			{
 				projects.map((project, index) => (
 					<div
 						data-project-card
 						data-category={project.category}
-						class={cn('flex flex-col h-full', index === 0 ? 'md:col-span-2' : '')}
+						class={cn('flex h-full flex-col', index === 0 ? 'md:col-span-2' : '')}
 					>
-						<ProjectCard
-							{...project}
-							isFirst={index === 0}
-							commonLabels={commonLabels}
-							dialogId={`portfolio-dialog-${index}`}
-						/>
+						<ProjectCard {...project} isFirst={index === 0} commonLabels={commonLabels} dialogId={`portfolio-dialog-${index}`} />
 					</div>
 				))
 			}
@@ -76,7 +65,7 @@ const categories = common.portfolioCategories;
 	</section>
 </BaseLayout>
 
-<script src="@/scripts/project-dialog.ts"></script>
+<script src='@/scripts/project-dialog.ts'></script>
 
 <script>
 	document.addEventListener('click', (e) => {

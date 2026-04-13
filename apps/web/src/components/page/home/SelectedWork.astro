@@ -1,16 +1,15 @@
 ---
-import { getLangFromUrl, getLocalizedPath } from '@/i18n';
-import { cn } from '@/utils/cn';
-import { Icon } from 'astro-icon/components';
-import { getByLang, portfolio as portfolioCollection, resolveTechStacks, techStacks, ui } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import ProjectDialog from '@/components/ui/ProjectDialog.astro';
 import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
+import { cn } from '@/utils/cn';
+import { getLangFromUrl, getLocalizedPath } from '@/utils/language';
+import { getByLang, portfolio as portfolioCollection, resolveTechStacks, techStacks, ui } from '@irfnd/data';
+import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
-const portfolioData = getByLang(portfolioCollection, lang as LangCode);
-const { common } = getByLang(ui, lang as LangCode);
+const portfolioData = getByLang(portfolioCollection, lang);
+const { common } = getByLang(ui, lang);
 const allStacks = techStacks.stacks;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };

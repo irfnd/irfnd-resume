@@ -23,8 +23,7 @@ contactRoute.post('/', async (c) => {
 		const emailResult = await sendContactEmail(result.data);
 
 		if (!emailResult.success) {
-			/* v8 ignore next -- @preserve */
-			return c.json({ error: emailResult.error || 'Failed to send email' }, 500);
+			return c.json({ error: emailResult.error }, 500);
 		}
 
 		return c.json({

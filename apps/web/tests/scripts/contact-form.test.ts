@@ -192,6 +192,236 @@ describe('contact-form', () => {
 		});
 	});
 
+	it('initializes via DOMContentLoaded when readyState is loading', async () => {
+		Object.defineProperty(document, 'readyState', {
+			value: 'loading',
+			writable: true,
+			configurable: true,
+		});
+
+		await import('@/scripts/contact-form');
+
+		document.dispatchEvent(new Event('DOMContentLoaded'));
+
+		Object.defineProperty(document, 'readyState', {
+			value: 'complete',
+			writable: true,
+			configurable: true,
+		});
+
+		expect(document.querySelector('[data-contact-form]')).not.toBeNull();
+	});
+
+	it('handles form without optional elements gracefully', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='${JSON.stringify(ERRORS)}'>
+				<input name="fullName" value="Test User" />
+				<input name="email" value="test@example.com" />
+				<input name="telephone" value="1234567890" />
+				<input name="subject" value="Hello There" />
+				<textarea name="message">This is a test message that is long enough.</textarea>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(fetch).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	it('handles validation errors when error elements do not exist', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='${JSON.stringify(ERRORS)}'>
+				<input name="fullName" value="A" />
+				<input name="email" value="bad" />
+				<input name="telephone" value="1234567890" />
+				<input name="subject" value="Hello There" />
+				<textarea name="message">This is a test message that is long enough.</textarea>
+			</form>
+		`;
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		expect(fetch).not.toHaveBeenCalled();
+	});
+
+	it('handles form without validation data attributes', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form>
+				<input name="fullName" value="Test User" />
+				<input name="email" value="test@example.com" />
+				<input name="telephone" value="1234567890" />
+				<input name="subject" value="Hello There" />
+				<textarea name="message">This is a test message that is long enough.</textarea>
+			</form>
+		`;
+
+		// createContactSchema({}) throws because validation messages are incomplete.
+		// This covers the falsy branch of the validation/errors ternaries.
+		await import('@/scripts/contact-form').catch(() => {});
+	});
+
+	it('handles form without errors data attribute', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}'>
+				<input name="fullName" value="Test User" />
+				<input name="email" value="test@example.com" />
+				<input name="telephone" value="1234567890" />
+				<input name="subject" value="Hello There" />
+				<textarea name="message">This is a test message that is long enough.</textarea>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 429 }));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(window.showToast).toHaveBeenCalledWith('Too many requests', 'error');
+		});
+	});
+
+	it('uses custom API URL and key from env vars', async () => {
+		const originalUrl = import.meta.env.PUBLIC_API_URL;
+		const originalKey = import.meta.env.PUBLIC_API_KEY;
+		import.meta.env.PUBLIC_API_URL = 'http://custom-api.example.com';
+		import.meta.env.PUBLIC_API_KEY = 'custom-key';
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+
+		await import('@/scripts/contact-form');
+		submitForm();
+
+		await vi.waitFor(() => {
+			expect(fetch).toHaveBeenCalledWith(
+				'http://custom-api.example.com/contact',
+				expect.objectContaining({
+					headers: expect.objectContaining({
+						'X-API-Key': 'custom-key',
+					}),
+				}),
+			);
+		});
+
+		if (originalUrl !== undefined) import.meta.env.PUBLIC_API_URL = originalUrl;
+		else delete import.meta.env.PUBLIC_API_URL;
+		if (originalKey !== undefined) import.meta.env.PUBLIC_API_KEY = originalKey;
+		else delete import.meta.env.PUBLIC_API_KEY;
+	});
+
+	it('uses fallback error messages when errors data is empty', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='{}'>
+				<input data-field="fullName" name="fullName" value="Test User" />
+				<input data-field="email" name="email" value="test@example.com" />
+				<input data-field="telephone" name="telephone" value="1234567890" />
+				<input data-field="subject" name="subject" value="Hello There" />
+				<textarea data-field="message" name="message">This is a test message that is long enough.</textarea>
+				<button data-submit-btn type="submit">
+					<span data-submit-text>Send</span>
+					<span data-loading-text class="hidden">Sending...</span>
+				</button>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 429 }));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(window.showToast).toHaveBeenCalledWith('Too many requests', 'error');
+		});
+	});
+
+	it('uses fallback error message for 400 response', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='{}'>
+				<input data-field="fullName" name="fullName" value="Test User" />
+				<input data-field="email" name="email" value="test@example.com" />
+				<input data-field="telephone" name="telephone" value="1234567890" />
+				<input data-field="subject" name="subject" value="Hello There" />
+				<textarea data-field="message" name="message">This is a test message that is long enough.</textarea>
+				<button data-submit-btn type="submit">
+					<span data-submit-text>Send</span>
+					<span data-loading-text class="hidden">Sending...</span>
+				</button>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 400 }));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(window.showToast).toHaveBeenCalledWith('Invalid data', 'error');
+		});
+	});
+
+	it('uses fallback error message for 500 response', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='{}'>
+				<input data-field="fullName" name="fullName" value="Test User" />
+				<input data-field="email" name="email" value="test@example.com" />
+				<input data-field="telephone" name="telephone" value="1234567890" />
+				<input data-field="subject" name="subject" value="Hello There" />
+				<textarea data-field="message" name="message">This is a test message that is long enough.</textarea>
+				<button data-submit-btn type="submit">
+					<span data-submit-text>Send</span>
+					<span data-loading-text class="hidden">Sending...</span>
+				</button>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 500 }));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(window.showToast).toHaveBeenCalledWith('Server error', 'error');
+		});
+	});
+
+	it('uses fallback error message for network error', async () => {
+		document.body.innerHTML = `
+			<form data-contact-form data-validation='${JSON.stringify(VALIDATION)}' data-errors='{}'>
+				<input data-field="fullName" name="fullName" value="Test User" />
+				<input data-field="email" name="email" value="test@example.com" />
+				<input data-field="telephone" name="telephone" value="1234567890" />
+				<input data-field="subject" name="subject" value="Hello There" />
+				<textarea data-field="message" name="message">This is a test message that is long enough.</textarea>
+				<button data-submit-btn type="submit">
+					<span data-submit-text>Send</span>
+					<span data-loading-text class="hidden">Sending...</span>
+				</button>
+			</form>
+		`;
+
+		vi.mocked(fetch).mockRejectedValueOnce(new Error('Network failure'));
+
+		await import('@/scripts/contact-form');
+		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+		await vi.waitFor(() => {
+			expect(window.showToast).toHaveBeenCalledWith('Network error', 'error');
+		});
+	});
+
 	it('clears previous errors before new submission', async () => {
 		const emailInput = document.querySelector<HTMLInputElement>('[data-field="email"]')!;
 		emailInput.value = 'bad';

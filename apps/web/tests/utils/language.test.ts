@@ -1,5 +1,5 @@
+import { getLangFromUrl, getLocalizedPath } from '@/utils/language';
 import { describe, expect, it } from 'vitest';
-import { getLangFromUrl, getLocalizedPath } from '@/i18n/utils';
 
 describe('getLangFromUrl', () => {
 	it('returns "en" for English URLs', () => {

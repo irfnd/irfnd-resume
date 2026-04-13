@@ -39,9 +39,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
 										{job.location} · {job.type}
 									</Text>
 								) : (
-									<Text style={[styles.text, styles.italic]}>
-										{(desc.duration ?? job.duration).join(' – ')}
-									</Text>
+									<Text style={[styles.text, styles.italic]}>{(desc.duration ?? job.duration).join(' – ')}</Text>
 								)}
 							</View>
 
@@ -60,9 +58,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
 									{desc.points.map((point, k) => (
 										<View key={k} style={{ flexDirection: 'row' }}>
 											<Text style={[styles.text, { width: '2%' }]}>•</Text>
-											<Text style={[styles.text, { width: '98%', textAlign: 'justify' }]}>
-												{resolveParagraph(point)}
-											</Text>
+											<Text style={[styles.text, { width: '98%', textAlign: 'justify' }]}>{resolveParagraph(point)}</Text>
 										</View>
 									))}
 								</View>

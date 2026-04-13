@@ -16,7 +16,6 @@ function initProjectDialog() {
 
 		// Populate dialog content
 		const dialogContent = dialog.querySelector('[data-dialog-content]');
-		/* v8 ignore next 3 -- @preserve */
 		if (dialogContent && template) {
 			dialogContent.innerHTML = template.innerHTML;
 		}
@@ -52,7 +51,6 @@ function initCarousel(dialog: HTMLDialogElement) {
 	const track = dialog.querySelector<HTMLElement>('[data-carousel-track]');
 	const prevBtn = dialog.querySelector('[data-carousel-prev]');
 	const nextBtn = dialog.querySelector('[data-carousel-next]');
-	/* v8 ignore next -- @preserve */
 	if (!track) return;
 
 	let currentIndex = 0;
@@ -74,7 +72,6 @@ function initCarousel(dialog: HTMLDialogElement) {
 	});
 }
 
-/* v8 ignore next -- @preserve */
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initProjectDialog);
 } else {

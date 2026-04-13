@@ -38,7 +38,9 @@ describe('Email Service', () => {
 			const result = await sendContactEmail(validData);
 
 			expect(result.success).toBe(true);
-			expect(result.messageId).toBe('msg_123');
+			if (result.success) {
+				expect(result.messageId).toBe('msg_123');
+			}
 			expect(mockEmailClient.emails.send).toHaveBeenCalledOnce();
 		});
 
@@ -103,7 +105,9 @@ describe('Email Service', () => {
 			const result = await sendContactEmail(validData);
 
 			expect(result.success).toBe(false);
-			expect(result.error).toBe('Email configuration error');
+			if (!result.success) {
+				expect(result.error).toBe('Email configuration error');
+			}
 			expect(mockEmailClient.emails.send).not.toHaveBeenCalled();
 		});
 
@@ -128,7 +132,9 @@ describe('Email Service', () => {
 			const result = await sendContactEmail(validData);
 
 			expect(result.success).toBe(false);
-			expect(result.error).toBe('API rate limit exceeded');
+			if (!result.success) {
+				expect(result.error).toBe('API rate limit exceeded');
+			}
 		});
 
 		it('should handle exceptions', async () => {
@@ -137,7 +143,9 @@ describe('Email Service', () => {
 			const result = await sendContactEmail(validData);
 
 			expect(result.success).toBe(false);
-			expect(result.error).toBe('Failed to send email');
+			if (!result.success) {
+				expect(result.error).toBe('Failed to send email');
+			}
 		});
 	});
 });

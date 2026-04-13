@@ -1,27 +1,24 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getLangFromUrl } from '@/i18n';
-import { contactForm, getByLang, contact as contactCollection, ui } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import ContactForm from '@/components/ui/ContactForm.astro';
 import MapEmbed from '@/components/ui/MapEmbed.astro';
 import Toast from '@/components/ui/Toast.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLangFromUrl } from '@/utils/language';
+import { contact as contactCollection, contactForm, getByLang, ui } from '@irfnd/data';
 
 const lang = getLangFromUrl(Astro.url);
-const contactMe = getByLang(contactForm, lang as LangCode);
-const contactItems = getByLang(contactCollection, lang as LangCode).items;
-const { seo } = getByLang(ui, lang as LangCode);
+const contactMe = getByLang(contactForm, lang);
+const contactItems = getByLang(contactCollection, lang).items;
+const { seo } = getByLang(ui, lang);
 
-const directContact = contactItems
-	.filter((c) => c.showInContactPage)
-	.map((c) => ({ label: c.label, url: c.url, icon: c.icon }));
+const directContact = contactItems.filter((c) => c.showInContactPage).map((c) => ({ label: c.label, url: c.url, icon: c.icon }));
 ---
 
 <BaseLayout title={seo.contact.title} description={seo.contact.description}>
 	<section data-gsap-slide-up>
-		<div class="mb-8">
-			<h1 class="text-2xl font-bold text-foreground tracking-tight">{contactMe.header}</h1>
-			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{contactMe.description}</p>
+		<div class='mb-8'>
+			<h1 class='text-2xl font-bold text-foreground tracking-tight'>{contactMe.header}</h1>
+			<p class='text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl'>{contactMe.description}</p>
 		</div>
 
 		<ContactForm
@@ -38,11 +35,11 @@ const directContact = contactItems
 			validation={contactMe.validation}
 			directContact={directContact}
 		>
-			<MapEmbed slot="map" />
+			<MapEmbed slot='map' />
 		</ContactForm>
 	</section>
 
 	<Toast />
 </BaseLayout>
 
-<script src="@/scripts/contact-form.ts"></script>
+<script src='@/scripts/contact-form.ts'></script>

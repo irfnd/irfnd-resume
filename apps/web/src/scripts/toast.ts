@@ -80,7 +80,6 @@ function showToast(message: string, variant: ToastVariant = 'info', duration = 5
 // Close button handler
 document.addEventListener('click', (e) => {
 	const btn = (e.target as HTMLElement).closest('[data-toast-close]');
-	/* v8 ignore next 4 -- @preserve */
 	if (btn) {
 		const id = btn.getAttribute('data-toast-close');
 		if (id) removeToast(id);

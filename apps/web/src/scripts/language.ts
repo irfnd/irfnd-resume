@@ -1,4 +1,4 @@
-import type { Language } from '@/i18n';
+import type { Language } from '@/utils/language';
 
 function getLangFromPath(): Language {
 	const [, lang] = window.location.pathname.split('/');

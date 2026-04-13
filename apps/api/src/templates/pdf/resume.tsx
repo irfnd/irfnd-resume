@@ -29,7 +29,7 @@ export interface ResumePDFProps {
 export function ResumePDF(props: ResumePDFProps) {
 	return (
 		<Document>
-			<Page size="A4" style={styles.page}>
+			<Page size='A4' style={styles.page}>
 				<HeaderSection profile={props.profile} contact={props.contact} />
 				<ExperienceSection experience={props.experience} />
 				<EducationSection education={props.education} />

@@ -51,9 +51,7 @@ export function EducationSection({ education }: EducationSectionProps) {
 							{edu.points.map((point, j) => (
 								<View key={j} style={{ flexDirection: 'row' }}>
 									<Text style={[styles.text, { width: '2%' }]}>•</Text>
-									<Text style={[styles.text, { width: '98%', textAlign: 'justify' }]}>
-										{resolveParagraph(point)}
-									</Text>
+									<Text style={[styles.text, { width: '98%', textAlign: 'justify' }]}>{resolveParagraph(point)}</Text>
 								</View>
 							))}
 						</View>

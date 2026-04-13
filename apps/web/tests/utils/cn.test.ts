@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { cn } from '@/utils/cn';
+import { describe, expect, it } from 'vitest';
 
 describe('cn', () => {
 	it('merges class names', () => {
@@ -7,7 +7,8 @@ describe('cn', () => {
 	});
 
 	it('handles conditional classes', () => {
-		expect(cn('foo', false && 'bar', 'baz')).toBe('foo baz');
+		const condition = false as boolean;
+		expect(cn('foo', condition && 'bar', 'baz')).toBe('foo baz');
 	});
 
 	it('merges tailwind conflicts (last wins)', () => {

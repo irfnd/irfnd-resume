@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { resolveTechStacks, techStacks } from '@irfnd/data';
+import { describe, expect, it } from 'vitest';
 
 const allStacks = techStacks.stacks;
 

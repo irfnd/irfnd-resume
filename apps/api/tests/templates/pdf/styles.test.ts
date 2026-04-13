@@ -1,7 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
 
+const mockState = vi.hoisted(() => ({
+	hyphenationCallback: undefined as ((word: string) => string[]) | undefined,
+}));
+
 vi.mock('@react-pdf/renderer', () => ({
-	Font: { registerHyphenationCallback: vi.fn() },
+	Font: {
+		registerHyphenationCallback: vi.fn((cb: (word: string) => string[]) => {
+			mockState.hyphenationCallback = cb;
+		}),
+	},
 	StyleSheet: {
 		create: <T extends Record<string, unknown>>(styles: T): T => styles,
 	},
@@ -49,5 +57,11 @@ describe('PDF Styles', () => {
 	it('should define horizontal divider styles', () => {
 		expect(styles.dividerH).toBeDefined();
 		expect(styles.dividerH.borderTop).toBe('1px solid black');
+	});
+
+	it('should register hyphenation callback that returns word as single-element array', () => {
+		expect(mockState.hyphenationCallback).toBeDefined();
+		expect(mockState.hyphenationCallback!('hello')).toEqual(['hello']);
+		expect(mockState.hyphenationCallback!('world')).toEqual(['world']);
 	});
 });

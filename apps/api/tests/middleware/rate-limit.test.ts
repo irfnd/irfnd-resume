@@ -1,6 +1,6 @@
-import { createRateLimitMiddleware } from '@/middleware/rate-limit';
+import { cleanupExpiredEntries, createRateLimitMiddleware, startDefaultStoreCleanup } from '@/middleware/rate-limit';
 import { Hono } from 'hono';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('Rate Limit Middleware', () => {
 	describe('rate limit headers', () => {
@@ -128,6 +128,32 @@ describe('Rate Limit Middleware', () => {
 				headers: { 'x-forwarded-for': '10.0.0.5' },
 			});
 			expect(res.status).toBe(200);
+		});
+	});
+
+	describe('cleanup functions', () => {
+		it('cleanupExpiredEntries removes expired entries', () => {
+			const store = new Map();
+			store.set('expired-ip', { count: 5, resetAt: Date.now() - 10000 });
+			store.set('active-ip', { count: 2, resetAt: Date.now() + 60000 });
+			cleanupExpiredEntries(store);
+			expect(store.has('expired-ip')).toBe(false);
+			expect(store.has('active-ip')).toBe(true);
+		});
+
+		it('cleanupExpiredEntries handles empty store', () => {
+			const store = new Map();
+			cleanupExpiredEntries(store);
+			expect(store.size).toBe(0);
+		});
+
+		it('startDefaultStoreCleanup starts an interval', () => {
+			vi.useFakeTimers();
+			const timer = startDefaultStoreCleanup(1000);
+			expect(timer).toBeDefined();
+			vi.advanceTimersByTime(1000);
+			clearInterval(timer);
+			vi.useRealTimers();
 		});
 	});
 

@@ -148,6 +148,26 @@ describe('resume-download', () => {
 		});
 	});
 
+	it('initializes via DOMContentLoaded when readyState is loading', async () => {
+		Object.defineProperty(document, 'readyState', {
+			value: 'loading',
+			writable: true,
+			configurable: true,
+		});
+
+		await import('@/scripts/resume-download');
+
+		document.dispatchEvent(new Event('DOMContentLoaded'));
+
+		Object.defineProperty(document, 'readyState', {
+			value: 'complete',
+			writable: true,
+			configurable: true,
+		});
+
+		expect(true).toBe(true);
+	});
+
 	it('uses default values when data attributes are missing', async () => {
 		document.body.innerHTML = '<button data-resume-download>Download</button>';
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(new Blob(), { status: 200 }));

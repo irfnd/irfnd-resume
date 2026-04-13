@@ -1,16 +1,15 @@
 ---
-import { getLangFromUrl } from '@/i18n';
-import { Icon } from 'astro-icon/components';
-import { getByLang, education as educationCollection } from '@irfnd/data';
-import type { LangCode } from '@irfnd/data';
 import HighlightText from '@/components/ui/HighlightText.astro';
-import TimelineBeam from '@/components/ui/TimelineBeam.astro';
-import TimelineItem from '@/components/ui/TimelineItem.astro';
-import TimelineDot from '@/components/ui/TimelineDot.astro';
 import TimelineBadge from '@/components/ui/TimelineBadge.astro';
+import TimelineBeam from '@/components/ui/TimelineBeam.astro';
+import TimelineDot from '@/components/ui/TimelineDot.astro';
+import TimelineItem from '@/components/ui/TimelineItem.astro';
+import { getLangFromUrl } from '@/utils/language';
+import { education as educationCollection, getByLang } from '@irfnd/data';
+import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
-const education = getByLang(educationCollection, lang as LangCode);
+const education = getByLang(educationCollection, lang);
 ---
 
 <section data-gsap-slide-up>
