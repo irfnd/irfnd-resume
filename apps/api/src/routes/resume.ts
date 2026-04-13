@@ -1,22 +1,41 @@
-import { generateResumeHTML } from '@/templates/resume';
 import type { ResumeData } from '@/templates/resume';
+import { generateResumeHTML } from '@/templates/resume';
+import type { LangCode } from '@irfnd/data';
+import { contact, education, experience, getByLang, profile, technology } from '@irfnd/data';
 import { Hono } from 'hono';
 
 function getResumeData(lang: string): ResumeData {
+	const l = (lang === 'id' ? 'id' : 'en') as LangCode;
+	const p = getByLang(profile, l);
+	const exp = getByLang(experience, l);
+	const edu = getByLang(education, l);
+	const tech = getByLang(technology, l);
+	const c = getByLang(contact, l);
+
 	return {
-		name: 'Irfandi Iqbal Abimanyu',
-		role: lang === 'id' ? 'Pengembang Full-Stack' : 'Full-Stack Developer',
-		email: 'irfandiabimanyu@gmail.com',
-		location: 'Jakarta, Indonesia',
-		linkedin: 'linkedin.com/in/irfnd-iqbl',
-		github: 'github.com/irfnd',
-		summary:
-			lang === 'id'
-				? 'Pengembang full-stack berpengalaman dengan keahlian dalam React, TypeScript, dan Node.js.'
-				: 'Experienced full-stack developer with expertise in React, TypeScript, and Node.js.',
-		experience: [],
-		education: [],
-		skills: ['TypeScript', 'React', 'Node.js', 'Python', 'PostgreSQL', 'Docker'],
+		name: `${p.firstName} ${p.lastName}`,
+		role: p.role,
+		/* v8 ignore start -- @preserve */
+		email: c.items.find((i) => i.icon === 'tabler:mail')?.label ?? '',
+		location: c.items.find((i) => i.type === 'location')?.label ?? '',
+		linkedin: c.items.find((i) => i.icon === 'tabler:brand-linkedin')?.url ?? '',
+		github: c.items.find((i) => i.icon === 'tabler:brand-github')?.url ?? '',
+		/* v8 ignore stop */
+		summary: p.description,
+		experience: exp.jobs.map((job) => ({
+			company: job.company,
+			position: job.mainPosition,
+			duration: job.duration.join(' - '),
+			location: job.location,
+			points: job.descriptions.flatMap((d) => [...d.summary, ...d.points].map((pt) => pt.value)),
+		})),
+		education: edu.educations.map((e) => ({
+			institution: e.institution,
+			degree: `${e.degree} — ${e.fieldOfStudy}`,
+			duration: e.duration.join(' - '),
+			location: e.location,
+		})),
+		skills: Object.values(tech.stacks).flat(),
 	};
 }
 
