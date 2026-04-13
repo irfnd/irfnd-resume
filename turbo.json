@@ -16,7 +16,6 @@
 			"cache": false,
 			"persistent": true
 		},
-		"test:run": {},
 		"test:coverage": {},
 		"clean": {
 			"cache": false

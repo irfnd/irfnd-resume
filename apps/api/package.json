@@ -10,9 +10,8 @@
 		"start": "bun run dist/index.js",
 		"lint": "eslint .",
 		"format": "prettier --write .",
-		"test": "vitest",
+		"test": "vitest run",
 		"test:ui": "vitest --ui --coverage",
-		"test:run": "vitest run",
 		"test:coverage": "vitest run --coverage",
 		"clean": "rm -rf .turbo dist"
 	},
