@@ -1,0 +1,82 @@
+{
+	"en": {
+		"title": "Technical Stack",
+		"stacks": {
+			"Languages": [
+				"JavaScript",
+				"TypeScript",
+				"Python",
+				"Go"
+			],
+			"Frameworks & UI": [
+				"Alpine.js",
+				"React",
+				"Vue.js",
+				"Next.js",
+				"Express.js",
+				"NestJS",
+				"Flask",
+				"Django",
+				"Tailwind CSS",
+				"Shadcn UI",
+				"Ant Design",
+				"Material UI",
+				"Chakra UI",
+				"Mapbox",
+				"Framer Motion"
+			],
+			"Databases & Infrastructure": [
+				"PostgreSQL",
+				"MongoDB",
+				"Redis",
+				"Firebase",
+				"Supabase",
+				"GraphQL",
+				"Docker",
+				"Linux",
+				"Swagger",
+				"Turborepo"
+			]
+		}
+	},
+	"id": {
+		"title": "Teknologi & Stack",
+		"stacks": {
+			"Languages": [
+				"JavaScript",
+				"TypeScript",
+				"Python",
+				"Go"
+			],
+			"Frameworks & UI": [
+				"Alpine.js",
+				"React",
+				"Vue.js",
+				"Next.js",
+				"Express.js",
+				"NestJS",
+				"Flask",
+				"Django",
+				"Tailwind CSS",
+				"Shadcn UI",
+				"Ant Design",
+				"Material UI",
+				"Chakra UI",
+				"Mapbox",
+				"Framer Motion"
+			],
+			"Databases & Infrastructure": [
+				"PostgreSQL",
+				"MongoDB",
+				"Redis",
+				"Firebase",
+				"Supabase",
+				"GraphQL",
+				"Docker",
+				"Linux",
+				"Swagger",
+				"Turborepo"
+			]
+		}
+	}
+}

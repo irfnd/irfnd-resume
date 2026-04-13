@@ -1,0 +1,194 @@
+{
+	"all": {
+		"stacks": [
+			{
+				"label": "JavaScript",
+				"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+				"icon": "simple-icons:javascript",
+				"color": "#F7DF1E"
+			},
+			{
+				"label": "TypeScript",
+				"url": "https://www.typescriptlang.org/",
+				"icon": "simple-icons:typescript",
+				"color": "#3178C6"
+			},
+			{
+				"label": "Python",
+				"url": "https://www.python.org/",
+				"icon": "simple-icons:python",
+				"color": "#3776AB"
+			},
+			{
+				"label": "Go",
+				"url": "https://golang.org/",
+				"icon": "simple-icons:go",
+				"color": "#00ADD8"
+			},
+			{
+				"label": "Alpine.js",
+				"url": "https://alpinejs.dev/",
+				"icon": "simple-icons:alpinedotjs",
+				"color": "#8BC0D0"
+			},
+			{
+				"label": "React",
+				"url": "https://reactjs.org/",
+				"icon": "simple-icons:react",
+				"color": "#61DAFB"
+			},
+			{
+				"label": "Vue.js",
+				"url": "https://vuejs.org/",
+				"icon": "simple-icons:vuedotjs",
+				"color": "#4FC08D"
+			},
+			{
+				"label": "Next.js",
+				"url": "https://nextjs.org/",
+				"icon": "simple-icons:nextdotjs",
+				"color": "fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white",
+				"border": "hover:border-black/50 dark:hover:border-white/50",
+				"customColor": true
+			},
+			{
+				"label": "Express.js",
+				"url": "https://expressjs.com/",
+				"icon": "simple-icons:express",
+				"color": "fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white",
+				"border": "hover:border-black/50 dark:hover:border-white/50",
+				"customColor": true
+			},
+			{
+				"label": "NestJS",
+				"url": "https://nestjs.com/",
+				"icon": "simple-icons:nestjs",
+				"color": "#E0234E"
+			},
+			{
+				"label": "Flask",
+				"url": "https://flask.palletsprojects.com/",
+				"icon": "simple-icons:flask",
+				"color": "#000000"
+			},
+			{
+				"label": "Django",
+				"url": "https://www.djangoproject.com/",
+				"icon": "simple-icons:django",
+				"color": "#092E20"
+			},
+			{
+				"label": "Tailwind CSS",
+				"url": "https://tailwindcss.com/",
+				"icon": "simple-icons:tailwindcss",
+				"color": "#06B6D4"
+			},
+			{
+				"label": "Shadcn UI",
+				"url": "https://ui.shadcn.com/",
+				"icon": "simple-icons:shadcnui",
+				"color": "fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white",
+				"border": "hover:border-black/50 dark:hover:border-white/50",
+				"customColor": true
+			},
+			{
+				"label": "Ant Design",
+				"url": "https://ant.design/",
+				"icon": "simple-icons:antdesign",
+				"color": "#0170FE"
+			},
+			{
+				"label": "Material UI",
+				"url": "https://mui.com/",
+				"icon": "simple-icons:mui",
+				"color": "#007FFF"
+			},
+			{
+				"label": "Chakra UI",
+				"url": "https://chakra-ui.com/",
+				"icon": "simple-icons:chakraui",
+				"color": "#319795"
+			},
+			{
+				"label": "Mapbox",
+				"url": "https://www.mapbox.com/",
+				"icon": "simple-icons:mapbox",
+				"color": "fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white",
+				"border": "hover:border-black/50 dark:hover:border-white/50",
+				"customColor": true
+			},
+			{
+				"label": "Framer Motion",
+				"url": "https://www.framer.com/motion/",
+				"icon": "simple-icons:framer",
+				"color": "#0055FF"
+			},
+			{
+				"label": "PostgreSQL",
+				"url": "https://www.postgresql.org/",
+				"icon": "simple-icons:postgresql",
+				"color": "#4169E1"
+			},
+			{
+				"label": "MongoDB",
+				"url": "https://www.mongodb.com/",
+				"icon": "simple-icons:mongodb",
+				"color": "#47A248"
+			},
+			{
+				"label": "Redis",
+				"url": "https://redis.io/",
+				"icon": "simple-icons:redis",
+				"color": "#FF4438"
+			},
+			{
+				"label": "Firebase",
+				"url": "https://firebase.google.com/",
+				"icon": "simple-icons:firebase",
+				"color": "#DD2C00"
+			},
+			{
+				"label": "Supabase",
+				"url": "https://supabase.com/",
+				"icon": "simple-icons:supabase",
+				"color": "#3FCF8E"
+			},
+			{
+				"label": "GraphQL",
+				"url": "https://graphql.org/",
+				"icon": "simple-icons:graphql",
+				"color": "#E10098"
+			},
+			{
+				"label": "Docker",
+				"url": "https://www.docker.com/",
+				"icon": "simple-icons:docker",
+				"color": "#2496ED"
+			},
+			{
+				"label": "Linux",
+				"url": "https://www.linux.org/",
+				"icon": "simple-icons:linux",
+				"color": "#FCC624"
+			},
+			{
+				"label": "Swagger",
+				"url": "https://swagger.io/",
+				"icon": "simple-icons:swagger",
+				"color": "#85EA2D"
+			},
+			{
+				"label": "Turborepo",
+				"url": "https://turbo.build/repo",
+				"icon": "simple-icons:turborepo",
+				"color": "#EF4444"
+			},
+			{
+				"label": "Redux",
+				"url": "https://redux.js.org/",
+				"icon": "simple-icons:redux",
+				"color": "#764ABC"
+			}
+		]
+	}
+}
