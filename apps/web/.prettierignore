@@ -5,6 +5,7 @@ build/
 out/
 .vite/
 .cache/
+.astro
 
 # coverage & reports
 coverage/
@@ -42,3 +43,4 @@ bun.lock
 *.woff2
 *.ttf
 *.eot
+.env*

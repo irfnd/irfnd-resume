@@ -166,7 +166,10 @@ describe('contact-form', () => {
 	it('toggles loading state during submission', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/contact-form');

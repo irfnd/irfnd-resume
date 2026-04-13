@@ -13,7 +13,8 @@
 		"test": "vitest",
 		"test:ui": "vitest --ui --coverage",
 		"test:run": "vitest run",
-		"test:coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage",
+		"clean": "rm -rf .turbo dist"
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "3.7.2",

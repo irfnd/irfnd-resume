@@ -4,9 +4,7 @@
 		"description": [
 			{
 				"value": "Specializing in the architecture of scalable web applications and high-performance APIs within the {0} ecosystem. I possess comprehensive expertise across relational and NoSQL database management, containerized deployments using Docker, and system performance optimization. Deeply committed to maintaining clean code standards, fostering technical excellence, and driving agile collaboration.",
-				"keywords": [
-					"JavaScript/TypeScript"
-				]
+				"keywords": ["JavaScript/TypeScript"]
 			}
 		],
 		"focus": [
@@ -32,9 +30,7 @@
 		"description": [
 			{
 				"value": "Berspesialisasi dalam perancangan arsitektur aplikasi web skalabel dan high-performance API dalam ekosistem {0}. Memiliki keahlian mendalam pada manajemen database relasional dan NoSQL, containerized deployment menggunakan Docker, serta optimasi performa sistem. Berkomitmen pada standar clean code, technical excellence, dan mendorong kolaborasi lintas tim yang efektif.",
-				"keywords": [
-					"JavaScript/TypeScript"
-				]
+				"keywords": ["JavaScript/TypeScript"]
 			}
 		],
 		"focus": [

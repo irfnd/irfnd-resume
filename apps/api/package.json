@@ -13,7 +13,8 @@
 		"test": "vitest",
 		"test:ui": "vitest --ui --coverage",
 		"test:run": "vitest run",
-		"test:coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage",
+		"clean": "rm -rf .turbo dist"
 	},
 	"dependencies": {
 		"@irfnd/data": "workspace:*",
@@ -31,7 +32,6 @@
 		"@vitest/ui": "^4.0.18",
 		"eslint": "^10.0.2",
 		"prettier": "^3.8.1",
-		"prettier-plugin-organize-imports": "^4.3.0",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.56.1",
 		"vitest": "^4.0.18"

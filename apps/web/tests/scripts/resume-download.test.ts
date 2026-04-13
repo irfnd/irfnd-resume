@@ -71,7 +71,10 @@ describe('resume-download', () => {
 	it('prevents double-click during download', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/resume-download');
@@ -90,7 +93,10 @@ describe('resume-download', () => {
 	it('shows loading spinner during download', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/resume-download');

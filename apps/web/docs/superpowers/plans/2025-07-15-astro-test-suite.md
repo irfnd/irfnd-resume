@@ -13,6 +13,7 @@
 ## File Structure
 
 ### Files to Delete
+
 - `tests/components/` — entire directory (27 React component test files)
 - `tests/hooks/` — entire directory (2 React hook test files)
 - `tests/providers/` — entire directory (2 React context test files)
@@ -25,12 +26,15 @@
 - `tests/index.ts` — barrel file
 
 ### Files to Keep (unchanged)
+
 - `tests/i18n/utils.test.ts` — 8 passing tests for `getLangFromUrl`, `useTranslations`, `getLocalizedPath`
 
 ### Files to Modify
+
 - `vitest.config.ts` — add `environment: 'happy-dom'`, expand coverage excludes
 
 ### Files to Create
+
 - `tests/utils/cn.test.ts`
 - `tests/utils/cloudinary.test.ts`
 - `tests/utils/portfolio.test.ts`
@@ -50,6 +54,7 @@
 ### Task 1: Delete Old React Tests and Update Config
 
 **Files:**
+
 - Delete: `tests/components/`, `tests/hooks/`, `tests/providers/`, `tests/routes/`, `tests/contents/`, `tests/utils/`, `tests/test-utils.tsx`, `tests/router-utils.tsx`, `tests/setup.ts`, `tests/index.ts`
 - Modify: `vitest.config.ts`
 
@@ -68,6 +73,7 @@ find tests/ -type f
 ```
 
 Expected output:
+
 ```
 tests/i18n/utils.test.ts
 ```
@@ -122,6 +128,7 @@ export default getViteConfig({
 ```
 
 Key changes from original:
+
 - Added `environment: 'happy-dom'` — provides DOM globals for script tests (lightweight, won't affect pure utility tests)
 - Added `src/env.d.ts`, `src/vite-env.d.ts` to exclude (declaration files)
 - Added `src/routeTree.gen.ts` (auto-generated)
@@ -151,6 +158,7 @@ git commit --no-verify -m "test(web): delete old React tests and update vitest c
 ### Task 2: Pure Utility Tests — cn, cloudinary, portfolio, text
 
 **Files:**
+
 - Create: `tests/utils/cn.test.ts`
 - Create: `tests/utils/cloudinary.test.ts`
 - Create: `tests/utils/portfolio.test.ts`
@@ -159,6 +167,7 @@ git commit --no-verify -m "test(web): delete old React tests and update vitest c
 - [ ] **Step 1: Create tests/utils/cn.test.ts**
 
 Source under test (`src/utils/cn.ts`):
+
 ```ts
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -199,6 +208,7 @@ describe('cn', () => {
 - [ ] **Step 2: Create tests/utils/cloudinary.test.ts**
 
 Source under test (`src/utils/cloudinary.ts`):
+
 ```ts
 export function cloudinaryResize(url: string, width: number): string {
 	return url.replace(/\/image\/upload\/[^/]+\//, `/image/upload/c_scale,w_${width},f_auto,q_auto/`);
@@ -214,9 +224,7 @@ import { cloudinaryResize } from '@/utils/cloudinary';
 describe('cloudinaryResize', () => {
 	it('replaces existing transform segment with new width', () => {
 		const url = 'https://res.cloudinary.com/demo/image/upload/v1234/photo.jpg';
-		expect(cloudinaryResize(url, 800)).toBe(
-			'https://res.cloudinary.com/demo/image/upload/c_scale,w_800,f_auto,q_auto/photo.jpg',
-		);
+		expect(cloudinaryResize(url, 800)).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_800,f_auto,q_auto/photo.jpg');
 	});
 
 	it('handles URL with existing transforms', () => {
@@ -236,6 +244,7 @@ describe('cloudinaryResize', () => {
 - [ ] **Step 3: Create tests/utils/portfolio.test.ts**
 
 Source under test (`src/utils/portfolio.ts`):
+
 ```ts
 import type { IPortfolio } from '@/types';
 export function sortProjects(projects: IPortfolio['projects']): IPortfolio['projects'] {
@@ -316,6 +325,7 @@ describe('sortProjects', () => {
 - [ ] **Step 4: Create tests/utils/text.test.ts**
 
 Source under test (`src/utils/text.ts`):
+
 ```ts
 import type { IParagraph } from '@/types';
 export function setHighlightText(text: string, keywords: string[]) {
@@ -413,6 +423,7 @@ git commit --no-verify -m "test(web): add pure utility tests for cn, cloudinary,
 ### Task 3: Content and Translation Tests
 
 **Files:**
+
 - Create: `tests/contents/tech-stack-list.test.ts`
 - Create: `tests/i18n/translations.test.ts`
 
@@ -598,11 +609,13 @@ git commit --no-verify -m "test(web): add tech-stack-list and translation parity
 ### Task 4: Theme Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/theme.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/theme.test.ts**
 
 Source under test (`src/scripts/theme.ts`):
+
 - `getStoredTheme()` — reads `localStorage.getItem('irfnd-ui-theme')`, returns `'dark'` if not `'light'` or `'dark'`
 - `applyTheme(theme)` — removes 'light'/'dark' from `document.documentElement.classList`, adds theme, sets localStorage
 - `initTheme()` — calls `applyTheme(getStoredTheme())`, adds click listener for `[data-theme-toggle]`
@@ -736,11 +749,13 @@ git commit --no-verify -m "test(web): add theme script tests"
 ### Task 5: Toast Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/toast.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/toast.test.ts**
 
 Source under test (`src/scripts/toast.ts`):
+
 - `showToast(message, variant?, duration?)` — creates toast element, appends to container, auto-removes after duration
 - `removeToast(id)` — removes toast by id with fade-out animation (300ms delay)
 - Module-level: adds click listener for `[data-toast-close]`, assigns `window.showToast` and `window.removeToast`
@@ -883,11 +898,13 @@ git commit --no-verify -m "test(web): add toast script tests"
 ### Task 6: Language Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/language.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/language.test.ts**
 
 Source under test (`src/scripts/language.ts`):
+
 - `getLangFromPath()` — reads `window.location.pathname`, splits by `/`, returns `'id'` or `'en'`
 - `switchLanguage(targetLang)` — replaces `/(en|id)` prefix in pathname, sets `window.location.href`
 - `initLanguageSwitcher()` — click delegation: `[data-lang-toggle]` toggles dropdown, `[data-lang-option]` switches lang, click-outside closes dropdown
@@ -1051,11 +1068,13 @@ git commit --no-verify -m "test(web): add language script tests"
 ### Task 7: Contact Form Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/contact-form.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/contact-form.test.ts**
 
 Source under test (`src/scripts/contact-form.ts`):
+
 - `initContactForm()` — finds `[data-contact-form]`, reads `data-validation`/`data-errors` attributes, creates schema, handles submit
 - Uses `import.meta.env.PUBLIC_API_URL` and `PUBLIC_API_KEY`
 - Auto-executes: calls `initContactForm()` on DOMContentLoaded or immediately
@@ -1219,7 +1238,10 @@ describe('contact-form', () => {
 	it('toggles loading state during submission', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/contact-form');
@@ -1300,11 +1322,13 @@ git commit --no-verify -m "test(web): add contact-form script tests"
 ### Task 8: Project Dialog Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/project-dialog.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/project-dialog.test.ts**
 
 Source under test (`src/scripts/project-dialog.ts`):
+
 - `initProjectDialog()` — finds `[data-project-dialog]` dialog, sets up open/close/carousel
 - Opens on `[data-project-id]` click, populates from `[data-project-detail="{id}"]` template
 - Closes on backdrop click (target === dialog), `[data-dialog-close]` click, or Escape key
@@ -1393,9 +1417,7 @@ describe('project-dialog', () => {
 		card.click();
 
 		const closeBtn = dialog.querySelector('[data-dialog-close]') as HTMLElement;
-		dialog.dispatchEvent(
-			new MouseEvent('click', { bubbles: true, target: closeBtn } as MouseEventInit),
-		);
+		dialog.dispatchEvent(new MouseEvent('click', { bubbles: true, target: closeBtn } as MouseEventInit));
 		// Simulate click on close button via dialog's click listener
 		const clickEvent = new MouseEvent('click', { bubbles: true });
 		Object.defineProperty(clickEvent, 'target', { value: closeBtn });
@@ -1563,11 +1585,13 @@ git commit --no-verify -m "test(web): add project-dialog script tests"
 ### Task 9: Resume Download Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/resume-download.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/resume-download.test.ts**
 
 Source under test (`src/scripts/resume-download.ts`):
+
 - `initResumeDownload()` — click delegation on `[data-resume-download]` buttons
 - Reads `data-resume-lang`, `data-resume-api`, `data-resume-key` attributes from button
 - Prevents double-click via `data-downloading` attribute
@@ -1655,7 +1679,10 @@ describe('resume-download', () => {
 	it('prevents double-click during download', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/resume-download');
@@ -1675,7 +1702,10 @@ describe('resume-download', () => {
 	it('shows loading spinner during download', async () => {
 		let resolveFetch!: (value: Response) => void;
 		vi.mocked(fetch).mockImplementationOnce(
-			() => new Promise<Response>((resolve) => { resolveFetch = resolve; }),
+			() =>
+				new Promise<Response>((resolve) => {
+					resolveFetch = resolve;
+				}),
 		);
 
 		await import('@/scripts/resume-download');
@@ -1765,11 +1795,13 @@ git commit --no-verify -m "test(web): add resume-download script tests"
 ### Task 10: GSAP Init Script Tests
 
 **Files:**
+
 - Create: `tests/scripts/gsap-init.test.ts`
 
 - [ ] **Step 1: Create tests/scripts/gsap-init.test.ts**
 
 Source under test (`src/scripts/gsap-init.ts`):
+
 - Imports `gsap` and `ScrollTrigger`, registers plugin
 - `initGSAP()` — animates `[data-gsap-fade]`, `[data-gsap-slide-up]`, `[data-gsap-stagger]` elements
 - Stagger skips containers with no children
@@ -1923,6 +1955,7 @@ Expected: 100% coverage on all included files, or clear indication of which line
 - [ ] **Step 3: Fix any coverage gaps**
 
 If any file has < 100% coverage:
+
 1. If it's a defensive/unreachable branch, add `/* v8 ignore next -- @preserve */` in the source file
 2. If it's a testable branch we missed, add the test
 3. If the file is too complex to reach 100% (e.g., gsap-init edge cases), add it to `vitest.config.ts` coverage exclude list

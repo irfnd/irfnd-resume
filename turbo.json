@@ -17,6 +17,9 @@
 			"persistent": true
 		},
 		"test:run": {},
-		"test:coverage": {}
+		"test:coverage": {},
+		"clean": {
+			"cache": false
+		}
 	}
 }

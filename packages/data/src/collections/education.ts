@@ -7,7 +7,7 @@ export const education: I18nData<EducationData> = {
 		educations: [
 			{
 				institution: 'Lampung State Polytechnic',
-				degree: 'Associate\'s Degree',
+				degree: "Associate's Degree",
 				fieldOfStudy: 'Informatics Engineering',
 				location: 'Lampung, Indonesia',
 				duration: ['July 2019', 'May 2023'],

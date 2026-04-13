@@ -48,7 +48,8 @@ export const techStacks: TechStacksData = {
 			label: 'Next.js',
 			url: 'https://nextjs.org/',
 			icon: 'simple-icons:nextdotjs',
-			color: 'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			color:
+				'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 			border: 'hover:border-black/50 dark:hover:border-white/50',
 			customColor: true,
 		},
@@ -56,7 +57,8 @@ export const techStacks: TechStacksData = {
 			label: 'Express.js',
 			url: 'https://expressjs.com/',
 			icon: 'simple-icons:express',
-			color: 'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			color:
+				'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 			border: 'hover:border-black/50 dark:hover:border-white/50',
 			customColor: true,
 		},
@@ -88,7 +90,8 @@ export const techStacks: TechStacksData = {
 			label: 'Shadcn UI',
 			url: 'https://ui.shadcn.com/',
 			icon: 'simple-icons:shadcnui',
-			color: 'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			color:
+				'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 			border: 'hover:border-black/50 dark:hover:border-white/50',
 			customColor: true,
 		},
@@ -114,7 +117,8 @@ export const techStacks: TechStacksData = {
 			label: 'Mapbox',
 			url: 'https://www.mapbox.com/',
 			icon: 'simple-icons:mapbox',
-			color: 'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
+			color:
+				'fill-muted-foreground group-hover:fill-black group-data-active:fill-black dark:group-hover:fill-white dark:group-data-active:fill-white',
 			border: 'hover:border-black/50 dark:hover:border-white/50',
 			customColor: true,
 		},

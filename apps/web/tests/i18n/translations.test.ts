@@ -9,13 +9,7 @@ function loadJson(name: string) {
 }
 
 describe('content collection JSON structure parity', () => {
-	const i18nFiles = [
-		'navigation',
-		'about',
-		'portfolio',
-		'contact-form',
-		'ui',
-	];
+	const i18nFiles = ['navigation', 'about', 'portfolio', 'contact-form', 'ui'];
 
 	for (const name of i18nFiles) {
 		it(`${name}.json has both en and id keys`, () => {
@@ -37,14 +31,10 @@ describe('content collection JSON structure parity', () => {
 		expect(enUrls).toEqual(idUrls);
 	});
 
-
-
 	it('portfolio projects array has same length', () => {
 		const data = loadJson('portfolio');
 		expect(data.en.projects).toHaveLength(data.id.projects.length);
 	});
-
-
 
 	it('contactMe form fields have same length', () => {
 		const data = loadJson('contact-form');
@@ -59,8 +49,6 @@ describe('content collection JSON structure parity', () => {
 
 describe('content collection content sanity', () => {
 	function checkContent(langKey: 'en' | 'id', label: string) {
-
-
 		it(`${label}: about has description and focus`, () => {
 			const about = loadJson('about')[langKey];
 			expect(about.description.length).toBeGreaterThan(0);
@@ -74,12 +62,8 @@ describe('content collection content sanity', () => {
 			expect(contactMe.errors).toHaveProperty('serverError');
 			expect(contactMe.errors).toHaveProperty('validationError');
 		});
-
-
 	}
 
 	checkContent('en', 'en');
 	checkContent('id', 'id');
 });
-
-

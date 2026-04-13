@@ -22,7 +22,7 @@ const navigation = defineCollection({
 				label: z.string(),
 				url: z.string(),
 				icon: z.string(),
-			})
+			}),
 		),
 	}),
 });
@@ -37,7 +37,7 @@ const about = defineCollection({
 				value: z.string(),
 				label: z.string(),
 				icon: z.string(),
-			})
+			}),
 		),
 	}),
 });
@@ -60,7 +60,7 @@ const portfolio = defineCollection({
 				stacks: z.array(z.string()),
 				category: z.enum(['frontend', 'backend', 'fullstack']),
 				isSelected: z.boolean().optional(),
-			})
+			}),
 		),
 	}),
 });
@@ -77,7 +77,7 @@ const contactForm = defineCollection({
 				name: z.string(),
 				type: z.enum(['text', 'email', 'tel', 'textarea']),
 				placeholder: z.string(),
-			})
+			}),
 		),
 		submitButton: z.string(),
 		submittingButton: z.string(),
@@ -147,7 +147,7 @@ const ui = defineCollection({
 				z.object({
 					label: z.string(),
 					value: z.string(),
-				})
+				}),
 			),
 		}),
 	}),

@@ -27,7 +27,13 @@ describe('resolveTechStacks', () => {
 	const allStacks: TechStackItemData[] = [
 		{ label: 'React', url: 'https://reactjs.org/', icon: 'simple-icons:react', color: '#61DAFB' },
 		{ label: 'TypeScript', url: 'https://www.typescriptlang.org/', icon: 'simple-icons:typescript', color: '#3178C6' },
-		{ label: 'Next.js', url: 'https://nextjs.org/', icon: 'simple-icons:nextdotjs', customColor: true, border: 'hover:border-black/50' },
+		{
+			label: 'Next.js',
+			url: 'https://nextjs.org/',
+			icon: 'simple-icons:nextdotjs',
+			customColor: true,
+			border: 'hover:border-black/50',
+		},
 	];
 
 	it('returns matching tech stack entries', () => {

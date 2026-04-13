@@ -15,7 +15,8 @@
 		"format": "prettier --write .",
 		"test": "vitest",
 		"test:run": "vitest run",
-		"test:coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage",
+		"clean": "rm -rf .turbo dist"
 	},
 	"peerDependencies": {
 		"zod": "^4.3.6"

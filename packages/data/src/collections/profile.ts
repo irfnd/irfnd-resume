@@ -10,7 +10,8 @@ export const profile: I18nData<ProfileData> = {
 			alt: 'Irfandi Photo Profile',
 		},
 		role: 'Fullstack Web Developer',
-		description: 'Results-driven Fullstack Developer specializing in scalable web architectures. Proven expertise in building robust backend systems and crafting high-fidelity, user-centric frontend interfaces.',
+		description:
+			'Results-driven Fullstack Developer specializing in scalable web architectures. Proven expertise in building robust backend systems and crafting high-fidelity, user-centric frontend interfaces.',
 	},
 	id: {
 		firstName: 'Irfandi',
@@ -20,6 +21,7 @@ export const profile: I18nData<ProfileData> = {
 			alt: 'Foto Profil Irfandi',
 		},
 		role: 'Fullstack Web Developer',
-		description: 'Fullstack Developer berorientasi hasil dengan spesialisasi pada arsitektur web skalabel. Berpengalaman membangun sistem backend yang robust serta merancang antarmuka frontend presisi tinggi yang mengutamakan pengalaman pengguna.',
+		description:
+			'Fullstack Developer berorientasi hasil dengan spesialisasi pada arsitektur web skalabel. Berpengalaman membangun sistem backend yang robust serta merancang antarmuka frontend presisi tinggi yang mengutamakan pengalaman pengguna.',
 	},
 };
