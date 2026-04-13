@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://irfnd.me',
+  site: 'https://irfnd.id',
   output: 'static',
   i18n: {
     defaultLocale: 'en',
@@ -17,7 +17,15 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          id: 'id-ID',
+        },
+      },
+    }),
     icon(),
   ],
 });
