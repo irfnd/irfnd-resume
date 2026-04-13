@@ -8,6 +8,8 @@ import LanguageSwitcher from '@/components/layout/LanguageSwitcher.astro';
 import NavigationMenu from '@/components/layout/NavigationMenu.astro';
 import StickyProfile from '@/components/layout/StickyProfile.astro';
 import ThemeSwitcher from '@/components/layout/ThemeSwitcher.astro';
+import SEO from '@/components/common/SEO.astro';
+import JsonLd from '@/components/common/JsonLd.astro';
 
 interface Props {
 	title: string;
@@ -18,6 +20,15 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { profile } = t;
 const { title, description = `${profile.firstName} ${profile.lastName} — ${profile.role}` } = Astro.props;
+
+const site = Astro.site?.origin ?? 'https://irfnd.id';
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'Irfandi Iqbal Abimanyu',
+	url: site,
+	inLanguage: ['en', 'id'],
+};
 ---
 
 <!doctype html>
@@ -25,14 +36,14 @@ const { title, description = `${profile.firstName} ${profile.lastName} — ${pro
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-		<title>{title}</title>
+		<SEO title={title} description={description} />
+		<JsonLd data={websiteSchema} />
 
 		<script is:inline>
 			(function () {
