@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getLangFromUrl, getLocalizedPath, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, getLocalizedPath } from '@/i18n/utils';
 
 describe('getLangFromUrl', () => {
 	it('returns "en" for English URLs', () => {
@@ -15,18 +15,6 @@ describe('getLangFromUrl', () => {
 	it('defaults to "en" for unknown languages', () => {
 		expect(getLangFromUrl(new URL('https://example.com/fr/'))).toBe('en');
 		expect(getLangFromUrl(new URL('https://example.com/'))).toBe('en');
-	});
-});
-
-describe('useTranslations', () => {
-	it('returns English translations', () => {
-		const t = useTranslations('en');
-		expect(t.navigation[0].label).toBe('Home');
-	});
-
-	it('returns Indonesian translations', () => {
-		const t = useTranslations('id');
-		expect(t.navigation[0].label).toBe('Beranda');
 	});
 });
 

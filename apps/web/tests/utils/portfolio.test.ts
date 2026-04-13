@@ -1,19 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { sortProjects } from '@/utils/portfolio';
-import type { IPortfolio } from '@/types';
 
-type Project = IPortfolio['projects'][number];
+interface TestProject {
+	name: string;
+	isSelected?: boolean;
+	icon: string;
+}
 
-function makeProject(overrides: Partial<Project> & Pick<Project, 'name'>): Project {
+function makeProject(overrides: Partial<TestProject> & Pick<TestProject, 'name'>): TestProject {
 	return {
 		icon: 'tabler:code',
-		summary: [],
-		image: [],
-		type: 'public',
-		demo: null,
-		source: null,
-		stacks: [],
-		category: 'frontend',
 		isSelected: false,
 		...overrides,
 	};

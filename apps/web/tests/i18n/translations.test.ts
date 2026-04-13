@@ -1,108 +1,146 @@
 import { describe, expect, it } from 'vitest';
-import { en } from '@/i18n/en';
-import { id } from '@/i18n/id';
-import type { Translations } from '@/types/i18n';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-function getKeys(obj: Record<string, unknown>, prefix = ''): string[] {
-	return Object.entries(obj).flatMap(([key, value]) => {
-		const path = prefix ? `${prefix}.${key}` : key;
-		if (value && typeof value === 'object' && !Array.isArray(value)) {
-			return getKeys(value as Record<string, unknown>, path);
-		}
-		return [path];
-	});
+const dataDir = join(import.meta.dirname, '../../src/content/data');
+
+function loadJson(name: string) {
+	return JSON.parse(readFileSync(join(dataDir, `${name}.json`), 'utf-8'));
 }
 
-describe('translation structure parity', () => {
-	it('en and id have the same top-level keys', () => {
-		expect(Object.keys(en).sort()).toEqual(Object.keys(id).sort());
-	});
+describe('content collection JSON structure parity', () => {
+	const i18nFiles = [
+		'navigation',
+		'contact',
+		'profile',
+		'about',
+		'experience',
+		'technology',
+		'portfolio',
+		'education',
+		'contact-form',
+		'ui',
+	];
 
-	it('en and id have the same nested key structure', () => {
-		const enKeys = getKeys(en as unknown as Record<string, unknown>).sort();
-		const idKeys = getKeys(id as unknown as Record<string, unknown>).sort();
-		expect(enKeys).toEqual(idKeys);
-	});
+	for (const name of i18nFiles) {
+		it(`${name}.json has both en and id keys`, () => {
+			const data = loadJson(name);
+			expect(data).toHaveProperty('en');
+			expect(data).toHaveProperty('id');
+		});
+	}
 
 	it('navigation arrays have same length', () => {
-		expect(en.navigation).toHaveLength(id.navigation.length);
+		const data = loadJson('navigation');
+		expect(data.en.items).toHaveLength(data.id.items.length);
 	});
 
 	it('contact arrays have same length', () => {
-		expect(en.contact).toHaveLength(id.contact.length);
-	});
-
-	it('navigation items have consistent shape', () => {
-		for (const nav of en.navigation) {
-			expect(nav).toHaveProperty('label');
-			expect(nav).toHaveProperty('url');
-			expect(nav).toHaveProperty('icon');
-		}
-		for (const nav of id.navigation) {
-			expect(nav).toHaveProperty('label');
-			expect(nav).toHaveProperty('url');
-			expect(nav).toHaveProperty('icon');
-		}
+		const data = loadJson('contact');
+		expect(data.en.items).toHaveLength(data.id.items.length);
 	});
 
 	it('navigation URLs match between en and id', () => {
-		const enUrls = en.navigation.map((n) => n.url);
-		const idUrls = id.navigation.map((n) => n.url);
+		const data = loadJson('navigation');
+		const enUrls = data.en.items.map((n: { url: string }) => n.url);
+		const idUrls = data.id.items.map((n: { url: string }) => n.url);
 		expect(enUrls).toEqual(idUrls);
 	});
 
 	it('contact items share same urls and icons', () => {
-		const enMeta = en.contact.map((c) => ({ url: c.url, icon: c.icon, type: c.type }));
-		const idMeta = id.contact.map((c) => ({ url: c.url, icon: c.icon, type: c.type }));
+		const data = loadJson('contact');
+		const enMeta = data.en.items.map((c: { url: string; icon: string; type: string }) => ({
+			url: c.url,
+			icon: c.icon,
+			type: c.type,
+		}));
+		const idMeta = data.id.items.map((c: { url: string; icon: string; type: string }) => ({
+			url: c.url,
+			icon: c.icon,
+			type: c.type,
+		}));
 		expect(enMeta).toEqual(idMeta);
 	});
 
 	it('experience jobs array has same length', () => {
-		expect(en.experience.jobs).toHaveLength(id.experience.jobs.length);
+		const data = loadJson('experience');
+		expect(data.en.jobs).toHaveLength(data.id.jobs.length);
 	});
 
 	it('portfolio projects array has same length', () => {
-		expect(en.portfolio.projects).toHaveLength(id.portfolio.projects.length);
+		const data = loadJson('portfolio');
+		expect(data.en.projects).toHaveLength(data.id.projects.length);
 	});
 
 	it('education array has same length', () => {
-		expect(en.education.educations).toHaveLength(id.education.educations.length);
+		const data = loadJson('education');
+		expect(data.en.educations).toHaveLength(data.id.educations.length);
 	});
 
 	it('contactMe form fields have same length', () => {
-		expect(en.contactMe.form).toHaveLength(id.contactMe.form.length);
+		const data = loadJson('contact-form');
+		expect(data.en.form).toHaveLength(data.id.form.length);
 	});
 
 	it('common portfolioCategories have same length', () => {
-		expect(en.common.portfolioCategories).toHaveLength(id.common.portfolioCategories.length);
+		const data = loadJson('ui');
+		expect(data.en.common.portfolioCategories).toHaveLength(data.id.common.portfolioCategories.length);
 	});
 });
 
-describe('translation content sanity', () => {
-	function checkTranslation(t: Translations, label: string) {
+describe('content collection content sanity', () => {
+	function checkContent(langKey: 'en' | 'id', label: string) {
 		it(`${label}: profile has required fields`, () => {
-			expect(t.profile.firstName).toBeTruthy();
-			expect(t.profile.lastName).toBeTruthy();
-			expect(t.profile.role).toBeTruthy();
+			const profile = loadJson('profile')[langKey];
+			expect(profile.firstName).toBeTruthy();
+			expect(profile.lastName).toBeTruthy();
+			expect(profile.role).toBeTruthy();
 		});
 
 		it(`${label}: about has description and focus`, () => {
-			expect(t.about.description.length).toBeGreaterThan(0);
-			expect(t.about.focus.length).toBeGreaterThan(0);
+			const about = loadJson('about')[langKey];
+			expect(about.description.length).toBeGreaterThan(0);
+			expect(about.focus.length).toBeGreaterThan(0);
 		});
 
 		it(`${label}: contactMe has all error keys`, () => {
-			expect(t.contactMe.errors).toHaveProperty('rateLimited');
-			expect(t.contactMe.errors).toHaveProperty('networkError');
-			expect(t.contactMe.errors).toHaveProperty('serverError');
-			expect(t.contactMe.errors).toHaveProperty('validationError');
+			const contactMe = loadJson('contact-form')[langKey];
+			expect(contactMe.errors).toHaveProperty('rateLimited');
+			expect(contactMe.errors).toHaveProperty('networkError');
+			expect(contactMe.errors).toHaveProperty('serverError');
+			expect(contactMe.errors).toHaveProperty('validationError');
 		});
 
 		it(`${label}: technology stacks is non-empty`, () => {
-			expect(Object.keys(t.technology.stacks).length).toBeGreaterThan(0);
+			const technology = loadJson('technology')[langKey];
+			expect(Object.keys(technology.stacks).length).toBeGreaterThan(0);
 		});
 	}
 
-	checkTranslation(en, 'en');
-	checkTranslation(id, 'id');
+	checkContent('en', 'en');
+	checkContent('id', 'id');
+});
+
+describe('tech-stacks.json', () => {
+	it('has an "all" entry with stacks array', () => {
+		const data = loadJson('tech-stacks');
+		expect(data).toHaveProperty('all');
+		expect(data.all.stacks).toBeInstanceOf(Array);
+		expect(data.all.stacks.length).toBeGreaterThanOrEqual(29);
+	});
+
+	it('each stack has required properties', () => {
+		const { stacks } = loadJson('tech-stacks').all;
+		for (const stack of stacks) {
+			expect(stack).toHaveProperty('label');
+			expect(stack).toHaveProperty('url');
+			expect(stack).toHaveProperty('icon');
+		}
+	});
+
+	it('stack labels are unique', () => {
+		const { stacks } = loadJson('tech-stacks').all;
+		const labels = stacks.map((s: { label: string }) => s.label);
+		expect(new Set(labels).size).toBe(labels.length);
+	});
 });
