@@ -125,6 +125,24 @@ describe('ProjectsSection', () => {
 			expect(screen.queryByText('HIDDEN PROJECT')).toBeInTheDocument();
 		});
 
+		it('should render selected projects before non-selected ones', () => {
+			const reorderedPortfolio: PortfolioData = {
+				...mockPortfolio,
+				projects: [
+					mockPortfolio.projects[3],
+					mockPortfolio.projects[0],
+					mockPortfolio.projects[1],
+				],
+			};
+			render(<ProjectsSection portfolio={reorderedPortfolio} language="en" />);
+			const views = screen.getAllByTestId('pdf-view');
+			const projectTexts = views
+				.map((v) => (v as unknown as { textContent: string }).textContent)
+				.filter((t) => t.includes('PROJECT ALPHA') || t.includes('HIDDEN PROJECT'));
+			expect(projectTexts[0]).toContain('PROJECT ALPHA');
+			expect(projectTexts[projectTexts.length - 1]).toContain('HIDDEN PROJECT');
+		});
+
 		it('should handle empty summary', () => {
 			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
 			expect(screen.getByText('PROJECT GAMMA')).toBeInTheDocument();

@@ -13,6 +13,7 @@ export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
 	const techLabel = language === 'en' ? 'Technologies' : 'Teknologi';
 	const demoLabel = language === 'en' ? 'Live Demo' : 'Lihat Demo';
 	const sourceLabel = language === 'en' ? 'Source Code' : 'Lihat Source Code';
+	const sortedProjects = [...portfolio.projects].sort((a, b) => Number(b.isSelected ?? false) - Number(a.isSelected ?? false));
 
 	return (
 		<View style={{ gap: 10 }}>
@@ -21,7 +22,7 @@ export function ProjectsSection({ portfolio, language }: ProjectsSectionProps) {
 				<View style={styles.dividerH} />
 			</View>
 
-			{portfolio.projects.map((project, i) => (
+			{sortedProjects.map((project, i) => (
 				<View key={i} style={{ gap: 2 }} wrap={false}>
 					{project.demo ? (
 						<Link src={project.demo} style={[styles.text, styles.bold, styles.link]}>
