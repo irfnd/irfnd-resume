@@ -1,28 +1,96 @@
+import { escapeHtml } from '@/utils';
+
 interface ResumeData {
 	name: string;
-	role: string;
-	email: string;
-	location: string;
-	linkedin: string;
-	github: string;
-	summary: string;
+	contacts: string[];
 	experience: {
 		company: string;
-		position: string;
+		companyUrl: string | null;
+		positions: {
+			title: string;
+			duration: string;
+			location: string;
+			points: string[];
+		}[];
+	}[];
+	education: {
+		institution: string;
+		institutionUrl: string | null;
+		degree: string;
 		duration: string;
 		location: string;
 		points: string[];
 	}[];
-	education: {
-		institution: string;
-		degree: string;
-		duration: string;
-		location: string;
+	skills: Record<string, string[]>;
+	portfolios: {
+		name: string;
+		description: string;
+		technologies: string[];
+		demo: string | null;
+		source: string | null;
 	}[];
-	skills: string[];
 }
 
 export function generateResumeHTML(data: ResumeData): string {
+	const contactLine = data.contacts.map((c) => escapeHtml(c)).join('<span class="sep">|</span>');
+
+	const experienceHtml = data.experience
+		.map((job) => {
+			const companyName = job.companyUrl
+				? `<a href="${escapeHtml(job.companyUrl)}" class="company-link">${escapeHtml(job.company)}</a>`
+				: `<span class="company-link">${escapeHtml(job.company)}</span>`;
+
+			return job.positions
+				.map(
+					(pos, i) => `
+		<div class="position">
+			<div class="row">${i === 0 ? `<strong>${companyName}</strong>` : ''}<span class="right">${escapeHtml(pos.duration)}</span></div>
+			<div class="row"><em>${escapeHtml(pos.title)}</em><span class="right"><em>${escapeHtml(pos.location)}</em></span></div>
+			${pos.points.length > 0 ? `<ul>${pos.points.map((p) => `<li>${escapeHtml(p)}</li>`).join('')}</ul>` : ''}
+		</div>`,
+				)
+				.join('');
+		})
+		.join('');
+
+	const educationHtml = data.education
+		.map((edu) => {
+			const instName = edu.institutionUrl
+				? `<a href="${escapeHtml(edu.institutionUrl)}" class="company-link">${escapeHtml(edu.institution)}</a>`
+				: `<span class="company-link">${escapeHtml(edu.institution)}</span>`;
+
+			return `
+		<div class="position">
+			<div class="row"><strong>${instName}</strong><span class="right">${escapeHtml(edu.duration)}</span></div>
+			<div class="row"><em>${escapeHtml(edu.degree)}</em><span class="right"><em>${escapeHtml(edu.location)}</em></span></div>
+			${edu.points.length > 0 ? `<ul>${edu.points.map((p) => `<li>${escapeHtml(p)}</li>`).join('')}</ul>` : ''}
+		</div>`;
+		})
+		.join('');
+
+	const skillsHtml = Object.entries(data.skills)
+		.map(
+			([category, items]) =>
+				`<div class="skill-row"><strong>${escapeHtml(category)}:</strong> ${items.map((s) => escapeHtml(s)).join(', ')}</div>`,
+		)
+		.join('');
+
+	const portfoliosHtml = data.portfolios
+		.map((p) => {
+			const links: string[] = [];
+			if (p.demo) links.push(`<a href="${escapeHtml(p.demo)}" class="project-link">See Demo</a>`);
+			if (p.source) links.push(`<a href="${escapeHtml(p.source)}" class="project-link">Source Code</a>`);
+
+			return `
+		<div class="project">
+			<div class="project-name">${escapeHtml(p.name)}</div>
+			<div class="project-desc">${escapeHtml(p.description)}</div>
+			<div class="project-tech"><em>Technologies: ${p.technologies.map((t) => escapeHtml(t)).join(', ')}</em></div>
+			${links.length > 0 ? `<div class="project-links">${links.join('  ')}</div>` : ''}
+		</div>`;
+		})
+		.join('');
+
 	return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,101 +98,60 @@ export function generateResumeHTML(data: ResumeData): string {
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Times New Roman", Times, serif;
       font-size: 11px;
       line-height: 1.5;
-      color: #1a1a1a;
+      color: #000;
       padding: 40px 50px;
     }
-    h1 { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 2px; }
+    a { color: #000; text-decoration: none; }
+    .header { text-align: center; margin-bottom: 10px; }
+    .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; text-transform: uppercase; }
+    .contact-line { font-size: 10px; }
+    .contact-line .sep { margin: 0 6px; }
     h2 {
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #2563eb;
-      border-bottom: 2px solid #2563eb;
-      padding-bottom: 4px;
-      margin: 16px 0 8px;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+      margin: 14px 0 6px;
     }
-    h3 { font-size: 12px; font-weight: 600; }
-    .header { text-align: center; margin-bottom: 16px; }
-    .role { font-size: 14px; color: #4b5563; margin-bottom: 6px; }
-    .contact-info { font-size: 10px; color: #6b7280; }
-    .contact-info span { margin: 0 6px; }
-    .job { margin-bottom: 12px; }
-    .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .job-meta { font-size: 10px; color: #6b7280; }
-    ul { padding-left: 18px; margin-top: 4px; }
-    li { margin-bottom: 2px; }
-    .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-    .skill-tag {
-      background: #eff6ff;
-      color: #2563eb;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 10px;
-    }
-    .edu { margin-bottom: 8px; }
-    .edu-header { display: flex; justify-content: space-between; }
-    .summary { margin-top: 6px; color: #374151; }
+    .position { margin-bottom: 6px; }
+    .row { display: flex; justify-content: space-between; align-items: baseline; }
+    .right { text-align: right; white-space: nowrap; }
+    .company-link { font-weight: 700; text-transform: uppercase; }
+    ul { padding-left: 16px; margin-top: 2px; }
+    li { margin-bottom: 1px; }
+    .skill-row { margin-bottom: 2px; }
+    .skill-row strong { margin-right: 4px; }
+    .project { margin-bottom: 8px; }
+    .project-name { font-weight: 700; text-transform: uppercase; }
+    .project-desc { margin: 2px 0; }
+    .project-tech { margin: 2px 0; }
+    .project-link { text-decoration: underline; margin-right: 12px; }
+    .project-links { margin-top: 2px; }
     @page { size: A4; margin: 0; }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>${data.name}</h1>
-    <div class="role">${data.role}</div>
-    <div class="contact-info">
-      <span>${data.email}</span>
-      <span>|</span>
-      <span>${data.location}</span>
-      <span>|</span>
-      <span>${data.linkedin}</span>
-      <span>|</span>
-      <span>${data.github}</span>
-    </div>
+    <h1>${escapeHtml(data.name)}</h1>
+    <div class="contact-line">${contactLine}</div>
   </div>
 
-  ${data.summary ? `<h2>Summary</h2><p class="summary">${data.summary}</p>` : ''}
-
-  <h2>Experience</h2>
-  ${data.experience
-		.map(
-			(job) => `
-    <div class="job">
-      <div class="job-header">
-        <h3>${job.position} — ${job.company}</h3>
-        <span class="job-meta">${job.duration}</span>
-      </div>
-      <div class="job-meta">${job.location}</div>
-      <ul>
-        ${job.points.map((p) => `<li>${p}</li>`).join('')}
-      </ul>
-    </div>
-  `,
-		)
-		.join('')}
+  <h2>Work Experience</h2>
+  ${experienceHtml}
 
   <h2>Education</h2>
-  ${data.education
-		.map(
-			(edu) => `
-    <div class="edu">
-      <div class="edu-header">
-        <h3>${edu.degree} — ${edu.institution}</h3>
-        <span class="job-meta">${edu.duration}</span>
-      </div>
-      <div class="job-meta">${edu.location}</div>
-    </div>
-  `,
-		)
-		.join('')}
+  ${educationHtml}
 
   <h2>Skills</h2>
-  <div class="skills">
-    ${data.skills.map((s) => `<span class="skill-tag">${s}</span>`).join('')}
-  </div>
+  ${skillsHtml}
+
+  <h2>Portfolio</h2>
+  ${portfoliosHtml}
 </body>
 </html>`;
 }

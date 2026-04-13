@@ -1,7 +1,16 @@
 import type { ResumeData } from '@/templates/resume';
 import { generateResumeHTML } from '@/templates/resume';
 import type { LangCode } from '@irfnd/data';
-import { contact, education, experience, getByLang, profile, technology } from '@irfnd/data';
+import {
+	contact,
+	education,
+	experience,
+	getByLang,
+	portfolio,
+	profile,
+	resolveParagraph,
+	technology,
+} from '@irfnd/data';
 import { Hono } from 'hono';
 
 function getResumeData(lang: string): ResumeData {
@@ -11,31 +20,46 @@ function getResumeData(lang: string): ResumeData {
 	const edu = getByLang(education, l);
 	const tech = getByLang(technology, l);
 	const c = getByLang(contact, l);
+	const port = getByLang(portfolio, l);
 
 	return {
 		name: `${p.firstName} ${p.lastName}`,
-		role: p.role,
 		/* v8 ignore start -- @preserve */
-		email: c.items.find((i) => i.icon === 'tabler:mail')?.label ?? '',
-		location: c.items.find((i) => i.type === 'location')?.label ?? '',
-		linkedin: c.items.find((i) => i.icon === 'tabler:brand-linkedin')?.url ?? '',
-		github: c.items.find((i) => i.icon === 'tabler:brand-github')?.url ?? '',
+		contacts: c.items
+			.filter((i) => i.showInResume)
+			.map((i) =>
+				i.type === 'location' || i.icon === 'tabler:mail'
+					? i.label
+					: i.url.replace(/^https?:\/\//, '').replace(/^mailto:/, '').replace(/\/$/, ''),
+			)
+			.filter(Boolean),
 		/* v8 ignore stop */
-		summary: p.description,
 		experience: exp.jobs.map((job) => ({
 			company: job.company,
-			position: job.mainPosition,
-			duration: job.duration.join(' - '),
-			location: job.location,
-			points: job.descriptions.flatMap((d) => [...d.summary, ...d.points].map((pt) => pt.value)),
+			companyUrl: job.link,
+			positions: job.descriptions.map((d) => ({
+				title: d.position,
+				duration: d.duration ? d.duration.join(' - ') : job.duration.join(' - '),
+				location: job.location,
+				points: [...d.summary, ...d.points].map((pt) => resolveParagraph(pt)),
+			})),
 		})),
 		education: edu.educations.map((e) => ({
 			institution: e.institution,
+			institutionUrl: e.link,
 			degree: `${e.degree} — ${e.fieldOfStudy}`,
 			duration: e.duration.join(' - '),
 			location: e.location,
+			points: [...e.summary, ...e.points].map((pt) => resolveParagraph(pt)),
 		})),
-		skills: Object.values(tech.stacks).flat(),
+		skills: tech.stacks,
+		portfolios: port.projects.filter((proj) => proj.isSelected).map((proj) => ({
+			name: proj.name,
+			description: proj.summary.map((s) => resolveParagraph(s)).join(' '),
+			technologies: proj.stacks,
+			demo: proj.demo,
+			source: proj.source,
+		})),
 	};
 }
 
