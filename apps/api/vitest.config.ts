@@ -7,13 +7,14 @@ export default defineConfig({
 		globals: true,
 		environment: 'node',
 		env: { NODE_ENV: 'test' },
-		include: ['tests/**/*.{test,spec}.ts'],
+		include: ['tests/**/*.{test,spec}.{ts,tsx}'],
 		exclude: ['node_modules', 'dist'],
+		environmentMatchGlobs: [['tests/**/*.test.tsx', 'jsdom']],
 		coverage: {
 			provider: 'v8',
 			reporter: ['text', 'json', 'html', 'lcov'],
 			reportsDirectory: './coverage',
-			include: ['src/**/*.ts'],
+			include: ['src/**/*.{ts,tsx}'],
 			exclude: ['src/types/**', 'src/**/index.ts'],
 			thresholds: {
 				statements: 100,
