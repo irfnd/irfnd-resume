@@ -16,12 +16,12 @@
 		"test:coverage": "vitest run --coverage"
 	},
 	"dependencies": {
-		"@astrojs/sitemap": "^3.3.0",
+		"@astrojs/sitemap": "3.7.2",
 		"@iconify-json/lucide": "^1.2.45",
 		"@iconify-json/simple-icons": "^1.2.38",
 		"@iconify-json/tabler": "^1.2.25",
 		"@irfnd/schemas": "workspace:*",
-		"astro": "^5.9.4",
+		"astro": "6.1.5",
 		"astro-icon": "^1.1.5",
 		"astro-seo": "^1.1.0",
 		"clsx": "^2.1.1",
@@ -45,7 +45,6 @@
 		"globals": "^17.4.0",
 		"happy-dom": "^18.0.1",
 		"prettier": "^3.8.1",
-		"prettier-plugin-organize-imports": "^4.3.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.56.1",
