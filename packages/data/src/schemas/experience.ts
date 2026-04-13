@@ -4,6 +4,7 @@ import { paragraphSchema } from './common';
 export const jobDescriptionSchema = z.object({
 	icon: z.string().optional(),
 	position: z.string(),
+	duration: z.array(z.string()).optional(),
 	summary: z.array(paragraphSchema),
 	points: z.array(paragraphSchema),
 	stacks: z.array(z.string()),
