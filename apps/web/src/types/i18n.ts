@@ -1,7 +1,3 @@
-import type { IconType } from '@icons-pack/react-simple-icons';
-import type { TablerIcon } from '@tabler/icons-react';
-import type { HTMLInputTypeAttribute } from 'react';
-
 export type Language = 'en' | 'id';
 
 export interface IParagraph {
@@ -17,7 +13,7 @@ export interface IImage {
 export interface ITechStack {
 	label: string;
 	url: string;
-	icon: IconType;
+	icon: string;
 	color?: string;
 	border?: string;
 	customColor?: boolean;
@@ -26,20 +22,20 @@ export interface ITechStack {
 export interface IAward {
 	label: string;
 	description: string;
-	icon: TablerIcon;
+	icon: string;
 }
 
 export interface INavigation {
 	label: string;
 	url: string;
-	icon: TablerIcon;
+	icon: string;
 }
 
 export interface IContact {
 	type: 'location' | 'contact';
 	label: string;
 	url: string;
-	icon: TablerIcon;
+	icon: string;
 	showInStickyProfile?: boolean;
 	showInContactPage?: boolean;
 	showInFooter?: boolean;
@@ -59,7 +55,7 @@ export interface IAbout {
 	focus: {
 		value: string;
 		label: string;
-		icon: TablerIcon;
+		icon: string;
 	}[];
 }
 
@@ -73,7 +69,7 @@ export interface IExperience {
 		duration: string[];
 		link: string | null;
 		descriptions: {
-			icon?: TablerIcon;
+			icon?: string;
 			position: string;
 			summary: IParagraph[];
 			points: IParagraph[];
@@ -87,7 +83,7 @@ export interface IPortfolio {
 	title: string;
 	subtitle: string;
 	projects: {
-		icon: TablerIcon;
+		icon: string;
 		name: string;
 		summary: IParagraph[];
 		image: IImage[];
@@ -123,7 +119,7 @@ export interface IEducation {
 export interface IFormField {
 	label: string;
 	name: string;
-	type: HTMLInputTypeAttribute;
+	type: 'text' | 'email' | 'tel' | 'textarea';
 	placeholder: string;
 }
 
@@ -187,8 +183,3 @@ export interface Translations {
 	common: ICommon;
 }
 
-export interface I18nContextType {
-	language: Language;
-	setLanguage: (lang: Language) => void;
-	t: Translations;
-}

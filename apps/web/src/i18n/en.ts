@@ -2,39 +2,12 @@ import { getTechStack } from '@/contents/tech-stack-list';
 import type { Translations } from '@/types';
 import { setHighlightText } from '@/utils/text';
 
-import {
-	IconAward,
-	IconBook,
-	IconBox,
-	IconBrandGithub,
-	IconBrandInstagram,
-	IconBrandLinkedin,
-	IconBrandWhatsapp,
-	IconBrandX,
-	IconChartBar,
-	IconCode,
-	IconFileDownload,
-	IconFolderStar,
-	IconGavel,
-	IconHome,
-	IconLanguage,
-	IconLayout,
-	IconMail,
-	IconMapPin,
-	IconSend,
-	IconServer2,
-	IconShieldCheck,
-	IconStack2,
-	IconUsersGroup,
-	IconViewfinder,
-} from '@tabler/icons-react';
-
 export const en: Translations = {
 	navigation: [
-		{ label: 'Home', url: '/', icon: IconHome },
-		{ label: 'Portfolio', url: '/portfolio', icon: IconFolderStar },
-		{ label: 'Contact', url: '/contact', icon: IconSend },
-		{ label: 'Resume', url: '/resume', icon: IconFileDownload },
+		{ label: 'Home', url: '/', icon: 'tabler:home' },
+		{ label: 'Portfolio', url: '/portfolio', icon: 'tabler:folder-star' },
+		{ label: 'Contact', url: '/contact', icon: 'tabler:send' },
+		{ label: 'Resume', url: '/resume', icon: 'tabler:file-download' },
 	],
 
 	contact: [
@@ -42,14 +15,14 @@ export const en: Translations = {
 			type: 'location',
 			label: 'Jakarta, Indonesia',
 			url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
-			icon: IconMapPin,
+			icon: 'tabler:map-pin',
 			showInContactPage: true,
 		},
 		{
 			type: 'contact',
 			label: 'irfandiabimanyu@gmail.com',
 			url: 'mailto:irfandiabimanyu@gmail.com',
-			icon: IconMail,
+			icon: 'tabler:mail',
 			showInStickyProfile: true,
 			showInContactPage: true,
 		},
@@ -57,7 +30,7 @@ export const en: Translations = {
 			type: 'contact',
 			label: 'Whatsapp',
 			url: 'https://wa.me/6282175688883',
-			icon: IconBrandWhatsapp,
+			icon: 'tabler:brand-whatsapp',
 			showInContactPage: true,
 			showInFooter: true,
 		},
@@ -65,7 +38,7 @@ export const en: Translations = {
 			type: 'contact',
 			label: 'LinkedIn',
 			url: 'https://www.linkedin.com/in/irfnd-iqbl',
-			icon: IconBrandLinkedin,
+			icon: 'tabler:brand-linkedin',
 			showInStickyProfile: true,
 			showInContactPage: true,
 			showInFooter: true,
@@ -74,7 +47,7 @@ export const en: Translations = {
 			type: 'contact',
 			label: 'Github',
 			url: 'https://github.com/irfnd',
-			icon: IconBrandGithub,
+			icon: 'tabler:brand-github',
 			showInStickyProfile: true,
 			showInFooter: true,
 		},
@@ -82,7 +55,7 @@ export const en: Translations = {
 			type: 'contact',
 			label: 'Instagram',
 			url: 'https://www.instagram.com/irfnd.iqbl',
-			icon: IconBrandInstagram,
+			icon: 'tabler:brand-instagram',
 			showInStickyProfile: true,
 			showInContactPage: true,
 			showInFooter: true,
@@ -91,7 +64,7 @@ export const en: Translations = {
 			type: 'contact',
 			label: 'Twitter',
 			url: 'https://twitter.com/Irfnd_iqbl',
-			icon: IconBrandX,
+			icon: 'tabler:brand-x',
 			showInStickyProfile: true,
 			showInFooter: true,
 		},
@@ -118,9 +91,9 @@ export const en: Translations = {
 			),
 		],
 		focus: [
-			{ value: '3+ Years', label: 'Commercial Exp.', icon: IconCode },
-			{ value: 'Full-Cycle', label: 'Development', icon: IconStack2 },
-			{ value: 'Precision', label: 'UI/UX Engineering', icon: IconViewfinder },
+			{ value: '3+ Years', label: 'Commercial Exp.', icon: 'tabler:code' },
+			{ value: 'Full-Cycle', label: 'Development', icon: 'tabler:stack-2' },
+			{ value: 'Precision', label: 'UI/UX Engineering', icon: 'tabler:viewfinder' },
 		],
 	},
 
@@ -136,7 +109,7 @@ export const en: Translations = {
 				link: 'https://www.nutech-integrasi.com/',
 				descriptions: [
 					{
-						icon: IconServer2,
+						icon: 'tabler:server-2',
 						position: 'Backend Development',
 						summary: [],
 						points: [
@@ -164,7 +137,7 @@ export const en: Translations = {
 						stacks: getTechStack(['TypeScript', 'Express.js', 'NestJS', 'PostgreSQL', 'Swagger']),
 					},
 					{
-						icon: IconLayout,
+						icon: 'tabler:layout',
 						position: 'Frontend Development',
 						summary: [],
 						points: [
@@ -281,7 +254,7 @@ export const en: Translations = {
 			'A curated selection of production-grade applications, robust APIs, and innovative experiments engineered with modern web technologies.',
 		projects: [
 			{
-				icon: IconShieldCheck,
+				icon: 'tabler:shield-check',
 				isSelected: true,
 				name: 'CEISA 4.0 (Licensing Module)',
 				summary: [
@@ -340,7 +313,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconLanguage,
+				icon: 'tabler:language',
 				name: 'Profdito',
 				summary: [
 					setHighlightText(
@@ -402,7 +375,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconUsersGroup,
+				icon: 'tabler:users-group',
 				name: 'StaffLab',
 				summary: [
 					setHighlightText(
@@ -447,7 +420,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconChartBar,
+				icon: 'tabler:chart-bar',
 				isSelected: true,
 				name: 'Yellow Taxi Dashboard',
 				summary: [
@@ -488,7 +461,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconBox,
+				icon: 'tabler:box',
 				name: 'Warehouse',
 				summary: [
 					setHighlightText(
@@ -530,7 +503,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconGavel,
+				icon: 'tabler:gavel',
 				isSelected: true,
 				name: 'Silegal',
 				summary: [
@@ -573,7 +546,7 @@ export const en: Translations = {
 			},
 
 			{
-				icon: IconBook,
+				icon: 'tabler:book',
 				name: 'Go-buks (API)',
 				summary: [
 					setHighlightText(
@@ -612,7 +585,7 @@ export const en: Translations = {
 					{
 						label: 'GPA: 4.00 / 4.00',
 						description: 'Graduated Summa Cum Laude (Highest Honors)',
-						icon: IconAward,
+						icon: 'tabler:award',
 					},
 				],
 			},
