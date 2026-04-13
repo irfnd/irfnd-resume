@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { cn } from '@/utils/cn';
 import { cloudinaryResize } from '@/utils/cloudinary';
 
 import HighlightText from '@/components/ui/HighlightText.astro';
@@ -71,7 +70,7 @@ const hasImages = image.length > 0;
 										target="_blank"
 										rel="noopener noreferrer"
 										class="text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
-										onclick="event.stopPropagation()"
+										data-stop-propagation
 									>
 										{commonLabels.source} <Icon name="tabler:brand-github" class="size-3" />
 									</a>
@@ -83,7 +82,7 @@ const hasImages = image.length > 0;
 										target="_blank"
 										rel="noopener noreferrer"
 										class="text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
-										onclick="event.stopPropagation()"
+										data-stop-propagation
 									>
 										{commonLabels.liveDemo} <Icon name="tabler:arrow-up-right" class="size-3" />
 									</a>
@@ -179,7 +178,7 @@ const hasImages = image.length > 0;
 										rel="noopener noreferrer"
 										aria-label={commonLabels.source}
 										class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white group-hover:text-white/80 group-hover:hover:text-white outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900 transition-colors rounded-lg"
-										onclick="event.stopPropagation()"
+										data-stop-propagation
 									>
 										<Icon name="tabler:brand-github" class="size-4" />
 									</a>
@@ -191,7 +190,7 @@ const hasImages = image.length > 0;
 										rel="noopener noreferrer"
 										aria-label={commonLabels.liveDemo}
 										class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white group-hover:text-white/80 group-hover:hover:text-white outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900 transition-colors rounded-lg"
-										onclick="event.stopPropagation()"
+										data-stop-propagation
 									>
 										<Icon name="tabler:arrow-up-right" class="size-4" />
 									</a>
@@ -226,3 +225,10 @@ const hasImages = image.length > 0;
 		</div>
 	)
 }
+
+<script>
+	document.addEventListener('click', (e) => {
+		const el = (e.target as HTMLElement).closest('[data-stop-propagation]');
+		if (el) e.stopPropagation();
+	});
+</script>
