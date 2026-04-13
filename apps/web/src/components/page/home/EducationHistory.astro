@@ -1,5 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import HighlightText from '@/components/ui/HighlightText.astro';
 import TimelineBeam from '@/components/ui/TimelineBeam.astro';
@@ -8,8 +9,7 @@ import TimelineDot from '@/components/ui/TimelineDot.astro';
 import TimelineBadge from '@/components/ui/TimelineBadge.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { education } = t;
+const education = (await getEntry('education', lang))!.data;
 ---
 
 <section data-gsap-slide-up>

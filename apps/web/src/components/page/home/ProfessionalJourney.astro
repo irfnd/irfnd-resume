@@ -1,7 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 import { cn } from '@/utils/cn';
 import { Icon } from 'astro-icon/components';
+import { resolveTechStacks } from '@/utils/tech-stacks';
 import HighlightText from '@/components/ui/HighlightText.astro';
 import TechIcon from '@/components/ui/TechIcon.astro';
 import TimelineBeam from '@/components/ui/TimelineBeam.astro';
@@ -10,8 +12,19 @@ import TimelineDot from '@/components/ui/TimelineDot.astro';
 import TimelineBadge from '@/components/ui/TimelineBadge.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { experience } = t;
+const experienceData = (await getEntry('experience', lang))!.data;
+const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
+
+const experience = {
+	...experienceData,
+	jobs: experienceData.jobs.map((job) => ({
+		...job,
+		descriptions: job.descriptions.map((desc) => ({
+			...desc,
+			stacks: resolveTechStacks(allStacks, desc.stacks),
+		})),
+	})),
+};
 ---
 
 <section data-gsap-slide-up>

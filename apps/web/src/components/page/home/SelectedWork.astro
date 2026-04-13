@@ -1,25 +1,29 @@
 ---
-import { getLangFromUrl, useTranslations, getLocalizedPath } from '@/i18n';
+import { getLangFromUrl, getLocalizedPath } from '@/i18n';
+import { getEntry } from 'astro:content';
 import { cn } from '@/utils/cn';
 import { Icon } from 'astro-icon/components';
+import { resolveTechStacks } from '@/utils/tech-stacks';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import ProjectDialog from '@/components/ui/ProjectDialog.astro';
 import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { portfolio, common } = t;
+const portfolioData = (await getEntry('portfolio', lang))!.data;
+const { common } = (await getEntry('ui', lang))!.data;
+const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
 
-const selectedProjects = portfolio.projects
+const selectedProjects = portfolioData.projects
 	.filter((project) => project.isSelected)
-	.sort((a, b) => a.name.localeCompare(b.name));
+	.sort((a, b) => a.name.localeCompare(b.name))
+	.map((project) => ({ ...project, stacks: resolveTechStacks(allStacks, project.stacks) }));
 ---
 
 <section data-gsap-slide-up>
 	<div class="flex items-center justify-between mb-8">
-		<h2 class="text-lg font-semibold text-foreground tracking-tight">{portfolio.title}</h2>
+		<h2 class="text-lg font-semibold text-foreground tracking-tight">{portfolioData.title}</h2>
 		<div class="h-px bg-border flex-1 mx-6"></div>
 		<a
 			href={getLocalizedPath(lang, '/portfolio')}
