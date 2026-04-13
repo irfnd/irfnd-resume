@@ -1,5 +1,6 @@
 import { securityMiddleware } from '@/middleware/security';
 import { contactRoute } from '@/routes/contact';
+import { resumeRoute } from '@/routes/resume';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 
@@ -10,7 +11,7 @@ export function createApp() {
 		'*',
 		cors({
 			origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
-			allowMethods: ['POST', 'OPTIONS'],
+			allowMethods: ['GET', 'POST', 'OPTIONS'],
 			allowHeaders: ['Content-Type', 'X-API-Key'],
 		}),
 	);
@@ -20,6 +21,7 @@ export function createApp() {
 	app.get('/health', (c) => c.text('OK'));
 
 	app.route('/contact', contactRoute);
+	app.route('/resume', resumeRoute);
 
 	app.notFound((c) => c.json({ error: 'Not Found' }, 404));
 
