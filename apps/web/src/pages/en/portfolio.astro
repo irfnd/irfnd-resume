@@ -10,13 +10,14 @@ import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { portfolio, common } = t;
+const { seo } = t;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
 const projects = sortProjects(portfolio.projects);
 const categories = common.portfolioCategories;
 ---
 
-<BaseLayout title={`${portfolio.header} — Irfandi Iqbal Abimanyu`}>
+<BaseLayout title={seo.portfolio.title} description={seo.portfolio.description}>
 	<section data-gsap-slide-up>
 		<div class="mb-4">
 			<h1 class="text-2xl font-bold text-foreground tracking-tight">{portfolio.header}</h1>

@@ -8,13 +8,14 @@ import Toast from '@/components/ui/Toast.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { contactMe, contact } = t;
+const { seo } = t;
 
 const directContact = contact
 	.filter((c) => c.showInContactPage)
 	.map((c) => ({ label: c.label, url: c.url, icon: c.icon }));
 ---
 
-<BaseLayout title={`${contactMe.header} — Irfandi Iqbal Abimanyu`}>
+<BaseLayout title={seo.contact.title} description={seo.contact.description}>
 	<section data-gsap-slide-up>
 		<div class="mb-8">
 			<h1 class="text-2xl font-bold text-foreground tracking-tight">{contactMe.header}</h1>
