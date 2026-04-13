@@ -42,29 +42,6 @@ const about = defineCollection({
 	}),
 });
 
-const portfolio = defineCollection({
-	loader: file('src/content/data/portfolio.json'),
-	schema: z.object({
-		header: z.string(),
-		title: z.string(),
-		subtitle: z.string(),
-		projects: z.array(
-			z.object({
-				icon: z.string(),
-				name: z.string(),
-				summary: z.array(paragraphSchema),
-				image: z.array(imageSchema),
-				type: z.enum(['private', 'public']),
-				demo: z.string().nullable(),
-				source: z.string().nullable(),
-				stacks: z.array(z.string()),
-				category: z.enum(['frontend', 'backend', 'fullstack']),
-				isSelected: z.boolean().optional(),
-			}),
-		),
-	}),
-});
-
 const contactForm = defineCollection({
 	loader: file('src/content/data/contact-form.json'),
 	schema: z.object({
@@ -156,7 +133,6 @@ const ui = defineCollection({
 export const collections = {
 	navigation,
 	about,
-	portfolio,
 	'contact-form': contactForm,
 	ui,
 };

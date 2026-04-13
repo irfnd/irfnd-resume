@@ -45,6 +45,8 @@ const inactiveLabelClassName =
 						<button
 							data-resume-download
 							data-resume-lang={lang}
+							data-resume-api={import.meta.env.PUBLIC_API_URL || 'http://localhost:3000'}
+							data-resume-key={import.meta.env.PUBLIC_API_KEY || ''}
 							class={cn(baseClassName, inactiveClassName, 'cursor-pointer disabled:opacity-60')}
 							aria-label={item.label}
 						>

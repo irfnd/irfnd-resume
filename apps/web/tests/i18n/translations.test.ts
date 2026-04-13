@@ -9,7 +9,7 @@ function loadJson(name: string) {
 }
 
 describe('content collection JSON structure parity', () => {
-	const i18nFiles = ['navigation', 'about', 'portfolio', 'contact-form', 'ui'];
+	const i18nFiles = ['navigation', 'about', 'contact-form', 'ui'];
 
 	for (const name of i18nFiles) {
 		it(`${name}.json has both en and id keys`, () => {
@@ -29,11 +29,6 @@ describe('content collection JSON structure parity', () => {
 		const enUrls = data.en.items.map((n: { url: string }) => n.url);
 		const idUrls = data.id.items.map((n: { url: string }) => n.url);
 		expect(enUrls).toEqual(idUrls);
-	});
-
-	it('portfolio projects array has same length', () => {
-		const data = loadJson('portfolio');
-		expect(data.en.projects).toHaveLength(data.id.projects.length);
 	});
 
 	it('contactMe form fields have same length', () => {
