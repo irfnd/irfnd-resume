@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import JsonLd from '@/components/common/JsonLd.astro';
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 import ProfileFocus from '@/components/page/home/ProfileFocus.astro';
 import ProfessionalJourney from '@/components/page/home/ProfessionalJourney.astro';
 import SelectedWork from '@/components/page/home/SelectedWork.astro';
@@ -9,13 +10,14 @@ import TechnicalStack from '@/components/page/home/TechnicalStack.astro';
 import EducationHistory from '@/components/page/home/EducationHistory.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const profile = (await getEntry('profile', lang))!.data;
+const { seo } = (await getEntry('ui', lang))!.data;
 
 const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
-	name: `${t.profile.firstName} ${t.profile.lastName}`,
-	jobTitle: t.profile.role,
+	name: `${profile.firstName} ${profile.lastName}`,
+	jobTitle: profile.role,
 	url: 'https://irfnd.id',
 	address: {
 		'@type': 'PostalAddress',
@@ -30,7 +32,7 @@ const personSchema = {
 };
 ---
 
-<BaseLayout title={t.seo.home.title} description={t.seo.home.description}>
+<BaseLayout title={seo.home.title} description={seo.home.description}>
 	<JsonLd data={personSchema} />
 	<ProfileFocus />
 	<ProfessionalJourney />

@@ -1,27 +1,35 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '@/i18n';
+import { getLangFromUrl } from '@/i18n';
+import { getEntry } from 'astro:content';
 import { cn } from '@/utils/cn';
-import { sortProjects } from '@/utils/portfolio';
+import { resolveTechStacks } from '@/utils/tech-stacks';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import ProjectDialog from '@/components/ui/ProjectDialog.astro';
 import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const { portfolio, common } = t;
-const { seo } = t;
+const portfolioData = (await getEntry('portfolio', lang))!.data;
+const { seo, common } = (await getEntry('ui', lang))!.data;
+const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
-const projects = sortProjects(portfolio.projects);
+const sortedProjects = [...portfolioData.projects].sort((a, b) => {
+	if (a.isSelected !== b.isSelected) return a.isSelected ? -1 : 1;
+	return a.name.localeCompare(b.name);
+});
+const projects = sortedProjects.map((p) => ({
+	...p,
+	stacks: resolveTechStacks(allStacks, p.stacks),
+}));
 const categories = common.portfolioCategories;
 ---
 
 <BaseLayout title={seo.portfolio.title} description={seo.portfolio.description}>
 	<section data-gsap-slide-up>
 		<div class="mb-4">
-			<h1 class="text-2xl font-bold text-foreground tracking-tight">{portfolio.header}</h1>
-			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{portfolio.subtitle}</p>
+			<h1 class="text-2xl font-bold text-foreground tracking-tight">{portfolioData.header}</h1>
+			<p class="text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl">{portfolioData.subtitle}</p>
 		</div>
 
 		<div class="flex flex-wrap gap-2 mb-8">
