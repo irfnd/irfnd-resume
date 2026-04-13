@@ -8,3 +8,7 @@ export function getByLang<T>(data: I18nData<T>, lang: LangCode): T {
 export function resolveTechStacks<T extends { label: string }>(allStacks: readonly T[], labels: string[]): T[] {
 	return labels.map((label) => allStacks.find((s) => s.label === label)).filter((s): s is T => s !== undefined);
 }
+
+export function resolveParagraph(p: { value: string; keywords: string[] }): string {
+	return p.keywords.reduce((text, kw, i) => text.replace(`{${i}}`, kw), p.value);
+}

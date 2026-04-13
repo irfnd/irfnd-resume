@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getByLang, resolveTechStacks } from '@/helpers';
+import { getByLang, resolveParagraph, resolveTechStacks } from '@/helpers';
 import type { I18nData } from '@/helpers';
 import type { TechStackItemData } from '@/schemas/common';
 
@@ -59,5 +59,25 @@ describe('resolveTechStacks', () => {
 		const result = resolveTechStacks(allStacks, ['React', 'Missing', 'TypeScript']);
 		expect(result).toHaveLength(2);
 		expect(result.map((t) => t.label)).toEqual(['React', 'TypeScript']);
+	});
+});
+
+describe('resolveParagraph', () => {
+	it('replaces {0} and {1} placeholders with keywords', () => {
+		const result = resolveParagraph({
+			value: 'Built {0} using {1} framework',
+			keywords: ['REST API', 'Express.js'],
+		});
+		expect(result).toBe('Built REST API using Express.js framework');
+	});
+
+	it('returns value as-is when no keywords', () => {
+		const result = resolveParagraph({ value: 'Simple text', keywords: [] });
+		expect(result).toBe('Simple text');
+	});
+
+	it('handles single keyword', () => {
+		const result = resolveParagraph({ value: 'Used {0} for auth', keywords: ['JWT'] });
+		expect(result).toBe('Used JWT for auth');
 	});
 });
