@@ -1,6 +1,9 @@
-import type { IParagraph } from '@/types';
+export interface Paragraph {
+	value: string;
+	keywords: string[];
+}
 
-export function setHighlightText(text: string, keywords: string[]) {
+export function setHighlightText(text: string, keywords: string[]): Paragraph {
 	let result = text;
 
 	keywords.forEach((keyword, index) => {
@@ -12,6 +15,6 @@ export function setHighlightText(text: string, keywords: string[]) {
 	return { value: result, keywords };
 }
 
-export function resolveText({ value, keywords }: IParagraph): string {
+export function resolveText({ value, keywords }: Paragraph): string {
 	return keywords.reduce((text, keyword, index) => text.replace(new RegExp(`\\{${index}\\}`, 'g'), keyword), value);
 }

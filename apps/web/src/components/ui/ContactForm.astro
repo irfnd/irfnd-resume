@@ -1,7 +1,21 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { cn } from '@/utils/cn';
-import type { IContactValidation, IFormField } from '@/types';
+
+interface IFormField {
+	label: string;
+	name: string;
+	type: 'text' | 'email' | 'tel' | 'textarea';
+	placeholder: string;
+}
+
+interface IContactValidation {
+	fullName: { min: string; max: string };
+	email: { invalid: string };
+	telephone: { min: string; max: string };
+	subject: { min: string; max: string };
+	message: { min: string; max: string };
+}
 
 interface Props {
 	formFields: IFormField[];
