@@ -1,9 +1,9 @@
 ---
 import { getLangFromUrl } from '@/i18n';
-import { getEntry } from 'astro:content';
 import { cn } from '@/utils/cn';
 import { Icon } from 'astro-icon/components';
-import { resolveTechStacks } from '@/utils/tech-stacks';
+import { getByLang, experience as experienceCollection, techStacks, resolveTechStacks } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 import HighlightText from '@/components/ui/HighlightText.astro';
 import TechIcon from '@/components/ui/TechIcon.astro';
 import TimelineBeam from '@/components/ui/TimelineBeam.astro';
@@ -12,8 +12,8 @@ import TimelineDot from '@/components/ui/TimelineDot.astro';
 import TimelineBadge from '@/components/ui/TimelineBadge.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const experienceData = (await getEntry('experience', lang))!.data;
-const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
+const experienceData = getByLang(experienceCollection, lang as LangCode);
+const allStacks = techStacks.stacks;
 
 const experience = {
 	...experienceData,

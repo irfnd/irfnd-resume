@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getLangFromUrl } from '@/i18n';
 import { getEntry } from 'astro:content';
 import { cn } from '@/utils/cn';
-import { resolveTechStacks } from '@/utils/tech-stacks';
+import { resolveTechStacks, techStacks } from '@irfnd/data';
 import { sortProjects } from '@/utils/portfolio';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import ProjectDialog from '@/components/ui/ProjectDialog.astro';
@@ -12,7 +12,7 @@ import ProjectDialogShell from '@/components/ui/ProjectDialogShell.astro';
 const lang = getLangFromUrl(Astro.url);
 const portfolioData = (await getEntry('portfolio', lang))!.data;
 const { seo, common } = (await getEntry('ui', lang))!.data;
-const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
+const allStacks = techStacks.stacks;
 
 const commonLabels = { source: common.source, liveDemo: common.liveDemo, internal: common.internal };
 const projects = sortProjects(portfolioData.projects).map((p) => ({

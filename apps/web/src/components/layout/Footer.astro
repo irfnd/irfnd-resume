@@ -1,10 +1,12 @@
 ---
 import { getLangFromUrl } from '@/i18n';
 import { getEntry } from 'astro:content';
+import { getByLang, contact as contactCollection } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 
 const lang = getLangFromUrl(Astro.url);
 const { footer } = (await getEntry('ui', lang))!.data;
-const contactItems = (await getEntry('contact', lang))!.data.items;
+const contactItems = getByLang(contactCollection, lang as LangCode).items;
 
 const currentYear = new Date().getFullYear();
 const footerContact = contactItems.filter((item) => item.showInFooter);

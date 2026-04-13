@@ -2,13 +2,15 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getLangFromUrl } from '@/i18n';
 import { getEntry } from 'astro:content';
+import { getByLang, contact as contactCollection } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 import ContactForm from '@/components/ui/ContactForm.astro';
 import MapEmbed from '@/components/ui/MapEmbed.astro';
 import Toast from '@/components/ui/Toast.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const contactMe = (await getEntry('contact-form', lang))!.data;
-const contactItems = (await getEntry('contact', lang))!.data.items;
+const contactItems = getByLang(contactCollection, lang as LangCode).items;
 const { seo } = (await getEntry('ui', lang))!.data;
 
 const directContact = contactItems

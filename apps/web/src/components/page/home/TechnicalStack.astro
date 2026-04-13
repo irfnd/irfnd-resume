@@ -1,12 +1,12 @@
 ---
 import { getLangFromUrl } from '@/i18n';
-import { getEntry } from 'astro:content';
-import { resolveTechStacks } from '@/utils/tech-stacks';
+import { getByLang, technology as technologyCollection, techStacks, resolveTechStacks } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 import TechIcon from '@/components/ui/TechIcon.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const technology = (await getEntry('technology', lang))!.data;
-const allStacks = (await getEntry('tech-stacks', 'all'))!.data.stacks;
+const technology = getByLang(technologyCollection, lang as LangCode);
+const allStacks = techStacks.stacks;
 
 const stackEntries = Object.entries(technology.stacks)
 	.filter(([, labels]) => labels.length > 0)

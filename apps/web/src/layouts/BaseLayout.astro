@@ -2,7 +2,8 @@
 import '@/index.css';
 
 import { getLangFromUrl } from '@/i18n';
-import { getEntry } from 'astro:content';
+import { getByLang, profile as profileCollection } from '@irfnd/data';
+import type { LangCode } from '@irfnd/data';
 
 import Footer from '@/components/layout/Footer.astro';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher.astro';
@@ -18,7 +19,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(Astro.url);
-const profileData = (await getEntry('profile', lang))!.data;
+const profileData = getByLang(profileCollection, lang as LangCode);
 const { title, description = `${profileData.firstName} ${profileData.lastName} — ${profileData.role}` } = Astro.props;
 
 const site = Astro.site?.origin ?? 'https://irfnd.id';
