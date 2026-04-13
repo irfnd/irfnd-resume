@@ -4,11 +4,11 @@
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@react-pdf/renderer', () => ({
-	Document: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-document">{children}</div>,
-	Page: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-page">{children}</div>,
-	View: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-view">{children}</div>,
-	Text: ({ children }: { children: React.ReactNode }) => <span data-testid="pdf-text">{children}</span>,
-	Link: ({ children }: { children: React.ReactNode }) => <a data-testid="pdf-link">{children}</a>,
+	Document: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-document'>{children}</div>,
+	Page: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-page'>{children}</div>,
+	View: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-view'>{children}</div>,
+	Text: ({ children }: { children: React.ReactNode }) => <span data-testid='pdf-text'>{children}</span>,
+	Link: ({ children }: { children: React.ReactNode }) => <a data-testid='pdf-link'>{children}</a>,
 	Font: { registerHyphenationCallback: vi.fn() },
 	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
@@ -25,8 +25,8 @@ vi.mock('@/templates/pdf/styles', () => ({
 	},
 }));
 
-import { render, screen } from '@testing-library/react';
 import type { LangCode } from '@irfnd/data';
+import { render, screen } from '@testing-library/react';
 
 import { ResumePDF, type ResumePDFProps } from '@/templates/pdf/resume';
 
@@ -86,7 +86,7 @@ describe('ResumePDF', () => {
 	});
 
 	it('should pass language prop to ProjectsSection', () => {
-		render(<ResumePDF {...mockProps} language="id" />);
+		render(<ResumePDF {...mockProps} language='id' />);
 		expect(screen.getByText('PROJECTS')).toBeInTheDocument();
 	});
 });

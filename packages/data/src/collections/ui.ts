@@ -6,11 +6,13 @@ export const ui: I18nData<UiData> = {
 		seo: {
 			home: {
 				title: 'Irfandi Iqbal Abimanyu — Fullstack Web Developer',
-				description: 'Portfolio of Irfandi Iqbal Abimanyu, a Fullstack Web Developer based in Jakarta, Indonesia. Explore projects, experience, and technical skills.',
+				description:
+					'Portfolio of Irfandi Iqbal Abimanyu, a Fullstack Web Developer based in Jakarta, Indonesia. Explore projects, experience, and technical skills.',
 			},
 			portfolio: {
 				title: 'Portfolio',
-				description: 'Browse projects by Irfandi Iqbal Abimanyu — web applications built with React, Next.js, Node.js, Go, and more.',
+				description:
+					'Browse projects by Irfandi Iqbal Abimanyu — web applications built with React, Next.js, Node.js, Go, and more.',
 			},
 			contact: {
 				title: 'Contact',
@@ -41,11 +43,13 @@ export const ui: I18nData<UiData> = {
 		seo: {
 			home: {
 				title: 'Irfandi Iqbal Abimanyu — Pengembang Web Fullstack',
-				description: 'Portofolio Irfandi Iqbal Abimanyu, seorang Pengembang Web Fullstack yang berbasis di Jakarta, Indonesia. Jelajahi proyek, pengalaman, dan keahlian teknis.',
+				description:
+					'Portofolio Irfandi Iqbal Abimanyu, seorang Pengembang Web Fullstack yang berbasis di Jakarta, Indonesia. Jelajahi proyek, pengalaman, dan keahlian teknis.',
 			},
 			portfolio: {
 				title: 'Portofolio',
-				description: 'Jelajahi proyek karya Irfandi Iqbal Abimanyu — aplikasi web yang dibangun dengan React, Next.js, Node.js, Go, dan lainnya.',
+				description:
+					'Jelajahi proyek karya Irfandi Iqbal Abimanyu — aplikasi web yang dibangun dengan React, Next.js, Node.js, Go, dan lainnya.',
 			},
 			contact: {
 				title: 'Kontak',

@@ -4,7 +4,8 @@ import type { ContactFormData } from '../schemas/contact-form';
 export const contactForm: I18nData<ContactFormData> = {
 	en: {
 		header: 'Contact Me',
-		description: 'Open to discussing new projects, technical challenges, or potential collaborations. Feel free to reach out to explore how we can build impactful digital solutions together.',
+		description:
+			'Open to discussing new projects, technical challenges, or potential collaborations. Feel free to reach out to explore how we can build impactful digital solutions together.',
 		formTitle: 'Start a Conversation',
 		form: [
 			{ label: 'Name', name: 'fullName', type: 'text', placeholder: 'Your full name' },
@@ -34,7 +35,8 @@ export const contactForm: I18nData<ContactFormData> = {
 	},
 	id: {
 		header: 'Hubungi Saya',
-		description: 'Terbuka untuk diskusi proyek, tantangan teknis, maupun peluang kolaborasi. Jangan ragu menghubungi saya untuk mengeksplorasi bagaimana kita dapat membangun solusi digital yang berdampak bersama.',
+		description:
+			'Terbuka untuk diskusi proyek, tantangan teknis, maupun peluang kolaborasi. Jangan ragu menghubungi saya untuk mengeksplorasi bagaimana kita dapat membangun solusi digital yang berdampak bersama.',
 		formTitle: 'Mulai Percakapan',
 		form: [
 			{ label: 'Nama Lengkap', name: 'fullName', type: 'text', placeholder: 'Nama lengkap Anda' },

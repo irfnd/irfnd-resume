@@ -4,8 +4,8 @@
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@react-pdf/renderer', () => ({
-	Text: ({ children }: { children: React.ReactNode }) => <span data-testid="pdf-text">{children}</span>,
-	View: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-view">{children}</div>,
+	Text: ({ children }: { children: React.ReactNode }) => <span data-testid='pdf-text'>{children}</span>,
+	View: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-view'>{children}</div>,
 	Font: { registerHyphenationCallback: vi.fn() },
 	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
@@ -14,8 +14,8 @@ vi.mock('@/templates/pdf/styles', () => ({
 	styles: { text: {}, bold: {}, italic: {}, dividerH: {} },
 }));
 
-import { render, screen } from '@testing-library/react';
 import type { TechnologyData } from '@irfnd/data';
+import { render, screen } from '@testing-library/react';
 
 import { SkillsSection } from '@/templates/pdf/sections/skills';
 

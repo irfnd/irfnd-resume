@@ -21,11 +21,11 @@ const categories = common.portfolioCategories;
 <BaseLayout title={seo.portfolio.title} description={seo.portfolio.description}>
 	<section data-gsap-slide-up>
 		<div class='mb-4'>
-			<h1 class='text-2xl font-bold text-foreground tracking-tight'>{portfolioData.header}</h1>
-			<p class='text-sm text-muted-foreground mt-2 leading-relaxed max-w-2xl'>{portfolioData.subtitle}</p>
+			<h1 class='text-foreground text-2xl font-bold tracking-tight'>{portfolioData.header}</h1>
+			<p class='text-muted-foreground mt-2 max-w-2xl text-sm leading-relaxed'>{portfolioData.subtitle}</p>
 		</div>
 
-		<div class='flex flex-wrap gap-2 mb-8'>
+		<div class='mb-8 flex flex-wrap gap-2'>
 			{
 				categories.map((cat, index) => (
 					<button
@@ -41,7 +41,7 @@ const categories = common.portfolioCategories;
 			}
 		</div>
 
-		<div class='grid grid-cols-1 md:grid-cols-2 gap-4' data-gsap-stagger>
+		<div class='grid grid-cols-1 gap-4 md:grid-cols-2' data-gsap-stagger>
 			{
 				projects.map((project, index) => (
 					<div

@@ -5,10 +5,12 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@react-pdf/renderer', () => ({
 	Link: ({ children, src }: { children: React.ReactNode; src: string }) => (
-		<a href={src} data-testid="pdf-link">{children}</a>
+		<a href={src} data-testid='pdf-link'>
+			{children}
+		</a>
 	),
-	Text: ({ children }: { children: React.ReactNode }) => <span data-testid="pdf-text">{children}</span>,
-	View: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-view">{children}</div>,
+	Text: ({ children }: { children: React.ReactNode }) => <span data-testid='pdf-text'>{children}</span>,
+	View: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-view'>{children}</div>,
 	Font: { registerHyphenationCallback: vi.fn() },
 	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
@@ -17,8 +19,8 @@ vi.mock('@/templates/pdf/styles', () => ({
 	styles: { text: {}, bold: {}, italic: {}, link: {} },
 }));
 
-import { render, screen } from '@testing-library/react';
 import type { ContactData, ProfileData } from '@irfnd/data';
+import { render, screen } from '@testing-library/react';
 
 import { HeaderSection } from '@/templates/pdf/sections/header';
 
@@ -33,9 +35,27 @@ describe('HeaderSection', () => {
 
 	const mockContact: ContactData = {
 		items: [
-			{ type: 'location', label: 'Jakarta, Indonesia', url: 'https://maps.example.com', icon: 'tabler:map-pin', showInResume: true },
-			{ type: 'contact', label: 'irfandi@example.com', url: 'mailto:irfandi@example.com', icon: 'tabler:mail', showInResume: true },
-			{ type: 'contact', label: 'LinkedIn', url: 'https://www.linkedin.com/in/johndoe', icon: 'tabler:brand-linkedin', showInResume: true },
+			{
+				type: 'location',
+				label: 'Jakarta, Indonesia',
+				url: 'https://maps.example.com',
+				icon: 'tabler:map-pin',
+				showInResume: true,
+			},
+			{
+				type: 'contact',
+				label: 'irfandi@example.com',
+				url: 'mailto:irfandi@example.com',
+				icon: 'tabler:mail',
+				showInResume: true,
+			},
+			{
+				type: 'contact',
+				label: 'LinkedIn',
+				url: 'https://www.linkedin.com/in/johndoe',
+				icon: 'tabler:brand-linkedin',
+				showInResume: true,
+			},
 			{ type: 'contact', label: 'GitHub', url: 'https://github.com/johndoe', icon: 'tabler:brand-github', showInResume: true },
 			{ type: 'contact', label: 'Whatsapp', url: 'https://wa.me/123456', icon: 'tabler:brand-whatsapp', showInContactPage: true },
 		],

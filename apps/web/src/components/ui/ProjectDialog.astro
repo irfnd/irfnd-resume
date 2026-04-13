@@ -31,8 +31,7 @@ const { dialogId, name, icon, type, category, summary, image, stacks, source, de
 
 const categoryStyle: Record<string, string> = {
 	frontend: 'text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20',
-	backend:
-		'text-violet-700 dark:text-violet-400 bg-violet-50 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20',
+	backend: 'text-violet-700 dark:text-violet-400 bg-violet-50 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20',
 	fullstack: 'text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10 border-teal-200 dark:border-teal-500/20',
 };
 
@@ -44,59 +43,54 @@ const hasLinks = type === 'public' && (source || demo);
 <template data-project-detail={dialogId}>
 	{
 		hasImages && (
-			<div class="relative aspect-video bg-slate-950 overflow-hidden shrink-0">
-				<div class="absolute inset-0 bg-slate-200 dark:bg-neutral-800" data-carousel-skeleton>
-					<div class="absolute inset-0 pattern-grid opacity-30" />
+			<div class='relative aspect-video shrink-0 overflow-hidden bg-slate-950'>
+				<div class='absolute inset-0 bg-slate-200 dark:bg-neutral-800' data-carousel-skeleton>
+					<div class='pattern-grid absolute inset-0 opacity-30' />
 				</div>
 
-				<div class="flex transition-transform duration-300 ease-out h-full" data-carousel-track>
+				<div class='flex h-full transition-transform duration-300 ease-out' data-carousel-track>
 					{image.map((img) => (
-						<div class="min-w-full h-full relative" data-carousel-slide>
-							<a
-								href={img.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="block w-full h-full cursor-zoom-in"
-							>
+						<div class='relative h-full min-w-full' data-carousel-slide>
+							<a href={img.url} target='_blank' rel='noopener noreferrer' class='block h-full w-full cursor-zoom-in'>
 								<img
 									src={cloudinaryResize(img.url, 1200)}
 									alt={img.alt}
-									loading="lazy"
-									class="w-full h-full object-cover opacity-90"
+									loading='lazy'
+									class='h-full w-full object-cover opacity-90'
 								/>
 							</a>
 						</div>
 					))}
 				</div>
 
-				<div class="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+				<div class='pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20' />
 
 				{hasMultipleImages && (
 					<>
 						<button
 							data-carousel-prev
-							class="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/55 text-white backdrop-blur-sm transition-colors outline-none focus-visible:ring focus-visible:ring-white/50 cursor-pointer"
-							aria-label="Previous image"
+							class='absolute top-1/2 left-3 -translate-y-1/2 cursor-pointer rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition-colors outline-none hover:bg-black/55 focus-visible:ring focus-visible:ring-white/50'
+							aria-label='Previous image'
 						>
-							<Icon name="tabler:chevron-left" class="size-4" />
+							<Icon name='tabler:chevron-left' class='size-4' />
 						</button>
 						<button
 							data-carousel-next
-							class="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/55 text-white backdrop-blur-sm transition-colors outline-none focus-visible:ring focus-visible:ring-white/50 cursor-pointer"
-							aria-label="Next image"
+							class='absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer rounded-full bg-black/30 p-2 text-white backdrop-blur-sm transition-colors outline-none hover:bg-black/55 focus-visible:ring focus-visible:ring-white/50'
+							aria-label='Next image'
 						>
-							<Icon name="tabler:chevron-right" class="size-4" />
+							<Icon name='tabler:chevron-right' class='size-4' />
 						</button>
 					</>
 				)}
 
-				<div class="absolute bottom-0 inset-x-0 flex items-end justify-between gap-3 px-4 py-3">
-					<p class="text-xs text-white/70 truncate" data-carousel-alt>
+				<div class='absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 px-4 py-3'>
+					<p class='truncate text-xs text-white/70' data-carousel-alt>
 						{image[0].alt}
 					</p>
 					{hasMultipleImages && (
 						<span
-							class="text-[10px] font-mono text-white/60 shrink-0 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full"
+							class='shrink-0 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] text-white/60 backdrop-blur-sm'
 							data-carousel-counter
 						>
 							1 / {image.length}
@@ -107,9 +101,9 @@ const hasLinks = type === 'public' && (source || demo);
 		)
 	}
 
-	<div class="flex flex-col overflow-hidden min-h-0">
-		<div class="px-6 pt-6 pb-4 shrink-0">
-			<div class="flex items-center gap-2 mb-4">
+	<div class='flex min-h-0 flex-col overflow-hidden'>
+		<div class='shrink-0 px-6 pt-6 pb-4'>
+			<div class='mb-4 flex items-center gap-2'>
 				<span
 					class={cn(
 						'text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-md uppercase tracking-wider border',
@@ -120,32 +114,32 @@ const hasLinks = type === 'public' && (source || demo);
 				</span>
 				{
 					type === 'private' && (
-						<span class="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-md text-muted-foreground bg-slate-100 dark:bg-neutral-800 border border-border">
+						<span class='text-muted-foreground border-border rounded-md border bg-slate-100 px-2.5 py-0.5 font-mono text-[10px] font-semibold dark:bg-neutral-800'>
 							{commonLabels.internal}
 						</span>
 					)
 				}
 			</div>
 
-			<div class="flex items-center gap-3 pr-8">
+			<div class='flex items-center gap-3 pr-8'>
 				<div
-					class="size-10 shrink-0 rounded-xl bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none"
+					class='flex size-10 shrink-0 items-center justify-center rounded-xl border border-blue-100 bg-linear-to-br from-blue-50 to-white text-blue-600 shadow-sm dark:border-blue-500/20 dark:from-blue-500/10 dark:to-transparent dark:text-blue-400 dark:shadow-none'
 				>
-					<Icon name={icon} class="size-5" />
+					<Icon name={icon} class='size-5' />
 				</div>
-				<h3 class="text-lg font-bold text-foreground tracking-tight leading-tight">
+				<h3 class='text-foreground text-lg leading-tight font-bold tracking-tight'>
 					{name}
 				</h3>
 			</div>
 		</div>
 
-		<div class="h-px bg-border/60 shrink-0 mx-6"></div>
+		<div class='bg-border/60 mx-6 h-px shrink-0'></div>
 
-		<div class="overflow-y-auto flex-1 px-6 py-5 space-y-5">
-			<div class="space-y-2.5">
+		<div class='flex-1 space-y-5 overflow-y-auto px-6 py-5'>
+			<div class='space-y-2.5'>
 				{
 					summary.map((paragraph) => (
-						<p class="text-sm text-muted-foreground leading-relaxed">
+						<p class='text-muted-foreground text-sm leading-relaxed'>
 							<HighlightText text={paragraph.value} keywords={paragraph.keywords} />
 						</p>
 					))
@@ -155,12 +149,10 @@ const hasLinks = type === 'public' && (source || demo);
 			{
 				stacks.length > 0 && (
 					<div>
-						<p class="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-							Tech Stack
-						</p>
-						<div class="flex flex-wrap gap-2">
+						<p class='text-muted-foreground mb-3 text-[10px] font-semibold tracking-wider uppercase'>Tech Stack</p>
+						<div class='flex flex-wrap gap-2'>
 							{stacks.map((stack) => (
-								<TechIcon {...stack} class="[&>svg]:size-4 md:[&>svg]:size-5 p-2 rounded-md" />
+								<TechIcon {...stack} class='rounded-md p-2 [&>svg]:size-4 md:[&>svg]:size-5' />
 							))}
 						</div>
 					</div>
@@ -170,26 +162,26 @@ const hasLinks = type === 'public' && (source || demo);
 
 		{
 			hasLinks && (
-				<div class="px-6 py-4 border-t border-border/60 flex gap-2 shrink-0">
+				<div class='border-border/60 flex shrink-0 gap-2 border-t px-6 py-4'>
 					{source && (
 						<a
 							href={source}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-medium border border-border text-foreground hover:bg-slate-50 dark:hover:bg-neutral-800 transition-colors outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500"
+							target='_blank'
+							rel='noopener noreferrer'
+							class='border-border text-foreground flex flex-1 items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors outline-none hover:bg-slate-50 focus-visible:ring focus-visible:ring-blue-400 dark:hover:bg-neutral-800 dark:focus-visible:ring-blue-500'
 						>
-							<Icon name="tabler:brand-github" class="size-4" />
+							<Icon name='tabler:brand-github' class='size-4' />
 							{commonLabels.source}
 						</a>
 					)}
 					{demo && (
 						<a
 							href={demo}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-medium bg-blue-600 dark:bg-blue-500 text-white hover:opacity-90 transition-opacity outline-none focus-visible:ring focus-visible:ring-blue-400"
+							target='_blank'
+							rel='noopener noreferrer'
+							class='flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-opacity outline-none hover:opacity-90 focus-visible:ring focus-visible:ring-blue-400 dark:bg-blue-500'
 						>
-							<Icon name="tabler:arrow-up-right" class="size-4" />
+							<Icon name='tabler:arrow-up-right' class='size-4' />
 							{commonLabels.liveDemo}
 						</a>
 					)}

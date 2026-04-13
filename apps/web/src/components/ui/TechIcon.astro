@@ -17,9 +17,7 @@ const { label, url, icon, color, border, customColor, class: className, withLabe
 
 const iconClass = cn(
 	'size-8 transition-[color_opacity] opacity-70 group-hover:opacity-100 group-data-active:opacity-100',
-	customColor
-		? color
-		: 'text-muted-foreground group-data-active:text-(--stack-color) group-hover:text-(--stack-color)',
+	customColor ? color : 'text-muted-foreground group-data-active:text-(--stack-color) group-hover:text-(--stack-color)',
 );
 
 const baseClass = cn(
@@ -33,13 +31,13 @@ const style = !customColor && color ? `--stack-color: ${color}` : undefined;
 
 <a
 	href={url}
-	target="_blank"
-	rel="noopener noreferrer"
+	target='_blank'
+	rel='noopener noreferrer'
 	aria-label={label}
 	title={!withLabel ? label : undefined}
 	style={style}
 	class={baseClass}
 >
 	<Icon name={icon} class={iconClass} />
-	{withLabel && <span class="text-xs font-medium text-muted-foreground">{label}</span>}
+	{withLabel && <span class='text-muted-foreground text-xs font-medium'>{label}</span>}
 </a>

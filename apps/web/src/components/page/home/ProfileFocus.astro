@@ -8,21 +8,21 @@ const lang = getLangFromUrl(Astro.url);
 const about = getByLang(aboutData, lang);
 ---
 
-<section data-gsap-slide-up class="scroll-mt-24">
-	<div class="flex items-center justify-between mb-8">
-		<h2 class="text-lg font-semibold text-foreground tracking-tight">{about.title}</h2>
-		<div class="h-px bg-border flex-1 ml-6"></div>
+<section data-gsap-slide-up class='scroll-mt-24'>
+	<div class='mb-8 flex items-center justify-between'>
+		<h2 class='text-foreground text-lg font-semibold tracking-tight'>{about.title}</h2>
+		<div class='bg-border ml-6 h-px flex-1'></div>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-gsap-stagger>
+	<div class='grid grid-cols-1 gap-4 md:grid-cols-3' data-gsap-stagger>
 		<div
-			class="glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 p-6 md:p-8 rounded-2xl md:col-span-3 light-shadow hover:light-shadow dark:shadow-none hover:border-blue-300/50 dark:hover:border-blue-500/20 transition-colors"
+			class='glass-card light-shadow hover:light-shadow rounded-2xl border border-white/50 bg-white/60 p-6 transition-colors hover:border-blue-300/50 md:col-span-3 md:p-8 dark:border-white/5 dark:bg-white/5 dark:shadow-none dark:hover:border-blue-500/20'
 		>
-			<div class="prose prose-slate dark:prose-invert">
+			<div class='prose prose-slate dark:prose-invert'>
 				{
 					about.description?.map((paragraph) => (
-						<p class="text-base font-normal text-slate-600 dark:text-neutral-300 leading-relaxed">
-							<HighlightText text={paragraph.value} keywords={paragraph.keywords} class="font-semibold" />
+						<p class='text-base leading-relaxed font-normal text-slate-600 dark:text-neutral-300'>
+							<HighlightText text={paragraph.value} keywords={paragraph.keywords} class='font-semibold' />
 						</p>
 					))
 				}
@@ -31,15 +31,13 @@ const about = getByLang(aboutData, lang);
 
 		{
 			about.focus.map((item) => (
-				<div class="glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 p-6 rounded-2xl flex flex-col justify-between group hover:border-blue-300/50 dark:hover:border-blue-500/20 transition-all duration-300 light-shadow hover:light-shadow dark:shadow-none">
-					<div class="size-8 rounded bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300 mb-4">
-						<Icon name={item.icon} class="size-5" />
+				<div class='glass-card group light-shadow hover:light-shadow flex flex-col justify-between rounded-2xl border border-white/50 bg-white/60 p-6 transition-all duration-300 hover:border-blue-300/50 dark:border-white/5 dark:bg-white/5 dark:shadow-none dark:hover:border-blue-500/20'>
+					<div class='mb-4 flex size-8 items-center justify-center rounded border border-blue-100 bg-linear-to-br from-blue-50 to-white text-blue-600 shadow-sm duration-300 dark:border-blue-500/20 dark:from-blue-500/10 dark:to-transparent dark:text-blue-400 dark:shadow-none'>
+						<Icon name={item.icon} class='size-5' />
 					</div>
 					<div>
-						<div class="text-2xl font-bold text-foreground tracking-tight">{item.value}</div>
-						<div class="text-xs text-muted-foreground uppercase tracking-wider mt-1 font-semibold">
-							{item.label}
-						</div>
+						<div class='text-foreground text-2xl font-bold tracking-tight'>{item.value}</div>
+						<div class='text-muted-foreground mt-1 text-xs font-semibold tracking-wider uppercase'>{item.label}</div>
 					</div>
 				</div>
 			))

@@ -6,7 +6,8 @@ export const about: I18nData<AboutData> = {
 		title: 'Profile & Focus',
 		description: [
 			{
-				value: 'Specializing in the architecture of scalable web applications and high-performance APIs within the {0} ecosystem. I possess comprehensive expertise across relational and NoSQL database management, containerized deployments using Docker, and system performance optimization. Deeply committed to maintaining clean code standards, fostering technical excellence, and driving agile collaboration.',
+				value:
+					'Specializing in the architecture of scalable web applications and high-performance APIs within the {0} ecosystem. I possess comprehensive expertise across relational and NoSQL database management, containerized deployments using Docker, and system performance optimization. Deeply committed to maintaining clean code standards, fostering technical excellence, and driving agile collaboration.',
 				keywords: ['JavaScript/TypeScript'],
 			},
 		],
@@ -20,7 +21,8 @@ export const about: I18nData<AboutData> = {
 		title: 'Profil & Fokus',
 		description: [
 			{
-				value: 'Berspesialisasi dalam perancangan arsitektur aplikasi web skalabel dan high-performance API dalam ekosistem {0}. Memiliki keahlian mendalam pada manajemen database relasional dan NoSQL, containerized deployment menggunakan Docker, serta optimasi performa sistem. Berkomitmen pada standar clean code, technical excellence, dan mendorong kolaborasi lintas tim yang efektif.',
+				value:
+					'Berspesialisasi dalam perancangan arsitektur aplikasi web skalabel dan high-performance API dalam ekosistem {0}. Memiliki keahlian mendalam pada manajemen database relasional dan NoSQL, containerized deployment menggunakan Docker, serta optimasi performa sistem. Berkomitmen pada standar clean code, technical excellence, dan mendorong kolaborasi lintas tim yang efektif.',
 				keywords: ['JavaScript/TypeScript'],
 			},
 		],

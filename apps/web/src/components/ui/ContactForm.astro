@@ -36,19 +36,19 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 ---
 
 <div
-	class="flex flex-col gap-6 glass-card bg-white/60 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-3xl p-6 md:p-8 light-shadow dark:shadow-none relative"
+	class='glass-card light-shadow relative flex flex-col gap-6 rounded-3xl border border-white/50 bg-white/60 p-6 md:p-8 dark:border-white/5 dark:bg-white/5 dark:shadow-none'
 >
-	<h3 class="text-lg font-bold text-foreground">{contactMe.formTitle}</h3>
+	<h3 class='text-foreground text-lg font-bold'>{contactMe.formTitle}</h3>
 
 	<div
-		class="hidden absolute inset-0 z-20 flex-col items-center justify-center bg-background/95 backdrop-blur-md p-8 text-center space-y-4 rounded-3xl"
+		class='bg-background/95 absolute inset-0 z-20 hidden flex-col items-center justify-center space-y-4 rounded-3xl p-8 text-center backdrop-blur-md'
 		data-contact-success
 	>
-		<div class="h-16 w-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center">
-			<Icon name="tabler:check" class="size-8" />
+		<div class='flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 text-green-500'>
+			<Icon name='tabler:check' class='size-8' />
 		</div>
-		<h4 class="text-lg font-bold text-foreground">{contactMe.successMessage}</h4>
-		<button type="button" class="text-sm font-medium text-primary hover:underline cursor-pointer" data-contact-reset>
+		<h4 class='text-foreground text-lg font-bold'>{contactMe.successMessage}</h4>
+		<button type='button' class='text-primary cursor-pointer text-sm font-medium hover:underline' data-contact-reset>
 			{contactMe.sendAnotherMessage}
 		</button>
 	</div>
@@ -58,15 +58,15 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 		data-validation={JSON.stringify(validation)}
 		data-errors={JSON.stringify(contactMe.errors)}
 		data-success-message={contactMe.successMessage}
-		class="flex flex-col gap-6"
+		class='flex flex-col gap-6'
 	>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class='grid grid-cols-1 gap-6 md:grid-cols-2'>
 			{
 				formFields.map((field) => {
 					const isTextarea = field.type === 'textarea';
 					return (
 						<div class={cn('flex flex-col gap-2', isTextarea && 'md:col-span-2')}>
-							<label for={field.name} class="text-sm font-semibold text-foreground cursor-pointer w-fit">
+							<label for={field.name} class='text-foreground w-fit cursor-pointer text-sm font-semibold'>
 								{field.label}
 							</label>
 
@@ -76,7 +76,7 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 									name={field.name}
 									rows={5}
 									placeholder={field.placeholder}
-									class="w-full px-4 py-3 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-muted-foreground/40 text-base text-foreground"
+									class='bg-background/50 border-border focus:border-primary focus:ring-primary/10 placeholder:text-muted-foreground/40 text-foreground w-full resize-none rounded-xl border px-4 py-3 text-base transition-all outline-none focus:ring-2'
 									data-field={field.name}
 								/>
 							) : (
@@ -85,12 +85,12 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 									name={field.name}
 									type={field.type as astroHTML.JSX.HTMLInputTypeAttribute}
 									placeholder={field.placeholder}
-									class="w-full h-12 px-4 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all placeholder:text-muted-foreground/40 text-base text-foreground"
+									class='bg-background/50 border-border focus:border-primary focus:ring-primary/10 placeholder:text-muted-foreground/40 text-foreground h-12 w-full rounded-xl border px-4 text-base transition-all outline-none focus:ring-2'
 									data-field={field.name}
 								/>
 							)}
 
-							<span class="text-xs text-red-500 hidden" data-field-error={field.name} />
+							<span class='hidden text-xs text-red-500' data-field-error={field.name} />
 						</div>
 					);
 				})
@@ -98,35 +98,35 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 		</div>
 
 		<button
-			type="submit"
+			type='submit'
 			data-submit-btn
-			class="w-full lg:w-auto lg:ml-auto h-12 px-6 bg-primary text-white text-base font-semibold rounded-xl shadow-none hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
+			class='bg-primary group flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold text-white shadow-none transition-all hover:opacity-90 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 lg:ml-auto lg:w-auto'
 		>
 			<span data-submit-text>{contactMe.submitButton}</span>
-			<span class="hidden items-center gap-2" data-loading-text>
-				<Icon name="tabler:loader-2" class="size-5 animate-spin" />
+			<span class='hidden items-center gap-2' data-loading-text>
+				<Icon name='tabler:loader-2' class='size-5 animate-spin' />
 				{contactMe.submittingButton}
 			</span>
 		</button>
 	</form>
 
-	<div class="h-px bg-border w-full"></div>
+	<div class='bg-border h-px w-full'></div>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-		<div class="flex flex-col gap-6">
-			<h2 class="text-lg font-semibold text-foreground">{contactMe.reachMeDirectly}</h2>
-			<div class="flex flex-col gap-3" data-gsap-stagger>
+	<div class='grid grid-cols-1 gap-6 md:grid-cols-2'>
+		<div class='flex flex-col gap-6'>
+			<h2 class='text-foreground text-lg font-semibold'>{contactMe.reachMeDirectly}</h2>
+			<div class='flex flex-col gap-3' data-gsap-stagger>
 				{
 					directContact.map((item) => (
 						<a
 							href={item.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group flex w-fit items-center gap-2 text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+							target='_blank'
+							rel='noopener noreferrer'
+							class='group text-muted-foreground focus-visible:ring-offset-background flex w-fit items-center gap-2 rounded-sm text-xs transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:hover:text-white dark:focus-visible:ring-blue-500'
 						>
 							<Icon
 								name={item.icon}
-								class="size-3.5 text-muted-foreground/70 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+								class='text-muted-foreground/70 size-3.5 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400'
 							/>
 							{item.label}
 						</a>
@@ -135,7 +135,7 @@ const { formFields, contactMe, validation, directContact } = Astro.props;
 			</div>
 		</div>
 
-		<slot name="map" />
+		<slot name='map' />
 	</div>
 </div>
 

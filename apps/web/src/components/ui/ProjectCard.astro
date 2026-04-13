@@ -36,55 +36,55 @@ const hasImages = image.length > 0;
 	isFirst ? (
 		<div
 			data-project-id={dialogId}
-			class="group relative glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 light-shadow hover:light-shadow-hover dark:shadow-none h-full cursor-pointer"
+			class='group glass-card light-shadow hover:light-shadow-hover relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/50 bg-white/70 transition-all duration-300 hover:border-blue-300/60 dark:border-white/5 dark:bg-white/5 dark:shadow-none dark:hover:border-blue-500/30'
 		>
-			<div class="grid md:grid-cols-2 h-full">
-				<div class="p-8 flex flex-col justify-between md:h-full relative z-10">
+			<div class='grid h-full md:grid-cols-2'>
+				<div class='relative z-10 flex flex-col justify-between p-8 md:h-full'>
 					<div>
-						<div class="flex items-start md:items-center gap-3 mb-4">
-							<div class="size-8 shrink-0 rounded bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300">
-								<Icon name={icon} class="size-4" />
+						<div class='mb-4 flex items-start gap-3 md:items-center'>
+							<div class='flex size-8 shrink-0 items-center justify-center rounded border border-blue-100 bg-linear-to-br from-blue-50 to-white text-blue-600 shadow-sm duration-300 dark:border-blue-500/20 dark:from-blue-500/10 dark:to-transparent dark:text-blue-400 dark:shadow-none'>
+								<Icon name={icon} class='size-4' />
 							</div>
-							<h3 class="text-xl font-bold text-foreground">{name}</h3>
+							<h3 class='text-foreground text-xl font-bold'>{name}</h3>
 						</div>
 
-						<p class="text-sm text-muted-foreground leading-relaxed mb-4 transition-colors">
+						<p class='text-muted-foreground mb-4 text-sm leading-relaxed transition-colors'>
 							<HighlightText text={summary[0].value} keywords={summary[0].keywords} />
 						</p>
 					</div>
 
-					<div class="space-y-6">
+					<div class='space-y-6'>
 						{stacks.length > 0 && (
-							<div class="flex gap-2 flex-wrap mt-auto">
+							<div class='mt-auto flex flex-wrap gap-2'>
 								{stacks.map((stack) => (
-									<TechIcon {...stack} class="[&>svg]:size-4 md:[&>svg]:size-5 p-2 rounded-md" />
+									<TechIcon {...stack} class='rounded-md p-2 [&>svg]:size-4 md:[&>svg]:size-5' />
 								))}
 							</div>
 						)}
 
 						{type === 'public' && (
-							<div class="flex gap-5">
+							<div class='flex gap-5'>
 								{source && (
 									<a
 										href={source}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
+										target='_blank'
+										rel='noopener noreferrer'
+										class='text-foreground flex items-center gap-1 rounded-sm text-xs font-medium transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-blue-400 dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 										data-stop-propagation
 									>
-										{commonLabels.source} <Icon name="tabler:brand-github" class="size-3" />
+										{commonLabels.source} <Icon name='tabler:brand-github' class='size-3' />
 									</a>
 								)}
 
 								{demo && (
 									<a
 										href={demo}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-xs font-medium text-foreground flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
+										target='_blank'
+										rel='noopener noreferrer'
+										class='text-foreground flex items-center gap-1 rounded-sm text-xs font-medium transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-blue-400 dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 										data-stop-propagation
 									>
-										{commonLabels.liveDemo} <Icon name="tabler:arrow-up-right" class="size-3" />
+										{commonLabels.liveDemo} <Icon name='tabler:arrow-up-right' class='size-3' />
 									</a>
 								)}
 							</div>
@@ -92,50 +92,50 @@ const hasImages = image.length > 0;
 					</div>
 				</div>
 
-				<div class="relative bg-slate-50/50 dark:bg-neutral-900/50 border-t md:border-t-0 md:border-l border-white/60 dark:border-white/5 h-72 md:h-auto overflow-hidden">
-					<div class="pattern-grid absolute inset-0 opacity-50" />
+				<div class='relative h-72 overflow-hidden border-t border-white/60 bg-slate-50/50 md:h-auto md:border-t-0 md:border-l dark:border-white/5 dark:bg-neutral-900/50'>
+					<div class='pattern-grid absolute inset-0 opacity-50' />
 					{type === 'private' && (
-						<span class="absolute right-8 top-4 md:top-5 text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none">
+						<span class='text-muted-foreground border-border absolute top-4 right-8 size-fit rounded-md border bg-white px-2.5 py-1 font-mono text-[10px] font-semibold shadow-sm group-hover:border group-hover:border-blue-100 group-hover:bg-blue-50 group-hover:text-blue-700 md:top-5 dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-none group-hover:dark:border-blue-500/20 group-hover:dark:bg-neutral-900/60 group-hover:dark:text-blue-400/90'>
 							{commonLabels.internal}
 						</span>
 					)}
 
 					{hasImages ? (
-						<div class="absolute h-fit inset-x-8 top-8 bottom-0 bg-card rounded-t-xl border border-border/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500">
-							<div class="h-10 border-b border-border/50 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent">
-								<div class="flex gap-1.5">
-									<div class="w-2 h-2 rounded-full bg-red-400/80 border border-red-500/20" />
-									<div class="w-2 h-2 rounded-full bg-amber-400/80 border border-amber-500/20" />
-									<div class="w-2 h-2 rounded-full bg-blue-400/80 border border-blue-500/20" />
+						<div class='bg-card border-border/60 absolute inset-x-8 top-8 bottom-0 h-fit translate-y-8 transform rounded-t-xl border shadow-xl transition-transform duration-500 group-hover:translate-y-6 dark:border-neutral-800'>
+							<div class='border-border/50 flex h-10 items-center justify-between border-b bg-slate-50/50 px-4 dark:border-neutral-800 dark:bg-transparent'>
+								<div class='flex gap-1.5'>
+									<div class='h-2 w-2 rounded-full border border-red-500/20 bg-red-400/80' />
+									<div class='h-2 w-2 rounded-full border border-amber-500/20 bg-amber-400/80' />
+									<div class='h-2 w-2 rounded-full border border-blue-500/20 bg-blue-400/80' />
 								</div>
-								<div class="h-1.5 w-16 bg-slate-100 dark:bg-neutral-800 rounded-full" />
+								<div class='h-1.5 w-16 rounded-full bg-slate-100 dark:bg-neutral-800' />
 							</div>
-							<div class="p-4">
+							<div class='p-4'>
 								<img
 									src={cloudinaryResize(image[0].url, 1000)}
 									alt={image[0].alt}
 									width={1000}
 									height={457}
-									loading="lazy"
-									class="rounded h-fit"
+									loading='lazy'
+									class='h-fit rounded'
 								/>
 							</div>
 						</div>
 					) : (
-						<div class="absolute inset-x-8 top-8 bottom-0 bg-card rounded-t-xl border border-border/60 dark:border-neutral-800 shadow-xl transform translate-y-8 group-hover:translate-y-6 transition-transform duration-500">
-							<div class="h-10 border-b border-border/50 dark:border-neutral-800 flex items-center px-4 justify-between bg-slate-50/50 dark:bg-transparent">
-								<div class="flex gap-1.5">
-									<div class="w-2 h-2 rounded-full bg-red-400/80 border border-red-500/20" />
-									<div class="w-2 h-2 rounded-full bg-amber-400/80 border border-amber-500/20" />
-									<div class="w-2 h-2 rounded-full bg-blue-400/80 border border-blue-500/20" />
+						<div class='bg-card border-border/60 absolute inset-x-8 top-8 bottom-0 translate-y-8 transform rounded-t-xl border shadow-xl transition-transform duration-500 group-hover:translate-y-6 dark:border-neutral-800'>
+							<div class='border-border/50 flex h-10 items-center justify-between border-b bg-slate-50/50 px-4 dark:border-neutral-800 dark:bg-transparent'>
+								<div class='flex gap-1.5'>
+									<div class='h-2 w-2 rounded-full border border-red-500/20 bg-red-400/80' />
+									<div class='h-2 w-2 rounded-full border border-amber-500/20 bg-amber-400/80' />
+									<div class='h-2 w-2 rounded-full border border-blue-500/20 bg-blue-400/80' />
 								</div>
-								<div class="h-1.5 w-16 bg-slate-100 dark:bg-neutral-800 rounded-full" />
+								<div class='h-1.5 w-16 rounded-full bg-slate-100 dark:bg-neutral-800' />
 							</div>
-							<div class="p-5 grid grid-cols-4 gap-4">
-								<div class="col-span-1 h-32 bg-blue-50/50 dark:bg-blue-500/5 rounded border border-blue-100 dark:border-blue-500/10" />
-								<div class="col-span-3 space-y-3">
-									<div class="h-8 bg-slate-50 dark:bg-neutral-800 rounded w-full" />
-									<div class="h-20 bg-slate-50/50 dark:bg-neutral-900 rounded border border-slate-50 dark:border-neutral-800" />
+							<div class='grid grid-cols-4 gap-4 p-5'>
+								<div class='col-span-1 h-32 rounded border border-blue-100 bg-blue-50/50 dark:border-blue-500/10 dark:bg-blue-500/5' />
+								<div class='col-span-3 space-y-3'>
+									<div class='h-8 w-full rounded bg-slate-50 dark:bg-neutral-800' />
+									<div class='h-20 rounded border border-slate-50 bg-slate-50/50 dark:border-neutral-800 dark:bg-neutral-900' />
 								</div>
 							</div>
 						</div>
@@ -146,77 +146,75 @@ const hasImages = image.length > 0;
 	) : (
 		<div
 			data-project-id={dialogId}
-			class="group glass-card bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/5 rounded-2xl relative overflow-hidden hover:border-blue-300/60 dark:hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between light-shadow hover:light-shadow dark:shadow-none h-full cursor-pointer"
+			class='group glass-card light-shadow hover:light-shadow relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-white/50 bg-white/70 transition-all duration-300 hover:border-blue-300/60 dark:border-white/5 dark:bg-white/5 dark:shadow-none dark:hover:border-blue-500/30'
 		>
 			{hasImages && (
-				<div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+				<div class='absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'>
 					<img
 						src={cloudinaryResize(image[0].url, 800)}
 						alt={image[0].alt}
 						width={800}
 						height={365}
-						loading="lazy"
-						class="size-full object-cover object-left"
+						loading='lazy'
+						class='size-full object-cover object-left'
 					/>
-					<div class="absolute inset-0 bg-neutral-700/90 dark:bg-neutral-950/85" />
+					<div class='absolute inset-0 bg-neutral-700/90 dark:bg-neutral-950/85' />
 				</div>
 			)}
 
-			<div class="p-6 relative z-10 flex flex-col h-full justify-between">
+			<div class='relative z-10 flex h-full flex-col justify-between p-6'>
 				<div>
-					<div class="flex justify-between items-start mb-4">
-						<div class="size-8 rounded bg-linear-to-br from-blue-50 to-white dark:from-blue-500/10 dark:to-transparent dark:group-hover:bg-neutral-900 flex items-center justify-center text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300">
-							<Icon name={icon} class="size-5" />
+					<div class='mb-4 flex items-start justify-between'>
+						<div class='flex size-8 items-center justify-center rounded border border-blue-100 bg-linear-to-br from-blue-50 to-white text-blue-600 shadow-sm duration-300 dark:border-blue-500/20 dark:from-blue-500/10 dark:to-transparent dark:text-blue-400 dark:shadow-none dark:group-hover:bg-neutral-900'>
+							<Icon name={icon} class='size-5' />
 						</div>
 
 						{type === 'public' ? (
-							<div class="flex gap-1">
+							<div class='flex gap-1'>
 								{source && (
 									<a
 										href={source}
-										target="_blank"
-										rel="noopener noreferrer"
+										target='_blank'
+										rel='noopener noreferrer'
 										aria-label={commonLabels.source}
-										class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white group-hover:text-white/80 group-hover:hover:text-white outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900 transition-colors rounded-lg"
+										class='rounded-lg p-1.5 text-slate-400 transition-colors outline-none group-hover:text-white/80 hover:text-slate-900 group-hover:hover:text-white focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-white dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 										data-stop-propagation
 									>
-										<Icon name="tabler:brand-github" class="size-4" />
+										<Icon name='tabler:brand-github' class='size-4' />
 									</a>
 								)}
 								{demo && (
 									<a
 										href={demo}
-										target="_blank"
-										rel="noopener noreferrer"
+										target='_blank'
+										rel='noopener noreferrer'
 										aria-label={commonLabels.liveDemo}
-										class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white group-hover:text-white/80 group-hover:hover:text-white outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900 transition-colors rounded-lg"
+										class='rounded-lg p-1.5 text-slate-400 transition-colors outline-none group-hover:text-white/80 hover:text-slate-900 group-hover:hover:text-white focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-white dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 										data-stop-propagation
 									>
-										<Icon name="tabler:arrow-up-right" class="size-4" />
+										<Icon name='tabler:arrow-up-right' class='size-4' />
 									</a>
 								)}
 							</div>
 						) : (
-							<span class="text-[10px] size-fit font-mono font-semibold px-2.5 py-1 rounded-md text-muted-foreground bg-white dark:bg-neutral-900 border border-border dark:border-neutral-800 group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-hover:bg-blue-50 group-hover:dark:bg-neutral-900/60 group-hover:border group-hover:border-blue-100 group-hover:dark:border-blue-500/20 shadow-sm dark:shadow-none duration-300">
+							<span class='text-muted-foreground border-border size-fit rounded-md border bg-white px-2.5 py-1 font-mono text-[10px] font-semibold shadow-sm duration-300 group-hover:border group-hover:border-blue-100 group-hover:bg-blue-50 group-hover:text-blue-700 dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-none group-hover:dark:border-blue-500/20 group-hover:dark:bg-neutral-900/60 group-hover:dark:text-blue-400/90'>
 								{commonLabels.internal}
 							</span>
 						)}
 					</div>
 
-					<h3 class="text-base font-bold text-foreground mb-2 group-hover:text-white transition-colors">
-						{name}
-					</h3>
+					<h3 class='text-foreground mb-2 text-base font-bold transition-colors group-hover:text-white'>{name}</h3>
 
-					<p class="text-sm text-muted-foreground leading-relaxed mb-4 group-hover:text-neutral-200 transition-colors">
+					<p class='text-muted-foreground mb-4 text-sm leading-relaxed transition-colors group-hover:text-neutral-200'>
 						<HighlightText text={summary[0].value} keywords={summary[0].keywords} />
 					</p>
 				</div>
 
-				<div class="flex gap-2 items-center mt-auto pt-4 border-t border-border/50 dark:border-neutral-800/50 group-hover:border-white/10 transition-colors">
+				<div class='border-border/50 mt-auto flex items-center gap-2 border-t pt-4 transition-colors group-hover:border-white/10 dark:border-neutral-800/50'>
 					{stacks.length > 0 && (
-						<div class="flex gap-2 flex-wrap">
+						<div class='flex flex-wrap gap-2'>
 							{stacks.map((stack) => (
-								<TechIcon {...stack} class="[&>svg]:size-4 md:[&>svg]:size-5 p-2 rounded-md" />
+								<TechIcon {...stack} class='rounded-md p-2 [&>svg]:size-4 md:[&>svg]:size-5' />
 							))}
 						</div>
 					)}

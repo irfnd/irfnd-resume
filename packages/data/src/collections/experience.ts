@@ -15,7 +15,7 @@ export const experience: I18nData<ExperienceData> = {
 				descriptions: [
 					{
 						icon: 'tabler:server-2',
-						position: 'Backend Development',
+						position: 'Backend Developer',
 						duration: ['July 2024', 'October 2024'],
 						summary: [],
 						points: [
@@ -48,7 +48,7 @@ export const experience: I18nData<ExperienceData> = {
 					},
 					{
 						icon: 'tabler:layout',
-						position: 'Frontend Development',
+						position: 'Frontend Developer',
 						duration: ['April 2023', 'July 2024'],
 						summary: [],
 						points: [
@@ -140,7 +140,7 @@ export const experience: I18nData<ExperienceData> = {
 				descriptions: [
 					{
 						icon: 'tabler:server-2',
-						position: 'Backend Development',
+						position: 'Backend Developer',
 						duration: ['Juli 2024', 'Oktober 2024'],
 						summary: [],
 						points: [
@@ -173,7 +173,7 @@ export const experience: I18nData<ExperienceData> = {
 					},
 					{
 						icon: 'tabler:layout',
-						position: 'Frontend Development',
+						position: 'Frontend Developer',
 						duration: ['April 2023', 'Juli 2024'],
 						summary: [],
 						points: [

@@ -21,27 +21,23 @@ const selectedProjects = portfolioData.projects
 ---
 
 <section data-gsap-slide-up>
-	<div class="flex items-center justify-between mb-8">
-		<h2 class="text-lg font-semibold text-foreground tracking-tight">{portfolioData.title}</h2>
-		<div class="h-px bg-border flex-1 mx-6"></div>
+	<div class='mb-8 flex items-center justify-between'>
+		<h2 class='text-foreground text-lg font-semibold tracking-tight'>{portfolioData.title}</h2>
+		<div class='bg-border mx-6 h-px flex-1'></div>
 		<a
 			href={getLocalizedPath(lang, '/portfolio')}
-			class="text-xs text-slate-600 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center gap-1 shrink-0 font-medium rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900"
+			class='flex shrink-0 items-center gap-1 rounded-sm text-xs font-medium text-slate-600 transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-white dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 		>
-			{common.viewMore} <Icon name="tabler:arrow-right" class="size-3" />
+			{common.viewMore}
+			<Icon name='tabler:arrow-right' class='size-3' />
 		</a>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-gsap-stagger>
+	<div class='grid grid-cols-1 gap-4 md:grid-cols-2' data-gsap-stagger>
 		{
 			selectedProjects.map((project, index) => (
-				<div class={cn('flex flex-col h-full', index === 0 ? 'md:col-span-2' : '')}>
-					<ProjectCard
-						{...project}
-						isFirst={index === 0}
-						commonLabels={commonLabels}
-						dialogId={`project-dialog-${index}`}
-					/>
+				<div class={cn('flex h-full flex-col', index === 0 ? 'md:col-span-2' : '')}>
+					<ProjectCard {...project} isFirst={index === 0} commonLabels={commonLabels} dialogId={`project-dialog-${index}`} />
 				</div>
 			))
 		}
@@ -56,4 +52,4 @@ const selectedProjects = portfolioData.projects
 	<ProjectDialogShell />
 </section>
 
-<script src="@/scripts/project-dialog.ts"></script>
+<script src='@/scripts/project-dialog.ts'></script>

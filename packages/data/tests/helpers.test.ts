@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { getByLang, resolveParagraph, resolveTechStacks } from '@/helpers';
 import type { I18nData } from '@/helpers';
+import { getByLang, resolveParagraph, resolveTechStacks } from '@/helpers';
 import type { TechStackItemData } from '@/schemas/common';
+import { describe, expect, it } from 'vitest';
 
 describe('getByLang', () => {
 	const data: I18nData<string> = { en: 'Hello', id: 'Halo' };

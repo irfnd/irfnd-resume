@@ -11,25 +11,21 @@ const currentPath = Astro.url.pathname;
 const baseClassName =
 	'group w-full flex flex-col lg:flex-row items-center gap-1 lg:gap-3 p-2 rounded-xl transition-colors duration-300 flex-1 lg:flex-none justify-center lg:justify-start outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500';
 const activeClassName = 'bg-white/80 dark:bg-secondary text-foreground';
-const inactiveClassName =
-	'hover:bg-white/60 dark:hover:bg-secondary focus-visible:bg-white/60 dark:focus-visible:bg-secondary';
+const inactiveClassName = 'hover:bg-white/60 dark:hover:bg-secondary focus-visible:bg-white/60 dark:focus-visible:bg-secondary';
 
-const baseIconClassName =
-	'size-8 flex items-center justify-center rounded-lg border transition-colors shadow-sm';
-const activeIconClassName =
-	'bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400';
+const baseIconClassName = 'size-8 flex items-center justify-center rounded-lg border transition-colors shadow-sm';
+const activeIconClassName = 'bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400';
 const inactiveIconClassName =
 	'bg-transparent lg:bg-white/80 lg:dark:bg-secondary border-transparent lg:border-border text-muted-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:border-blue-200 dark:group-hover:border-blue-900 group-focus-visible:text-blue-600 dark:group-focus-visible:text-blue-400 group-focus-visible:border-blue-200 dark:group-focus-visible:border-blue-900';
 
 const baseLabelClassName = 'text-[10px] lg:text-sm font-medium transition-colors';
 const activeLabelClassName = 'text-foreground';
-const inactiveLabelClassName =
-	'text-muted-foreground/80 group-hover:text-foreground group-focus-visible:text-foreground';
+const inactiveLabelClassName = 'text-muted-foreground/80 group-hover:text-foreground group-focus-visible:text-foreground';
 ---
 
 <nav
 	data-gsap-slide-up
-	class="fixed gap-1 bottom-6 inset-x-0 mx-auto w-[90%] max-w-100 lg:static lg:w-full lg:max-w-none flex items-center justify-between p-1.5 rounded-2xl bg-background/80 backdrop-blur-xl border border-white/40 dark:border-white/10 light-shadow hover:light-shadow dark:shadow-none z-50 lg:flex-col lg:justify-start lg:gap-1 lg:p-2 lg:bg-white/40 lg:dark:bg-white/5 lg:hover:border-blue-300/50 lg:dark:hover:border-blue-500/20"
+	class='bg-background/80 light-shadow hover:light-shadow fixed inset-x-0 bottom-6 z-50 mx-auto flex w-[90%] max-w-100 items-center justify-between gap-1 rounded-2xl border border-white/40 p-1.5 backdrop-blur-xl lg:static lg:w-full lg:max-w-none lg:flex-col lg:justify-start lg:gap-1 lg:bg-white/40 lg:p-2 lg:hover:border-blue-300/50 dark:border-white/10 dark:shadow-none lg:dark:bg-white/5 lg:dark:hover:border-blue-500/20'
 >
 	{
 		navigation.map((item, index, arr) => {
@@ -40,7 +36,7 @@ const inactiveLabelClassName =
 
 			return (
 				<>
-					{showSeparator && <div class="hidden lg:block w-full h-px bg-border my-1" />}
+					{showSeparator && <div class='bg-border my-1 hidden h-px w-full lg:block' />}
 					{isResume ? (
 						<button
 							data-resume-download
@@ -51,24 +47,19 @@ const inactiveLabelClassName =
 							aria-label={item.label}
 						>
 							<div class={cn(baseIconClassName, inactiveIconClassName)}>
-								<Icon name="tabler:loader-2" class="size-5 lg:size-4 animate-spin hidden" data-resume-loader />
-								<Icon name={item.icon} class="size-5 lg:size-4" data-resume-icon />
+								<Icon name='tabler:loader-2' class='hidden size-5 animate-spin lg:size-4' data-resume-loader />
+								<Icon name={item.icon} class='size-5 lg:size-4' data-resume-icon />
 							</div>
-							<span data-resume-label class={cn(baseLabelClassName, inactiveLabelClassName)}>{item.label}</span>
-						</button>
-					) : (
-						<a
-							href={localizedPath}
-							class={cn(baseClassName, isActive ? activeClassName : inactiveClassName)}
-						>
-							<div class={cn(baseIconClassName, isActive ? activeIconClassName : inactiveIconClassName)}>
-								<Icon name={item.icon} class="size-5 lg:size-4" />
-							</div>
-							<span
-								class={cn(baseLabelClassName, isActive ? activeLabelClassName : inactiveLabelClassName)}
-							>
+							<span data-resume-label class={cn(baseLabelClassName, inactiveLabelClassName)}>
 								{item.label}
 							</span>
+						</button>
+					) : (
+						<a href={localizedPath} class={cn(baseClassName, isActive ? activeClassName : inactiveClassName)}>
+							<div class={cn(baseIconClassName, isActive ? activeIconClassName : inactiveIconClassName)}>
+								<Icon name={item.icon} class='size-5 lg:size-4' />
+							</div>
+							<span class={cn(baseLabelClassName, isActive ? activeLabelClassName : inactiveLabelClassName)}>{item.label}</span>
 						</a>
 					)}
 				</>
@@ -77,4 +68,4 @@ const inactiveLabelClassName =
 	}
 </nav>
 
-<script src="@/scripts/resume-download.ts"></script>
+<script src='@/scripts/resume-download.ts'></script>

@@ -5,10 +5,12 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@react-pdf/renderer', () => ({
 	Link: ({ children, src }: { children: React.ReactNode; src: string }) => (
-		<a href={src} data-testid="pdf-link">{children}</a>
+		<a href={src} data-testid='pdf-link'>
+			{children}
+		</a>
 	),
-	Text: ({ children }: { children: React.ReactNode }) => <span data-testid="pdf-text">{children}</span>,
-	View: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-view">{children}</div>,
+	Text: ({ children }: { children: React.ReactNode }) => <span data-testid='pdf-text'>{children}</span>,
+	View: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-view'>{children}</div>,
 	Font: { registerHyphenationCallback: vi.fn() },
 	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
@@ -17,8 +19,8 @@ vi.mock('@/templates/pdf/styles', () => ({
 	styles: { text: {}, bold: {}, italic: {}, dividerH: {}, link: {} },
 }));
 
-import { render, screen } from '@testing-library/react';
 import type { ExperienceData } from '@irfnd/data';
+import { render, screen } from '@testing-library/react';
 
 import { ExperienceSection } from '@/templates/pdf/sections/experience';
 

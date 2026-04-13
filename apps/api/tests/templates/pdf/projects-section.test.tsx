@@ -5,10 +5,12 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('@react-pdf/renderer', () => ({
 	Link: ({ children, src }: { children: React.ReactNode; src: string }) => (
-		<a href={src} data-testid="pdf-link">{children}</a>
+		<a href={src} data-testid='pdf-link'>
+			{children}
+		</a>
 	),
-	Text: ({ children }: { children: React.ReactNode }) => <span data-testid="pdf-text">{children}</span>,
-	View: ({ children }: { children: React.ReactNode }) => <div data-testid="pdf-view">{children}</div>,
+	Text: ({ children }: { children: React.ReactNode }) => <span data-testid='pdf-text'>{children}</span>,
+	View: ({ children }: { children: React.ReactNode }) => <div data-testid='pdf-view'>{children}</div>,
 	Font: { registerHyphenationCallback: vi.fn() },
 	StyleSheet: { create: (s: Record<string, unknown>) => s },
 }));
@@ -17,8 +19,8 @@ vi.mock('@/templates/pdf/styles', () => ({
 	styles: { text: {}, bold: {}, italic: {}, dividerH: {}, dividerV: {}, link: {} },
 }));
 
-import { render, screen } from '@testing-library/react';
 import type { PortfolioData } from '@irfnd/data';
+import { render, screen } from '@testing-library/react';
 
 import { ProjectsSection } from '@/templates/pdf/sections/projects';
 
@@ -80,61 +82,60 @@ describe('ProjectsSection', () => {
 
 	describe('English language', () => {
 		it('should render section title in uppercase', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('PROJECTS')).toBeInTheDocument();
 		});
 
 		it('should render project name in uppercase with demo link', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			const link = screen.getByText('PROJECT ALPHA');
-			expect((link as unknown as { closest(s: string): unknown }).closest('a')).toHaveAttribute('href', 'https://alpha.example.com');
+			expect((link as unknown as { closest(s: string): unknown }).closest('a')).toHaveAttribute(
+				'href',
+				'https://alpha.example.com',
+			);
 		});
 
 		it('should render project name without link when no demo', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('PROJECT BETA')).toBeInTheDocument();
 		});
 
 		it('should render summary with resolved placeholders', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('A modern web app.')).toBeInTheDocument();
 		});
 
 		it('should render technology stacks sorted alphabetically', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('React, TypeScript')).toBeInTheDocument();
 		});
 
 		it('should render Technologies label in English', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getAllByText(/Technologies:/)).toHaveLength(2);
 		});
 
 		it('should render Live Demo link in English', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getAllByText('Live Demo')).toHaveLength(2);
 		});
 
 		it('should render Source Code link in English', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('Source Code')).toBeInTheDocument();
 		});
 
 		it('should render all projects including those without isSelected', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.queryByText('HIDDEN PROJECT')).toBeInTheDocument();
 		});
 
 		it('should render selected projects before non-selected ones', () => {
 			const reorderedPortfolio: PortfolioData = {
 				...mockPortfolio,
-				projects: [
-					mockPortfolio.projects[3],
-					mockPortfolio.projects[0],
-					mockPortfolio.projects[1],
-				],
+				projects: [mockPortfolio.projects[3], mockPortfolio.projects[0], mockPortfolio.projects[1]],
 			};
-			render(<ProjectsSection portfolio={reorderedPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={reorderedPortfolio} language='en' />);
 			const views = screen.getAllByTestId('pdf-view');
 			const projectTexts = views
 				.map((v) => (v as unknown as { textContent: string }).textContent)
@@ -144,17 +145,17 @@ describe('ProjectsSection', () => {
 		});
 
 		it('should handle empty summary', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('PROJECT GAMMA')).toBeInTheDocument();
 		});
 
 		it('should handle empty stacks', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			expect(screen.getByText('PROJECT BETA')).toBeInTheDocument();
 		});
 
 		it('should not render links when neither demo nor source', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="en" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='en' />);
 			const links = screen.getAllByTestId('pdf-link');
 			const sourceLinks = links.filter((l) => (l as unknown as { textContent: string }).textContent === 'Source Code');
 			expect(sourceLinks).toHaveLength(1);
@@ -163,17 +164,17 @@ describe('ProjectsSection', () => {
 
 	describe('Indonesian language', () => {
 		it('should render Technologies label in Indonesian', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="id" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='id' />);
 			expect(screen.getAllByText(/Teknologi:/)).toHaveLength(2);
 		});
 
 		it('should render Live Demo link in Indonesian', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="id" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='id' />);
 			expect(screen.getAllByText('Lihat Demo')).toHaveLength(2);
 		});
 
 		it('should render Source Code link in Indonesian', () => {
-			render(<ProjectsSection portfolio={mockPortfolio} language="id" />);
+			render(<ProjectsSection portfolio={mockPortfolio} language='id' />);
 			expect(screen.getByText('Lihat Source Code')).toBeInTheDocument();
 		});
 	});

@@ -1,26 +1,26 @@
-import { describe, expect, it } from 'vitest';
-import { profileSchema } from '@/schemas/profile';
-import { experienceSchema } from '@/schemas/experience';
-import { educationSchema } from '@/schemas/education';
-import { technologySchema } from '@/schemas/technology';
-import { techStacksSchema } from '@/schemas/tech-stacks';
-import { contactSchema } from '@/schemas/contact';
-import { portfolioSchema } from '@/schemas/portfolio';
-import { aboutSchema } from '@/schemas/about';
-import { navigationSchema } from '@/schemas/navigation';
-import { uiSchema } from '@/schemas/ui';
-import { contactFormSchema } from '@/schemas/contact-form';
-import { profile } from '@/collections/profile';
-import { experience } from '@/collections/experience';
-import { education } from '@/collections/education';
-import { technology } from '@/collections/technology';
-import { techStacks } from '@/collections/tech-stacks';
-import { contact } from '@/collections/contact';
-import { portfolio } from '@/collections/portfolio';
 import { about } from '@/collections/about';
-import { navigation } from '@/collections/navigation';
-import { ui } from '@/collections/ui';
+import { contact } from '@/collections/contact';
 import { contactForm } from '@/collections/contact-form';
+import { education } from '@/collections/education';
+import { experience } from '@/collections/experience';
+import { navigation } from '@/collections/navigation';
+import { portfolio } from '@/collections/portfolio';
+import { profile } from '@/collections/profile';
+import { techStacks } from '@/collections/tech-stacks';
+import { technology } from '@/collections/technology';
+import { ui } from '@/collections/ui';
+import { aboutSchema } from '@/schemas/about';
+import { contactSchema } from '@/schemas/contact';
+import { contactFormSchema } from '@/schemas/contact-form';
+import { educationSchema } from '@/schemas/education';
+import { experienceSchema } from '@/schemas/experience';
+import { navigationSchema } from '@/schemas/navigation';
+import { portfolioSchema } from '@/schemas/portfolio';
+import { profileSchema } from '@/schemas/profile';
+import { techStacksSchema } from '@/schemas/tech-stacks';
+import { technologySchema } from '@/schemas/technology';
+import { uiSchema } from '@/schemas/ui';
+import { describe, expect, it } from 'vitest';
 
 describe('profile collection', () => {
 	it('English data passes schema validation', () => {

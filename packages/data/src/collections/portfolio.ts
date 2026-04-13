@@ -5,7 +5,8 @@ export const portfolio: I18nData<PortfolioData> = {
 	en: {
 		header: 'Portfolio',
 		title: 'Selected Works',
-		subtitle: 'A curated selection of production-grade applications, robust APIs, and innovative experiments engineered with modern web technologies.',
+		subtitle:
+			'A curated selection of production-grade applications, robust APIs, and innovative experiments engineered with modern web technologies.',
 		projects: [
 			{
 				icon: 'tabler:shield-check',
@@ -13,11 +14,13 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'CEISA 4.0 (Licensing Module)',
 				summary: [
 					{
-						value: 'An enterprise-grade web application developed for the {0}. Designed to streamline complex {1} and facilitate seamless user collaboration via robust {2} architecture.',
+						value:
+							'An enterprise-grade web application developed for the {0}. Designed to streamline complex {1} and facilitate seamless user collaboration via robust {2} architecture.',
 						keywords: ['Directorate General of Customs and Excise', 'business integrations', 'RESTful API'],
 					},
 					{
-						value: 'Key capabilities include comprehensive management of excise registrations, {0}, {1} delegations, and {2} workflows.',
+						value:
+							'Key capabilities include comprehensive management of excise registrations, {0}, {1} delegations, and {2} workflows.',
 						keywords: ['NPPBKC issuance', 'power of attorney', 'automated payment scheduling'],
 					},
 				],
@@ -70,7 +73,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Profdito',
 				summary: [
 					{
-						value: 'A comprehensive {0} designed to assess multi-language proficiency. Engineered with secure testing environments, {1} systems, and {2}.',
+						value:
+							'A comprehensive {0} designed to assess multi-language proficiency. Engineered with secure testing environments, {1} systems, and {2}.',
 						keywords: ['diagnostic platform', 'automated certification', 'premium assessment modules'],
 					},
 				],
@@ -131,7 +135,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'StaffLab',
 				summary: [
 					{
-						value: 'A scalable {0} for optimizing employee lifecycle operations. Features {1}, automated transfer processing, leave management, and {2} of organizational hierarchies (Branches, Divisions, Positions).',
+						value:
+							'A scalable {0} for optimizing employee lifecycle operations. Features {1}, automated transfer processing, leave management, and {2} of organizational hierarchies (Branches, Divisions, Positions).',
 						keywords: ['HR management platform', 'real-time data synchronization', 'dynamic visualization'],
 					},
 					{
@@ -185,11 +190,13 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Yellow Taxi Dashboard',
 				summary: [
 					{
-						value: 'A data-driven {0} engineered to visualize 2014 Yellow Taxi trip records across New York City, powered by {1}. Delivers {2} encompassing trip volume, trip classifications, aggregate payments, average fare calculations, peak distance metrics, and additional KPIs.',
+						value:
+							'A data-driven {0} engineered to visualize 2014 Yellow Taxi trip records across New York City, powered by {1}. Delivers {2} encompassing trip volume, trip classifications, aggregate payments, average fare calculations, peak distance metrics, and additional KPIs.',
 						keywords: ['analytics dashboard', 'NYC OpenData', '12 months of actionable insights'],
 					},
 					{
-						value: 'Features include an interactive trip data table and {0} via {1} for granular route exploration. Supports {2} for enhanced visual comfort.',
+						value:
+							'Features include an interactive trip data table and {0} via {1} for granular route exploration. Supports {2} for enhanced visual comfort.',
 						keywords: ['geospatial trip mapping', 'Mapbox', 'dark mode'],
 					},
 					{
@@ -230,7 +237,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Warehouse',
 				summary: [
 					{
-						value: 'A streamlined {0} platform with comprehensive {1}, {2}, and adaptive dark mode interface. Built for efficient inventory oversight with intuitive search and filtering capabilities.',
+						value:
+							'A streamlined {0} platform with comprehensive {1}, {2}, and adaptive dark mode interface. Built for efficient inventory oversight with intuitive search and filtering capabilities.',
 						keywords: ['product catalog management', 'CRUD operations', 'Google OAuth authentication'],
 					},
 				],
@@ -272,11 +280,13 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Silegal',
 				summary: [
 					{
-						value: 'A corporate website built for Silegal, a {0} firm that helps businesses handle {1} in Indonesia. Supports the {2} — from establishing PT, PT PMA, CV, and sole proprietorships to NIB registration, health permits (BPOM), SBU/SKK certifications, and trademark protection via DJKI.',
+						value:
+							'A corporate website built for Silegal, a {0} firm that helps businesses handle {1} in Indonesia. Supports the {2} — from establishing PT, PT PMA, CV, and sole proprietorships to NIB registration, health permits (BPOM), SBU/SKK certifications, and trademark protection via DJKI.',
 						keywords: ['legal consultant', 'entity formation and licensing', 'full legality lifecycle'],
 					},
 					{
-						value: 'Delivers a conversion-focused layout featuring {0}, a clear {1} section, free consultation call-to-actions, and smooth {2} across a fully responsive interface.',
+						value:
+							'Delivers a conversion-focused layout featuring {0}, a clear {1} section, free consultation call-to-actions, and smooth {2} across a fully responsive interface.',
 						keywords: ['10+ structured service offerings', 'step-by-step workflow', 'scroll-driven animations'],
 					},
 				],
@@ -313,7 +323,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Go-buks (API)',
 				summary: [
 					{
-						value: 'A high-performance {0} engineered for book catalog management, leveraging the {1} and PostgreSQL for optimal throughput. Utilizes GORM for streamlined database operations and ships with {2} for rapid deployment.',
+						value:
+							'A high-performance {0} engineered for book catalog management, leveraging the {1} and PostgreSQL for optimal throughput. Utilizes GORM for streamlined database operations and ships with {2} for rapid deployment.',
 						keywords: ['RESTful API', 'Go Fiber framework', 'Docker containerization'],
 					},
 				],
@@ -334,7 +345,8 @@ export const portfolio: I18nData<PortfolioData> = {
 	id: {
 		header: 'Portofolio',
 		title: 'Karya Terpilih',
-		subtitle: 'Koleksi aplikasi skala produksi, API yang andal, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern.',
+		subtitle:
+			'Koleksi aplikasi skala produksi, API yang andal, dan eksperimen inovatif yang dibangun menggunakan teknologi web modern.',
 		projects: [
 			{
 				icon: 'tabler:shield-check',
@@ -342,7 +354,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'CEISA 4.0 (Modul Perizinan)',
 				summary: [
 					{
-						value: 'Aplikasi web enterprise-grade untuk {0}. Dirancang untuk menyederhanakan {1} yang kompleks dan memfasilitasi kolaborasi pengguna melalui arsitektur {2} yang solid.',
+						value:
+							'Aplikasi web enterprise-grade untuk {0}. Dirancang untuk menyederhanakan {1} yang kompleks dan memfasilitasi kolaborasi pengguna melalui arsitektur {2} yang solid.',
 						keywords: ['Direktorat Jenderal Bea dan Cukai', 'integrasi bisnis', 'API RESTful'],
 					},
 					{
@@ -399,7 +412,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Profdito',
 				summary: [
 					{
-						value: '{0} komprehensif untuk mengukur kemampuan multibahasa. Dilengkapi secure testing environment, sistem {1}, dan {2}.',
+						value:
+							'{0} komprehensif untuk mengukur kemampuan multibahasa. Dilengkapi secure testing environment, sistem {1}, dan {2}.',
 						keywords: ['Platform diagnostik', 'sertifikasi otomatis', 'modul asesmen premium'],
 					},
 				],
@@ -460,7 +474,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'StaffLab',
 				summary: [
 					{
-						value: '{0} yang skalabel untuk mengoptimalkan siklus kerja karyawan. Fitur mencakup {1}, pemrosesan mutasi otomatis, manajemen cuti, serta {2} (Cabang, Divisi, Jabatan).',
+						value:
+							'{0} yang skalabel untuk mengoptimalkan siklus kerja karyawan. Fitur mencakup {1}, pemrosesan mutasi otomatis, manajemen cuti, serta {2} (Cabang, Divisi, Jabatan).',
 						keywords: ['Platform manajemen SDM', 'sinkronisasi data real-time', 'visualisasi hierarki organisasi'],
 					},
 					{
@@ -514,11 +529,13 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Yellow Taxi Dashboard',
 				summary: [
 					{
-						value: '{0} berbasis data yang dirancang untuk memvisualisasikan rekaman perjalanan Yellow Taxi tahun 2014 di New York City, didukung oleh {1}. Menyajikan {2} yang actionable meliputi volume perjalanan, klasifikasi trip, agregat pembayaran, kalkulasi tarif rata-rata, metrik jarak tertinggi, dan KPI tambahan.',
+						value:
+							'{0} berbasis data yang dirancang untuk memvisualisasikan rekaman perjalanan Yellow Taxi tahun 2014 di New York City, didukung oleh {1}. Menyajikan {2} yang actionable meliputi volume perjalanan, klasifikasi trip, agregat pembayaran, kalkulasi tarif rata-rata, metrik jarak tertinggi, dan KPI tambahan.',
 						keywords: ['Dashboard analitik', 'NYC OpenData', '12 bulan insight'],
 					},
 					{
-						value: 'Dilengkapi tabel data perjalanan interaktif dan {0} rute melalui {1} untuk eksplorasi rute yang granular. Mendukung {2} untuk kenyamanan visual.',
+						value:
+							'Dilengkapi tabel data perjalanan interaktif dan {0} rute melalui {1} untuk eksplorasi rute yang granular. Mendukung {2} untuk kenyamanan visual.',
 						keywords: ['pemetaan geospasial', 'Mapbox', 'mode gelap'],
 					},
 					{
@@ -559,7 +576,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Warehouse',
 				summary: [
 					{
-						value: 'Platform {0} yang efisien dengan {1} komprehensif, {2}, dan antarmuka mode gelap yang adaptif. Dibangun untuk pengelolaan inventaris yang optimal dengan fitur pencarian dan filtering yang intuitif.',
+						value:
+							'Platform {0} yang efisien dengan {1} komprehensif, {2}, dan antarmuka mode gelap yang adaptif. Dibangun untuk pengelolaan inventaris yang optimal dengan fitur pencarian dan filtering yang intuitif.',
 						keywords: ['manajemen katalog produk', 'operasi CRUD', 'autentikasi Google OAuth'],
 					},
 				],
@@ -601,11 +619,13 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Silegal',
 				summary: [
 					{
-						value: 'Website korporat untuk Silegal, firma {0} yang membantu pelaku usaha mengurus {1} di Indonesia. Mencakup {2} — mulai dari pendirian PT, PT PMA, CV, dan usaha perseorangan hingga pengurusan NIB, perizinan kesehatan (BPOM), sertifikasi SBU/SKK, serta perlindungan merek dagang melalui DJKI.',
+						value:
+							'Website korporat untuk Silegal, firma {0} yang membantu pelaku usaha mengurus {1} di Indonesia. Mencakup {2} — mulai dari pendirian PT, PT PMA, CV, dan usaha perseorangan hingga pengurusan NIB, perizinan kesehatan (BPOM), sertifikasi SBU/SKK, serta perlindungan merek dagang melalui DJKI.',
 						keywords: ['konsultan legal', 'pendirian badan usaha dan perizinan', 'seluruh siklus legalitas'],
 					},
 					{
-						value: 'Menghadirkan layout yang berfokus pada konversi dengan {0}, section {1} yang jelas, call-to-action konsultasi gratis, serta {2} yang halus di seluruh antarmuka responsif.',
+						value:
+							'Menghadirkan layout yang berfokus pada konversi dengan {0}, section {1} yang jelas, call-to-action konsultasi gratis, serta {2} yang halus di seluruh antarmuka responsif.',
 						keywords: ['10+ katalog layanan terstruktur', 'alur kerja bertahap', 'animasi scroll-driven'],
 					},
 				],
@@ -642,7 +662,8 @@ export const portfolio: I18nData<PortfolioData> = {
 				name: 'Go-buks (API)',
 				summary: [
 					{
-						value: '{0} berperforma tinggi yang direkayasa untuk manajemen katalog buku, memanfaatkan {1} dan PostgreSQL untuk throughput optimal. Menggunakan GORM untuk operasi database yang efisien serta dilengkapi {2} untuk deployment yang cepat.',
+						value:
+							'{0} berperforma tinggi yang direkayasa untuk manajemen katalog buku, memanfaatkan {1} dan PostgreSQL untuk throughput optimal. Menggunakan GORM untuk operasi database yang efisien serta dilengkapi {2} untuk deployment yang cepat.',
 						keywords: ['RESTful API', 'framework Go Fiber', 'containerisasi Docker'],
 					},
 				],

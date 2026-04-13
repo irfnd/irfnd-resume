@@ -36,10 +36,6 @@ const keywordClass = cn(
 
 {
 	parts.map((part) =>
-		part.type === 'keyword' ? (
-			<span class={keywordClass}>{part.value}</span>
-		) : (
-			<Fragment set:html={part.value} />
-		)
+		part.type === 'keyword' ? <span class={keywordClass}>{part.value}</span> : <Fragment set:html={part.value} />,
 	)
 }

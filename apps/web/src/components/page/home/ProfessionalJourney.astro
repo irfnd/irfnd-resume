@@ -27,35 +27,35 @@ const experience = {
 ---
 
 <section data-gsap-slide-up>
-	<div class="flex items-center justify-between mb-8">
-		<h2 class="text-lg font-semibold text-foreground tracking-tight">{experience.title}</h2>
-		<div class="h-px bg-border flex-1 ml-6"></div>
+	<div class='mb-8 flex items-center justify-between'>
+		<h2 class='text-foreground text-lg font-semibold tracking-tight'>{experience.title}</h2>
+		<div class='bg-border ml-6 h-px flex-1'></div>
 	</div>
 
-	<TimelineBeam class="ml-3 space-y-12 pb-4">
+	<TimelineBeam class='ml-3 space-y-12 pb-4'>
 		{
 			experience.jobs.map((job) => (
-				<TimelineItem class="relative pl-6 md:pl-10">
+				<TimelineItem class='relative pl-6 md:pl-10'>
 					<TimelineDot />
 
-					<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
+					<div class='mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between'>
 						<div>
-							<h3 class="text-lg font-semibold text-foreground tracking-tight">{job.mainPosition}</h3>
-							<div class="flex flex-wrap items-center gap-1 md:gap-2 mt-1">
+							<h3 class='text-foreground text-lg font-semibold tracking-tight'>{job.mainPosition}</h3>
+							<div class='mt-1 flex flex-wrap items-center gap-1 md:gap-2'>
 								{job.link ? (
 									<a
 										href={job.link}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="text-sm text-muted-foreground hover:text-blue-600 dark:hover:text-white font-medium outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900 rounded transition-colors"
+										target='_blank'
+										rel='noopener noreferrer'
+										class='text-muted-foreground rounded text-sm font-medium transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:hover:text-white dark:focus-visible:ring-blue-500 dark:focus-visible:ring-offset-neutral-900'
 									>
 										{job.company}
 									</a>
 								) : (
-									<span class="text-sm text-muted-foreground font-medium">{job.company}</span>
+									<span class='text-muted-foreground text-sm font-medium'>{job.company}</span>
 								)}
-								<span class="text-slate-300 dark:text-neutral-700 text-xs">•</span>
-								<span class="text-xs text-muted-foreground">{job.type}</span>
+								<span class='text-xs text-slate-300 dark:text-neutral-700'>•</span>
+								<span class='text-muted-foreground text-xs'>{job.type}</span>
 							</div>
 						</div>
 						<TimelineBadge>{job.duration.join(' - ')}</TimelineBadge>
@@ -64,39 +64,37 @@ const experience = {
 					{job.descriptions.map((desc, descIndex) => (
 						<div
 							class={cn(
-								'mb-6 relative',
+								'relative mb-6',
 								job.descriptions.length > 1 &&
 									descIndex === job.descriptions.length - 1 &&
-									'mb-0 pt-6 border-t border-dashed border-border/60',
+									'border-border/60 mb-0 border-t border-dashed pt-6',
 							)}
 						>
 							{job.descriptions.length > 1 && (
-								<div class="flex items-center gap-2 mb-3">
+								<div class='mb-3 flex items-center gap-2'>
 									{desc.icon && (
 										<Icon
 											name={desc.icon}
-											class="size-3.5 text-muted-foreground group-hover:text-blue-700 group-hover:dark:text-blue-400/90 group-data-active:text-blue-700 group-data-active:dark:text-blue-400/90"
+											class='text-muted-foreground size-3.5 group-hover:text-blue-700 group-data-active:text-blue-700 group-hover:dark:text-blue-400/90 group-data-active:dark:text-blue-400/90'
 										/>
 									)}
-									<span class="text-xs font-bold text-slate-800 dark:text-white uppercase tracking-wider">
-										{desc.position}
-									</span>
+									<span class='text-xs font-bold tracking-wider text-slate-800 uppercase dark:text-white'>{desc.position}</span>
 								</div>
 							)}
 
 							{desc.summary.map((summary) => (
-								<p class="text-sm text-muted-foreground font-light leading-relaxed mb-4">
+								<p class='text-muted-foreground mb-4 text-sm leading-relaxed font-light'>
 									<HighlightText text={summary.value} keywords={summary.keywords} />
 								</p>
 							))}
 
 							{desc.points.length > 0 && (
-								<ul class="space-y-1 mb-4">
+								<ul class='mb-4 space-y-1'>
 									{desc.points.slice(0, 3).map((point) => (
-										<li class="inline-flex gap-3 text-sm text-muted-foreground font-light leading-relaxed">
-											<span class="text-slate-300 dark:text-neutral-600 mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-400 dark:bg-neutral-600" />
+										<li class='text-muted-foreground inline-flex gap-3 text-sm leading-relaxed font-light'>
+											<span class='mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-400 text-slate-300 dark:bg-neutral-600 dark:text-neutral-600' />
 											<span>
-												<HighlightText text={point.value} keywords={point.keywords} class="font-semibold" />
+												<HighlightText text={point.value} keywords={point.keywords} class='font-semibold' />
 											</span>
 										</li>
 									))}
@@ -104,9 +102,9 @@ const experience = {
 							)}
 
 							{desc.stacks.length > 0 && (
-								<div class="flex flex-wrap gap-2">
+								<div class='flex flex-wrap gap-2'>
 									{desc.stacks.map((stack) => (
-										<TechIcon {...stack} class="[&>svg]:size-4 md:[&>svg]:size-5 p-2 rounded-md" />
+										<TechIcon {...stack} class='rounded-md p-2 [&>svg]:size-4 md:[&>svg]:size-5' />
 									))}
 								</div>
 							)}

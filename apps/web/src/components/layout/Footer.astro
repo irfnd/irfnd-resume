@@ -10,22 +10,20 @@ const currentYear = new Date().getFullYear();
 const footerContact = contactItems.filter((item) => item.showInFooter);
 ---
 
-<footer
-	class="border-t border-border/60 pt-8 flex flex-col items-center md:flex-row md:items-center justify-between gap-4"
->
-	<p class="text-xs text-muted-foreground/80">
+<footer class='border-border/60 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row md:items-center'>
+	<p class='text-muted-foreground/80 text-xs'>
 		{footer.copyright.replace('{year}', currentYear.toString())}
 		{footer.builtWith}
 	</p>
 
-	<div class="flex gap-4">
+	<div class='flex gap-4'>
 		{
 			footerContact.map((item) => (
 				<a
 					href={item.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-xs text-muted-foreground hover:text-blue-600 dark:hover:text-white transition-colors rounded-sm outline-none focus-visible:ring focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+					target='_blank'
+					rel='noopener noreferrer'
+					class='text-muted-foreground focus-visible:ring-offset-background rounded-sm text-xs transition-colors outline-none hover:text-blue-600 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:hover:text-white dark:focus-visible:ring-blue-500'
 				>
 					{item.label}
 				</a>
