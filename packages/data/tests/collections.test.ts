@@ -101,9 +101,9 @@ describe('contact collection', () => {
 		expect(() => contactSchema.parse(contact.id)).not.toThrow();
 	});
 
-	it('contains 7 contact items', () => {
-		expect(contact.en.items).toHaveLength(7);
-		expect(contact.id.items).toHaveLength(7);
+	it('contains 8 contact items', () => {
+		expect(contact.en.items).toHaveLength(8);
+		expect(contact.id.items).toHaveLength(8);
 	});
 
 	it('has email contact item', () => {

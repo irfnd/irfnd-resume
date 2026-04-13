@@ -8,6 +8,7 @@ export const contactItemSchema = z.object({
 	showInStickyProfile: z.boolean().optional(),
 	showInContactPage: z.boolean().optional(),
 	showInFooter: z.boolean().optional(),
+	showInResume: z.boolean().optional(),
 });
 
 export const contactSchema = z.object({

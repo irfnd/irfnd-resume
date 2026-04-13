@@ -10,6 +10,7 @@ export const contact: I18nData<ContactData> = {
 				url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
 				icon: 'tabler:map-pin',
 				showInContactPage: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -18,6 +19,7 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:mail',
 				showInStickyProfile: true,
 				showInContactPage: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -35,6 +37,7 @@ export const contact: I18nData<ContactData> = {
 				showInStickyProfile: true,
 				showInContactPage: true,
 				showInFooter: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -43,6 +46,7 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:brand-github',
 				showInStickyProfile: true,
 				showInFooter: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -60,6 +64,13 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:brand-x',
 				showInStickyProfile: true,
 				showInFooter: true,
+			},
+			{
+				type: 'contact',
+				label: 'irfnd.id',
+				url: 'https://irfnd.id',
+				icon: 'tabler:world',
+				showInResume: true,
 			},
 		],
 	},
@@ -71,6 +82,7 @@ export const contact: I18nData<ContactData> = {
 				url: 'https://maps.app.goo.gl/fyZkFpqiq9jYi1a28',
 				icon: 'tabler:map-pin',
 				showInContactPage: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -79,6 +91,7 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:mail',
 				showInStickyProfile: true,
 				showInContactPage: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -96,6 +109,7 @@ export const contact: I18nData<ContactData> = {
 				showInStickyProfile: true,
 				showInContactPage: true,
 				showInFooter: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -104,6 +118,7 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:brand-github',
 				showInStickyProfile: true,
 				showInFooter: true,
+				showInResume: true,
 			},
 			{
 				type: 'contact',
@@ -121,6 +136,13 @@ export const contact: I18nData<ContactData> = {
 				icon: 'tabler:brand-x',
 				showInStickyProfile: true,
 				showInFooter: true,
+			},
+			{
+				type: 'contact',
+				label: 'irfnd.id',
+				url: 'https://irfnd.id',
+				icon: 'tabler:world',
+				showInResume: true,
 			},
 		],
 	},
