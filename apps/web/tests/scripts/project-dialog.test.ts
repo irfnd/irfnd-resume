@@ -17,12 +17,14 @@ function buildDialogHTML() {
 		<div data-project-id="project-1">Click to open</div>
 		<div data-project-detail="project-1">
 			<div data-carousel-track>
-				<div>Slide 1</div>
-				<div>Slide 2</div>
-				<div>Slide 3</div>
+				<div><img alt="First Slide" /></div>
+				<div><img alt="Second Slide" /></div>
+				<div><img alt="Third Slide" /></div>
 			</div>
 			<button data-carousel-prev>Prev</button>
 			<button data-carousel-next>Next</button>
+			<span data-carousel-alt>First Slide</span>
+			<span data-carousel-counter>1 / 3</span>
 		</div>
 		<dialog data-project-dialog>
 			<div data-dialog-content></div>
@@ -79,7 +81,7 @@ describe('project-dialog', () => {
 		card.click();
 
 		const dialogContent = document.querySelector('[data-dialog-content]');
-		expect(dialogContent?.innerHTML).toContain('Slide 1');
+		expect(dialogContent?.innerHTML).toContain('First Slide');
 	});
 
 	it('closes dialog when close button is clicked', async () => {
@@ -219,6 +221,48 @@ describe('project-dialog', () => {
 			nextBtn.click(); // wraps to 0
 			expect(track.style.transform).toBe('translateX(-0%)');
 		});
+
+		it('updates counter and alt text on navigation', async () => {
+			await import('@/scripts/project-dialog');
+			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
+			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+			card.click();
+
+			const counter = dialog.querySelector('[data-carousel-counter]')!;
+			const altText = dialog.querySelector('[data-carousel-alt]')!;
+			const nextBtn = dialog.querySelector('[data-carousel-next]') as HTMLElement;
+			const prevBtn = dialog.querySelector('[data-carousel-prev]') as HTMLElement;
+
+			expect(counter.textContent).toBe('1 / 3');
+			expect(altText.textContent).toBe('First Slide');
+
+			nextBtn.click();
+			expect(counter.textContent).toBe('2 / 3');
+			expect(altText.textContent).toBe('Second Slide');
+
+			nextBtn.click();
+			expect(counter.textContent).toBe('3 / 3');
+			expect(altText.textContent).toBe('Third Slide');
+
+			prevBtn.click();
+			expect(counter.textContent).toBe('2 / 3');
+			expect(altText.textContent).toBe('Second Slide');
+		});
+
+		it('updates counter on keyboard navigation', async () => {
+			await import('@/scripts/project-dialog');
+			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
+			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+			card.click();
+
+			const counter = dialog.querySelector('[data-carousel-counter]')!;
+
+			dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+			expect(counter.textContent).toBe('2 / 3');
+
+			dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+			expect(counter.textContent).toBe('1 / 3');
+		});
 	});
 
 	it('initializes via DOMContentLoaded when readyState is loading', async () => {
@@ -278,6 +322,71 @@ describe('project-dialog', () => {
 		card.click();
 
 		expect(dialog.showModal).toHaveBeenCalled();
+	});
+
+	it('carousel works without counter or alt elements', async () => {
+		document.body.innerHTML = `
+			<div data-project-id="project-1">Click</div>
+			<div data-project-detail="project-1">
+				<div data-carousel-track>
+					<div>Slide 1</div>
+					<div>Slide 2</div>
+				</div>
+				<button data-carousel-prev>Prev</button>
+				<button data-carousel-next>Next</button>
+			</div>
+			<dialog data-project-dialog>
+				<div data-dialog-content></div>
+				<button data-dialog-close>Close</button>
+			</dialog>
+		`;
+		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+		dialog.showModal = vi.fn();
+		dialog.close = vi.fn();
+
+		await import('@/scripts/project-dialog');
+		const card = document.querySelector('[data-project-id]') as HTMLElement;
+		card.click();
+
+		const track = dialog.querySelector<HTMLElement>('[data-carousel-track]')!;
+		const nextBtn = dialog.querySelector('[data-carousel-next]') as HTMLElement;
+
+		nextBtn.click();
+		expect(track.style.transform).toBe('translateX(-100%)');
+	});
+
+	it('handles slide without img for alt text', async () => {
+		document.body.innerHTML = `
+			<div data-project-id="project-1">Click</div>
+			<div data-project-detail="project-1">
+				<div data-carousel-track>
+					<div><img alt="Has Image" /></div>
+					<div><span>No image here</span></div>
+				</div>
+				<button data-carousel-prev>Prev</button>
+				<button data-carousel-next>Next</button>
+				<span data-carousel-alt>Has Image</span>
+				<span data-carousel-counter>1 / 2</span>
+			</div>
+			<dialog data-project-dialog>
+				<div data-dialog-content></div>
+				<button data-dialog-close>Close</button>
+			</dialog>
+		`;
+		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
+		dialog.showModal = vi.fn();
+		dialog.close = vi.fn();
+
+		await import('@/scripts/project-dialog');
+		const card = document.querySelector('[data-project-id]') as HTMLElement;
+		card.click();
+
+		const altText = dialog.querySelector('[data-carousel-alt]')!;
+		const nextBtn = dialog.querySelector('[data-carousel-next]') as HTMLElement;
+
+		nextBtn.click();
+		// Alt text should remain unchanged since slide 2 has no img
+		expect(altText.textContent).toBe('Has Image');
 	});
 
 	it('handles dialog click that is not close button or backdrop', async () => {

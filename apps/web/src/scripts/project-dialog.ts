@@ -51,6 +51,8 @@ function initCarousel(dialog: HTMLDialogElement) {
 	const track = dialog.querySelector<HTMLElement>('[data-carousel-track]');
 	const prevBtn = dialog.querySelector('[data-carousel-prev]');
 	const nextBtn = dialog.querySelector('[data-carousel-next]');
+	const counter = dialog.querySelector<HTMLElement>('[data-carousel-counter]');
+	const altText = dialog.querySelector<HTMLElement>('[data-carousel-alt]');
 	if (!track) return;
 
 	let currentIndex = 0;
@@ -60,6 +62,11 @@ function initCarousel(dialog: HTMLDialogElement) {
 	function goTo(index: number) {
 		currentIndex = ((index % total) + total) % total;
 		track!.style.transform = `translateX(-${currentIndex * 100}%)`;
+		if (counter) counter.textContent = `${currentIndex + 1} / ${total}`;
+		if (altText) {
+			const img = slides[currentIndex].querySelector('img');
+			if (img) altText.textContent = img.alt;
+		}
 	}
 
 	prevBtn?.addEventListener('click', () => goTo(currentIndex - 1));
