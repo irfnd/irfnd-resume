@@ -1,5 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+const mockAnimate = vi.fn(() => ({}));
+const mockNavigate = vi.fn();
+
+vi.mock('motion', () => ({ animate: mockAnimate, stagger: vi.fn(() => 0) }));
+vi.mock('astro:transitions/client', () => ({ navigate: mockNavigate }));
+
 const cleanups: (() => void)[] = [];
 
 function trackListeners() {
@@ -25,6 +31,9 @@ describe('language', () => {
 		vi.resetModules();
 		document.body.innerHTML = '';
 		setLocationPathname('/en/');
+		mockAnimate.mockClear();
+		mockNavigate.mockClear();
+		vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: false }));
 		trackListeners();
 	});
 
@@ -32,6 +41,7 @@ describe('language', () => {
 		cleanups.forEach((fn) => fn());
 		cleanups.length = 0;
 		vi.restoreAllMocks();
+		vi.unstubAllGlobals();
 	});
 
 	describe('getLangFromPath', () => {
@@ -59,14 +69,14 @@ describe('language', () => {
 			setLocationPathname('/en/portfolio');
 			const { switchLanguage } = await import('@/scripts/language');
 			switchLanguage('id');
-			expect(window.location.href).toBe('/id/portfolio');
+			expect(mockNavigate).toHaveBeenCalledWith('/id/portfolio');
 		});
 
 		it('replaces en with id in root path', async () => {
 			setLocationPathname('/en/');
 			const { switchLanguage } = await import('@/scripts/language');
 			switchLanguage('id');
-			expect(window.location.href).toBe('/id/');
+			expect(mockNavigate).toHaveBeenCalledWith('/id/');
 		});
 	});
 
@@ -87,6 +97,7 @@ describe('language', () => {
 			expect(dropdown.classList.contains('hidden')).toBe(false);
 
 			toggle.click();
+			await Promise.resolve();
 			expect(dropdown.classList.contains('hidden')).toBe(true);
 		});
 
@@ -102,8 +113,9 @@ describe('language', () => {
 
 			await import('@/scripts/language');
 			option.click();
+			await Promise.resolve();
 
-			expect(window.location.href).toBe('/id/');
+			expect(mockNavigate).toHaveBeenCalledWith('/id/');
 			expect(dropdown.classList.contains('hidden')).toBe(true);
 		});
 
@@ -120,7 +132,9 @@ describe('language', () => {
 
 			await import('@/scripts/language');
 			option.click();
+			await Promise.resolve();
 
+			expect(mockNavigate).not.toHaveBeenCalled();
 			expect(dropdown.classList.contains('hidden')).toBe(true);
 		});
 
@@ -137,6 +151,7 @@ describe('language', () => {
 			const random = document.createElement('div');
 			document.body.appendChild(random);
 			random.click();
+			await Promise.resolve();
 
 			expect(dropdown.classList.contains('hidden')).toBe(true);
 		});

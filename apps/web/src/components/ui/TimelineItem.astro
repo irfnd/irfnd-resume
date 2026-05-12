@@ -8,16 +8,19 @@ import { cn } from '@/utils/cn';
 const { class: className } = Astro.props;
 ---
 
-<div class={cn('group', className)} data-gsap-slide-up data-timeline-item>
+<div class={cn('group', className)} data-animate="slide-up" data-timeline-item>
 	<slot />
 </div>
 
 <script>
-	function initTimelineItems() {
+	let timelineObserver: IntersectionObserver | null = null;
+
+	function setupTimelineItems() {
+		timelineObserver?.disconnect();
 		const items = document.querySelectorAll('[data-timeline-item]');
 		if (!items.length) return;
 
-		const observer = new IntersectionObserver(
+		timelineObserver = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
@@ -30,12 +33,8 @@ const { class: className } = Astro.props;
 			{ rootMargin: '-5% 0px -30% 0px', threshold: 0.3 },
 		);
 
-		items.forEach((item) => observer.observe(item));
+		items.forEach((item) => timelineObserver!.observe(item));
 	}
 
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initTimelineItems);
-	} else {
-		initTimelineItems();
-	}
+	document.addEventListener('astro:page-load', setupTimelineItems);
 </script>

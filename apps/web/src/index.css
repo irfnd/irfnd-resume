@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+@source '../../../packages/data/src/**/*.ts';
 
 /* Self-hosted fonts */
 @font-face {

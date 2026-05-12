@@ -4,6 +4,22 @@
 // when a ProjectCard with data-project-id is clicked.
 ---
 
+<style>
+	[data-project-dialog]::backdrop {
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+	@starting-style {
+		[data-project-dialog][open]::backdrop {
+			opacity: 0;
+		}
+	}
+	[data-project-dialog].is-closing::backdrop {
+		opacity: 0;
+		transition: opacity 0.2s ease;
+	}
+</style>
+
 <dialog
 	data-project-dialog
 	class='fixed top-1/2 left-1/2 z-70 m-0 hidden max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-2xl border-none bg-white p-0 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] outline-none backdrop:bg-black/60 backdrop:backdrop-blur-md open:flex dark:bg-neutral-900 dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)] dark:backdrop:bg-black/75'

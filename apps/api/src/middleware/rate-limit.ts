@@ -12,10 +12,7 @@ export function createRateLimitMiddleware(config: RateLimitConfig): MiddlewareHa
 		let entry = store.get(ip);
 
 		if (!entry || entry.resetAt <= now) {
-			entry = {
-				count: 1,
-				resetAt: now + windowMs,
-			};
+			entry = { count: 1, resetAt: now + windowMs };
 			store.set(ip, entry);
 		} else {
 			entry.count++;
@@ -28,14 +25,7 @@ export function createRateLimitMiddleware(config: RateLimitConfig): MiddlewareHa
 		if (entry.count > max) {
 			const retryAfter = Math.ceil((entry.resetAt - now) / 1000);
 			c.header('Retry-After', retryAfter.toString());
-
-			return c.json(
-				{
-					error: 'Too many requests',
-					retryAfter,
-				},
-				429,
-			);
+			return c.json({ error: 'Too many requests', retryAfter }, 429);
 		}
 
 		await next();

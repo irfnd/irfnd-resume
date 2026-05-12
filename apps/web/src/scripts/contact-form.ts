@@ -6,6 +6,8 @@ const API_KEY = import.meta.env.PUBLIC_API_KEY || '';
 function initContactForm() {
 	const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
 	if (!form) return;
+	if (form.dataset.bound) return;
+	form.dataset.bound = '1';
 
 	const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit-btn]');
 	const submitText = submitBtn?.querySelector('[data-submit-text]');
@@ -100,10 +102,6 @@ function initContactForm() {
 	});
 }
 
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initContactForm);
-} else {
-	initContactForm();
-}
+document.addEventListener('astro:page-load', initContactForm);
 
 export { initContactForm };

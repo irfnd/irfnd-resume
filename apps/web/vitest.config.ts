@@ -2,7 +2,13 @@ import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	resolve: { alias: { '@': path.resolve(__dirname, './src'), '@test': path.resolve(__dirname, './tests') } },
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, './src'),
+			'@test': path.resolve(__dirname, './tests'),
+			'astro:transitions/client': path.resolve(__dirname, './tests/__mocks__/astro-transitions-client.ts'),
+		},
+	},
 	test: {
 		globals: true,
 		environment: 'happy-dom',

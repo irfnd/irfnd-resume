@@ -10,26 +10,16 @@ contactRoute.use('*', rateLimitMiddleware);
 contactRoute.post('/', async (c) => {
 	try {
 		const body = await c.req.json();
-
 		const result = contactSchema.safeParse(body);
 		if (!result.success) {
-			const errors = result.error.issues.map((e) => ({
-				field: e.path.join('.'),
-				message: e.message,
-			}));
+			const errors = result.error.issues.map((e) => ({ field: e.path.join('.'), message: e.message }));
 			return c.json({ error: 'Validation failed', errors }, 400);
 		}
 
 		const emailResult = await sendContactEmail(result.data);
+		if (!emailResult.success) return c.json({ error: emailResult.error }, 500);
 
-		if (!emailResult.success) {
-			return c.json({ error: emailResult.error }, 500);
-		}
-
-		return c.json({
-			success: true,
-			messageId: emailResult.messageId,
-		});
+		return c.json({ success: true, messageId: emailResult.messageId });
 	} catch (err) {
 		console.error('Contact endpoint error:', err);
 		return c.json({ error: 'Invalid request body' }, 400);

@@ -81,6 +81,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify({ ok: true }), { status: 200 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -97,6 +98,7 @@ describe('contact-form', () => {
 		emailInput.value = 'not-an-email';
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -111,6 +113,7 @@ describe('contact-form', () => {
 		nameInput.value = 'A';
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -123,6 +126,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 429 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -134,6 +138,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 400 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -145,6 +150,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 500 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -156,6 +162,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockRejectedValueOnce(new Error('Network failure'));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -173,6 +180,7 @@ describe('contact-form', () => {
 		);
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -192,23 +200,9 @@ describe('contact-form', () => {
 		});
 	});
 
-	it('initializes via DOMContentLoaded when readyState is loading', async () => {
-		Object.defineProperty(document, 'readyState', {
-			value: 'loading',
-			writable: true,
-			configurable: true,
-		});
-
+	it('initializes on astro:page-load', async () => {
 		await import('@/scripts/contact-form');
-
-		document.dispatchEvent(new Event('DOMContentLoaded'));
-
-		Object.defineProperty(document, 'readyState', {
-			value: 'complete',
-			writable: true,
-			configurable: true,
-		});
-
+		document.dispatchEvent(new Event('astro:page-load'));
 		expect(document.querySelector('[data-contact-form]')).not.toBeNull();
 	});
 
@@ -226,6 +220,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify({ ok: true }), { status: 200 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -246,6 +241,7 @@ describe('contact-form', () => {
 		`;
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -282,6 +278,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 429 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -299,6 +296,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify({ ok: true }), { status: 200 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {
@@ -336,6 +334,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 429 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -362,6 +361,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 400 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -388,6 +388,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 500 }));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -414,6 +415,7 @@ describe('contact-form', () => {
 		vi.mocked(fetch).mockRejectedValueOnce(new Error('Network failure'));
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
 		form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
@@ -427,6 +429,7 @@ describe('contact-form', () => {
 		emailInput.value = 'bad';
 
 		await import('@/scripts/contact-form');
+		document.dispatchEvent(new Event('astro:page-load'));
 		submitForm();
 
 		await vi.waitFor(() => {

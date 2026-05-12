@@ -24,7 +24,7 @@ const inactiveLabelClassName = 'text-muted-foreground/80 group-hover:text-foregr
 ---
 
 <nav
-	data-gsap-slide-up
+	data-animate="slide-up"
 	class='bg-background/80 light-shadow hover:light-shadow fixed inset-x-0 bottom-6 z-50 mx-auto flex w-[90%] max-w-100 items-center justify-between gap-1 rounded-2xl border border-white/40 p-1.5 backdrop-blur-xl lg:static lg:w-full lg:max-w-none lg:flex-col lg:justify-start lg:gap-1 lg:bg-white/40 lg:p-2 lg:hover:border-blue-300/50 dark:border-white/10 dark:shadow-none lg:dark:bg-white/5 lg:dark:hover:border-blue-500/20'
 >
 	{
@@ -55,7 +55,17 @@ const inactiveLabelClassName = 'text-muted-foreground/80 group-hover:text-foregr
 							</span>
 						</button>
 					) : (
-						<a href={localizedPath} class={cn(baseClassName, isActive ? activeClassName : inactiveClassName)}>
+						<a
+							href={localizedPath}
+							data-nav-link
+							data-active-class={activeClassName}
+							data-inactive-class={inactiveClassName}
+							data-active-icon-class={activeIconClassName}
+							data-inactive-icon-class={inactiveIconClassName}
+							data-active-label-class={activeLabelClassName}
+							data-inactive-label-class={inactiveLabelClassName}
+							class={cn(baseClassName, isActive ? activeClassName : inactiveClassName)}
+						>
 							<div class={cn(baseIconClassName, isActive ? activeIconClassName : inactiveIconClassName)}>
 								<Icon name={item.icon} class='size-5 lg:size-4' />
 							</div>
@@ -69,3 +79,45 @@ const inactiveLabelClassName = 'text-muted-foreground/80 group-hover:text-foregr
 </nav>
 
 <script src='@/scripts/resume-download.ts'></script>
+
+<script>
+	function stripLang(p: string) {
+		return p.replace(/^\/(en|id)/, '') || '/';
+	}
+
+	function updateActiveLinks() {
+		const path = window.location.pathname;
+		const [, currentLang] = path.split('/');
+		const lang = currentLang === 'id' ? 'id' : 'en';
+
+		document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]').forEach((link) => {
+			const rawHref = link.getAttribute('href') ?? '';
+			const href = `/${lang}${stripLang(rawHref)}`;
+			link.setAttribute('href', href);
+			const isActive = path === href || path === href + '/';
+			const activeClass = link.dataset.activeClass ?? '';
+			const inactiveClass = link.dataset.inactiveClass ?? '';
+			const activeIconClass = link.dataset.activeIconClass ?? '';
+			const inactiveIconClass = link.dataset.inactiveIconClass ?? '';
+			const activeLabelClass = link.dataset.activeLabelClass ?? '';
+			const inactiveLabelClass = link.dataset.inactiveLabelClass ?? '';
+
+			activeClass.split(' ').forEach((c) => c && link.classList.toggle(c, isActive));
+			inactiveClass.split(' ').forEach((c) => c && link.classList.toggle(c, !isActive));
+
+			const icon = link.querySelector<HTMLElement>('div');
+			if (icon) {
+				activeIconClass.split(' ').forEach((c) => c && icon.classList.toggle(c, isActive));
+				inactiveIconClass.split(' ').forEach((c) => c && icon.classList.toggle(c, !isActive));
+			}
+
+			const label = link.querySelector<HTMLElement>('span');
+			if (label) {
+				activeLabelClass.split(' ').forEach((c) => c && label.classList.toggle(c, isActive));
+				inactiveLabelClass.split(' ').forEach((c) => c && label.classList.toggle(c, !isActive));
+			}
+		});
+	}
+
+	document.addEventListener('astro:page-load', updateActiveLinks);
+</script>

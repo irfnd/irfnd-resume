@@ -11,7 +11,7 @@ const contactItems = getByLang(contactCollection, lang).items;
 const stickyProfileContact = contactItems.filter((item) => item.showInStickyProfile);
 ---
 
-<div data-gsap-fade class='relative md:flex md:items-start md:gap-14 lg:mb-8 lg:block lg:gap-0'>
+<div data-animate="fade" class='relative md:flex md:items-start md:gap-14 lg:mb-8 lg:block lg:gap-0'>
 	<div class='group relative mb-6 size-24 shrink-0 md:mb-0 md:size-42 lg:mb-6 lg:size-32'>
 		<div
 			class='absolute -inset-1 rounded-full bg-blue-600 opacity-20 blur transition-opacity duration-700 group-hover:opacity-40'

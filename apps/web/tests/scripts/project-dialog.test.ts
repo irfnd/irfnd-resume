@@ -1,5 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+const mockAnimate = vi.fn(() => ({}));
+
+vi.mock('motion', () => ({ animate: mockAnimate, stagger: vi.fn(() => 0) }));
+
 const cleanups: (() => void)[] = [];
 
 function trackListeners() {
@@ -37,6 +41,8 @@ describe('project-dialog', () => {
 	beforeEach(() => {
 		vi.resetModules();
 		document.body.innerHTML = buildDialogHTML();
+		mockAnimate.mockClear();
+		vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: false }));
 		trackListeners();
 
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
@@ -56,6 +62,7 @@ describe('project-dialog', () => {
 		cleanups.forEach((fn) => fn());
 		cleanups.length = 0;
 		vi.restoreAllMocks();
+		vi.unstubAllGlobals();
 		document.body.innerHTML = '';
 	});
 
@@ -66,6 +73,7 @@ describe('project-dialog', () => {
 
 	it('opens dialog when project card is clicked', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
@@ -77,6 +85,7 @@ describe('project-dialog', () => {
 
 	it('populates dialog content from template', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		card.click();
 
@@ -86,6 +95,7 @@ describe('project-dialog', () => {
 
 	it('closes dialog when close button is clicked', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
@@ -95,12 +105,14 @@ describe('project-dialog', () => {
 		const clickEvent = new MouseEvent('click', { bubbles: true });
 		Object.defineProperty(clickEvent, 'target', { value: closeBtn });
 		dialog.dispatchEvent(clickEvent);
+		await Promise.resolve();
 
 		expect(dialog.close).toHaveBeenCalled();
 	});
 
 	it('closes dialog on backdrop click (target === dialog)', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
@@ -109,6 +121,7 @@ describe('project-dialog', () => {
 		const clickEvent = new MouseEvent('click', { bubbles: true });
 		Object.defineProperty(clickEvent, 'target', { value: dialog });
 		dialog.dispatchEvent(clickEvent);
+		await Promise.resolve();
 
 		expect(dialog.close).toHaveBeenCalled();
 		expect(document.body.style.overflow).toBe('');
@@ -116,17 +129,21 @@ describe('project-dialog', () => {
 
 	it('closes dialog on Escape key', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
 		card.click();
 
-		dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+		dialog.dispatchEvent(new Event('cancel', { cancelable: true }));
+		await Promise.resolve();
+
 		expect(dialog.close).toHaveBeenCalled();
 	});
 
 	it('does not close on non-Escape key', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
@@ -143,6 +160,7 @@ describe('project-dialog', () => {
 		document.body.appendChild(orphanCard);
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
 		orphanCard.click();
@@ -155,6 +173,7 @@ describe('project-dialog', () => {
 		document.body.appendChild(emptyCard);
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 
 		emptyCard.click();
@@ -164,23 +183,24 @@ describe('project-dialog', () => {
 	describe('carousel', () => {
 		it('navigates to next slide', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
 
-			// Query from dialog — carousel elements are cloned into dialog content
 			const track = dialog.querySelector<HTMLElement>('[data-carousel-track]')!;
 			const nextBtn = dialog.querySelector('[data-carousel-next]') as HTMLElement;
 
 			nextBtn.click();
-			expect(track.style.transform).toBe('translateX(-100%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-100%' }, expect.any(Object));
 
 			nextBtn.click();
-			expect(track.style.transform).toBe('translateX(-200%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-200%' }, expect.any(Object));
 		});
 
 		it('navigates to previous slide (wraps around)', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
@@ -189,11 +209,12 @@ describe('project-dialog', () => {
 			const prevBtn = dialog.querySelector('[data-carousel-prev]') as HTMLElement;
 
 			prevBtn.click();
-			expect(track.style.transform).toBe('translateX(-200%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-200%' }, expect.any(Object));
 		});
 
 		it('navigates via arrow keys', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
@@ -201,14 +222,15 @@ describe('project-dialog', () => {
 			const track = dialog.querySelector<HTMLElement>('[data-carousel-track]')!;
 
 			dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
-			expect(track.style.transform).toBe('translateX(-100%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-100%' }, expect.any(Object));
 
 			dialog.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
-			expect(track.style.transform).toBe('translateX(-0%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-0%' }, expect.any(Object));
 		});
 
 		it('wraps forward past last slide', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
@@ -219,11 +241,12 @@ describe('project-dialog', () => {
 			nextBtn.click(); // 1
 			nextBtn.click(); // 2
 			nextBtn.click(); // wraps to 0
-			expect(track.style.transform).toBe('translateX(-0%)');
+			expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-0%' }, expect.any(Object));
 		});
 
 		it('updates counter and alt text on navigation', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
@@ -251,6 +274,7 @@ describe('project-dialog', () => {
 
 		it('updates counter on keyboard navigation', async () => {
 			await import('@/scripts/project-dialog');
+			document.dispatchEvent(new Event('astro:page-load'));
 			const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 			const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 			card.click();
@@ -265,23 +289,9 @@ describe('project-dialog', () => {
 		});
 	});
 
-	it('initializes via DOMContentLoaded when readyState is loading', async () => {
-		Object.defineProperty(document, 'readyState', {
-			value: 'loading',
-			writable: true,
-			configurable: true,
-		});
-
+	it('initializes on astro:page-load', async () => {
 		await import('@/scripts/project-dialog');
-
-		document.dispatchEvent(new Event('DOMContentLoaded'));
-
-		Object.defineProperty(document, 'readyState', {
-			value: 'complete',
-			writable: true,
-			configurable: true,
-		});
-
+		document.dispatchEvent(new Event('astro:page-load'));
 		expect(document.querySelector('[data-project-dialog]')).not.toBeNull();
 	});
 
@@ -298,6 +308,7 @@ describe('project-dialog', () => {
 		dialog.close = vi.fn();
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id]') as HTMLElement;
 		card.click();
 
@@ -318,6 +329,7 @@ describe('project-dialog', () => {
 		dialog.close = vi.fn();
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id]') as HTMLElement;
 		card.click();
 
@@ -345,6 +357,7 @@ describe('project-dialog', () => {
 		dialog.close = vi.fn();
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id]') as HTMLElement;
 		card.click();
 
@@ -352,7 +365,7 @@ describe('project-dialog', () => {
 		const nextBtn = dialog.querySelector('[data-carousel-next]') as HTMLElement;
 
 		nextBtn.click();
-		expect(track.style.transform).toBe('translateX(-100%)');
+		expect(mockAnimate).toHaveBeenLastCalledWith(track, { x: '-100%' }, expect.any(Object));
 	});
 
 	it('handles slide without img for alt text', async () => {
@@ -378,6 +391,7 @@ describe('project-dialog', () => {
 		dialog.close = vi.fn();
 
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id]') as HTMLElement;
 		card.click();
 
@@ -391,6 +405,7 @@ describe('project-dialog', () => {
 
 	it('handles dialog click that is not close button or backdrop', async () => {
 		await import('@/scripts/project-dialog');
+		document.dispatchEvent(new Event('astro:page-load'));
 		const card = document.querySelector('[data-project-id="project-1"]') as HTMLElement;
 		const dialog = document.querySelector<HTMLDialogElement>('[data-project-dialog]')!;
 		card.click();
