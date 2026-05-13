@@ -17,6 +17,8 @@ function applyTheme(theme: Theme) {
 function initTheme() {
 	applyTheme(getStoredTheme());
 
+	document.addEventListener('astro:after-swap', () => applyTheme(getStoredTheme()));
+
 	document.addEventListener('click', (e) => {
 		const btn = (e.target as HTMLElement).closest('[data-theme-toggle]');
 		if (!btn) return;

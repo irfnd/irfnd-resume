@@ -40,6 +40,7 @@ describe('animate-init', () => {
 	beforeEach(() => {
 		vi.resetModules();
 		document.body.innerHTML = '';
+		sessionStorage.clear();
 		mockAnimate.mockClear();
 		mockScroll.mockClear();
 		mockObserve.mockClear();
@@ -193,5 +194,43 @@ describe('animate-init', () => {
 
 		expect(mockObserve).not.toHaveBeenCalled();
 		expect(mockAnimate).not.toHaveBeenCalled();
+	});
+
+	it('does not observe elements on second page-load once sessionStorage gate is set', async () => {
+		document.body.innerHTML = '<div data-animate="fade">Fade me</div>';
+		await import('@/scripts/animate-init');
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		expect(mockObserve).toHaveBeenCalledTimes(1);
+		mockObserve.mockClear();
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		expect(mockObserve).not.toHaveBeenCalled();
+	});
+
+	it('applies final-state styles directly on second page-load when gate is set', async () => {
+		document.body.innerHTML = '<div data-animate="fade">Fade me</div>';
+		await import('@/scripts/animate-init');
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		mockAnimate.mockClear();
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		const el = document.querySelector<HTMLElement>('[data-animate="fade"]')!;
+		expect(el.style.opacity).toBe('1');
+		expect(el.style.transform).toBe('none');
+		expect(mockAnimate).not.toHaveBeenCalled();
+	});
+
+	it('does not re-wire timeline beam on second page-load', async () => {
+		document.body.innerHTML = '<div><div data-timeline-beam></div></div>';
+		await import('@/scripts/animate-init');
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		expect(mockScroll).toHaveBeenCalledTimes(1);
+		mockScroll.mockClear();
+
+		document.dispatchEvent(new Event('astro:page-load'));
+		expect(mockScroll).not.toHaveBeenCalled();
 	});
 });
